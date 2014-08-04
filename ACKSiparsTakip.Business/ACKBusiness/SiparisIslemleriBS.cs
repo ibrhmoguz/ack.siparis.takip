@@ -24,5 +24,20 @@ namespace ACKSiparsTakip.Business.ACKBusiness
             return dt;
         }
 
+        public DataTable KullaniciBilgisiGetir(string pKullaniciAdi, string pSifre)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+
+            string sqlText = @"SELECT * FROM KULLANICIBILGI WHERE KULLANICIADI=@KULLANICIADI and SIFRE=@SIFRE";
+           
+
+            data.AddSqlParameter("KULLANICIADI",pKullaniciAdi,SqlDbType.VarChar, 50 );
+            data.AddSqlParameter("SIFRE", pSifre, SqlDbType.VarChar, 50);
+            data.GetRecords(dt, sqlText);
+            
+            return dt;
+        }
     }
 }
