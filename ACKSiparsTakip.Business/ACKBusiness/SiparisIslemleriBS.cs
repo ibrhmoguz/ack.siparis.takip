@@ -24,7 +24,7 @@ namespace ACKSiparsTakip.Business.ACKBusiness
             return dt;
         }
 
-        public DataTable KullaniciBilgisiGetir(string pKullaniciAdi, string pSifre)
+        public DataTable KullaniciBilgisiGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
@@ -33,8 +33,8 @@ namespace ACKSiparsTakip.Business.ACKBusiness
             string sqlText = @"SELECT * FROM KULLANICIBILGI WHERE KULLANICIADI=@KULLANICIADI and SIFRE=@SIFRE";
            
 
-            data.AddSqlParameter("KULLANICIADI",pKullaniciAdi,SqlDbType.VarChar, 50 );
-            data.AddSqlParameter("SIFRE", pSifre, SqlDbType.VarChar, 50);
+            data.AddSqlParameter("KULLANICIADI",prms["KULLANICIADI"],SqlDbType.VarChar, 50 );
+            data.AddSqlParameter("SIFRE", prms["SIFRE"], SqlDbType.VarChar, 50);
             data.GetRecords(dt, sqlText);
             
             return dt;
