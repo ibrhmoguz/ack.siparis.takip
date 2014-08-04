@@ -36,13 +36,14 @@ namespace ACKSiparisTakip.Web
                 Session["yetki"] = dt.Rows[0]["YETKI"].ToString();
                 Session["sifre"] = password.Text;
                 Session["user"] = userName.Text;
-                Response.Redirect("Default.aspx");
+                Response.Redirect("deneme.aspx");
 
             }
             else
             {
                 
-                //MessageBox.Show("Kullanıcı adı ya da şifre hatalı. Tekrar deneyiniz.");
+                
+               // MessageBox.Show("Kullanıcı adı ya da şifre hatalı. Tekrar deneyiniz.");
             }
 
         }
@@ -51,7 +52,7 @@ namespace ACKSiparisTakip.Web
         {
             Session.Clear();
            
-            FormsAuthenticationProvider.LogOut();
+            //FormsAuthenticationProvider.LogOut();
         }
     }
 }
