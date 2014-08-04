@@ -29,6 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebFrame.DLL", "WebFrame.DL
 	ProjectSection(SolutionItems) = preProject
 		WebFrame\DLL\NLog.dll = WebFrame\DLL\NLog.dll
 		WebFrame\DLL\NLog.xml = WebFrame\DLL\NLog.xml
+		WebFrame\DLL\Oracle.DataAccess.dll = WebFrame\DLL\Oracle.DataAccess.dll
 	EndProjectSection
 EndProject
 Global
