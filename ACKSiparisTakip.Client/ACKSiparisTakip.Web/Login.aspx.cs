@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ACKSiparsTakip.Business.ACKBusiness;
+using System.Configuration;
 
 namespace ACKSiparisTakip.Web
 {
@@ -44,6 +45,13 @@ namespace ACKSiparisTakip.Web
                 //MessageBox.Show("Kullanıcı adı ya da şifre hatalı. Tekrar deneyiniz.");
             }
 
+        }
+
+        protected void LB_Logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+           
+            FormsAuthenticationProvider.LogOut();
         }
     }
 }
