@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ACKSiparisTakip.Client", "ACKSiparisTakip.Client", "{800E7633-0746-4812-8A70-9E9E7A7A45EE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ACKSiparsTakip.Business", "ACKSiparsTakip.Business", "{34DE5972-67C7-469F-A106-A72EF499E0BC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ACKSiparisTakip.Business", "ACKSiparisTakip.Business", "{34DE5972-67C7-469F-A106-A72EF499E0BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebFrame", "WebFrame", "{92394C52-A256-402D-8DFB-D09BC975B3F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACKSiparsTakip.Business.ACKBusiness", "ACKSiparsTakip.Business\ACKBusiness\ACKSiparsTakip.Business.ACKBusiness.csproj", "{B072D81F-E4CA-4B91-851A-3B325FBB76FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACKSiparisTakip.Business.ACKBusiness", "ACKSiparsTakip.Business\ACKBusiness\ACKSiparisTakip.Business.ACKBusiness.csproj", "{B072D81F-E4CA-4B91-851A-3B325FBB76FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrame.Business", "WebFrame\WebFrame.Business\WebFrame.Business.csproj", "{4B93F83B-E6D9-4151-9DD4-7DDD456AA400}"
 EndProject
@@ -30,6 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebFrame.DLL", "WebFrame.DL
 		WebFrame\DLL\NLog.dll = WebFrame\DLL\NLog.dll
 		WebFrame\DLL\NLog.xml = WebFrame\DLL\NLog.xml
 		WebFrame\DLL\Oracle.DataAccess.dll = WebFrame\DLL\Oracle.DataAccess.dll
+		WebFrame\DLL\Telerik.Web.UI.dll = WebFrame\DLL\Telerik.Web.UI.dll
 	EndProjectSection
 EndProject
 Global

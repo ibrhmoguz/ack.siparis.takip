@@ -55,6 +55,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.UI, Version=2013.2.717.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WebFrame\DLL\Telerik.Web.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Style\Raster\BlankProfile.gif" />
@@ -89,11 +93,38 @@
     <Content Include="deneme.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="App_Themes\Theme\Raster\BlankProfile.gif" />
+    <Content Include="App_Themes\Theme\Raster\buton.jpg" />
+    <Content Include="App_Themes\Theme\Raster\cancel.gif" />
+    <Content Include="App_Themes\Theme\Raster\dl.png" />
+    <Content Include="App_Themes\Theme\Raster\error.png" />
+    <Content Include="App_Themes\Theme\Raster\loading.gif" />
+    <Content Include="App_Themes\Theme\Raster\lock.gif" />
+    <Content Include="App_Themes\Theme\Raster\menuSeperator.gif" />
+    <Content Include="App_Themes\Theme\Raster\ok.gif" />
+    <Content Include="App_Themes\Theme\Raster\user.gif" />
+    <Content Include="App_Themes\Theme\Raster\user.png" />
+    <Content Include="App_Themes\Theme\StyleSheet.css" />
+    <Content Include="App_Themes\Theme\Template\f.jpg" />
+    <Content Include="App_Themes\Theme\Template\h.jpg" />
+    <Content Include="App_Themes\Theme\Template\m.jpg" />
+    <Content Include="App_Themes\Theme\Template\Template.css" />
+    <Content Include="deneme.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
+    <Content Include="SiparisEkle.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACKMasterPage.Master.cs">
+      <DependentUpon>ACKMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ACKMasterPage.Master.designer.cs">
+      <DependentUpon>ACKMasterPage.Master</DependentUpon>
+    </Compile>
     <Content Include="App_Code\FormsAuthenticationProvider.cs" />
     <Content Include="App_Code\MessageBox.cs" />
     <Compile Include="deneme.aspx.cs">
@@ -108,14 +139,23 @@
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiparisEkle.aspx.cs">
+      <DependentUpon>SiparisEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiparisEkle.aspx.designer.cs">
+      <DependentUpon>SiparisEkle.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\ACKSiparisTakip.Web.dll.config" />
+    <Content Include="ACKMasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -124,14 +164,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ACKSiparsTakip.Business\ACKBusiness\ACKSiparsTakip.Business.ACKBusiness.csproj">
+    <ProjectReference Include="..\..\ACKSiparsTakip.Business\ACKBusiness\ACKSiparisTakip.Business.ACKBusiness.csproj">
       <Project>{b072d81f-e4ca-4b91-851a-3b325fbb76fd}</Project>
-      <Name>ACKSiparsTakip.Business.ACKBusiness</Name>
+      <Name>ACKSiparisTakip.Business.ACKBusiness</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WebFrame\WebFrame.Business\WebFrame.Business.csproj">
       <Project>{4b93f83b-e6d9-4151-9dd4-7ddd456aa400}</Project>
       <Name>WebFrame.Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

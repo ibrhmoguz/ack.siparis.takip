@@ -22,7 +22,7 @@ namespace ACKSiparisTakip
 
             if (dt.Rows.Count > 0)
             {
-                TextBox1.Text = dt.Rows[0][0].ToString();
+                RadTextBox1.Text = dt.Rows[0][0].ToString();
             }
 
 

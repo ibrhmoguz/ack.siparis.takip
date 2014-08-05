@@ -1,0 +1,56 @@
+﻿body
+{font-family:Verdana; font-size:12px;}
+img.textalign
+{border:0px; position:relative; top:4px; padding-right:3px;}
+.log
+{position:relative; top:3px;}
+
+table.header
+{border:solid 0px gray; width:100%;}
+
+a:link			{text-decoration:none; color:#6C7380; font-weight:bold;}     
+a:visited		{text-decoration:none; color:#6C7380; font-weight:bold;}    
+a:hover			{text-decoration:none; color:#FF6204; font-weight:bold;}     
+a:active		{text-decoration:none; color:#6C7380; font-weight:bold;} 
+
+a.btn:link			{text-decoration:none; color:#6C7380; font-weight:bold; background-image:url(Raster/buton.jpg); width:91px; height:22px; background-repeat:no-repeat; border:Solid 0px White; display:block; text-align:center; padding-top:3px;}     
+a.btn:visited		{text-decoration:none; color:#6C7380; font-weight:bold; background-image:url(Raster/buton.jpg); width:91px; height:22px; background-repeat:no-repeat; border:Solid 0px White; display:block; text-align:center; padding-top:3px;}    
+a.btn:hover			{text-decoration:none; color:#FF6204; font-weight:bold; background-image:url(Raster/buton.jpg); width:91px; height:22px; background-repeat:no-repeat; border:Solid 0px White; display:block; text-align:center; padding-top:3px;}     
+a.btn:active		{text-decoration:none; color:#6C7380; font-weight:bold; background-image:url(Raster/buton.jpg); width:91px; height:22px; background-repeat:no-repeat; border:Solid 0px White; display:block; text-align:center; padding-top:3px;} 
+
+b.baslik
+{font-size: 2.2em; color:Gray; }
+
+input[type=text], input[type=password]
+{color:Blue; border:Solid 0px White; border:Solid 1px Silver; background-color:Transparent; cursor:text;}
+input[type=submit]
+{border:Solid 0px White;  background-color:Transparent; cursor:hand; color:#6C7380;}
+input[type=submit]:hover
+{border:Solid 0px White;  background-color:Transparent; cursor:hand; color:#FF6204;}
+
+#infobox 
+{width: 600px; line-height:20px; text-align:left;}
+#infobox .title 
+{letter-spacing: -1px; font-size: 2.2em; color:#268ED4 }
+#infobox .posted 
+{margin-bottom: 2em; font-size: 1em; font-weight: normal; text-align: justify;}
+#infobox ul
+{line-height:20px;}
+
+#infobox2 
+{float:center;	width: 420px;}
+
+#infobox2 h3 
+{width: 410px;height: 32px;padding: 12px 0 0 10px;background: #5A5A5A;font-size: 1,5em;color: #FFFFFF;}
+
+table.stil1
+{border-collapse:collapse; width:800px;}
+
+table.stil1 th
+{
+	text-align:left; font-weight:bold; padding:5px; border:Solid 1px Gray; background-color:#f5f8ff;
+	padding-left:15px;
+}
+
+table.stil1 td
+{text-align:left; padding:5px; border:Solid 1px Gray;}
