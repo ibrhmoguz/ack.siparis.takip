@@ -47,9 +47,9 @@
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;">
-                                    <img src="App_Style/Raster/user.png" alt="" style="position: relative; top: 4px;" />
+                                    <img src="App_Themes/Theme/Raster/user.png" alt="" style="position: relative; top: 4px;" />
                                     <asp:TextBox ID="userName" runat="server" ToolTip="Kullanıcı adınızı giriniz." Width="95px"></asp:TextBox>
-                                    <img src="App_Style/Raster/lock.gif" alt="" style="position: relative; top: 6px;" />
+                                    <img src="App_Themes/Theme/Raster/lock.gif" alt="" style="position: relative; top: 6px;" />
                                     <asp:TextBox ID="password" runat="server" TextMode="Password" ToolTip="Şifrenizi Giriniz." Width="75px"></asp:TextBox>
                                 </td>
                                 <td style="padding-top: 15px;">
