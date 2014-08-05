@@ -57,13 +57,45 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Style\Raster\BlankProfile.gif" />
+    <Content Include="App_Style\Raster\buton.jpg" />
+    <Content Include="App_Style\Raster\cancel.gif" />
+    <Content Include="App_Style\Raster\dl.png" />
+    <Content Include="App_Style\Raster\error.png" />
+    <Content Include="App_Style\Raster\loading.gif" />
+    <Content Include="App_Style\Raster\lock.gif" />
+    <Content Include="App_Style\Raster\menuSeperator.gif" />
+    <Content Include="App_Style\Raster\ok.gif" />
+    <Content Include="App_Style\Raster\user.gif" />
+    <Content Include="App_Style\Raster\user.png" />
+    <Content Include="App_Style\StyleSheet.css" />
+    <Content Include="App_Style\Template\f.jpg" />
+    <Content Include="App_Style\Template\h.jpg" />
+    <Content Include="App_Style\Template\m.jpg" />
+    <Content Include="App_Style\Template\Template.css" />
+    <Content Include="bin\ACKSiparisTakip.Web.dll" />
+    <Content Include="bin\ACKSiparisTakip.Web.pdb" />
+    <Content Include="bin\ACKSiparsTakip.Business.ACKBusiness.dll" />
+    <Content Include="bin\ACKSiparsTakip.Business.ACKBusiness.pdb" />
+    <Content Include="bin\NLog.dll" />
+    <Content Include="bin\NLog.xml" />
+    <Content Include="bin\Oracle.DataAccess.dll" />
+    <Content Include="bin\WebFrame.Business.dll" />
+    <Content Include="bin\WebFrame.Business.pdb" />
+    <Content Include="bin\WebFrame.DataAccess.dll" />
+    <Content Include="bin\WebFrame.DataAccess.pdb" />
+    <Content Include="bin\WebFrame.DataType.Common.dll" />
+    <Content Include="bin\WebFrame.DataType.Common.pdb" />
     <Content Include="deneme.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\FormsAuthenticationProvider.cs" />
+    <Content Include="App_Code\MessageBox.cs" />
     <Compile Include="deneme.aspx.cs">
       <DependentUpon>deneme.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -74,9 +106,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\ACKSiparisTakip.Web.dll.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
