@@ -55,12 +55,20 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.Design, Version=2013.2.717.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.Design.dll</HintPath>
+    </Reference>
     <Reference Include="Telerik.Web.UI, Version=2013.2.717.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\WebFrame\DLL\Telerik.Web.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>..\..\..\..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Theme\Raster\ackLogo.PNG" />
     <Content Include="App_Themes\Theme\Raster\BlankProfile.gif" />
     <Content Include="App_Themes\Theme\Raster\buton.jpg" />
     <Content Include="App_Themes\Theme\Raster\cancel.gif" />
@@ -77,10 +85,20 @@
     <Content Include="App_Themes\Theme\Template\h.jpg" />
     <Content Include="App_Themes\Theme\Template\m.jpg" />
     <Content Include="App_Themes\Theme\Template\Template.css" />
+    <Content Include="bin\ACKSiparisTakip.Business.ACKBusiness.dll" />
+    <Content Include="bin\ACKSiparisTakip.Business.ACKBusiness.pdb" />
+    <Content Include="bin\ACKSiparisTakip.Web.dll" />
+    <Content Include="bin\ACKSiparisTakip.Web.pdb" />
+    <Content Include="bin\Telerik.Web.UI.dll" />
+    <Content Include="bin\WebFrame.DataAccess.dll" />
+    <Content Include="bin\WebFrame.DataAccess.pdb" />
+    <Content Include="bin\WebFrame.DataType.Common.dll" />
+    <Content Include="bin\WebFrame.DataType.Common.pdb" />
     <Content Include="deneme.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="SiparisEkle.aspx" />
+    <Content Include="SiparisForm.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -92,6 +110,13 @@
     </Compile>
     <Compile Include="ACKMasterPage.Master.designer.cs">
       <DependentUpon>ACKMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SiparisForm.aspx.cs">
+      <DependentUpon>SiparisForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiparisForm.aspx.designer.cs">
+      <DependentUpon>SiparisForm.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\FormsAuthenticationProvider.cs" />
     <Content Include="App_Code\MessageBox.cs" />
@@ -123,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ACKMasterPage.Master" />
+    <None Include="bin\ACKSiparisTakip.Web.dll.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

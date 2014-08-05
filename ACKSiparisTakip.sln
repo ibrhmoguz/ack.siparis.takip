@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ACKSiparisTakip.Client", "ACKSiparisTakip.Client", "{800E7633-0746-4812-8A70-9E9E7A7A45EE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ACKSiparisTakip.Business", "ACKSiparisTakip.Business", "{34DE5972-67C7-469F-A106-A72EF499E0BC}"
@@ -30,7 +32,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebFrame.DLL", "WebFrame.DL
 		WebFrame\DLL\NLog.dll = WebFrame\DLL\NLog.dll
 		WebFrame\DLL\NLog.xml = WebFrame\DLL\NLog.xml
 		WebFrame\DLL\Oracle.DataAccess.dll = WebFrame\DLL\Oracle.DataAccess.dll
+		..\..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.Design.dll = ..\..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.Design.dll
 		WebFrame\DLL\Telerik.Web.UI.dll = WebFrame\DLL\Telerik.Web.UI.dll
+		..\..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.UI.Skins.dll = ..\..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.UI.Skins.dll
 	EndProjectSection
 EndProject
 Global
