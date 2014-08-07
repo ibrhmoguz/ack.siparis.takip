@@ -6,8 +6,8 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ACKSiparsTakip.Business.ACKBusiness;
 using System.Configuration;
+using ACKSiparisTakip.Business.ACKBusiness;
 
 namespace ACKSiparisTakip.Web
 {
@@ -26,7 +26,7 @@ namespace ACKSiparisTakip.Web
             prms.Add("KULLANICIADI", userName.Text);
             prms.Add("SIFRE", password.Text);
 
-            DataTable dt = new SiparisIslemleriBS().KullaniciBilgisiGetir(prms);
+            DataTable dt = new KullaniciBS().KullaniciBilgisiGetir(prms);
 
 
 

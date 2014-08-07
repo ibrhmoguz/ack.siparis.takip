@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using ACKSiparsTakip.Business.ACKBusiness;
+using ACKSiparisTakip.Business.ACKBusiness;
 
 namespace ACKSiparisTakip
 {
@@ -24,8 +24,6 @@ namespace ACKSiparisTakip
             {
                 RadTextBox1.Text = dt.Rows[0][0].ToString();
             }
-
-
         }
     }
 }

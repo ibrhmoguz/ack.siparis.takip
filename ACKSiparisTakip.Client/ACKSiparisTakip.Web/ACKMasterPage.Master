@@ -15,21 +15,21 @@
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
-        <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="WebBlue" ShowChooser="false" />
-        <telerik:RadRibbonBar ID="RadRibbonBarMenu" runat="server" Width="100%">
+        <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="Outlook" ShowChooser="false" />
+        <telerik:RadRibbonBar ID="RadRibbonBarMenu" runat="server" Width="100%" Skin="Outlook" >
             <telerik:RibbonBarTab Text="Sipariş">
-                <telerik:RibbonBarGroup Text="Sipariş Ekle">
+                <telerik:RibbonBarGroup Text="Sipariş Ekle" >
                     <Items>
-                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisEkleNova" Size="Large" Text="NOVA" ToolTip="Nova sipariş eklemek için tıklayınız." />
-                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisEkleKroma" Size="Large" Text="KROMA" ToolTip="Kroma sipariş eklemek için tıklayınız." />
-                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisEkleGuard" Size="Large" Text="GUARD" ToolTip="Guard sipariş eklemek için tıklayınız." />
+                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisEkleNova" Size="Large" Text="NOVA" ToolTip="Nova sipariş eklemek için tıklayınız."  ImageUrlLarge="App_Themes/Theme/Raster/nova.png" />
+                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisEkleKroma" Size="Large" Text="KROMA" ToolTip="Kroma sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/kroma.png" />
+                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisEkleGuard" Size="Large" Text="GUARD" ToolTip="Guard sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guard.png" />
 
                     </Items>
                 </telerik:RibbonBarGroup>
                 <telerik:RibbonBarGroup Text="Sipariş İşlemleri">
                     <Items>
-                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisGuncelle" Size="Large" Text=" Güncelle " ToolTip="Sipariş güncellemek için tıklayınız." />
-                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisSorgula" Size="Large" Text=" Sorgula " ToolTip="Sipariş sorgulamak için tıklayınız." />
+                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisGuncelle" Size="Large" Text=" Güncelle " ToolTip="Sipariş güncellemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" />
+                        <telerik:RibbonBarButton ID="RibbonBarButtonSiparisSorgula" Size="Large" Text=" Sorgula " ToolTip="Sipariş sorgulamak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/sorgulama.png" />
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
