@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="App_Themes/Theme/Template/Template.css" type="text/css" rel="stylesheet"/>
-    <link href="App_Themes/Theme/StyleSheet.css" type="text/css" rel="stylesheet"/>
+    <link href="App_Themes/Theme/Template/Template.css" type="text/css" rel="stylesheet" />
+    <link href="App_Themes/Theme/StyleSheet.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
     <form id="FormLogin" runat="server">
@@ -54,6 +54,8 @@
                                 </td>
                                 <td style="padding-top: 15px;">
                                     <asp:Button ID="LB_Login" runat="server" OnClick="LB_Login_Click" Text="Giriş"></asp:Button></td>
+                                <asp:Button ID="btnAlert" Width="200" runat="server" OnCommand="LB_Login_Click" Text="radalert from server"
+                                    CommandArgument="radalert"></asp:Button>
                             </tr>
                         </table>
 

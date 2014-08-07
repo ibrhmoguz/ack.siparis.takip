@@ -104,6 +104,7 @@
     <Content Include="bin\WebFrame.DataType.Common.pdb" />
     <Content Include="deneme.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="IsTakvimi.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="SiparisEkle.aspx" />
     <Content Include="SiparisForm.aspx" />
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="ACKMasterPage.Master.designer.cs">
       <DependentUpon>ACKMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="IsTakvimi.aspx.cs">
+      <DependentUpon>IsTakvimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IsTakvimi.aspx.designer.cs">
+      <DependentUpon>IsTakvimi.aspx</DependentUpon>
     </Compile>
     <Compile Include="SiparisForm.aspx.cs">
       <DependentUpon>SiparisForm.aspx</DependentUpon>
