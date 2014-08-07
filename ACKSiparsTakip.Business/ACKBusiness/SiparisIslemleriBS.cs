@@ -1,13 +1,11 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Data;
+using WebFrame.Business;
 using WebFrame.DataAccess;
 using WebFrame.DataType.Common.Attributes;
-using System.Data;
-using System.Collections.Generic;
-using System.Text;
-using WebFrame.Business;
 
 
-namespace ACKSiparsTakip.Business.ACKBusiness
+namespace ACKSiparisTakip.Business.ACKBusiness
 {
     [ServiceConnectionNameAttribute("ACKconnectionString")]
     public class SiparisIslemleriBS : BusinessBase
@@ -24,20 +22,6 @@ namespace ACKSiparsTakip.Business.ACKBusiness
             return dt;
         }
 
-        public DataTable KullaniciBilgisiGetir(Dictionary<string, object> prms)
-        {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-
-
-            string sqlText = @"SELECT * FROM KULLANICIBILGI WHERE KULLANICIADI=@KULLANICIADI and SIFRE=@SIFRE";
-           
-
-            data.AddSqlParameter("KULLANICIADI",prms["KULLANICIADI"],SqlDbType.VarChar, 50 );
-            data.AddSqlParameter("SIFRE", prms["SIFRE"], SqlDbType.VarChar, 50);
-            data.GetRecords(dt, sqlText);
-            
-            return dt;
-        }
+        
     }
 }
