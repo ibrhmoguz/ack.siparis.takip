@@ -16,7 +16,7 @@
     <form id="form1" runat="server">
         <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
         <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="Outlook" ShowChooser="false" />
-        <telerik:RadRibbonBar ID="RadRibbonBarMenu" runat="server" Width="100%" Skin="Outlook" >
+        <telerik:RadRibbonBar ID="RadRibbonBarMenu" runat="server" Width="100%" >
             <telerik:RibbonBarTab Text="Sipariş">
                 <telerik:RibbonBarGroup Text="Sipariş Ekle" >
                     <Items>

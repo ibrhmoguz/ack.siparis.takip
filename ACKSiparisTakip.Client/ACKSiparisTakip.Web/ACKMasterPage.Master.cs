@@ -11,7 +11,28 @@ namespace ACKSiparisTakip.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                SeciliMenuAyarla();
+            }
+        }
 
+        private void SeciliMenuAyarla()
+        {
+            string url = Request.Url.AbsoluteUri;
+
+            if (url.Contains("Siparis"))
+            {
+                RadRibbonBarMenu.SelectedTabIndex = 0;
+            }
+            else if (url.Contains("IsTakvimi"))
+            {
+                RadRibbonBarMenu.SelectedTabIndex = 1;
+            }
+            else if (url.Contains("YonetimKonsolu"))
+            {
+                RadRibbonBarMenu.SelectedTabIndex = 2;
+            }
         }
     }
 }
