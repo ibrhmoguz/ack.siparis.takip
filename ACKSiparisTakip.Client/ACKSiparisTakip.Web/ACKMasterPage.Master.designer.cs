@@ -58,49 +58,67 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadRibbonBar RadRibbonBarMenu;
         
         /// <summary>
-        /// RibbonBarButtonSiparisEkleNova control.
+        /// rbbSiparisEkleNova control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RibbonBarButton RibbonBarButtonSiparisEkleNova;
+        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisEkleNova;
         
         /// <summary>
-        /// RibbonBarButtonSiparisEkleKroma control.
+        /// rbbSiparisEkleKroma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RibbonBarButton RibbonBarButtonSiparisEkleKroma;
+        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisEkleKroma;
         
         /// <summary>
-        /// RibbonBarButtonSiparisEkleGuard control.
+        /// rbbSiparisEkleGuard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RibbonBarButton RibbonBarButtonSiparisEkleGuard;
+        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisEkleGuard;
         
         /// <summary>
-        /// RibbonBarButtonSiparisGuncelle control.
+        /// rbbSiparisGuncelle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RibbonBarButton RibbonBarButtonSiparisGuncelle;
+        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisGuncelle;
         
         /// <summary>
-        /// RibbonBarButtonSiparisSorgula control.
+        /// rbbSiparisSorgula control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RibbonBarButton RibbonBarButtonSiparisSorgula;
+        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisSorgula;
+        
+        /// <summary>
+        /// rbbKullaniciEkle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RibbonBarButton rbbKullaniciEkle;
+        
+        /// <summary>
+        /// rbbPersonelEkle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RibbonBarButton rbbPersonelEkle;
         
         /// <summary>
         /// ContentPlaceHolder1 control.
