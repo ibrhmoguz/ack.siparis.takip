@@ -29,7 +29,9 @@ namespace ACKSiparisTakip.Web
             {
                 RadRibbonBarMenu.SelectedTabIndex = 1;
             }
-            else if (url.Contains("YonetimKonsolu"))
+            else if (url.Contains("YonetimKonsolu") ||
+                     url.Contains("KullaniciTanimlama") ||
+                     url.Contains("PersonelTanimlama"))
             {
                 RadRibbonBarMenu.SelectedTabIndex = 2;
             }
