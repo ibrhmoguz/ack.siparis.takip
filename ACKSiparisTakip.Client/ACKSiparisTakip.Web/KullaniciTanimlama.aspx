@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ACKMasterPage.Master" AutoEventWireup="true" CodeBehind="KullaniciTanimlama.aspx.cs" Inherits="ACKSiparisTakip.Web.KullaniciTanimlama" %>
+
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -8,27 +9,32 @@
         <br />
         <br />
         <table class="AnaTablo">
-   
+
             <tr>
                 <th>Kullanıcı Adı</th>
                 <th>Yetki</th>
             </tr>
             <tr>
-                <td> <telerik:RadTextBox ID="txtKullaniciAdi" runat="server"></telerik:RadTextBox></td>
-                <td >
+                <td>
+                    <telerik:RadTextBox ID="txtKullaniciAdi" runat="server"></telerik:RadTextBox></td>
+                <td>
                     <telerik:RadDropDownList ID="ddlYetki" runat="server" SelectedText="Seçiniz" SelectedValue="S">
                         <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" Value="S" />
                             <telerik:DropDownListItem runat="server" Text="Yönetici" Value="admin" />
                             <telerik:DropDownListItem runat="server" Text="Kullanıcı" Value="user" />
                         </Items>
-                    </telerik:RadDropDownList>                     
-               </td>
-            </tr>  
+                    </telerik:RadDropDownList>
+                </td>
+            </tr>
             <tr>
-                <td><telerik:RadButton ID="btnEkle" runat="server" Text="Ekle" OnClick="btnEkle_Click"></telerik:RadButton></td>
+                <td>
+                    <telerik:RadButton ID="btnEkle" runat="server" Text="Ekle" OnClick="btnEkle_Click">
+                        <Icon PrimaryIconCssClass="rbAdd" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                    </telerik:RadButton>
+                </td>
                 <td></td>
-            </tr>      
+            </tr>
         </table>
         <br />
         <asp:Repeater ID="RP_Kullanici" runat="server"
