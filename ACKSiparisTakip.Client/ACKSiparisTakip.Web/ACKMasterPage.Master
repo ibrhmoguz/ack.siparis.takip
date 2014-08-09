@@ -16,13 +16,13 @@
     <form id="form1" runat="server">
         <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
         <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="Telerik" ShowChooser="false" />
-        <telerik:RadRibbonBar ID="RadRibbonBarMenu" runat="server" Width="100%" >
+        <telerik:RadRibbonBar ID="RadRibbonBarMenu" runat="server" Width="100%" OnCommand="RadRibbonBarMenu_Command">
             <telerik:RibbonBarTab Text="Sipariş">
-                <telerik:RibbonBarGroup Text="Sipariş Ekle" >
+                <telerik:RibbonBarGroup Text="Sipariş Ekle">
                     <Items>
-                        <telerik:RibbonBarButton ID="rbbSiparisEkleNova" Size="Large" Text="NOVA" ToolTip="Nova sipariş eklemek için tıklayınız."  ImageUrlLarge="App_Themes/Theme/Raster/nova.png" />
-                        <telerik:RibbonBarButton ID="rbbSiparisEkleKroma" Size="Large" Text="KROMA" ToolTip="Kroma sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/kroma.png" />
-                        <telerik:RibbonBarButton ID="rbbSiparisEkleGuard" Size="Large" Text="GUARD" ToolTip="Guard sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guard.png" />
+                        <telerik:RibbonBarButton ID="rbbSiparisEkleNova" Size="Large" Text="NOVA" ToolTip="Nova sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/nova.png" CommandName="SiparisEkleNova" />
+                        <telerik:RibbonBarButton ID="rbbSiparisEkleKroma" Size="Large" Text="KROMA" ToolTip="Kroma sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/kroma.png" CommandName="SiparisEkleKroma" />
+                        <telerik:RibbonBarButton ID="rbbSiparisEkleGuard" Size="Large" Text="GUARD" ToolTip="Guard sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guard.png" CommandName="SiparisEkleGuard" />
 
                     </Items>
                 </telerik:RibbonBarGroup>
@@ -34,11 +34,11 @@
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
             <telerik:RibbonBarTab Text="İş Takvimi"></telerik:RibbonBarTab>
-            <telerik:RibbonBarTab Text="Yönetim Konsolu" >
-             <telerik:RibbonBarGroup Text="Kullanıcı İşlemleri">
+            <telerik:RibbonBarTab Text="Yönetim Konsolu">
+                <telerik:RibbonBarGroup Text="Kullanıcı İşlemleri">
                     <Items>
-                        <telerik:RibbonBarButton ID="rbbKullaniciEkle" Size="Large" Text="Kullanıcı" ToolTip="Kullanıcı eklemek ya da silmek için tıklayınız."   ImageUrlLarge="App_Themes/Theme/Raster/kullaniciEkle.png" />
-                        <telerik:RibbonBarButton ID="rbbPersonelEkle" Size="Large" Text="Personel" ToolTip="Personel eklemek ya da silmek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/personelEkle.png" />
+                        <telerik:RibbonBarButton ID="rbbKullaniciEkle" Size="Large" Text="Kullanıcı" ToolTip="Kullanıcı eklemek ya da silmek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/kullaniciEkle.png" CommandName="KullaniciEkle" />
+                        <telerik:RibbonBarButton ID="rbbPersonelEkle" Size="Large" Text="Personel" ToolTip="Personel eklemek ya da silmek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/personelEkle.png" CommandName="PersonelEkle" />
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>

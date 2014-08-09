@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -34,6 +35,34 @@ namespace ACKSiparisTakip.Web
                      url.Contains("PersonelTanimlama"))
             {
                 RadRibbonBarMenu.SelectedTabIndex = 2;
+            }
+        }
+
+        protected void RadRibbonBarMenu_Command(object sender, CommandEventArgs e)
+        {
+            string urlSiparis = "SiparisForm.aspx?KapiTipi=";
+            string urlKullanici = "KullaniciTanimlama.aspx";
+            string urlPersonel = "PersonelTanimlama.aspx";
+
+            switch (e.CommandName)
+            {
+                case "SiparisEkleNova":
+                    Response.Redirect(urlSiparis + KapiTipi.Nova.ToString());
+                    break;
+                case "SiparisEkleKroma":
+                    Response.Redirect(urlSiparis + KapiTipi.Kroma.ToString());
+                    break;
+                case "SiparisEkleGuard":
+                    Response.Redirect(urlSiparis + KapiTipi.Guard.ToString());
+                    break;
+                case "KullaniciEkle":
+                    Response.Redirect(urlKullanici);
+                    break;
+                case "PersonelEkle":
+                    Response.Redirect(urlPersonel);
+                    break;
+                default:
+                    break;
             }
         }
     }

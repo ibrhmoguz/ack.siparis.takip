@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\KapiTipi.cs" />
     <Compile Include="KullaniciBS.cs" />
     <Compile Include="MontajBS.cs" />
     <Compile Include="SiparisIslemleriBS.cs" />
