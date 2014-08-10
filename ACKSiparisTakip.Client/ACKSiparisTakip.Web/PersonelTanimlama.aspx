@@ -4,7 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="padding-top: 25px; text-align: center; width: 45%;">
+     <div style="padding-top: 25px; text-align: center; width: 45%;">
+        <br />
         <br />
         <br />
         <table class="AnaTablo">
@@ -17,12 +18,12 @@
                 <td>
                     <telerik:RadTextBox ID="txtAd" runat="server"></telerik:RadTextBox></td>
                 <td>
-                    <telerik:RadTextBox ID="txtSoyad" runat="server"></telerik:RadTextBox>
+                     <telerik:RadTextBox ID="txtSoyad" runat="server"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <telerik:RadButton ID="btnEkle" runat="server" Text="Ekle" OnClick="btnEkle_Click">
+                    <telerik:RadButton ID="btnEkle" runat="server" Text="Ekle" OnClick="btnEkle_Click" >
                         <Icon PrimaryIconCssClass="rbAdd" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
                 </td>
@@ -49,7 +50,7 @@
                         <asp:LinkButton OnClientClick=" return confirm('Silmek istediğinize emin misiniz?') " ID="LB_Sil" CommandName="Delete" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID") %>' runat="server">Sil</asp:LinkButton>
 
                     </td>
-                    <%--    <td><%# DataBinder.Eval(Container.DataItem, "ID") %></td>--%>
+                <%--    <td><%# DataBinder.Eval(Container.DataItem, "ID") %></td>--%>
                     <td><%# DataBinder.Eval(Container.DataItem, "AD") %></td>
                     <td><%# DataBinder.Eval(Container.DataItem, "SOYAD") %></td>
                 </tr>

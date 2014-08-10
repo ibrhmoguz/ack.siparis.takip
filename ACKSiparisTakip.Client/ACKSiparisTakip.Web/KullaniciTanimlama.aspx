@@ -4,7 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="padding-top: 25px; text-align: center; width: 45%;">
+   <div style="padding-top: 25px; text-align: center; width: 45%;">
+        <br />
         <br />
         <br />
         <table class="AnaTablo">

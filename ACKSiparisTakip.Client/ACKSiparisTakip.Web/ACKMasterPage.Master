@@ -77,7 +77,7 @@
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
-             <telerik:RibbonBarTab Text="Şifre Güncelleme">
+             <telerik:RibbonBarTab Text="ŞİFRE GÜNCELLEME">
                 <telerik:RibbonBarGroup Text="Şifre Güncelleme">
                     <Items>
                         <telerik:RibbonBarButton ID="rbbSifreGuncelle" Size="Large" Text="Güncelleme" ToolTip="Şifrenizi güncellemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="SifreGuncelle" />
