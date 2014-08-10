@@ -1,13 +1,9 @@
-﻿using System;
+﻿using ACKSiparisTakip.Business.ACKBusiness;
+using ACKSiparisTakip.Web.Helper;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Web;
 using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Configuration;
-using ACKSiparisTakip.Business.ACKBusiness;
 
 namespace ACKSiparisTakip.Web
 {
@@ -20,15 +16,11 @@ namespace ACKSiparisTakip.Web
 
         protected void LB_Login_Click(object sender, EventArgs e)
         {
-
-         
-            Dictionary<string,object> prms=new Dictionary<string,object>();
+            Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("KULLANICIADI", userName.Text);
             prms.Add("SIFRE", password.Text);
 
             DataTable dt = new KullaniciBS().KullaniciBilgisiGetir(prms);
-
-
 
             if (dt.Rows.Count > 0)
             {
@@ -37,21 +29,16 @@ namespace ACKSiparisTakip.Web
                 Session["sifre"] = password.Text;
                 Session["user"] = userName.Text;
                 Response.Redirect("deneme.aspx");
-
             }
             else
             {
-                
-                
-               // MessageBox.Show("Kullanıcı adı ya da şifre hatalı. Tekrar deneyiniz.");
+                MessageBox.Basari(this, "Kullanıcı adı ya da şifre hatalı. Tekrar deneyiniz.");
             }
-
         }
 
         protected void LB_Logout_Click(object sender, EventArgs e)
         {
             Session.Clear();
-           
             //FormsAuthenticationProvider.LogOut();
         }
     }

@@ -106,6 +106,7 @@
     <Content Include="bin\WebFrame.DataAccess.pdb" />
     <Content Include="bin\WebFrame.DataType.Common.dll" />
     <Content Include="bin\WebFrame.DataType.Common.pdb" />
+    <Content Include="DBScripts\AppDBScripts.sql" />
     <Content Include="deneme.aspx" />
     <Content Include="Global.asax" />
     <Content Include="IsTakvimi.aspx" />
