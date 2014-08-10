@@ -64,7 +64,7 @@
             <telerik:RibbonBarTab Text="İş Takvimi">
                 <telerik:RibbonBarGroup Text="Takvim Görünümü">
                     <Items>
-                        <telerik:RibbonBarButton ID="rbbIsTakvimiTakvimGorunumu" Size="Large" Text="Takvim" ToolTip="İş Takvimini görüntülemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/kullaniciEkle.png" CommandName="IsTakvimiGoruntule" />
+                        <telerik:RibbonBarButton ID="rbbIsTakvimiTakvimGorunumu" Size="Large" Text="Takvim" ToolTip="İş Takvimini görüntülemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/calendar.jpg" CommandName="IsTakvimiGoruntule" />
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
@@ -81,7 +81,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <telerik:RadNotification ID="RadNotificationACKMaster" runat="server" Position="Center" AutoCloseDelay="5000" Width="200px" EnableRoundedCorners="true"
+        <telerik:RadNotification ID="RadNotificationACKMaster" runat="server" Position="Center" AutoCloseDelay="3000" Width="300px" EnableRoundedCorners="true"
             Height="120px" Text="Lorem ipsum dolor sit amet" OnClientShowing="showModalDiv" OnClientHidden="hideModalDiv"
             ShowCloseButton="true" ShowTitleMenu="false" TitleIcon="" EnableShadow="true">
         </telerik:RadNotification>

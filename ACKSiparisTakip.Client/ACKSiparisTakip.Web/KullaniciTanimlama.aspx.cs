@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ACKSiparisTakip.Business.ACKBusiness;
+using ACKSiparisTakip.Web.Helper;
 
 namespace ACKSiparisTakip.Web
 {
@@ -27,6 +28,17 @@ namespace ACKSiparisTakip.Web
 
         protected void btnEkle_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(txtKullaniciAdi.Text))
+            {
+                MessageBox.Uyari(this, "Kullanıcı adı giriniz");
+                return;
+            }
+            if (ddlYetki.SelectedIndex == 0)
+            {
+                MessageBox.Uyari(this, "Kullanıcı yetkisi seçiniz");
+                return;
+            }
+
             string kullanici = txtKullaniciAdi.Text.Trim();
             string yetki = ddlYetki.SelectedValue;
             string sifre = "12345";
@@ -42,10 +54,11 @@ namespace ACKSiparisTakip.Web
             if (sonuc)
             {
                 KullaniciDoldur();
+                MessageBox.Basari(this, "Kullanici eklendi.");
             }
             else
             {
-                //messagebox
+                MessageBox.Hata(this, "Kullanıcı ekleme işleminde hata oluştu!");
             }
         }
 
@@ -64,11 +77,12 @@ namespace ACKSiparisTakip.Web
                 if (sonuc)
                 {
                     KullaniciDoldur();
+                    MessageBox.Basari(this, "Kullanıcı silindi.");
                 }
                 else
                 {
-                    //messagebox
-                }               
+                    MessageBox.Hata(this, "Kullanıcı silme işleminde hata oluştu!");
+                }
             }
         }
     }

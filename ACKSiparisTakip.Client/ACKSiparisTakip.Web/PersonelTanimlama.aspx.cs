@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ACKSiparisTakip.Business.ACKBusiness;
+using ACKSiparisTakip.Web.Helper;
 
 namespace ACKSiparisTakip.Web
 {
@@ -17,7 +18,6 @@ namespace ACKSiparisTakip.Web
             {
                 PersonelDoldur();
             }
-          
         }
 
         private void PersonelDoldur()
@@ -42,10 +42,11 @@ namespace ACKSiparisTakip.Web
             if (sonuc)
             {
                 PersonelDoldur();
+                MessageBox.Basari(this, "Personel eklendi.");
             }
             else
             {
-                //messagebox
+                MessageBox.Hata(this, "Personel ekleme işleminde hata oluştu!");
             }
         }
 
@@ -66,10 +67,11 @@ namespace ACKSiparisTakip.Web
                 if (sonuc)
                 {
                     PersonelDoldur();
+                    MessageBox.Basari(this, "Personel silindi.");
                 }
                 else
                 {
-                    //messagebox
+                    MessageBox.Hata(this, "Personel silme işleminde hata oluştu!");
                 }
             }
         }

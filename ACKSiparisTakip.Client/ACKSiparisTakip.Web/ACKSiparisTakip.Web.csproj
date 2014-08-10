@@ -71,6 +71,7 @@
     <Content Include="App_Themes\Theme\Raster\ackLogo.PNG" />
     <Content Include="App_Themes\Theme\Raster\BlankProfile.gif" />
     <Content Include="App_Themes\Theme\Raster\buton.jpg" />
+    <Content Include="App_Themes\Theme\Raster\calendar.png" />
     <Content Include="App_Themes\Theme\Raster\cancel.gif" />
     <Content Include="App_Themes\Theme\Raster\dl.png" />
     <Content Include="App_Themes\Theme\Raster\error.png" />
