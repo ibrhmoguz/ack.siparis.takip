@@ -54,8 +54,6 @@
                                 </td>
                                 <td style="padding-top: 15px;">
                                     <asp:Button ID="LB_Login" runat="server" OnClick="LB_Login_Click" Text="Giriş"></asp:Button></td>
-                                <asp:Button ID="btnAlert" Width="200" runat="server" OnCommand="LB_Login_Click" Text="radalert from server"
-                                    CommandArgument="radalert"></asp:Button>
                             </tr>
                         </table>
 

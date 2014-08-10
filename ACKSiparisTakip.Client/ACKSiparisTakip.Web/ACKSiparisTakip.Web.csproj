@@ -154,8 +154,6 @@
     <Compile Include="SiparisForm.aspx.designer.cs">
       <DependentUpon>SiparisForm.aspx</DependentUpon>
     </Compile>
-    <Content Include="App_Code\FormsAuthenticationProvider.cs" />
-    <Content Include="App_Code\MessageBox.cs" />
     <Compile Include="deneme.aspx.cs">
       <DependentUpon>deneme.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,7 +193,9 @@
       <Name>WebFrame.Business</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
