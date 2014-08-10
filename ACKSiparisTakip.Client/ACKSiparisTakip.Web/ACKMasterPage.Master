@@ -77,6 +77,13 @@
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
+             <telerik:RibbonBarTab Text="Şifre Güncelleme">
+                <telerik:RibbonBarGroup Text="Şifre Güncelleme">
+                    <Items>
+                        <telerik:RibbonBarButton ID="rbbSifreGuncelle" Size="Large" Text="Güncelleme" ToolTip="Şifrenizi güncellemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="SifreGuncelle" />
+                    </Items>
+                </telerik:RibbonBarGroup>
+            </telerik:RibbonBarTab>
         </telerik:RadRibbonBar>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
