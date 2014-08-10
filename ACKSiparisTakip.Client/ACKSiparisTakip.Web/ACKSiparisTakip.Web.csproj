@@ -124,6 +124,7 @@
     <Compile Include="ACKMasterPage.Master.designer.cs">
       <DependentUpon>ACKMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Helper\MessageBox.cs" />
     <Compile Include="IsTakvimi.aspx.cs">
       <DependentUpon>IsTakvimi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -43,6 +43,7 @@ namespace ACKSiparisTakip.Web
             string urlSiparis = "SiparisForm.aspx?KapiTipi=";
             string urlKullanici = "KullaniciTanimlama.aspx";
             string urlPersonel = "PersonelTanimlama.aspx";
+            string urlIsTakvimi = "IsTakvimi.aspx";
 
             switch (e.CommandName)
             {
@@ -60,6 +61,9 @@ namespace ACKSiparisTakip.Web
                     break;
                 case "PersonelEkle":
                     Response.Redirect(urlPersonel);
+                    break;
+                case "IsTakvimiGoruntule":
+                    Response.Redirect(urlIsTakvimi);
                     break;
                 default:
                     break;
