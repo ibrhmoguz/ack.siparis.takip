@@ -73,44 +73,5 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 return false;
             }
         }
-
-        public DataTable KullaniciSifreBilgisiGetir(Dictionary<string, object> prms)
-        {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-
-            data.AddSqlParameter("KULLANICIADI", prms["KULLANICIADI"], SqlDbType.VarChar, 50);
-            data.AddSqlParameter("YETKI", prms["YETKI"], SqlDbType.VarChar, 50);
-            string sqlText = @"SELECT KULLANICIADI, SIFRE FROM KULLANICIBILGI WHERE KULLANICIADI=@KULLANICIADI and YETKI=@YETKI";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
-
-        }
-
-        public bool KullaniciSifreGuncelle(Dictionary<string, object> prms)
-        {
-            try
-            {
-                IData data = GetDataObject();
-
-                data.AddSqlParameter("KULLANICIADI", prms["KULLANICIADI"], SqlDbType.VarChar, 50);
-                data.AddSqlParameter("YETKI", prms["YETKI"], SqlDbType.VarChar, 50);
-                data.AddSqlParameter("SIFRE", prms["SIFRE"], SqlDbType.VarChar, 50);
-                data.AddSqlParameter("YENISIFRE", prms["YENISIFRE"], SqlDbType.VarChar, 50);
-                string sqlGuncelle = @"UPDATE KULLANICIBILGI SET SIFRE=@YENISIFRE WHERE KULLANICIADI=@KULLANICIADI and SIFRE=@SIFRE and YETKI=@YETKI";
-
-                data.ExecuteStatement(sqlGuncelle);
-                return true;
-            }
-            catch (Exception exc)
-            {
-                //HataLogla
-                return false;
-            }
-
-
-
-        }
     }
 }
