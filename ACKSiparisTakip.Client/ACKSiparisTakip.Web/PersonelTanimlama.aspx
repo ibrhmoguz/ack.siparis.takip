@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="padding-top: 25px; text-align: left; width: 50%;">
+     <div style="padding-top: 25px; text-align: center; width: 45%;">
         <br />
         <br />
         <br />
@@ -18,7 +18,7 @@
                 <td>
                     <telerik:RadTextBox ID="txtAd" runat="server"></telerik:RadTextBox></td>
                 <td>
-                    <telerik:RadTextBox ID="txtSoyad" runat="server" SelectedText="Seçiniz" SelectedValue="S"></telerik:RadTextBox>
+                     <telerik:RadTextBox ID="txtSoyad" runat="server"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>

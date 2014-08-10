@@ -36,6 +36,10 @@ namespace ACKSiparisTakip.Web
             {
                 RadRibbonBarMenu.SelectedTabIndex = 2;
             }
+            else if (url.Contains("SifreGuncelleme"))
+            {
+                RadRibbonBarMenu.SelectedTabIndex = 3;
+            }
 
             if (url.Contains("SiparisFormGoruntule"))
             {
