@@ -85,6 +85,15 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisEkleGuard;
         
         /// <summary>
+        /// rbbSiparisSorgula control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisSorgula;
+        
+        /// <summary>
         /// rbbSiparisGuncelle control.
         /// </summary>
         /// <remarks>
@@ -94,13 +103,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisGuncelle;
         
         /// <summary>
-        /// rbbSiparisSorgula control.
+        /// rbbSiparisYazdir control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisSorgula;
+        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisYazdir;
         
         /// <summary>
         /// rbbIsTakvimiTakvimGorunumu control.
