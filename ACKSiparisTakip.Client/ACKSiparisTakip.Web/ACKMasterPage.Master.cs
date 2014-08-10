@@ -22,7 +22,7 @@ namespace ACKSiparisTakip.Web
         {
             string url = Request.Url.AbsoluteUri;
 
-            if (url.Contains("Siparis"))
+            if (url.Contains("SiparisForm"))
             {
                 RadRibbonBarMenu.SelectedTabIndex = 0;
             }
@@ -36,11 +36,22 @@ namespace ACKSiparisTakip.Web
             {
                 RadRibbonBarMenu.SelectedTabIndex = 2;
             }
+
+            if (url.Contains("SiparisFormGoruntule"))
+            {
+                rbbSiparisGuncelle.Visible = true;
+                rbbSiparisYazdir.Visible = true;
+            }
         }
 
         protected void RadRibbonBarMenu_Command(object sender, CommandEventArgs e)
         {
-            string urlSiparis = "SiparisForm.aspx?KapiTipi=";
+            string siparisNo = String.Empty;
+            if (Request.QueryString["SiparisNo"] != null)
+                siparisNo = Request.QueryString["SiparisNo"].ToString();
+
+            string urlSiparisFormKayit = "SiparisFormKayit.aspx?KapiTipi=";
+            string urlSiparisFormGuncelle = "SiparisFormGuncelle.aspx?SiparisNo=" + siparisNo;
             string urlKullanici = "KullaniciTanimlama.aspx";
             string urlPersonel = "PersonelTanimlama.aspx";
             string urlIsTakvimi = "IsTakvimi.aspx";
@@ -49,13 +60,13 @@ namespace ACKSiparisTakip.Web
             switch (e.CommandName)
             {
                 case "SiparisEkleNova":
-                    Response.Redirect(urlSiparis + KapiTipi.Nova.ToString());
+                    Response.Redirect(urlSiparisFormKayit + KapiTipi.Nova.ToString());
                     break;
                 case "SiparisEkleKroma":
-                    Response.Redirect(urlSiparis + KapiTipi.Kroma.ToString());
+                    Response.Redirect(urlSiparisFormKayit + KapiTipi.Kroma.ToString());
                     break;
                 case "SiparisEkleGuard":
-                    Response.Redirect(urlSiparis + KapiTipi.Guard.ToString());
+                    Response.Redirect(urlSiparisFormKayit + KapiTipi.Guard.ToString());
                     break;
                 case "KullaniciEkle":
                     Response.Redirect(urlKullanici);
@@ -66,6 +77,9 @@ namespace ACKSiparisTakip.Web
                 case "IsTakvimiGoruntule":
                     Response.Redirect(urlIsTakvimi);
                     break;
+                case "SiparisGuncelle":
+                    Response.Redirect(urlSiparisFormGuncelle);
+					break;
                 case "SifreGuncelle":
                     Response.Redirect(urlSifre);
                     break;
