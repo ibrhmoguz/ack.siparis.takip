@@ -15,9 +15,14 @@ namespace ACKSiparisTakip.Web
         {
             if (!Page.IsPostBack)
             {
-                RP_Kullanici.DataSource = new KullaniciBS().KullanicilariGetir();
-                RP_Kullanici.DataBind();
+                KullaniciDoldur();
             }
+        }
+
+        private void KullaniciDoldur()
+        {
+            RP_Kullanici.DataSource = new KullaniciBS().KullanicilariGetir();
+            RP_Kullanici.DataBind();
         }
 
         protected void btnEkle_Click(object sender, EventArgs e)
@@ -25,7 +30,7 @@ namespace ACKSiparisTakip.Web
             string kullanici = txtKullaniciAdi.Text.Trim();
             string yetki = ddlYetki.SelectedValue;
             string sifre = "12345";
-            string sonuc = string.Empty;
+            bool sonuc = false;
 
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("KULLANICIADI", kullanici);
@@ -34,18 +39,19 @@ namespace ACKSiparisTakip.Web
 
             sonuc = new KullaniciBS().KullaniciTanimla(prms);
 
-            if (sonuc=="false")
+            if (sonuc)
             {
-                // false ise messagebox göstermemiz lazım
+                KullaniciDoldur();
             }
-            
-
-            Response.Redirect(Page.Request.Url.ToString());
+            else
+            {
+                //messagebox
+            }
         }
 
         protected void RP_Kullanici_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            string sonuc = string.Empty;
+            bool sonuc = false;
 
             if (e.CommandName == "Delete")
             {
@@ -55,13 +61,14 @@ namespace ACKSiparisTakip.Web
                 prms.Add("KULLANICIADI", kullanici);
                 sonuc = new KullaniciBS().KullaniciSil(prms);
 
-                if (sonuc == "false")
+                if (sonuc)
                 {
-                    // false ise messagebox göstermemiz lazım
+                    KullaniciDoldur();
                 }
-              
-
-                Response.Redirect(Page.Request.Url.ToString());
+                else
+                {
+                    //messagebox
+                }               
             }
         }
     }

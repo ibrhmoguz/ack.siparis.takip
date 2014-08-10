@@ -53,7 +53,6 @@
                         <input id="kullanici" runat="server" value='<%# DataBinder.Eval(Container.DataItem, "KULLANICIADI") %>' type="hidden" />
                         <input id="yetki" runat="server" value='<%# DataBinder.Eval(Container.DataItem, "YETKI") %>' type="hidden" />
                         <asp:LinkButton OnClientClick=" return confirm('Silmek istediğinize emin misiniz?') " ID="LB_Sil" CommandName="Delete" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "KULLANICIADI") %>' runat="server">Sil</asp:LinkButton>
-
                     </td>
                     <td><%# DataBinder.Eval(Container.DataItem, "KULLANICIADI") %></td>
                     <td><%# DataBinder.Eval(Container.DataItem, "YETKI") %></td>
