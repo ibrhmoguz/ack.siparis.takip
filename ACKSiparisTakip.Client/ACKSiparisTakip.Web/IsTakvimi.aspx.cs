@@ -53,6 +53,18 @@ namespace ACKSiparisTakip.Web
             start = start.AddDays(2);
             Appointments.Add(new AppointmentInfo("Get the car from the service", start.AddHours(2), start.AddHours(3), string.Empty, null, string.Empty, 1));
         }
+
+        protected void RadSchedulerIsTakvimi_AppointmentCommand(object sender, AppointmentCommandEventArgs e)
+        {
+            if (e.CommandName == "IsKaydet")
+            {
+
+            }
+            else if (e.CommandName == "IsIptal")
+            {
+                RadSchedulerIsTakvimi.Rebind();
+            }
+        }
     }
 
     public class AppointmentInfo
