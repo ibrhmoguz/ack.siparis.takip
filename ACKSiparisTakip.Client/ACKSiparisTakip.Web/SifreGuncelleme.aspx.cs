@@ -20,6 +20,11 @@ namespace ACKSiparisTakip.Web
 
         private void SifreBilgisiDoldur()
         {
+            if (Session["user"] == null || Session["yetki"] == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
 
             string user, yetki;
 
