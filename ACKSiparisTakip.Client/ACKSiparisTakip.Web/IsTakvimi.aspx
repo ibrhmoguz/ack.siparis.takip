@@ -40,30 +40,36 @@
                     DataStartField="Start"
                     DataEndField="End"
                     Culture="tr-TR"
-                    DataRecurrenceField="RecurrenceRule"
-                    DataRecurrenceParentKeyField="RecurrenceParentId"
-                    DataReminderField="Reminder"
                     FirstDayOfWeek="Monday"
                     LastDayOfWeek="Sunday"
                     EnableRecurrenceSupport="false"
-                    ShowViewTabs="true"
                     AllowDelete="false"
                     ShowFullTime="true"
                     HoursPanelTimeFormat="HH:mm"
+                    AllowInsert="False"
+                    SelectedView="WeekView"
                     OnAppointmentCommand="RadSchedulerIsTakvimi_AppointmentCommand"
+                    OnAppointmentCreated="RadSchedulerIsTakvimi_AppointmentCreated"
                     OnClientAppointmentInserting="OnClientAppointmentInserting"
                     OnClientAppointmentResizing="OnClientAppointmentResizing"
                     OnClientAppointmentDeleting="OnClientAppointmentDeleting">
-                    <Localization ContextMenuGoToToday="Bugün" HeaderDay="Günlük Görünüm" HeaderMonth="Aylık Görünüm" HeaderNextDay="Sonraki Gün" HeaderPrevDay="Önceki Gün" HeaderTimeline="Ajanda" HeaderToday="Bugün"
-                        HeaderWeek="Haftalık Görünüm" AdvancedAllDayEvent="Tüm gün" AdvancedCalendarCancel="İptal" AdvancedCalendarOK="Tamam" AdvancedCalendarToday="Bugün" AdvancedClose="Kapat" AdvancedDaily="Günlük" AdvancedDay="Gün" AdvancedDays="Gün(ler)" AdvancedDescription="Tanım" AdvancedDone="Bitti" AdvancedEvery="Her" AdvancedEveryWeekday="Her haftagünü" AdvancedFirst="birinci" AdvancedFourth="dördüncü" AdvancedFrom="Başlangıç zamanı" AdvancedHourly="Saatlik" AdvancedHours="saat(ler)" AdvancedInvalidNumber="Geçersiz sayı" AdvancedLast="son" AdvancedMaskDay="gün" AllDay="tüm gün işleri" ReminderWeek="hafta" Save="Kaydet" Show24Hours="24 saati göster" ShowAdvancedForm="Seçenekler" ShowBusinessHours="İş saatlerini göster" />
+                    <Localization ContextMenuGoToToday="Bugün" HeaderDay="Günlük Görünüm" HeaderMonth="Aylık Görünüm" HeaderNextDay="Sonraki Gün" HeaderPrevDay="Önceki Gün" HeaderToday="Bugün"
+                        HeaderWeek="Haftalık Görünüm" AdvancedAllDayEvent="Tüm gün" AdvancedCalendarCancel="İptal" AdvancedCalendarOK="Tamam" AdvancedCalendarToday="Bugün" AdvancedClose="Kapat"
+                        AdvancedDaily="Günlük" AdvancedDay="Gün" AdvancedDays="Gün(ler)" AdvancedDescription="Tanım" AdvancedDone="Bitti" AdvancedEvery="Her" AdvancedEveryWeekday="Her haftagünü"
+                        AdvancedFirst="birinci" AdvancedFourth="dördüncü" AdvancedFrom="Başlangıç zamanı" AdvancedHourly="Saatlik" AdvancedHours="saat(ler)" AdvancedInvalidNumber="Geçersiz sayı"
+                        AdvancedLast="son" AdvancedMaskDay="gün" AllDay="tüm gün işleri" ReminderWeek="hafta" Save="Kaydet" Show24Hours="24 saati göster" ShowAdvancedForm="Seçenekler"
+                        ShowBusinessHours="İş saatlerini göster" HeaderTimeline="Ajanda Görünümü" />
+                    <DayView UserSelectable="true" />
+                    <WeekView UserSelectable="true" />
+                    <MonthView VisibleAppointmentsPerDay="3" />
+                    <TimelineView UserSelectable="true" ShowDateHeaders="true" GroupingDirection="Vertical" NumberOfSlots="7" />
+                    <MultiDayView UserSelectable="false" />
                     <AdvancedEditTemplate>
                         <table class="AnaTablo" style="width: 100%">
                             <tr>
                                 <th style="width: 10%">Sipariş No:</th>
                                 <td class="TdRenkSolaYasla">
-                                    <h3>
-                                        <%# Eval("Subject") %>
-                                    </h3>
+                                    <%# Eval("Subject") %>
                                 </td>
                             </tr>
                             <tr>
@@ -80,9 +86,13 @@
                     </AdvancedEditTemplate>
                     <AppointmentTemplate>
                         <div>
-                            <h3>
-                                <%# Eval("Subject") %>
-                            </h3>
+                            <span style="font-size: small; font-weight: 800">
+                                <asp:Label ID="LabelSiparisNo" runat="server"><%# Eval("Subject") %></asp:Label>
+                            </span>
+                            <br />
+                            <asp:Label ID="LabelAdres" runat="server">Adres</asp:Label>
+                            <br />
+                            <asp:Label ID="LabelMontajEkibi" runat="server">Montaj Ekibi</asp:Label>
                             <div>
                             </div>
                         </div>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Telerik.Web.UI;
 using Telerik.Web.UI.Calendar;
 
@@ -8,7 +10,35 @@ namespace ACKSiparisTakip.Web
 {
     public partial class IsTakvimi : System.Web.UI.Page
     {
-        private List<AppointmentInfo> Appointments = new List<AppointmentInfo>();
+        private List<Appointment> Appointments
+        {
+            get
+            {
+                if (Session["Appointments"] != null)
+                    return Session["Appointments"] as List<Appointment>;
+                else
+                    return null;
+            }
+            set
+            {
+                Session["Appointments"] = value;
+            }
+        }
+
+        private DataTable MontajListesi
+        {
+            get
+            {
+                if (Session["MontajListesi"] != null)
+                    return Session["MontajListesi"] as DataTable;
+                else
+                    return null;
+            }
+            set
+            {
+                Session["MontajListesi"] = value;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +53,6 @@ namespace ACKSiparisTakip.Web
         {
             RadCalendarIsTakvimi.SelectedDate = DateTime.Now.Date;
             RadSchedulerIsTakvimi.SelectedDate = DateTime.Now.Date;
-            RadSchedulerIsTakvimi.SelectedView = SchedulerViewType.WeekView;
             RadSchedulerIsTakvimi.ShowFooter = true;
         }
 
@@ -40,18 +69,40 @@ namespace ACKSiparisTakip.Web
 
         private void InitializeAppointments()
         {
+            List<Appointment> appointmentList = new List<Appointment>();
             DateTime start = DateTime.UtcNow.Date;
-            start = start.AddHours(6);
-            Appointments.Add(new AppointmentInfo("Take the car to the service", start, start.AddHours(1), string.Empty, null, new Reminder(30).ToString(), 1));
-            Appointments.Add(new AppointmentInfo("Meeting with Alex", start.AddHours(2), start.AddHours(3), string.Empty, null, string.Empty, 2));
 
-            start = start.AddDays(-1);
-            DateTime dayStart = RadSchedulerIsTakvimi.UtcDayStart(start);
-            Appointments.Add(new AppointmentInfo("Bob's Birthday", dayStart, dayStart.AddDays(1), string.Empty, null, string.Empty, 1));
-            Appointments.Add(new AppointmentInfo("Call Charlie about the Project", start.AddHours(2), start.AddHours(3), string.Empty, null, string.Empty, 2));
+            for (int i = 0; i < 20; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Appointment app1 = new Appointment(Guid.NewGuid().ToString(), start.AddHours(3), start.AddHours(5), "SiparisNo " + (i + 1).ToString());
+                    appointmentList.Add(app1);
+                }
+                else
+                {
+                    Appointment app2 = new Appointment(Guid.NewGuid().ToString(), start.AddDays(-1).AddHours(8), start.AddDays(-1).AddHours(10), "SiparisNo " + (i + 1).ToString());
+                    appointmentList.Add(app2);
+                }
 
-            start = start.AddDays(2);
-            Appointments.Add(new AppointmentInfo("Get the car from the service", start.AddHours(2), start.AddHours(3), string.Empty, null, string.Empty, 1));
+                start = start.AddDays(1);
+            }
+
+
+            //DateTime start = DateTime.UtcNow.Date;
+            //start = start.AddHours(6);
+            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), start, start.AddHours(1), "Take the car to the service"));
+            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), start.AddHours(2), start.AddHours(4), "Meeting with Alex"));
+
+            //start = start.AddDays(-1);
+            //DateTime dayStart = RadSchedulerIsTakvimi.UtcDayStart(start);
+            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), dayStart, dayStart.AddDays(1), "Bob's Birthday"));
+            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), start.AddHours(2), start.AddHours(3), "Call Charlie about the Project"));
+
+            //start = start.AddDays(2);
+            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), start.AddHours(2), start.AddHours(3), "Get the car from the service"));
+
+            this.Appointments = appointmentList;
         }
 
         protected void RadSchedulerIsTakvimi_AppointmentCommand(object sender, AppointmentCommandEventArgs e)
@@ -65,165 +116,39 @@ namespace ACKSiparisTakip.Web
                 RadSchedulerIsTakvimi.Rebind();
             }
         }
-    }
 
-    public class AppointmentInfo
-    {
-
-        private readonly string _id;
-        private string _subject;
-        private DateTime _start;
-        private DateTime _end;
-        private string _recurrenceRule;
-        private string _recurrenceParentId;
-        private string _reminder;
-        private int? _userID;
-
-        public string ID
+        protected void RadSchedulerIsTakvimi_AppointmentCreated(object sender, AppointmentCreatedEventArgs e)
         {
-            get
-            {
-                return _id;
-            }
-        }
+            Label lblSiparisNo = (Label)e.Container.FindControl("LabelSiparisNo");
+            Label lblAdres = (Label)e.Container.FindControl("LabelAdres");
+            Label lblMontajEkibi = (Label)e.Container.FindControl("LabelMontajEkibi");
 
-        public string Subject
-        {
-            get
-            {
-                return _subject;
-            }
-            set
-            {
-                _subject = value;
-            }
-        }
+            RadScheduler scheduler = sender as RadScheduler;
 
-        public DateTime Start
-        {
-            get
+            switch (scheduler.SelectedView)
             {
-                return _start;
-            }
-            set
-            {
-                _start = value;
-            }
-        }
-
-        public DateTime End
-        {
-            get
-            {
-                return _end;
-            }
-            set
-            {
-                _end = value;
-            }
-        }
-
-        public string RecurrenceRule
-        {
-            get
-            {
-                return _recurrenceRule;
-            }
-            set
-            {
-                _recurrenceRule = value;
-            }
-        }
-
-        public string RecurrenceParentID
-        {
-            get
-            {
-                return _recurrenceParentId;
-            }
-            set
-            {
-                _recurrenceParentId = value;
-            }
-        }
-
-        public int? UserID
-        {
-            get
-            {
-                return _userID;
-            }
-            set
-            {
-                _userID = value;
-            }
-
-        }
-
-
-
-        public string Reminder
-        {
-            get
-            {
-                return _reminder;
-            }
-            set
-            {
-                _reminder = value;
-            }
-        }
-
-        private AppointmentInfo()
-        {
-            _id = Guid.NewGuid().ToString();
-        }
-
-        public AppointmentInfo(string subject, DateTime start, DateTime end, string recurrenceRule, string recurrenceParentID, string reminder, int? userID)
-            : this()
-        {
-            _subject = subject;
-            _start = start;
-            _end = end;
-            _recurrenceRule = recurrenceRule;
-            _recurrenceParentId = recurrenceParentID;
-            _reminder = reminder;
-            _userID = userID;
-        }
-
-        public AppointmentInfo(Appointment source)
-            : this()
-        {
-            CopyInfo(source);
-        }
-
-        public void CopyInfo(Appointment source)
-        {
-
-            Subject = source.Subject;
-            Start = source.Start;
-            End = source.End;
-            RecurrenceRule = source.RecurrenceRule;
-
-            if (source.RecurrenceParentID != null)
-            {
-                RecurrenceParentID = source.RecurrenceParentID.ToString();
-            }
-
-            if (!String.IsNullOrEmpty(Reminder))
-            {
-                Reminder = source.Reminders[0].ToString();
-            }
-
-            Resource user = source.Resources.GetResourceByType("User");
-
-            if (user != null)
-            {
-                UserID = (int?)user.Key;
-            }
-            else
-            {
-                UserID = null;
+                case SchedulerViewType.DayView:
+                    lblSiparisNo.Visible = true;
+                    lblMontajEkibi.Visible = true;
+                    lblAdres.Visible = true;
+                    break;
+                case SchedulerViewType.WeekView:
+                    lblSiparisNo.Visible = true;
+                    lblMontajEkibi.Visible = true;
+                    lblAdres.Visible = true;
+                    break;
+                case SchedulerViewType.MonthView:
+                    lblSiparisNo.Visible = true;
+                    lblMontajEkibi.Visible = false;
+                    lblAdres.Visible = false;
+                    break;
+                case SchedulerViewType.TimelineView:
+                    lblSiparisNo.Visible = true;
+                    lblMontajEkibi.Visible = false;
+                    lblAdres.Visible = false;
+                    break;
+                default:
+                    break;
             }
         }
     }
