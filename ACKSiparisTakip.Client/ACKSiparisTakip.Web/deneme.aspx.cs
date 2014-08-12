@@ -18,12 +18,7 @@ namespace ACKSiparisTakip
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            DataTable dt = new SiparisIslemleriBS().KapıModeliGetir();
-
-            if (dt.Rows.Count > 0)
-            {
-                RadTextBox1.Text = dt.Rows[0][0].ToString();
-            }
+            
         }
     }
 }

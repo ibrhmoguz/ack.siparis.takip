@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div style="width:80%">
+    <div style="width: 80%">
         <br />
         <br />
         <br />
@@ -14,9 +14,10 @@
                 <td rowspan="6" style="text-align: center">
                     <telerik:RadBinaryImage ID="imgLogo" runat="server" ImageUrl="~/App_Themes/Theme/Raster/ackLogo.PNG" />
                 </td>
-                <td colspan="2" rowspan="3" style="width: 45%; text-align: center; te">
+                <td colspan="2" rowspan="3" style="width: 45%; font-size: x-large; text-align: center;">
 
-                    <asp:Label ID="lblKapiTur" runat="server"></asp:Label>
+                    <b>
+                        <asp:Label ID="lblKapiTur" runat="server"></asp:Label></b>
                 </td>
                 <td style="width: 30%; text-align: left">
                     <b>ANKARA ÇELİK KAPI SAN. TİC. LTD. ŞTİ. </b>
@@ -229,7 +230,13 @@
                 </td>
                 <th style="width: 20%">Baba :</th>
                 <td>
-                    <telerik:RadDropDownList ID="txtBaba" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="txtBaba" runat="server" SelectedText="Seçiniz">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
                 </td>
             </tr>
             <tr>
@@ -239,7 +246,13 @@
                 </td>
                 <th>Dürbün :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlDurbun" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlDurbun" runat="server">
+                         <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
                 </td>
             </tr>
             <tr>
@@ -249,7 +262,13 @@
                 </td>
                 <th>Taktak :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlTaktak" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlTaktak" runat="server">
+                         <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
                 </td>
             </tr>
             <tr>
