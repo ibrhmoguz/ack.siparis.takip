@@ -1,112 +1,74 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ACKSiparisTakip.Business.ACKBusiness;
+using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
 
 namespace ACKSiparisTakip.Web
 {
     public partial class SiparisFormKayit : System.Web.UI.Page
     {
-        public string KapiTipi 
+        public KapiTipi KapiTip
         {
-            get 
+            get
             {
-                if (!String.IsNullOrEmpty(Request.QueryString["KapiTipi"]))
+                if (!String.IsNullOrWhiteSpace(Request.QueryString["KapiTipi"]))
                 {
-                    return Request.QueryString["KapiTipi"].ToString();
+                    string tip = Request.QueryString["KapiTipi"].ToString();
+                    if (tip == KapiTipi.Nova.ToString())
+                        return KapiTipi.Nova;
+                    else if (tip == KapiTipi.Kroma.ToString())
+                        return KapiTipi.Kroma;
+                    else
+                        return KapiTipi.Guard;
                 }
-                else return string.Empty;
-            } 
-
+                else
+                    return KapiTipi.Nova;
+            }
         }
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                KapiSeriyeGoreDoldur(this.KapiTipi.ToString());
+                FormDoldur();
             }
-
         }
 
-        private void KapiSeriyeGoreDoldur(string kapiSeri)
+        private void FormDoldur()
         {
-            string id = string.Empty;
-
-            if (kapiSeri=="Guard")
-            {
-                id = "1";
-
-            }
-            else if (kapiSeri=="Kroma")
-            {
-                id = "2";
-            }
-            else if(kapiSeri=="Nova")
-            {
-                id = "3";
-            }
-
-            FormDoldur(id);
-
-        }
-
-        private void FormDoldur(string id)
-        {
-            string seriId, seriAdi;
-            seriId = id;
-            seriAdi = string.Empty;
-
-            if (id=="1")
-            {
-               seriAdi = "GUARD";
-            }
-            else if(id=="2")
-            {
-                seriAdi = "KROMA";
-            }
-            else if (true)
-            {
-                seriAdi = "NOVA";
-            }
+            string seriId = ((int)this.KapiTip).ToString();
+            string seriAdi = this.KapiTip.ToString().ToUpper();
 
             lblKapiTur.Text = seriAdi;
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("ID", seriId);
             prms.Add("KAPISERI", seriAdi);
 
+            DataSet ds = new SiparisIslemleriBS().RefTanimlariniGetir(prms);
+            if (ds.Tables.Count == 0)
+                return;
 
-            ddlIcKapiModeli.DataSource = new SiparisIslemleriBS().KapıModeliGetir(prms);
-            ddlIcKapiModeli.DataTextField = "AD";
-            ddlIcKapiModeli.DataValueField = "KAPIMODELID";
-            ddlIcKapiModeli.DataBind();
-            ddlIcKapiModeli.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+            DataTable dtKapiModeli = ds.Tables["KAPIMODELI"];
+            DataTable dtKapiRenk = ds.Tables["KAPIRENK"];
 
-            ddlDisKapiModeli.DataSource = new SiparisIslemleriBS().KapıModeliGetir(prms);
-            ddlDisKapiModeli.DataTextField = "AD";
-            ddlDisKapiModeli.DataValueField = "KAPIMODELID";
-            ddlDisKapiModeli.DataBind();
-            ddlDisKapiModeli.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
-
-            ddlIcKapiRengi.DataSource = new SiparisIslemleriBS().KapıRenkGetir(prms);
-            ddlIcKapiRengi.DataTextField = "AD";
-            ddlIcKapiRengi.DataValueField = "KAPIRENKID";
-            ddlIcKapiRengi.DataBind();
-            ddlIcKapiRengi.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
-
-            ddlDisKapiRengi.DataSource = new SiparisIslemleriBS().KapıRenkGetir(prms);
-            ddlDisKapiRengi.DataTextField = "AD";
-            ddlDisKapiRengi.DataValueField = "KAPIRENKID";
-            ddlDisKapiRengi.DataBind();
-            ddlDisKapiRengi.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
-
-
+            DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
+            DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
+            DropDownBindEt(ddlIcKapiRengi, dtKapiModeli);
+            DropDownBindEt(ddlDisKapiRengi, dtKapiModeli);
         }
-       
 
+        private void DropDownBindEt(Telerik.Web.UI.RadDropDownList ddl, DataTable dt)
+        {
+            ddl.DataSource = dt;
+            ddl.DataTextField = "AD";
+            ddl.DataValueField = "ID";
+            ddl.DataBind();
+            ddl.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+        }
     }
 }
