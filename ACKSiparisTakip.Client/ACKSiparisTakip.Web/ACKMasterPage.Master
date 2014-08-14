@@ -54,11 +54,16 @@
                         <telerik:RibbonBarButton ID="rbbSiparisEkleGuard" Size="Large" Text="GUARD" ToolTip="Guard sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guard.png" CommandName="SiparisEkleGuard" />
                     </Items>
                 </telerik:RibbonBarGroup>
-                <telerik:RibbonBarGroup Text="Sipariş İşlemleri">
+                <telerik:RibbonBarGroup Text="Sorgulama">
                     <Items>
-                        <telerik:RibbonBarButton ID="rbbSiparisSorgula" Size="Large" Text=" SORGULA " ToolTip="Sipariş sorgulamak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/sorgulama.png" />
-                        <telerik:RibbonBarButton ID="rbbSiparisGuncelle" Size="Large" Text=" GÜNCELLE " ToolTip="Sipariş güncellemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" Visible="false" CommandName="SiparisGuncelle" />
-                        <telerik:RibbonBarButton ID="rbbSiparisYazdir" Size="Large" Text=" YAZDIR " ToolTip="Sipariş yazdırmak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/print.jpg" Visible="false" />
+                        <telerik:RibbonBarButton ID="rbbSiparisSorgula" Size="Large" Text="SİPARİŞ" ToolTip="Sipariş sorgulamak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/sorgulama.png" CommandName="SiparisSorgula" />
+                        <telerik:RibbonBarButton ID="rbbMontajSorgula" Size="Large" Text="MONTAJ" ToolTip="Montaj sorgulamak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/sorgulama.png" CommandName="MontajSorgula" />
+                    </Items>
+                </telerik:RibbonBarGroup>
+                <telerik:RibbonBarGroup ID="rbgSiparisIslemleri" Text="Sipariş İşlemleri" Visible="false">
+                    <Items>
+                        <telerik:RibbonBarButton ID="rbbSiparisGuncelle" Size="Large" Text=" GÜNCELLE " ToolTip="Sipariş güncellemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="SiparisGuncelle" />
+                        <telerik:RibbonBarButton ID="rbbSiparisYazdir" Size="Large" Text=" YAZDIR " ToolTip="Sipariş yazdırmak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/print.jpg" />
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
@@ -77,7 +82,7 @@
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
-             <telerik:RibbonBarTab Text="ŞİFRE GÜNCELLEME">
+            <telerik:RibbonBarTab Text="ŞİFRE GÜNCELLEME">
                 <telerik:RibbonBarGroup Text="Şifre Güncelleme">
                     <Items>
                         <telerik:RibbonBarButton ID="rbbSifreGuncelle" Size="Large" Text="Güncelleme" ToolTip="Şifrenizi güncellemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="SifreGuncelle" />

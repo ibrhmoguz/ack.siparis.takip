@@ -112,11 +112,13 @@
     <Content Include="IsTakvimi.aspx" />
     <Content Include="KullaniciTanimlama.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MontajSorgula.aspx" />
     <Content Include="PersonelTanimlama.aspx" />
     <Content Include="SiparisFormKayit.aspx" />
     <Content Include="SiparisFormGoruntule.aspx" />
     <Content Include="SiparisFormGuncelle.aspx" />
     <Content Include="SifreGuncelleme.aspx" />
+    <Content Include="SiparisSorgula.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -143,6 +145,13 @@
     </Compile>
     <Compile Include="KullaniciTanimlama.aspx.designer.cs">
       <DependentUpon>KullaniciTanimlama.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MontajSorgula.aspx.cs">
+      <DependentUpon>MontajSorgula.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MontajSorgula.aspx.designer.cs">
+      <DependentUpon>MontajSorgula.aspx</DependentUpon>
     </Compile>
     <Compile Include="PersonelTanimlama.aspx.cs">
       <DependentUpon>PersonelTanimlama.aspx</DependentUpon>
@@ -197,6 +206,13 @@
     <Compile Include="SiparisFormGuncelle.aspx.designer.cs">
       <DependentUpon>SiparisFormGuncelle.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SiparisSorgula.aspx.cs">
+      <DependentUpon>SiparisSorgula.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiparisSorgula.aspx.designer.cs">
+      <DependentUpon>SiparisSorgula.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ACKMasterPage.Master" />
@@ -216,6 +232,10 @@
     <ProjectReference Include="..\..\WebFrame\WebFrame.Business\WebFrame.Business.csproj">
       <Project>{4b93f83b-e6d9-4151-9dd4-7ddd456aa400}</Project>
       <Name>WebFrame.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WebFrame\WebFrame.Datatype.Common\WebFrame.DataType.Common.csproj">
+      <Project>{bce5b574-97ad-4bb6-a906-39812ea4f007}</Project>
+      <Name>WebFrame.DataType.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

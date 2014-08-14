@@ -43,8 +43,7 @@ namespace ACKSiparisTakip.Web
 
             if (url.Contains("SiparisFormGoruntule"))
             {
-                rbbSiparisGuncelle.Visible = true;
-                rbbSiparisYazdir.Visible = true;
+                rbgSiparisIslemleri.Visible = true;
             }
         }
 
@@ -60,6 +59,8 @@ namespace ACKSiparisTakip.Web
             string urlPersonel = "PersonelTanimlama.aspx";
             string urlIsTakvimi = "IsTakvimi.aspx";
             string urlSifre = "SifreGuncelleme.aspx";
+            string urlSiparisSorgula = "SiparisSorgula.aspx";
+            string urlMontajSorgula = "MontajSorgula.aspx";
 
             switch (e.CommandName)
             {
@@ -83,9 +84,15 @@ namespace ACKSiparisTakip.Web
                     break;
                 case "SiparisGuncelle":
                     Response.Redirect(urlSiparisFormGuncelle);
-					break;
+                    break;
                 case "SifreGuncelle":
                     Response.Redirect(urlSifre);
+                    break;
+                case "SiparisSorgula":
+                    Response.Redirect(urlSiparisSorgula);
+                    break;
+                case "MontajSorgula":
+                    Response.Redirect(urlMontajSorgula);
                     break;
                 default:
                     break;
