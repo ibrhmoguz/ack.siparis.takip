@@ -76,31 +76,17 @@ namespace ACKSiparisTakip.Web
             {
                 if (i % 2 == 0)
                 {
-                    Appointment app1 = new Appointment(Guid.NewGuid().ToString(), start.AddHours(3), start.AddHours(5), "SiparisNo " + (i + 1).ToString());
+                    Appointment app1 = new Appointment(Guid.NewGuid().ToString(), start.AddHours(3), start.AddHours(6), "SiparisNo " + (i + 1).ToString());
                     appointmentList.Add(app1);
                 }
                 else
                 {
-                    Appointment app2 = new Appointment(Guid.NewGuid().ToString(), start.AddDays(-1).AddHours(8), start.AddDays(-1).AddHours(10), "SiparisNo " + (i + 1).ToString());
+                    Appointment app2 = new Appointment(Guid.NewGuid().ToString(), start.AddDays(-1).AddHours(8), start.AddDays(-1).AddHours(11), "SiparisNo " + (i + 1).ToString());
                     appointmentList.Add(app2);
                 }
 
                 start = start.AddDays(1);
             }
-
-
-            //DateTime start = DateTime.UtcNow.Date;
-            //start = start.AddHours(6);
-            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), start, start.AddHours(1), "Take the car to the service"));
-            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), start.AddHours(2), start.AddHours(4), "Meeting with Alex"));
-
-            //start = start.AddDays(-1);
-            //DateTime dayStart = RadSchedulerIsTakvimi.UtcDayStart(start);
-            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), dayStart, dayStart.AddDays(1), "Bob's Birthday"));
-            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), start.AddHours(2), start.AddHours(3), "Call Charlie about the Project"));
-
-            //start = start.AddDays(2);
-            //appointmentList.Add(new Appointment(Guid.NewGuid().ToString(), start.AddHours(2), start.AddHours(3), "Get the car from the service"));
 
             this.Appointments = appointmentList;
         }
@@ -119,9 +105,12 @@ namespace ACKSiparisTakip.Web
 
         protected void RadSchedulerIsTakvimi_AppointmentCreated(object sender, AppointmentCreatedEventArgs e)
         {
-            Label lblSiparisNo = (Label)e.Container.FindControl("LabelSiparisNo");
-            Label lblAdres = (Label)e.Container.FindControl("LabelAdres");
-            Label lblMontajEkibi = (Label)e.Container.FindControl("LabelMontajEkibi");
+            Label lblSiparisNo = (Label)e.Container.FindControl("LabelAppointmentSiparisNo");
+            Label lblAdres = (Label)e.Container.FindControl("LabelAppointmentAdres");
+            Label lblMontajEkibi = (Label)e.Container.FindControl("LabelAppointmentMontajEkibi");
+            Label lblMusteriAdSoyad = (Label)e.Container.FindControl("LabelAppointmentMusteriAdSoyad");
+            Label lblAdresIlIlce = (Label)e.Container.FindControl("LabelAppointmentAdresIlIlce");
+            Label lblTelefon = (Label)e.Container.FindControl("LabelAppointmentTelefon");
 
             RadScheduler scheduler = sender as RadScheduler;
 
@@ -131,21 +120,33 @@ namespace ACKSiparisTakip.Web
                     lblSiparisNo.Visible = true;
                     lblMontajEkibi.Visible = true;
                     lblAdres.Visible = true;
+                    lblMusteriAdSoyad.Visible = true;
+                    lblTelefon.Visible = true;
+                    lblAdresIlIlce.Visible = true;
                     break;
                 case SchedulerViewType.WeekView:
                     lblSiparisNo.Visible = true;
                     lblMontajEkibi.Visible = true;
                     lblAdres.Visible = true;
+                    lblMusteriAdSoyad.Visible = true;
+                    lblTelefon.Visible = true;
+                    lblAdresIlIlce.Visible = true;
                     break;
                 case SchedulerViewType.MonthView:
                     lblSiparisNo.Visible = true;
                     lblMontajEkibi.Visible = false;
                     lblAdres.Visible = false;
+                    lblMusteriAdSoyad.Visible = false;
+                    lblTelefon.Visible = false;
+                    lblAdresIlIlce.Visible = false;
                     break;
                 case SchedulerViewType.TimelineView:
                     lblSiparisNo.Visible = true;
                     lblMontajEkibi.Visible = false;
                     lblAdres.Visible = false;
+                    lblMusteriAdSoyad.Visible = false;
+                    lblTelefon.Visible = false;
+                    lblAdresIlIlce.Visible = false;
                     break;
                 default:
                     break;

@@ -69,11 +69,48 @@
                             <tr>
                                 <th style="width: 10%">Sipariş No:</th>
                                 <td class="TdRenkSolaYasla">
-                                    <%# Eval("Subject") %>
+                                    <asp:LinkButton ID="LinkButtonEditSiparisNo" runat="server"> <%# Eval("Subject") %></asp:LinkButton>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="text-align: right">
+                                <th>Müşteri Adı Soyadı:</th>
+                                <td>
+                                    <asp:Label ID="LabelEditMusteriAdSoyad" runat="server">LabelEditTempMusteriAdSoyad Müşteri Adı Soyadı</asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Adres:</th>
+                                <td>
+                                    <asp:Label ID="LabelEditAdres" runat="server">Adres</asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Telefon:</th>
+                                <td>
+                                    <asp:Label ID="LabelEditTelefon" runat="server">Telefon</asp:Label></td>
+                            </tr>
+                            <tr>
+                                <th>Montaj Tarihi:</th>
+                                <td>
+                                    <telerik:RadDateTimePicker ID="DateTimePickerMontajTarihSaat" runat="server" Width="200px"></telerik:RadDateTimePicker>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Montaj Ekibi</th>
+                                <td>
+                                    <telerik:RadListBox ID="ListBoxMontajEkibi" runat="server" Height="300" Width="350" SelectionMode="Multiple" CheckBoxes="true">
+                                        <Items>
+                                            <telerik:RadListBoxItem Checked="true" Value="sdfsdf" Text="qweqw" />
+                                            <telerik:RadListBoxItem Checked="true" Value="sdfsdf" Text="qweqw" />
+                                            <telerik:RadListBoxItem Checked="false" Value="sdfsdf" Text="qweqw" />
+                                            <telerik:RadListBoxItem Checked="true" Value="sdfsdf" Text="qweqw" />
+                                            <telerik:RadListBoxItem Checked="true" Value="sdfsdf" Text="qweqw" />
+                                        </Items>
+                                    </telerik:RadListBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center">
                                     <telerik:RadButton ID="RadButtonIsKaydet" runat="server" Text="Kaydet" CommandName="IsKaydet">
                                         <Icon PrimaryIconCssClass="rbSave" SecondaryIconRight="4" SecondaryIconTop="3"></Icon>
                                     </telerik:RadButton>
@@ -87,14 +124,19 @@
                     <AppointmentTemplate>
                         <div>
                             <span style="font-size: small; font-weight: 800">
-                                <asp:Label ID="LabelSiparisNo" runat="server"><%# Eval("Subject") %></asp:Label>
+                                <asp:Label ID="LabelAppointmentSiparisNo" runat="server"><%# Eval("Subject") %></asp:Label>
                             </span>
                             <br />
-                            <asp:Label ID="LabelAdres" runat="server">Adres</asp:Label>
+                            <asp:Label ID="LabelAppointmentMusteriAdSoyad" runat="server">Müşteri Adı Soyadı</asp:Label>
                             <br />
-                            <asp:Label ID="LabelMontajEkibi" runat="server">Montaj Ekibi</asp:Label>
-                            <div>
-                            </div>
+                            <asp:Label ID="LabelAppointmentAdresIlIlce" runat="server">Adres İl İlçe</asp:Label>
+                            <br />
+                            <asp:Label ID="LabelAppointmentAdres" runat="server">Adres</asp:Label>
+                            <br />
+                            <asp:Label ID="LabelAppointmentTelefon" runat="server">Telefon</asp:Label>
+                            <br />
+                            <asp:Label ID="LabelAppointmentMontajEkibi" runat="server">Montaj Ekibi</asp:Label>
+                            <br />
                         </div>
                     </AppointmentTemplate>
                 </telerik:RadScheduler>
