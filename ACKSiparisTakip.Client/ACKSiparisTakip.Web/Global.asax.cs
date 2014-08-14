@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using WebFrame.DataType.Common.Logging;
 
 namespace ACKSiparisTakip.Web
 {
@@ -32,7 +33,9 @@ namespace ACKSiparisTakip.Web
 
         protected void Application_Error(object sender, EventArgs e)
         {
-
+            Exception exc = this.Server.GetLastError();
+            string user = Session["user"] != null ? Session["user"].ToString() : null;
+            new LogWriter().Write(AppModules.None, System.Diagnostics.EventLogEntryType.Error, exc, "", "", "", user);
         }
 
         protected void Session_End(object sender, EventArgs e)

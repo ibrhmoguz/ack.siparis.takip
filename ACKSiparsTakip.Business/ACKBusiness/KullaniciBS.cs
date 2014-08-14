@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using WebFrame.Business;
 using WebFrame.DataAccess;
 using WebFrame.DataType.Common.Attributes;
-using System;
+using WebFrame.DataType.Common.Logging;
 
 namespace ACKSiparisTakip.Business.ACKBusiness
 {
@@ -50,7 +51,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
             catch (Exception exc)
             {
-                //HataLogla
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "KullaniciTanimla", "", null);
                 return false;
             }
         }
@@ -69,7 +70,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
             catch (Exception exc)
             {
-                //HataLogla
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "KullaniciSil", "", null);
                 return false;
             }
         }
@@ -105,12 +106,9 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
             catch (Exception exc)
             {
-                //HataLogla
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "KullaniciSifreGuncelle", "", null);
                 return false;
             }
-
-
-
         }
     }
 }

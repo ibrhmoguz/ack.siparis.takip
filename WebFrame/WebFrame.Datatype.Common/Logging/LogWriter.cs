@@ -29,7 +29,7 @@ namespace WebFrame.DataType.Common.Logging
 
         internal static string sql = string.Empty;
 
-        private DataProvider database = DataProvider.Oracle;
+        private DataProvider database = DataProvider.SqlServer;
 
         /// <summary>
         /// BU constructor kullanılarak loglama yapılırsa default olarak Oracle veritabanına kayıt yapar.
@@ -46,6 +46,8 @@ namespace WebFrame.DataType.Common.Logging
                                  };
 
             //LogToOracle();
+            this.ConnectionStringName = "ACKconnectionString";
+            LogToSqlServer();
         }
         public LogWriter(string ConnectionStringName)
         {
@@ -101,10 +103,24 @@ namespace WebFrame.DataType.Common.Logging
         /// <param name="pageUrl">Hatanın oluştuğu sayfa</param>
         /// <param name="methodName">Hatanın oluştuğu metod</param>
         /// <param name="message">hata ile ilgili mesaj</param>
-        /// <param name="extendedProperties">Varsa extra parametreler</param>
-        public void Write(GumrukModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, params string[] extendedProperties)
+        public void Write(AppModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, string userName)
         {
-            Write(moduleId, eventType, ex, pageUrl, methodName, message, "", "", null, extendedProperties);
+            Write(moduleId, eventType, ex, pageUrl, methodName, message, "", "", null, null, userName);
+        }
+
+        /// <summary>
+        /// Oluşan hatayı veritabanına yazar.Eğer veritabanına yazılamıyorsa işletim sistemine ait eventlog tablosuna yazar.
+        /// </summary>
+        /// <param name="moduleId">Proje adı</param>
+        /// <param name="eventType">Loga yazılacak işlemin tipi</param>
+        /// <param name="ex">Oluşan hata (Exception)</param>
+        /// <param name="pageUrl">Hatanın oluştuğu sayfa</param>
+        /// <param name="methodName">Hatanın oluştuğu metod</param>
+        /// <param name="message">hata ile ilgili mesaj</param>
+        /// <param name="extendedProperties">Varsa extra parametreler</param>
+        public void Write(AppModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, string[] extendedProperties, string userName)
+        {
+            Write(moduleId, eventType, ex, pageUrl, methodName, message, "", "", null, extendedProperties, userName);
         }
 
         /// <summary>
@@ -118,9 +134,9 @@ namespace WebFrame.DataType.Common.Logging
         /// <param name="message">hata ile ilgili mesaj</param>
         /// <param name="kullaniciYetkileri">Varsa kişiye ait yetkiler</param>
         /// <param name="extendedProperties">Varsa extra parametreler</param>
-        public void Write(GumrukModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, DataSet kullaniciYetkileri, params string[] extendedProperties)
+        public void Write(AppModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, DataSet kullaniciYetkileri, string[] extendedProperties, string userName)
         {
-            Write(moduleId, eventType, ex, pageUrl, methodName, message, "", "", kullaniciYetkileri, extendedProperties);
+            Write(moduleId, eventType, ex, pageUrl, methodName, message, "", "", kullaniciYetkileri, extendedProperties, userName);
         }
 
         /// <summary>
@@ -134,9 +150,9 @@ namespace WebFrame.DataType.Common.Logging
         /// <param name="message">hata ile ilgili mesaj</param>
         /// <param name="kullaniciYetkileri">Varsa kişiye ait yetkiler</param>
         /// <param name="extendedProperties">Varsa extra parametreler</param>
-        public void Write(GumrukModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, string kullaniciSicil, string pcName, DataSet kullaniciYetkileri, params string[] extendedProperties)
+        public void Write(AppModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, string kullaniciSicil, string pcName, DataSet kullaniciYetkileri, string[] extendedProperties, string userName)
         {
-            var enumName = Enum.GetName(typeof(GumrukModules), moduleId);
+            var enumName = Enum.GetName(typeof(AppModules), moduleId);
             var eventName = Enum.GetName(typeof(EventLogEntryType), eventType);
             var parsedException = ParseException(ex);
             var yetkiler = ParseYetkiler(kullaniciYetkileri);
@@ -146,7 +162,7 @@ namespace WebFrame.DataType.Common.Logging
 
             if (!string.IsNullOrEmpty(this.ConnectionStringName))
             {
-                LogWriter.sql = string.Format("insert into {0}(MODULEID,EVENTLOGENTRYTYPEID,EXCEPTION,PAGEURL,METHODNAME,MESSAGE,USERIDENTITY,PCNAME,USERAUTHORITY,EXTENDEDPROPERTIES) values({1}p1,{1}p2,{1}p3,{1}p4,{1}p5,{1}p6,{1}p7,{1}p8,{1}p9,{1}p10)", logTableName, parameterMarker);
+                LogWriter.sql = string.Format("insert into {0}(MODULEID,EVENTLOGENTRYTYPEID,EXCEPTION,PAGEURL,METHODNAME,MESSAGE,USERIDENTITY,PCNAME,USERAUTHORITY,EXTENDEDPROPERTIES,USERNAME) values({1}p1,{1}p2,{1}p3,{1}p4,{1}p5,{1}p6,{1}p7,{1}p8,{1}p9,{1}p10,{1}p11)", logTableName, parameterMarker);
                 #region Veritabanı hazırlıkları
 
                 _command.Parameters.Clear();
@@ -161,6 +177,7 @@ namespace WebFrame.DataType.Common.Logging
                 AddParameter("p8", pcName, DbType.String);
                 AddParameter("p9", yetkiler, DbType.String);
                 AddParameter("p10", properties, DbType.String);
+                AddParameter("p11", userName, DbType.String);
 
                 try
                 {
@@ -270,11 +287,11 @@ namespace WebFrame.DataType.Common.Logging
 
         private void LogToSqlServer()
         {
-            _connection = new SqlConnection(Cryptography.Crytography.Decrypt(""));
+            _connection = new SqlConnection(ConfigurationManager.ConnectionStrings[this.ConnectionStringName].ToString());
             _command = new SqlCommand("");
             _command.Connection = _connection;
             parameterMarker = "@";
-            logTableName = "";
+            logTableName = "dbo.HATA";
             //auditTableName = "";
         }
 
@@ -433,7 +450,6 @@ namespace WebFrame.DataType.Common.Logging
         /// <param name="oldValue">tablodaki eski değer</param>
         /// <param name="newValue">tablodaki yeni değer</param>
         /// <param name="message">Varsa işlem ile ilgili mesaj</param>
-        [Obsolete("Tabloya ait auditing işlemleri için İmperva adında özel uygulama satın alınmıştır. Tüm Auditing işlemlerinin bu yazılım üzerinden takip edilmesi veritabanı üzerindeki yükün azaltılması için önemlidir. Bu sebeple auditing yapılacak tablo DBA bildirilip imperva üzerinden takip edilmelidir.")]
         public void WriteAudit(string tableName, string rowID, string columnName, TableOperations operation, string user, string projectName, string oldValue, string newValue, string message)
         {
             //LogWriter.sql = string.Format("insert into {0}(TABLENAME,CHANGEDROWID,COLUMNNAME,TABLEOPERATIONID,USERNAME,PROJECTNAME,OLDVALUE,NEWVALUE,MESSAGE) values({1}p1,{1}p2,{1}p3,{1}p4,{1}p5,{1}p6,{1}p7,{1}p8,{1}p9)", auditTableName, parameterMarker);

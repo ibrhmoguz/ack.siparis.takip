@@ -323,7 +323,7 @@ namespace WebFrame.Business
         /// <param name="message">hata ile ilgili mesaj</param>
         /// <param name="yetkiler">Varsa kiþiye ait yetkiler</param>
         /// <param name="extraParameters">Varsa extra parametreler</param>
-        protected void Log(GumrukModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, DataSet yetkiler, params string[] extraParameters)
+        protected void Log(AppModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, DataSet yetkiler, params string[] extraParameters)
         {
             Log(moduleId, eventType, ex,pageUrl, methodName, message, "", "", yetkiler, extraParameters);
         }
@@ -338,7 +338,7 @@ namespace WebFrame.Business
         /// <param name="methodName">Hatanýn oluþtuðu metod</param>
         /// <param name="message">hata ile ilgili mesaj</param>
         /// <param name="extraParameters">Varsa extra parametreler</param>
-        protected void Log(GumrukModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, params string[] extraParameters)
+        protected void Log(AppModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, params string[] extraParameters)
         {
             Log(moduleId, eventType, ex, pageUrl, methodName, message, "", "", null, extraParameters);
 
@@ -357,12 +357,12 @@ namespace WebFrame.Business
         /// <param name="pcName">Ýþlemi yapan kullanýcýya ait pc adý</param>
         /// <param name="yetkiler">Varsa kiþiye ait yetkiler</param>
         /// <param name="extraParameters">Varsa extra parametreler</param>
-        protected void Log(GumrukModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, string kullaniciSicil, string pcName, DataSet yetkiler, params string[] extraParameters)
+        protected void Log(AppModules moduleId, EventLogEntryType eventType, Exception ex, string pageUrl, string methodName, string message, string kullaniciSicil, string pcName, DataSet yetkiler, params string[] extraParameters)
         {
             if(Logger==null)
                 Logger = new LogWriter(GetServiceConfiguration().DataProvider);
 
-            Logger.Write(moduleId, eventType, ex, pageUrl, methodName, message, kullaniciSicil, pcName, yetkiler, extraParameters);
+            Logger.Write(moduleId, eventType, ex, pageUrl, methodName, message, kullaniciSicil, pcName, yetkiler, extraParameters, "");
         }
 
         /// <summary>
