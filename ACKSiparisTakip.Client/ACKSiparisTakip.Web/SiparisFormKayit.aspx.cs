@@ -83,6 +83,13 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlContaRengi, dtContaRenk);
             DropDownBindEt(ddlOlcumAlan, dtPersonel);
 
+            Kontrol();
+
+        }
+
+        private void Kontrol()
+        {
+            throw new NotImplementedException();
         }
 
         private void DropDownBindEt(Telerik.Web.UI.RadDropDownList ddl, DataTable dt)

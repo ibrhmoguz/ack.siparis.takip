@@ -146,20 +146,24 @@
                 <th style="width: 20%">İç Kapı Modeli :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlIcKapiModeli" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadTextBox ID="txtIcKapiModeli" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <th style="width: 20%">Dış Kapı Modeli :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlDisKapiModeli" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadTextBox ID="txtDisKapiModeli" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
                 <th>İç Kapı Rengi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlIcKapiRengi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadTextBox ID="txtIcKapiRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <th>Dış Kapı Rengi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlDisKapiRengi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadTextBox ID="txtDisKapiRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
@@ -186,7 +190,7 @@
                     <telerik:RadTextBox ID="txtAksesuarRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
-            <tr>
+            <tr runat="server" id="guard1">
                 <th>Aluminyum Rengi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlAluminyumRengi" runat="server"></telerik:RadDropDownList>
@@ -195,17 +199,20 @@
                 <th>Conta Rengi :</th>
                 <td colspan="3">
                     <telerik:RadDropDownList ID="ddlContaRengi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadTextBox ID="txtContaRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
 
-            <tr>
+            <tr runat="server" id="guard2">
                 <th>Taç Tipi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlTacTipi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadTextBox ID="txtTacTipi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <th>Pervaz Tipi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlPervazTipi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadTextBox ID="txtPervazTipi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
 
             </tr>
@@ -291,6 +298,7 @@
                             <th style="width: 20%">Ölçümü Alan Kişi : </th>
                             <td>
                                 <telerik:RadDropDownList ID="ddlOlcumAlan" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadTextBox ID="txtOlcumAlan" runat="server" Visible="false"></telerik:RadTextBox>
                             </td>
 
                         </tr>
@@ -299,6 +307,7 @@
                             <th>Montaj Şekli </th>
                             <td>
                                 <telerik:RadDropDownList ID="ddlMontajSekli" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadTextBox ID="txtMontajSekli" runat="server" Visible="false"></telerik:RadTextBox>
 
                             </td>
 
@@ -307,6 +316,7 @@
                             <th>Teslim Şekli </th>
                             <td>
                                 <telerik:RadDropDownList ID="ddlTeslimSekli" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadTextBox ID="txtTeslimSekli" runat="server" Visible="false"></telerik:RadTextBox>
                             </td>
                         </tr>
                         <tr>
@@ -395,7 +405,7 @@
              <tr>
                 <th>Vergi Numarası : </th>
                 <td>
-                    <telerik:RadTextBox ID="RadTextBox1" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtVergiNumarasi" runat="server"></telerik:RadTextBox>
                 </td>
             </tr>
             
