@@ -55,11 +55,34 @@ namespace ACKSiparisTakip.Web
 
             DataTable dtKapiModeli = ds.Tables["KAPIMODELI"];
             DataTable dtKapiRenk = ds.Tables["KAPIRENK"];
+            DataTable dtKilitSistem = ds.Tables["KILITSISTEM"];
+            DataTable dtCita = ds.Tables["CITA"];
+            DataTable dtEsik = ds.Tables["ESIK"];
+            DataTable dtAksesuarRenk= ds.Tables["AKSESUARRENK"];
+            DataTable dtMontajSekli = ds.Tables["MONTAJSEKLI"];
+            DataTable dtTeslimSekli = ds.Tables["TESLIMSEKLI"];
+            DataTable dtAluminyumRenk = ds.Tables["ALUMINYUMRENK"];
+            DataTable dtTacTip = ds.Tables["TACTIP"];
+            DataTable dtPervazTip = ds.Tables["PERVAZTIP"];
+            DataTable dtContaRenk = ds.Tables["CONTARENK"];
+            DataTable dtPersonel = ds.Tables["PERSONEL"];
 
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
-            DropDownBindEt(ddlIcKapiRengi, dtKapiModeli);
-            DropDownBindEt(ddlDisKapiRengi, dtKapiModeli);
+            DropDownBindEt(ddlIcKapiRengi, dtKapiRenk);
+            DropDownBindEt(ddlDisKapiRengi, dtKapiRenk);
+            DropDownBindEt(ddlKilitSistemi, dtKilitSistem);
+            DropDownBindEt(ddlCita, dtCita);
+            DropDownBindEt(ddlEsik, dtEsik);
+            DropDownBindEt(ddlAksesuarRengi, dtAksesuarRenk);
+            DropDownBindEt(ddlMontajSekli, dtMontajSekli);
+            DropDownBindEt(ddlTeslimSekli, dtTeslimSekli);
+            DropDownBindEt(ddlAluminyumRengi, dtAluminyumRenk);
+            DropDownBindEt(ddlTacTipi, dtTacTip);
+            DropDownBindEt(ddlPervazTipi, dtPervazTip);
+            DropDownBindEt(ddlContaRengi, dtContaRenk);
+            DropDownBindEt(ddlOlcumAlan, dtPersonel);
+
         }
 
         private void DropDownBindEt(Telerik.Web.UI.RadDropDownList ddl, DataTable dt)
@@ -69,6 +92,9 @@ namespace ACKSiparisTakip.Web
             ddl.DataValueField = "ID";
             ddl.DataBind();
             ddl.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+            ddl.Items.Insert(dt.Rows.Count + 1, new Telerik.Web.UI.DropDownListItem("Diğer", "Diger"));
+          
+        
         }
     }
 }
