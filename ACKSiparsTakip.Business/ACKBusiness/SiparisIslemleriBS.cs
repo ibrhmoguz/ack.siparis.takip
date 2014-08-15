@@ -28,7 +28,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(TacTipGetir(prms));
             ds.Tables.Add(PervazTipGetir(prms));
             ds.Tables.Add(ContaRenkGetir(prms));
-            ds.Tables.Add(PersonelListesiGetir());
+            ds.Tables.Add(new PersonelBS().PersonelleriGetir());
             return ds;
         }
 
@@ -220,18 +220,6 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             data.GetRecords(dt, sqlText);
 
             return dt;
-        }
-
-        public DataTable PersonelListesiGetir()
-        {
-            DataTable dt = new DataTable();
-            dt.TableName = "PERSONEL";
-            IData data = GetDataObject();
-
-            string sqlText = @"SELECT ID,AD+SOYAD AS AD FROM PERSONELBILGI ORDER BY 2";
-            data.GetRecords(dt, sqlText);
-            return dt;
-
         }
     }
 }

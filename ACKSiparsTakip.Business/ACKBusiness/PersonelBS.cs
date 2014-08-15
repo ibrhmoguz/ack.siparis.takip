@@ -15,7 +15,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
-            string sqlText = @"SELECT ID, AD, SOYAD FROM PERSONELBILGI ORDER BY 1";
+            string sqlText = @"SELECT ID, AD+' ' +SOYAD AS AD FROM PERSONELBILGI ORDER BY 1";
             data.GetRecords(dt, sqlText);
             return dt;
 
