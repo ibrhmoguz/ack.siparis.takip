@@ -44,13 +44,11 @@
             <ItemTemplate>
                 <tr>
                     <td>
-                        <%--<input id="Id" runat="server" value='<%# DataBinder.Eval(Container.DataItem, "ID") %>' type="hidden" visible="false"/>--%>
                         <input id="Ad" runat="server" value='<%# DataBinder.Eval(Container.DataItem, "AD") %>' type="hidden" />
                         <input id="Soyad" runat="server" value='<%# DataBinder.Eval(Container.DataItem, "SOYAD") %>' type="hidden" />
                         <asp:LinkButton OnClientClick=" return confirm('Silmek istediğinize emin misiniz?') " ID="LB_Sil" CommandName="Delete" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID") %>' runat="server">Sil</asp:LinkButton>
 
                     </td>
-                <%--    <td><%# DataBinder.Eval(Container.DataItem, "ID") %></td>--%>
                     <td><%# DataBinder.Eval(Container.DataItem, "AD") %></td>
                     <td><%# DataBinder.Eval(Container.DataItem, "SOYAD") %></td>
                 </tr>

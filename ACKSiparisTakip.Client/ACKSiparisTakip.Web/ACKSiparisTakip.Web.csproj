@@ -108,6 +108,7 @@
     <Content Include="bin\WebFrame.DataType.Common.pdb" />
     <Content Include="DBScripts\AppDBScripts.sql" />
     <Content Include="deneme.aspx" />
+    <Content Include="FormOgeGuncelleme.aspx" />
     <Content Include="Global.asax" />
     <Content Include="IsTakvimi.aspx" />
     <Content Include="KullaniciTanimlama.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="ACKMasterPage.Master.designer.cs">
       <DependentUpon>ACKMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FormOgeGuncelleme.aspx.cs">
+      <DependentUpon>FormOgeGuncelleme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormOgeGuncelleme.aspx.designer.cs">
+      <DependentUpon>FormOgeGuncelleme.aspx</DependentUpon>
     </Compile>
     <Compile Include="Helper\MessageBox.cs" />
     <Compile Include="IsTakvimi.aspx.cs">

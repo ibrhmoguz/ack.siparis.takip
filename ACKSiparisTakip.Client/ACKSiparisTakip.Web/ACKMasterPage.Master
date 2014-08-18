@@ -81,11 +81,16 @@
                         <telerik:RibbonBarButton ID="rbbPersonelEkle" Size="Large" Text="PERSONEL" ToolTip="Personel eklemek ya da silmek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/personelEkle.png" CommandName="PersonelEkle" />
                     </Items>
                 </telerik:RibbonBarGroup>
+                <telerik:RibbonBarGroup Text="Form Öğelerini Güncelleme">
+                    <Items>
+                        <telerik:RibbonBarButton ID="rbbFormOgeGuncelle" Size="Large" Text="DÜZENLE" ToolTip="Form öğelerini düzenlemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="FormOgeGuncelle" />
+                    </Items>
+                </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
             <telerik:RibbonBarTab Text="ŞİFRE GÜNCELLEME">
                 <telerik:RibbonBarGroup Text="Şifre Güncelleme">
                     <Items>
-                        <telerik:RibbonBarButton ID="rbbSifreGuncelle" Size="Large" Text="Güncelleme" ToolTip="Şifrenizi güncellemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="SifreGuncelle" />
+                        <telerik:RibbonBarButton ID="rbbSifreGuncelle" Size="Large" Text="GÜNCELLEME" ToolTip="Şifrenizi güncellemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="SifreGuncelle" />
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>

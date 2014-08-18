@@ -22,7 +22,7 @@ namespace ACKSiparisTakip.Web
 
         private void PersonelDoldur()
         {
-            RP_Personel.DataSource = new PersonelBS().PersonelleriGetir();
+            RP_Personel.DataSource = new PersonelBS().PersonelListesiGetirGenel();
             RP_Personel.DataBind();
         }
 
