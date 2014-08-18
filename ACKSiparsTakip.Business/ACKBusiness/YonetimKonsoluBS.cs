@@ -22,6 +22,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
+            dt.TableName = "REF_KAPIRENK";
 
            string sqlText = @"SELECT * FROM REF_KAPIRENK";
             data.GetRecords(dt, sqlText);

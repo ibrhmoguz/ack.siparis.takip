@@ -45,12 +45,21 @@
                                 <telerik:GridEditCommandColumn ButtonType="ImageButton" UniqueName="EditCommandColumn">
                                 </telerik:GridEditCommandColumn>
                                 <telerik:GridBoundColumn DataField="ID" HeaderText="ID" SortExpression="ID"
-                                    UniqueName="ID" Visible="false" >
+                                    UniqueName="ID" Visible="false">
                                 </telerik:GridBoundColumn>
                                 <telerik:GridBoundColumn DataField="AD" HeaderText="AD" SortExpression="AD"
                                     UniqueName="AD">
-                                </telerik:GridBoundColumn>                               
-                                <telerik:GridButtonColumn Text="Sil" CommandName="Delete" ButtonType="ImageButton" />
+                                </telerik:GridBoundColumn>  
+                                <telerik:GridBoundColumn DataField="NOVA" HeaderText="NOVA"
+                                    UniqueName="NOVA">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="KROMA" HeaderText="KROMA"
+                                    UniqueName="KROMA">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="GUARD" HeaderText="GUARD"
+                                    UniqueName="GUARD">
+                                </telerik:GridBoundColumn>                             
+                                <telerik:GridButtonColumn Text="Delete" CommandName="Delete" ButtonType="ImageButton" />
                             </Columns>
                             <EditFormSettings>
                                 <EditColumn ButtonType="ImageButton" />

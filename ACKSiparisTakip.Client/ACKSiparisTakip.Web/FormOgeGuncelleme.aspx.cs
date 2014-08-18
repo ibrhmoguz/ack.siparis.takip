@@ -54,7 +54,7 @@ namespace ACKSiparisTakip.Web
 
             DataView dv = ds.Tables[tabloAdi].DefaultView;
             RadGrid1.DataSource = dv;
-
+            RadGrid1.DataBind();
         }
 
         protected void RadGrid1_ItemCreated(object sender, Telerik.Web.UI.GridItemEventArgs e)
@@ -76,12 +76,12 @@ namespace ACKSiparisTakip.Web
             {
 
                 e.ExceptionHandled = true;
-                SetMessage("hata " + e.Exception.Message);
+                SetMessage("Customer cannot be inserted. Reason: " + e.Exception.Message);
 
             }
             else
             {
-                SetMessage("eklendi");
+                SetMessage("New customer is inserted!");
             }
         }
         private void DisplayMessage(string text)
