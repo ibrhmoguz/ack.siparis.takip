@@ -81,6 +81,11 @@
                         <telerik:RibbonBarButton ID="rbbPersonelEkle" Size="Large" Text="PERSONEL" ToolTip="Personel eklemek ya da silmek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/personelEkle.png" CommandName="PersonelEkle" />
                     </Items>
                 </telerik:RibbonBarGroup>
+                <telerik:RibbonBarGroup Text="">
+                    <Items>
+                        <telerik:RibbonBarButton ID="rbbHatalar" Size="Large" Text="HATA LOG" ToolTip="Uygulamada alınan hataları görmek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/hataLog.png" CommandName="HataListesi" />
+                    </Items>
+                </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
             <telerik:RibbonBarTab Text="ŞİFRE GÜNCELLEME">
                 <telerik:RibbonBarGroup Text="Şifre Güncelleme">

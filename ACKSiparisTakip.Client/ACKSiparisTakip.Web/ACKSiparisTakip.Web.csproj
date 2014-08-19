@@ -78,6 +78,7 @@
     <Content Include="App_Themes\Theme\Raster\guard.png" />
     <Content Include="App_Themes\Theme\Raster\guardKapiOrta.png" />
     <Content Include="App_Themes\Theme\Raster\guncelle.png" />
+    <Content Include="App_Themes\Theme\Raster\hataLog.png" />
     <Content Include="App_Themes\Theme\Raster\kroma.png" />
     <Content Include="App_Themes\Theme\Raster\KromaKapiOrta.png" />
     <Content Include="App_Themes\Theme\Raster\kullaniciEkle.png" />
@@ -109,6 +110,7 @@
     <Content Include="DBScripts\AppDBScripts.sql" />
     <Content Include="deneme.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Hatalar.aspx" />
     <Content Include="IsTakvimi.aspx" />
     <Content Include="KullaniciTanimlama.aspx" />
     <Content Include="Login.aspx" />
@@ -130,6 +132,13 @@
     </Compile>
     <Compile Include="ACKMasterPage.Master.designer.cs">
       <DependentUpon>ACKMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Hatalar.aspx.cs">
+      <DependentUpon>Hatalar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hatalar.aspx.designer.cs">
+      <DependentUpon>Hatalar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Helper\MessageBox.cs" />
     <Compile Include="IsTakvimi.aspx.cs">

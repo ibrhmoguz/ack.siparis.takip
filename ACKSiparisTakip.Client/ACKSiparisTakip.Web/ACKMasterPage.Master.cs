@@ -32,7 +32,8 @@ namespace ACKSiparisTakip.Web
             }
             else if (url.Contains("YonetimKonsolu") ||
                      url.Contains("KullaniciTanimlama") ||
-                     url.Contains("PersonelTanimlama"))
+                     url.Contains("PersonelTanimlama") ||
+                     url.Contains("Hatalar"))
             {
                 RadRibbonBarMenu.SelectedTabIndex = 2;
             }
@@ -61,42 +62,51 @@ namespace ACKSiparisTakip.Web
             string urlSifre = "SifreGuncelleme.aspx";
             string urlSiparisSorgula = "SiparisSorgula.aspx";
             string urlMontajSorgula = "MontajSorgula.aspx";
+            string urlHatalar = "Hatalar.aspx";
 
             switch (e.CommandName)
             {
                 case "SiparisEkleNova":
-                    Response.Redirect(urlSiparisFormKayit + KapiTipi.Nova.ToString());
+                    NavigateUrl(urlSiparisFormKayit + KapiTipi.Nova.ToString());
                     break;
                 case "SiparisEkleKroma":
-                    Response.Redirect(urlSiparisFormKayit + KapiTipi.Kroma.ToString());
+                    NavigateUrl(urlSiparisFormKayit + KapiTipi.Kroma.ToString());
                     break;
                 case "SiparisEkleGuard":
-                    Response.Redirect(urlSiparisFormKayit + KapiTipi.Guard.ToString());
+                    NavigateUrl(urlSiparisFormKayit + KapiTipi.Guard.ToString());
                     break;
                 case "KullaniciEkle":
-                    Response.Redirect(urlKullanici);
+                    NavigateUrl(urlKullanici);
                     break;
                 case "PersonelEkle":
-                    Response.Redirect(urlPersonel);
+                    NavigateUrl(urlPersonel);
                     break;
                 case "IsTakvimiGoruntule":
-                    Response.Redirect(urlIsTakvimi);
+                    NavigateUrl(urlIsTakvimi);
                     break;
                 case "SiparisGuncelle":
-                    Response.Redirect(urlSiparisFormGuncelle);
+                    NavigateUrl(urlSiparisFormGuncelle);
                     break;
                 case "SifreGuncelle":
-                    Response.Redirect(urlSifre);
+                    NavigateUrl(urlSifre);
                     break;
                 case "SiparisSorgula":
-                    Response.Redirect(urlSiparisSorgula);
+                    NavigateUrl(urlSiparisSorgula);
                     break;
                 case "MontajSorgula":
-                    Response.Redirect(urlMontajSorgula);
+                    NavigateUrl(urlMontajSorgula);
+                    break;
+                case "HataListesi":
+                    NavigateUrl(urlHatalar);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void NavigateUrl(string url)
+        {
+            Response.Redirect(url);
         }
     }
 }
