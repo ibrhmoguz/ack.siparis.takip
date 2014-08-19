@@ -46,6 +46,7 @@ namespace ACKSiparisTakip.Web
             string tabloAdi = ddlOge.SelectedValue.ToString();
             Session["TabloAdi"] = tabloAdi;
             GridDoldur(tabloAdi);
+            trKayitEkle.Visible = true;
         }
 
         public void GridDoldur(string tabloAdi)
@@ -55,11 +56,11 @@ namespace ACKSiparisTakip.Web
                 return;
 
             DataView dv = ds.Tables[tabloAdi].DefaultView;
-            RadGrid1.DataSource = dv;
-            RadGrid1.DataBind();
+            rgOgeler1.DataSource = dv;
+            rgOgeler1.DataBind();
         }
 
-        protected void RadGrid1_ItemCommand(object sender, GridCommandEventArgs e)
+        protected void rgOgeler1_ItemCommand(object sender, GridCommandEventArgs e)
         {
             bool sonuc = false;
             string tabloAdi = Session["TabloAdi"].ToString();
@@ -88,6 +89,11 @@ namespace ACKSiparisTakip.Web
         protected void btnEkle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void lbYeniKayit_Click(object sender, EventArgs e)
+        {
+            tbKayitEkle.Visible = true;
         }
 
         

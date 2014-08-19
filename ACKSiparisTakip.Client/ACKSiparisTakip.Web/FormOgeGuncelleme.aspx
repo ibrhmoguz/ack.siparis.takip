@@ -12,7 +12,7 @@
         <br />
         <table class="AnaTablo">
             <tr>
-                <th colspan="2" style="text-align: center; font-size: large;">FORM ÖĞELERİ<br /> 
+                <th colspan="2" style="text-align: center; font-size: large;">FORM ÖĞELERİ<br />
                 </th>
             </tr>
             <tr>
@@ -21,11 +21,13 @@
                     <telerik:RadDropDownList ID="ddlOge" runat="server" OnSelectedIndexChanged="ddlOge_SelectedIndexChanged" AutoPostBack="True"></telerik:RadDropDownList>
                 </td>
             </tr>
-            <tr><td colspan="2"> </td></tr>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
             <tr>
                 <td colspan="2">
 
-                    <telerik:RadGrid ID="RadGrid1" runat="server" AllowPaging="True" OnItemCommand="RadGrid1_ItemCommand">
+                    <telerik:RadGrid ID="rgOgeler1" runat="server" AllowPaging="True" OnItemCommand="rgOgeler1_ItemCommand">
 
                         <MasterTableView AutoGenerateColumns="False" DataKeyNames="ID">
                             <Columns>
@@ -53,16 +55,15 @@
                     </telerik:RadGrid>
                 </td>
             </tr>
-            <tr id="trKayitEkle" runat="server">
+            <tr id="trKayitEkle" runat="server" visible="false">
                 <td colspan="2">
                     <br />
-                    <asp:LinkButton ID="lbYeniKayit" runat="server"> Yeni Kayıt İçin Tıklayınız </asp:LinkButton>
+                    <asp:LinkButton ID="lbYeniKayit" runat="server" OnClick="lbYeniKayit_Click"> Yeni Kayıt İçin Tıklayınız </asp:LinkButton>
                 </td>
             </tr>
-
             <tr>
                 <td colspan="2">
-                    <table runat="server" id="tbKayitEkle">
+                    <table runat="server" id="tbKayitEkle" visible="false">
                         <tr>
                             <th style="width: 10%;">Ad :</th>
                             <td style="width: 30%;">
@@ -76,17 +77,15 @@
                                     <asp:ListItem>Guard</asp:ListItem>
                                 </asp:CheckBoxList>
                             </td>
-                            <td> 
+                            <td>
                                 <telerik:RadButton ID="rbKayitEkle" runat="server" Text="Ekle" OnClick="btnEkle_Click">
-                        <Icon PrimaryIconCssClass="rbAdd" PrimaryIconLeft="4" PrimaryIconTop="3" />
-                    </telerik:RadButton>
+                                    <Icon PrimaryIconCssClass="rbAdd" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                                </telerik:RadButton>
                             </td>
                         </tr>
                     </table>
                 </td>
-
             </tr>
-
         </table>
     </div>
 </asp:Content>
