@@ -28,7 +28,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(TacTipGetir(prms));
             ds.Tables.Add(PervazTipGetir(prms));
             ds.Tables.Add(ContaRenkGetir(prms));
-            ds.Tables.Add(new PersonelBS().PersonelleriGetir());
+            ds.Tables.Add(new PersonelBS().PersonelListesiGetir());
             return ds;
         }
 

@@ -10,7 +10,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
     [ServiceConnectionNameAttribute("ACKconnectionString")]
     public class PersonelBS : BusinessBase
     {
-        public DataTable PersonelleriGetir()
+        public DataTable PersonelListesiGetir()
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
@@ -20,6 +20,18 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             return dt;
 
         }
+
+        public DataTable PersonelListesiGetirGenel()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            string sqlText = @"SELECT ID,AD,SOYAD  FROM PERSONELBILGI ORDER BY 1";
+            data.GetRecords(dt, sqlText);
+            return dt;
+
+        }
+
         public bool PersonelTanimla(Dictionary<string, object> prms)
         {
             try

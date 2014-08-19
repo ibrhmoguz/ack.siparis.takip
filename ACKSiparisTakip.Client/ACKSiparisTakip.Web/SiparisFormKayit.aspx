@@ -190,7 +190,7 @@
                     <telerik:RadTextBox ID="txtAksesuarRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
-            <tr runat="server" id="guard1">
+            <tr runat="server" id="trGuard1" visible="false">
                 <th>Aluminyum Rengi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlAluminyumRengi" runat="server"></telerik:RadDropDownList>
@@ -203,7 +203,7 @@
                 </td>
             </tr>
 
-            <tr runat="server" id="guard2">
+            <tr runat="server" id="trGuard2" visible="false">
                 <th>Taç Tipi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlTacTipi" runat="server"></telerik:RadDropDownList>

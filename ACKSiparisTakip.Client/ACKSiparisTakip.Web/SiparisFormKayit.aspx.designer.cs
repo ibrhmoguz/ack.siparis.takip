@@ -283,13 +283,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadTextBox txtAksesuarRengi;
         
         /// <summary>
-        /// guard1 control.
+        /// trGuard1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow guard1;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trGuard1;
         
         /// <summary>
         /// ddlAluminyumRengi control.
@@ -328,13 +328,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadTextBox txtContaRengi;
         
         /// <summary>
-        /// guard2 control.
+        /// trGuard2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow guard2;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trGuard2;
         
         /// <summary>
         /// ddlTacTipi control.

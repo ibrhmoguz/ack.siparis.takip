@@ -87,11 +87,6 @@ namespace ACKSiparisTakip.Web
 
         }
 
-        private void Kontrol()
-        {
-            throw new NotImplementedException();
-        }
-
         private void DropDownBindEt(Telerik.Web.UI.RadDropDownList ddl, DataTable dt)
         {
             ddl.DataSource = dt;
@@ -99,9 +94,21 @@ namespace ACKSiparisTakip.Web
             ddl.DataValueField = "ID";
             ddl.DataBind();
             ddl.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
-            ddl.Items.Insert(dt.Rows.Count + 1, new Telerik.Web.UI.DropDownListItem("Diğer", "Diger"));
-          
-        
+
+            if (dt!=null)
+            {
+                ddl.Items.Insert(dt.Rows.Count + 1, new Telerik.Web.UI.DropDownListItem("Diğer", "Diger"));
+            }
+        }
+
+        private void Kontrol()
+        {
+            if (this.KapiTip.ToString() == "Guard")
+            {
+                trGuard1.Visible = true;
+                trGuard2.Visible = true;
+            }
+
         }
     }
 }

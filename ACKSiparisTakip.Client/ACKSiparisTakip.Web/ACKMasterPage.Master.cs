@@ -33,7 +33,8 @@ namespace ACKSiparisTakip.Web
             else if (url.Contains("YonetimKonsolu") ||
                      url.Contains("KullaniciTanimlama") ||
                      url.Contains("PersonelTanimlama") ||
-                     url.Contains("Hatalar"))
+                     url.Contains("Hatalar") ||
+                     url.Contains("FormOgeGuncelleme"))
             {
                 RadRibbonBarMenu.SelectedTabIndex = 2;
             }
@@ -58,6 +59,7 @@ namespace ACKSiparisTakip.Web
             string urlSiparisFormGuncelle = "SiparisFormGuncelle.aspx?SiparisNo=" + siparisNo;
             string urlKullanici = "KullaniciTanimlama.aspx";
             string urlPersonel = "PersonelTanimlama.aspx";
+            string urlFormOgeGuncelle = "FormOgeGuncelleme.aspx";
             string urlIsTakvimi = "IsTakvimi.aspx";
             string urlSifre = "SifreGuncelleme.aspx";
             string urlSiparisSorgula = "SiparisSorgula.aspx";
@@ -80,6 +82,9 @@ namespace ACKSiparisTakip.Web
                     break;
                 case "PersonelEkle":
                     NavigateUrl(urlPersonel);
+                    break;
+                case "FormOgeGuncelle":
+                    Response.Redirect(urlFormOgeGuncelle);
                     break;
                 case "IsTakvimiGoruntule":
                     NavigateUrl(urlIsTakvimi);
