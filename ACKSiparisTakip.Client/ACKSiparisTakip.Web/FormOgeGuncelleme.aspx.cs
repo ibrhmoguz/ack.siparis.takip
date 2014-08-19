@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ACKSiparisTakip.Business.ACKBusiness;
+using ACKSiparisTakip.Web.Helper;
 using Telerik.Web.UI;
 
 namespace ACKSiparisTakip.Web
@@ -43,6 +44,7 @@ namespace ACKSiparisTakip.Web
         protected void ddlOge_SelectedIndexChanged(object sender, DropDownListEventArgs e)
         {
             string tabloAdi = ddlOge.SelectedValue.ToString();
+            Session["TabloAdi"] = tabloAdi;
             GridDoldur(tabloAdi);
         }
 
@@ -57,56 +59,38 @@ namespace ACKSiparisTakip.Web
             RadGrid1.DataBind();
         }
 
-        protected void RadGrid1_ItemCreated(object sender, Telerik.Web.UI.GridItemEventArgs e)
+        protected void RadGrid1_ItemCommand(object sender, GridCommandEventArgs e)
         {
-            if (e.Item is GridEditableItem && e.Item.IsInEditMode)
+            bool sonuc = false;
+            string tabloAdi = Session["TabloAdi"].ToString();
+
+            if (e.CommandName == "Delete")
             {
-                if (!(e.Item is GridEditFormInsertItem))
+                string id = (e.Item as GridDataItem).GetDataKeyValue("ID").ToString(); 
+                Dictionary<string, object> prms = new Dictionary<string, object>();
+                prms.Add("TABLOADI", tabloAdi);
+                prms.Add("ID", id);
+                sonuc = new YonetimKonsoluBS().OgeSil(prms);
+
+                if (sonuc)
                 {
-                    GridEditableItem item = e.Item as GridEditableItem;
-                    GridEditManager manager = item.EditManager;
-                    GridTextBoxColumnEditor editor = manager.GetColumnEditor("ID") as GridTextBoxColumnEditor;
-                    editor.TextBoxControl.Enabled = false;
+                    GridDoldur(tabloAdi);
+                    MessageBox.Basari(this, "Seçiminiz silindi.");
+                }
+                else
+                {
+                    MessageBox.Hata(this, "Silme işleminde hata oluştu!");
                 }
             }
+
         }
-        protected void RadGrid1_ItemInserted(object source, GridInsertedEventArgs e)
+
+        protected void btnEkle_Click(object sender, EventArgs e)
         {
-            if (e.Exception != null)
-            {
 
-                e.ExceptionHandled = true;
-                SetMessage("Customer cannot be inserted. Reason: " + e.Exception.Message);
-
-            }
-            else
-            {
-                SetMessage("New customer is inserted!");
-            }
-        }
-        private void DisplayMessage(string text)
-        {
-            RadGrid1.Controls.Add(new LiteralControl(string.Format("<span style='color:red'>{0}</span>", text)));
         }
 
-        private void SetMessage(string message)
-        {
-            gridMessage = message;
-        }
-
-        private string gridMessage = null;
-
-        protected void RadGrid1_PreRender(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(gridMessage))
-            {
-                DisplayMessage(gridMessage);
-            }
-        }
-
-
-
-
+        
 
     }
 }
