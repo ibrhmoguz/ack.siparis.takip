@@ -72,9 +72,9 @@
                             <th style="width: 15%;">Kapı Türü :</th>
                             <td>
                                 <asp:CheckBoxList ID="cbxKapiTuru" runat="server" AutoPostBack="True" RepeatDirection="Horizontal">
-                                    <asp:ListItem>Nova</asp:ListItem>
-                                    <asp:ListItem>Kroma</asp:ListItem>
-                                    <asp:ListItem>Guard</asp:ListItem>
+                                    <asp:ListItem Value="N">Nova</asp:ListItem>
+                                    <asp:ListItem Value="K">Kroma</asp:ListItem>
+                                    <asp:ListItem Value="G"> Guard</asp:ListItem>
                                 </asp:CheckBoxList>
                             </td>
                             <td>

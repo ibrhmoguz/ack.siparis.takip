@@ -430,7 +430,19 @@
                 
             </tr>
             <tr><td colspan="4"> <br /> <br /> <br /> </td></tr>
+            
         </table>
         <br />
+        <table class="AnaTablo">
+            <tr>
+                <td style="text-align:right"> <br />
+                     <telerik:RadButton ID="btnKaydet" runat="server" Text="Kaydet" >
+                        <Icon PrimaryIconCssClass="rbSave" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                    </telerik:RadButton>
+                    <br />
+                </td>
+
+            </tr>
+        </table>
     </div>
 </asp:Content>

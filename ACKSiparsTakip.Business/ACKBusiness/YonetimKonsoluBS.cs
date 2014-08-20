@@ -16,7 +16,17 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             DataSet ds = new DataSet();
 
             ds.Tables.Add(KapiRenkGetir());
-       
+            ds.Tables.Add(KilitSistemiGetir());
+            ds.Tables.Add(CitaGetir());
+            ds.Tables.Add(EsikGetir());
+            ds.Tables.Add(AksesuarRenkGetir());
+            ds.Tables.Add(AluminyumRenkGetir());
+            ds.Tables.Add(ContaRenkGetir());
+            ds.Tables.Add(TacTipiGetir());
+            ds.Tables.Add(PervazTipiGetir());
+            ds.Tables.Add(MontajSekliGetir());
+            ds.Tables.Add(TeslimSekliGetir());
+              
             return ds;
         }
 
@@ -32,6 +42,126 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             return dt;
         }
 
+        private DataTable KilitSistemiGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_KILITSISTEM";
+
+            string sqlText = @"SELECT * FROM REF_KILITSISTEM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable CitaGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_CITA";
+
+            string sqlText = @"SELECT * FROM REF_CITA";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable EsikGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_ESIK";
+
+            string sqlText = @"SELECT * FROM REF_ESIK";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable AksesuarRenkGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_AKSESUARRENK";
+
+            string sqlText = @"SELECT * FROM REF_AKSESUARRENK";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable AluminyumRenkGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_ALUMINYUMRENK";
+
+            string sqlText = @"SELECT * FROM REF_ALUMINYUMRENK";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable ContaRenkGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_CONTARENK";
+
+            string sqlText = @"SELECT * FROM REF_CONTARENK";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable TacTipiGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_TACTIP";
+
+            string sqlText = @"SELECT * FROM REF_TACTIP";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable PervazTipiGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_PERVAZTIP";
+
+            string sqlText = @"SELECT * FROM REF_PERVAZTIP";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable MontajSekliGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_MONTAJSEKLI";
+
+            string sqlText = @"SELECT * FROM REF_MONTAJSEKLI";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable TeslimSekliGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_TESLIMSEKLI";
+
+            string sqlText = @"SELECT * FROM REF_TESLIMSEKLI";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+        
         public DataTable TabloAdlariGetir()
         {
             DataTable dt = new DataTable();
@@ -58,11 +188,34 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
             catch (Exception exc)
             {
-                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "KullaniciSil", "", null);
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "OgeSil", "", null);
                 return false;
             }
         }
 
+        public bool OgeEkle(Dictionary<string, object> prms)
+        {
+            try
+            {
+                IData data = GetDataObject();
+
+                data.AddSqlParameter("TABLOADI", prms["TABLOADI"], SqlDbType.VarChar, 50);
+                data.AddSqlParameter("AD", prms["AD"], SqlDbType.VarChar, 50);
+                data.AddSqlParameter("NOVA", prms["NOVA"], SqlDbType.Bit, 1);
+                data.AddSqlParameter("KROMA", prms["KROMA"], SqlDbType.Bit, 1);
+                data.AddSqlParameter("GUARD", prms["GUARD"], SqlDbType.Bit, 1);
+
+                string sqlKaydet = @"INSERT INTO " + prms["TABLOADI"].ToString() + " (AD, NOVA, KROMA, GUARD) VALUES ( @AD, @NOVA, @KROMA, @GUARD)";
+                data.ExecuteStatement(sqlKaydet);
+
+                return true;
+            }
+            catch (Exception exc)
+            {
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "KullaniciKaydet", "", null);
+                return false;
+            }
+        }
 
     }
 }

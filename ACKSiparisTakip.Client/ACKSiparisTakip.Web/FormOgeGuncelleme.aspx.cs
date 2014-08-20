@@ -88,7 +88,54 @@ namespace ACKSiparisTakip.Web
 
         protected void btnEkle_Click(object sender, EventArgs e)
         {
+            bool sonuc, nova, kroma, guard; 
+            string ad, tabloAdi;
+            
+            ad = string.Empty;
+            sonuc = false;
+            nova = false;
+            kroma = false;
+            guard = false;
 
+            tabloAdi = Session["TabloAdi"].ToString();
+
+            ad = txtAd.Text;
+            
+            if (cbxKapiTuru.Items[0].Selected)
+            {
+                nova = true;
+                
+            }
+            if (cbxKapiTuru.Items[1].Selected)
+            {
+                kroma = true;
+
+            }
+            if (cbxKapiTuru.Items[2].Selected)
+            {
+                guard = true;
+
+            }
+
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms.Add("TABLOADI", tabloAdi);
+            prms.Add("AD", ad);
+            prms.Add("NOVA", nova);
+            prms.Add("KROMA", kroma);
+            prms.Add("GUARD", guard);
+            sonuc = new YonetimKonsoluBS().OgeEkle(prms);
+
+            if (sonuc)
+            {
+                GridDoldur(tabloAdi);
+                txtAd.Text = string.Empty;
+                cbxKapiTuru.ClearSelection();
+                MessageBox.Basari(this, "Seçiminiz eklendi.");
+            }
+            else
+            {
+                MessageBox.Hata(this, "Ekleme işleminde hata oluştu!");
+            }
         }
 
         protected void lbYeniKayit_Click(object sender, EventArgs e)
