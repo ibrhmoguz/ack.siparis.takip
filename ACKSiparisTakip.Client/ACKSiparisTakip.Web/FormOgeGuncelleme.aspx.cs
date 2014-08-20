@@ -20,7 +20,7 @@ namespace ACKSiparisTakip.Web
                 OgeDoldur();
             }
         }
-        
+
         private void OgeDoldur()
         {
             DataTable dt = new YonetimKonsoluBS().TabloAdlariGetir();
@@ -43,10 +43,57 @@ namespace ACKSiparisTakip.Web
 
         protected void ddlOge_SelectedIndexChanged(object sender, DropDownListEventArgs e)
         {
-            string tabloAdi = ddlOge.SelectedValue.ToString();
+            SatirlariGridleriGizle();
+
+            string tabloAdi = ddlOge.SelectedValue;
             Session["TabloAdi"] = tabloAdi;
-            GridDoldur(tabloAdi);
-            trKayitEkle.Visible = true;
+            if (tabloAdi == "0")
+            {
+                SatirlariGridleriGizle();
+            }
+            else if (tabloAdi == "REF_KAPIMODEL")
+            {
+                trKapiModel.Visible = true;
+                KapiSeriDoldur();
+                rgOgeler1.Visible = false;
+
+            }
+            else
+            {
+                trKayitEkle1.Visible = true;
+                GridDoldur(tabloAdi);
+                rgOgeler1.Visible = true;
+            }
+
+        }
+
+        private void KapiSeriDoldur()
+        {
+            DataTable dt = new YonetimKonsoluBS().KapiSeriGetir();
+            if (dt.Rows.Count > 0)
+            {
+                ddlKapiSeri.DataSource = dt;
+                ddlKapiSeri.DataTextField = "AD";
+                ddlKapiSeri.DataValueField = "ID";
+                ddlKapiSeri.DataBind();
+                ddlKapiSeri.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+
+            }
+            else
+            {
+                ddlKapiSeri.DataSource = null;
+                ddlKapiSeri.DataBind();
+            }
+
+        }
+
+        protected void ddlKapiSeri_SelectedIndexChanged(object sender, DropDownListEventArgs e)
+        {
+            string kapiSeriId = ddlKapiSeri.SelectedValue;
+            Session["kapiSeriId"] = kapiSeriId;
+            GridDoldur2(kapiSeriId);
+            rgOgeler2.Visible = true;
+            trKayitEkle2.Visible = true;
         }
 
         public void GridDoldur(string tabloAdi)
@@ -60,6 +107,19 @@ namespace ACKSiparisTakip.Web
             rgOgeler1.DataBind();
         }
 
+        public void GridDoldur2(string kapiSeriId)
+        {
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms.Add("KAPISERIID", kapiSeriId);
+
+            DataTable dt = new YonetimKonsoluBS().KapiModelGetir(prms);
+            if (dt.Rows.Count == 0)
+                return;
+
+            rgOgeler2.DataSource = dt;
+            rgOgeler2.DataBind();
+        }
+
         protected void rgOgeler1_ItemCommand(object sender, GridCommandEventArgs e)
         {
             bool sonuc = false;
@@ -67,7 +127,7 @@ namespace ACKSiparisTakip.Web
 
             if (e.CommandName == "Delete")
             {
-                string id = (e.Item as GridDataItem).GetDataKeyValue("ID").ToString(); 
+                string id = (e.Item as GridDataItem).GetDataKeyValue("ID").ToString();
                 Dictionary<string, object> prms = new Dictionary<string, object>();
                 prms.Add("TABLOADI", tabloAdi);
                 prms.Add("ID", id);
@@ -75,8 +135,18 @@ namespace ACKSiparisTakip.Web
 
                 if (sonuc)
                 {
-                    GridDoldur(tabloAdi);
-                    MessageBox.Basari(this, "Seçiminiz silindi.");
+                    if (tabloAdi == "REF_KAPIMODEL")
+                    {
+                        GridDoldur2(Session["kapiSeriId"].ToString());
+                        MessageBox.Basari(this, "Seçiminiz silindi.");
+
+                    }
+                    else
+                    {
+                        GridDoldur(tabloAdi);
+                        MessageBox.Basari(this, "Seçiminiz silindi.");
+                    }
+
                 }
                 else
                 {
@@ -88,9 +158,9 @@ namespace ACKSiparisTakip.Web
 
         protected void btnEkle_Click(object sender, EventArgs e)
         {
-            bool sonuc, nova, kroma, guard; 
+            bool sonuc, nova, kroma, guard;
             string ad, tabloAdi;
-            
+
             ad = string.Empty;
             sonuc = false;
             nova = false;
@@ -100,11 +170,11 @@ namespace ACKSiparisTakip.Web
             tabloAdi = Session["TabloAdi"].ToString();
 
             ad = txtAd.Text;
-            
+
             if (cbxKapiTuru.Items[0].Selected)
             {
                 nova = true;
-                
+
             }
             if (cbxKapiTuru.Items[1].Selected)
             {
@@ -138,12 +208,57 @@ namespace ACKSiparisTakip.Web
             }
         }
 
-        protected void lbYeniKayit_Click(object sender, EventArgs e)
+        protected void btnEkle2_Click(object sender, EventArgs e)
         {
-            tbKayitEkle.Visible = true;
+            bool sonuc;
+            string ad, kapiSeriId, tabloAdi;
+
+            ad = string.Empty;
+            sonuc = false;
+            kapiSeriId = ddlKapiSeri.SelectedValue.ToString();
+
+
+            tabloAdi = Session["TabloAdi"].ToString();
+            ad = txtAd2.Text;
+
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms.Add("TABLOADI", tabloAdi);
+            prms.Add("KAPISERIID", kapiSeriId);
+            prms.Add("AD", ad);
+            sonuc = new YonetimKonsoluBS().KapiModelEkle(prms);
+
+            if (sonuc)
+            {
+                GridDoldur2(kapiSeriId);
+                txtAd.Text = string.Empty;
+                MessageBox.Basari(this, "Seçiminiz eklendi.");
+            }
+            else
+            {
+                MessageBox.Hata(this, "Ekleme işleminde hata oluştu!");
+            }
         }
 
-        
+        protected void lbYeniKayit_Click(object sender, EventArgs e)
+        {
+            tbKayitEkle1.Visible = true;
+        }
+
+        protected void lbYeniKayit2_Click(object sender, EventArgs e)
+        {
+            tbKayitEkle2.Visible = true;
+        }
+
+        public void SatirlariGridleriGizle()
+        {
+            trKapiModel.Visible = false;
+            trKayitEkle1.Visible = false;
+            trKayitEkle2.Visible = false;
+            tbKayitEkle1.Visible = false;
+            tbKayitEkle2.Visible = false;
+            rgOgeler1.Visible = false;
+            rgOgeler2.Visible = false;
+        }
 
     }
 }

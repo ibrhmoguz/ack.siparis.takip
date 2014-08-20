@@ -172,6 +172,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
             return dt;
         }
+
         public bool OgeSil(Dictionary<string, object> prms)
         {
             try
@@ -217,5 +218,50 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
         }
 
+        public bool KapiModelEkle(Dictionary<string, object> prms)
+        {
+            try
+            {
+                IData data = GetDataObject();
+
+                data.AddSqlParameter("TABLOADI", prms["TABLOADI"], SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAPISERIID", prms["KAPISERIID"], SqlDbType.VarChar, 50);
+                data.AddSqlParameter("AD", prms["AD"], SqlDbType.VarChar, 50);
+
+                string sqlKaydet = @"INSERT INTO " + prms["TABLOADI"].ToString() + " (KAPISERIID, AD) VALUES ( @KAPISERIID, @AD)";
+                data.ExecuteStatement(sqlKaydet);
+
+                return true;
+            }
+            catch (Exception exc)
+            {
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "KullaniciKaydet", "", null);
+                return false;
+            }
+        }
+
+        public DataTable KapiSeriGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            string sqlText = @"SELECT ID,AD FROM REF_KAPISERI ORDER BY 1 ";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        public DataTable KapiModelGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            data.AddSqlParameter("KAPISERIID", prms["KAPISERIID"], SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_KAPIMODEL WHERE KAPISERIID=@KAPISERIID  ORDER BY 1 ";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
     }
 }

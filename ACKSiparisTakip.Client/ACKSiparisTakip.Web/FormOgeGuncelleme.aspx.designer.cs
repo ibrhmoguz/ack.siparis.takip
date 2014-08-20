@@ -31,13 +31,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadGrid rgOgeler1;
         
         /// <summary>
-        /// trKayitEkle control.
+        /// trKayitEkle1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trKayitEkle;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trKayitEkle1;
         
         /// <summary>
         /// lbYeniKayit control.
@@ -49,13 +49,13 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.LinkButton lbYeniKayit;
         
         /// <summary>
-        /// tbKayitEkle control.
+        /// tbKayitEkle1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbKayitEkle;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbKayitEkle1;
         
         /// <summary>
         /// txtAd control.
@@ -83,5 +83,77 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton rbKayitEkle;
+        
+        /// <summary>
+        /// trKapiModel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trKapiModel;
+        
+        /// <summary>
+        /// ddlKapiSeri control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlKapiSeri;
+        
+        /// <summary>
+        /// rgOgeler2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid rgOgeler2;
+        
+        /// <summary>
+        /// trKayitEkle2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trKayitEkle2;
+        
+        /// <summary>
+        /// lbYeniKayit2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbYeniKayit2;
+        
+        /// <summary>
+        /// tbKayitEkle2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbKayitEkle2;
+        
+        /// <summary>
+        /// txtAd2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtAd2;
+        
+        /// <summary>
+        /// RadButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton RadButton1;
     }
 }
