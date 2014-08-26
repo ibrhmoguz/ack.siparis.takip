@@ -4,6 +4,7 @@ using WebFrame.Business;
 using WebFrame.DataAccess;
 using WebFrame.DataType.Common.Attributes;
 using System;
+using WebFrame.DataType.Common.Logging;
 
 namespace ACKSiparisTakip.Business.ACKBusiness
 {
@@ -18,7 +19,6 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlText = @"SELECT ID, AD+' ' +SOYAD AS AD FROM PERSONELBILGI ORDER BY 1";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
 
         public DataTable PersonelListesiGetirGenel()
@@ -29,7 +29,6 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlText = @"SELECT ID,AD,SOYAD  FROM PERSONELBILGI ORDER BY 1";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
 
         public bool PersonelTanimla(Dictionary<string, object> prms)
@@ -48,7 +47,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
             catch (Exception exc)
             {
-                //HataLogla
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "PersonelTanimla", "", null);
                 return false;
             }
         }
@@ -58,7 +57,6 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             try
             {
                 IData data = GetDataObject();
-
                 data.AddSqlParameter("ID", prms["ID"], SqlDbType.VarChar, 50);
 
                 string sqlSil = @"DELETE FROM PERSONELBILGI WHERE ID=@ID";
@@ -68,7 +66,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
             catch (Exception exc)
             {
-                //HataLogla
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "PersonelSil", "", null);
                 return false;
             }
         }

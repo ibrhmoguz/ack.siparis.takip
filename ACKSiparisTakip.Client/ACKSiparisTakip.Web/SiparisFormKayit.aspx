@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div style="width: 75%">
+    <div id="divSiparisForm" runat="server" style="width: 75%">
         <br />
         <br />
         <br />
@@ -108,35 +108,34 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>İlçe :</th>
-                            <td>
-                                <telerik:RadDropDownList ID="ddlMusteriIlce" runat="server" SelectedText="DropDownListItem1" SelectedValue="asdasdasdasd">
-                                </telerik:RadDropDownList>
-
-                            </td>
                             <th>İl :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlMusteriIl" runat="server">
-                                </telerik:RadDropDownList>
+                                <telerik:RadComboBox ID="ddlMusteriIl" runat="server" AutoPostBack="true" EmptyMessage="İl Seçiniz" Skin="Telerik" OnSelectedIndexChanged="ddlMusteriIl_SelectedIndexChanged">
+                                </telerik:RadComboBox>
+                            </td>
+                            <th>İlçe :</th>
+                            <td>
+                                <telerik:RadComboBox ID="ddlMusteriIlce" runat="server" AutoPostBack="false" EmptyMessage="İlçe Seçiniz">
+                                </telerik:RadComboBox>
                             </td>
                         </tr>
                     </table>
                 </td>
                 <th>Ev Tel : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtEvTel" runat="server"></telerik:RadTextBox>
+                    <telerik:RadMaskedTextBox ID="txtEvTel" runat="server" Mask="(###) ### ## ##"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
             <tr>
                 <th>iş Tel : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtIsTel" runat="server"></telerik:RadTextBox>
+                    <telerik:RadMaskedTextBox ID="txtIsTel" runat="server" Mask="(###) ### ## ##"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
             <tr>
                 <th>Cep Tel : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtCepTel" runat="server"></telerik:RadTextBox>
+                    <telerik:RadMaskedTextBox ID="txtCepTel" runat="server" Mask="(###) ### ## ##"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
         </table>
@@ -146,60 +145,50 @@
                 <th style="width: 20%">İç Kapı Modeli :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlIcKapiModeli" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtIcKapiModeli" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <th style="width: 20%">Dış Kapı Modeli :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlDisKapiModeli" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtDisKapiModeli" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
                 <th>İç Kapı Rengi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlIcKapiRengi" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtIcKapiRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <th>Dış Kapı Rengi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlDisKapiRengi" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtDisKapiRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
                 <th>Kilit Sistemi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlKilitSistemi" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtKilitSistemi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <th>Çıta :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlCita" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtCita" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
                 <th>Eşik :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlEsik" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtEsik" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <th>Aksesuar Rengi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlAksesuarRengi" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtAksesuarRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr runat="server" id="trGuard1" visible="false">
                 <th>Aluminyum Rengi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlAluminyumRengi" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtAluminyumRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <th>Conta Rengi :</th>
                 <td colspan="3">
                     <telerik:RadDropDownList ID="ddlContaRengi" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtContaRengi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
             </tr>
 
@@ -207,12 +196,10 @@
                 <th>Taç Tipi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlTacTipi" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtTacTipi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <th>Pervaz Tipi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlPervazTipi" runat="server"></telerik:RadDropDownList>
-                    <telerik:RadTextBox ID="txtPervazTipi" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
 
             </tr>
@@ -229,7 +216,7 @@
                 </td>
                 <th style="width: 20%">Baba :</th>
                 <td>
-                    <telerik:RadDropDownList ID="txtBaba" runat="server" SelectedText="Seçiniz">
+                    <telerik:RadDropDownList ID="ddlBaba" runat="server" SelectedText="Seçiniz">
                         <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
                             <telerik:DropDownListItem runat="server" Text="Var" />
@@ -298,7 +285,6 @@
                             <th style="width: 20%">Ölçümü Alan Kişi : </th>
                             <td>
                                 <telerik:RadDropDownList ID="ddlOlcumAlan" runat="server"></telerik:RadDropDownList>
-                                <telerik:RadTextBox ID="txtOlcumAlan" runat="server" Visible="false"></telerik:RadTextBox>
                             </td>
 
                         </tr>
@@ -307,8 +293,6 @@
                             <th>Montaj Şekli </th>
                             <td>
                                 <telerik:RadDropDownList ID="ddlMontajSekli" runat="server"></telerik:RadDropDownList>
-                                <telerik:RadTextBox ID="txtMontajSekli" runat="server" Visible="false"></telerik:RadTextBox>
-
                             </td>
 
                         </tr>
@@ -316,7 +300,6 @@
                             <th>Teslim Şekli </th>
                             <td>
                                 <telerik:RadDropDownList ID="ddlTeslimSekli" runat="server"></telerik:RadDropDownList>
-                                <telerik:RadTextBox ID="txtTeslimSekli" runat="server" Visible="false"></telerik:RadTextBox>
                             </td>
                         </tr>
                         <tr>
@@ -336,8 +319,7 @@
         <br />
         <table class="AnaTablo">
             <tr>
-                <th>
-                    NOT
+                <th>NOT
                 </th>
             </tr>
             <tr>
@@ -350,7 +332,7 @@
         <br />
         <table class="AnaTablo">
             <tr>
-                <th colspan="4" style="text-align:center;font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
+                <th colspan="4" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
 
             </tr>
             <tr>
@@ -364,13 +346,7 @@
             <tr>
                 <th rowspan="2">Adresi : </th>
                 <td rowspan="2">
-                    <table>
-                        <tr>
-                            <td colspan="4">
-                                <telerik:RadTextBox ID="txtMusteriAdres" runat="server" TextMode="MultiLine" Height="50px" Width="250px"></telerik:RadTextBox>
-                            </td>
-                        </tr>
-                    </table>
+                    <telerik:RadTextBox ID="txtMusteriAdres" runat="server" TextMode="MultiLine" Height="50px" Width="250px"></telerik:RadTextBox>
                 </td>
                 <th>Peşinat : </th>
                 <td>
@@ -402,47 +378,59 @@
                     <telerik:RadTextBox ID="txtVergiDairesi" runat="server"></telerik:RadTextBox>
                 </td>
             </tr>
-             <tr>
+            <tr>
                 <th>Vergi Numarası : </th>
                 <td>
                     <telerik:RadTextBox ID="txtVergiNumarasi" runat="server"></telerik:RadTextBox>
                 </td>
             </tr>
-            
             <tr>
-                <td colspan="4""> 
-                    <br />
-                    Yukarıda yazılı olan şartlarda sipariş verdim. İhtilaf halinde Ankara Mahkemeleri yetkilidir.
+                <td colspan="4">Yukarıda yazılı olan şartlarda sipariş verdim. İhtilaf halinde Ankara Mahkemeleri yetkilidir.
                     <b>Müşteri tarafından aksi yazılı olarak Ankara Çelik Kapı'ya bildirilmedikçe kapıların ölçüleri ve
-                    açılış yönleri mevcut takılı olan kapıya göre imal edilecektir.</b>    <br />  <br />
+                    açılış yönleri mevcut takılı olan kapıya göre imal edilecektir.</b>
+                    <br />
+                    <br />
                 </td>
             </tr>
             <tr>
-                <td colspan="4" style="text-align:center">
+                <td colspan="4" style="text-align: center">
                     <b>MÜŞTERİ
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        SİPARİŞ ALAN YETKİLİ</b>
-
                 </td>
-                
             </tr>
-            <tr><td colspan="4"> <br /> <br /> <br /> </td></tr>
-            
+            <tr>
+                <td colspan="4">
+                    <br />
+                    <br />
+                    <br />
+                </td>
+            </tr>
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" runat="server" id="tbKaydet">
             <tr>
-                <td style="text-align:right"> <br />
-                     <telerik:RadButton ID="btnKaydet" runat="server" Text="Kaydet" >
+                <td style="text-align: right">
+                    <br />
+                    <telerik:RadButton ID="btnKaydet" runat="server" Text="Kaydet" OnClick="btnKaydet_Click">
                         <Icon PrimaryIconCssClass="rbSave" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
                     <br />
                 </td>
-
             </tr>
         </table>
     </div>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="ddlMusteriIl">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="ddlMusteriIlce" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" />
 </asp:Content>

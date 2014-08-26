@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypes\KapiTipi.cs" />
-    <Compile Include="DataTypes\RefTablo.cs" />
+    <Compile Include="DataTypes\SiparisTipi.cs" />
     <Compile Include="KullaniciBS.cs" />
     <Compile Include="MontajBS.cs" />
     <Compile Include="PersonelBS.cs" />

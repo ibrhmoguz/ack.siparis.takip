@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ACKSiparisTakip.Business.ACKBusiness;
 using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
+using ACKSiparisTakip.Web.Helper;
+using Telerik.Web.UI;
 
 namespace ACKSiparisTakip.Web
 {
@@ -33,6 +35,8 @@ namespace ACKSiparisTakip.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.MaintainScrollPositionOnPostBack = true;
+
             if (!Page.IsPostBack)
             {
                 FormDoldur();
@@ -58,7 +62,7 @@ namespace ACKSiparisTakip.Web
             DataTable dtKilitSistem = ds.Tables["KILITSISTEM"];
             DataTable dtCita = ds.Tables["CITA"];
             DataTable dtEsik = ds.Tables["ESIK"];
-            DataTable dtAksesuarRenk= ds.Tables["AKSESUARRENK"];
+            DataTable dtAksesuarRenk = ds.Tables["AKSESUARRENK"];
             DataTable dtMontajSekli = ds.Tables["MONTAJSEKLI"];
             DataTable dtTeslimSekli = ds.Tables["TESLIMSEKLI"];
             DataTable dtAluminyumRenk = ds.Tables["ALUMINYUMRENK"];
@@ -84,6 +88,7 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlOlcumAlan, dtPersonel);
 
             Kontrol();
+            IlleriGetir();
 
         }
 
@@ -94,11 +99,6 @@ namespace ACKSiparisTakip.Web
             ddl.DataValueField = "ID";
             ddl.DataBind();
             ddl.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
-
-            if (dt!=null)
-            {
-                ddl.Items.Insert(dt.Rows.Count + 1, new Telerik.Web.UI.DropDownListItem("Diğer", "Diger"));
-            }
         }
 
         private void Kontrol()
@@ -109,6 +109,109 @@ namespace ACKSiparisTakip.Web
                 trGuard2.Visible = true;
             }
 
+        }
+
+        protected void IlleriGetir()
+        {
+            DataTable dt = new SiparisIslemleriBS().IlleriGetir();
+            if (dt.Rows.Count > 0)
+            {
+                ddlMusteriIl.DataSource = dt;
+                ddlMusteriIl.DataTextField = "ILAD";
+                ddlMusteriIl.DataValueField = "ILKOD";
+                ddlMusteriIl.DataBind();
+            }
+            else
+            {
+                ddlMusteriIl.DataSource = null;
+                ddlMusteriIl.DataBind();
+            }
+        }
+
+        protected void IlceleriGetir(string ilKod)
+        {
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms.Add("ILKOD", ilKod);
+
+            DataTable dt = new SiparisIslemleriBS().IlceleriGetir(prms);
+
+            if (dt.Rows.Count > 0)
+            {
+                ddlMusteriIlce.DataSource = dt;
+                ddlMusteriIlce.DataTextField = "ILCEAD";
+                ddlMusteriIlce.DataValueField = "PKEY";
+                ddlMusteriIlce.DataBind();
+            }
+            else
+            {
+                ddlMusteriIlce.DataSource = null;
+                ddlMusteriIlce.DataBind();
+            }
+        }
+
+        protected void ddlMusteriIl_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            ddlMusteriIlce.Text = "";
+            IlceleriGetir(e.Value);
+        }
+
+        protected void btnKaydet_Click(object sender, EventArgs e)
+        {
+            Musteri musteri = new Musteri();
+            Siparis siparis = new Siparis();
+            Olcum olcum = new Olcum();
+            Sozlesme sozlesme = new Sozlesme();
+
+            musteri.MusteriAd = txtAd.Text;
+            musteri.MusteriSoyad = txtSoyad.Text;
+            musteri.MusteriAdres = txtAdres.Text;
+            musteri.MusteriCepTel = txtCepTel.Text;
+            musteri.MusteriEvTel = txtEvTel.Text;
+            musteri.MusteriIl = ddlMusteriIl.SelectedItem.Text;
+            musteri.MusteriIlce = ddlMusteriIlce.SelectedItem.Text;
+            musteri.MusteriIsTel = txtIsTel.Text;
+
+            siparis.AksesuarRenk = ddlAksesuarRengi.SelectedText;
+            siparis.AluminyumRenk = ddlAluminyumRengi.SelectedText;
+            siparis.Baba = ddlBaba.SelectedText;
+            siparis.BarelTip = txtBarelTipi.Text;
+            siparis.BayiAd = txtBayiAdi.Text;
+            siparis.CekmeKolu = txtCekmeKolu.Text;
+            siparis.Cita = ddlCita.SelectedText;
+            siparis.ContaRenk = ddlContaRengi.SelectedText;
+            siparis.DisKapiModel = ddlDisKapiModeli.SelectedText;
+            siparis.Durbun = ddlDurbun.SelectedText;
+            siparis.Esik = ddlEsik.SelectedText;
+            siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
+            siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
+            siparis.KapiNo = txtKapiNo.Text;
+            siparis.KilitSistem = ddlKilitSistemi.SelectedText;
+            siparis.PervazTip = ddlPervazTipi.SelectedText;
+            siparis.SiparisTarih = DateTime.Now;
+            siparis.TacTip = ddlTacTipi.SelectedText;
+            siparis.Taktak = ddlTaktak.SelectedText;
+            siparis.KapiTipi = this.KapiTip.ToString();
+
+            olcum.MontajdaTakilacak = txtMontajdaTakilacaklar.Text;
+            olcum.MontajSekli = ddlMontajSekli.SelectedText;
+            olcum.OlcumAlanKisi = ddlOlcumAlan.SelectedText;
+            olcum.OlcumBilgi = txtOlcumBilgileri.Text;
+            olcum.OlcumTarih = rdtOlcuTarihSaat.SelectedDate.Value;
+            olcum.TeslimSekli = ddlTeslimSekli.SelectedText;
+
+            sozlesme.KalanOdeme = txtKalanOdeme.Text;
+            sozlesme.MontajDurum = "A";
+            sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;
+            sozlesme.Pesinat = txtPesinat.Text;
+            sozlesme.VergiDairesi = txtVergiDairesi.Text;
+            sozlesme.VergiNumarası = txtVergiNumarasi.Text;
+
+            bool status = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);
+
+            if (status)
+                MessageBox.Basari(this, "Sipariş eklendi.");
+            else
+                MessageBox.Hata(this, "Sipariş eklenemedi.");
         }
     }
 }
