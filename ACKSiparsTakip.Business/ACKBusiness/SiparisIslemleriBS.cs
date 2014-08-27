@@ -414,7 +414,13 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.ExecuteStatement(sqlKaydet);
 
                 //MONTAJ BILGISI KAYDET
-                new MontajBS().MontajKaydet(siparis.SiparisNo, sozlesme.MontajTeslimTarih);
+                       
+                data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("TESLIMTARIH", sozlesme.MontajTeslimTarih, SqlDbType.DateTime, 50);
+
+                string sqlKaydetMontaj = @"INSERT INTO [ACKAppDB].[dbo].[MONTAJ] (SIPARISNO,TESLIMTARIH) VALUES (@SIPARISNO, @TESLIMTARIH)";
+                data.ExecuteStatement(sqlKaydetMontaj);
+
 
                 data.CommitTransaction();
                 return true;
