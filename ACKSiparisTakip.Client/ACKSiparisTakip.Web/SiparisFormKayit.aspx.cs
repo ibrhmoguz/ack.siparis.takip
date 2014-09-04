@@ -206,12 +206,24 @@ namespace ACKSiparisTakip.Web
             sozlesme.VergiDairesi = txtVergiDairesi.Text;
             sozlesme.VergiNumarası = txtVergiNumarasi.Text;
 
-            bool status = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);
+            string seriAdi = this.KapiTip.ToString().ToUpper();
+            string siparisNo = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);
 
-            if (status)
+            if (siparisNo!=string.Empty)
+            {
                 MessageBox.Basari(this, "Sipariş eklendi.");
+                Response.Redirect("~/SiparisFormGoruntule.aspx?SayfaModu=Kayit" + "&" + "SiparisNo=" + siparisNo + "&SeriAdi=" + seriAdi);
+            }
             else
                 MessageBox.Hata(this, "Sipariş eklenemedi.");
+        }
+
+        protected void btnIleri_Click(object sender, EventArgs e)
+        {
+            tbMusteriSozlesme.Visible = true;
+            txtMusteriAdSoyad.Text = txtAd.Text + " " + txtSoyad.Text;
+            txtMusteriAdres.Text = txtAdres.Text + " " + ddlMusteriIlce.SelectedItem.Text+"  "+ ddlMusteriIl.SelectedItem.Text;
+            txtMusteriCepTel.Text = txtCepTel.Text;
         }
     }
 }

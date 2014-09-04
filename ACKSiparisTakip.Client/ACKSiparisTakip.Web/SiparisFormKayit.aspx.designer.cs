@@ -382,15 +382,6 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadDatePicker rdpTeslimTarihi;
         
         /// <summary>
-        /// rbiKapiResmi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadBinaryImage rbiKapiResmi;
-        
-        /// <summary>
         /// txtNot control.
         /// </summary>
         /// <remarks>
@@ -398,6 +389,33 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox txtNot;
+        
+        /// <summary>
+        /// tbIleri control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbIleri;
+        
+        /// <summary>
+        /// btnIleri control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnIleri;
+        
+        /// <summary>
+        /// tbMusteriSozlesme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbMusteriSozlesme;
         
         /// <summary>
         /// txtMusteriAdSoyad control.
@@ -470,15 +488,6 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox txtVergiNumarasi;
-        
-        /// <summary>
-        /// tbKaydet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbKaydet;
         
         /// <summary>
         /// btnKaydet control.

@@ -247,7 +247,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         }
 
-        public bool SiparisKaydet(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
+        public string SiparisKaydet(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
         {
             IData data = GetDataObject();
 
@@ -423,14 +423,27 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
 
                 data.CommitTransaction();
-                return true;
+                return siparis.SiparisNo;
             }
             catch (Exception exc)
             {
                 data.RollbackTransaction();
                 new LogWriter().Write(AppModules.Siparis, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "SiparisKaydet", "", null);
-                return false;
+                return "";
             }
+        }
+
+        public DataTable SiparisBilgileriniGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            data.AddSqlParameter("SIPARISNO", prms["SIPARISNO"], SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT * FROM SIPARIS  WHERE SIPARISNO=@SIPARISNO";
+            data.GetRecords(dt, sqlText);
+            return dt;
+        
         }
     }
 }

@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div id="divSiparisForm" runat="server" style="width: 75%">
+    <div id="divSiparisForm" runat="server" style="width: 75%" class="RadGrid_Current_Theme">
         <br />
         <br />
         <br />
@@ -77,7 +77,7 @@
                 </td>
                 <th>Sipariş No : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtSiparisNo" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtSiparisNo" runat="server" Enabled="False" Text="Sistem Tarafından Verilir"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -312,7 +312,7 @@
                     </table>
                 </td>
                 <td style="width: 25%" rowspan="8">
-                    <telerik:RadBinaryImage ID="rbiKapiResmi" runat="server" ImageUrl="~/App_Themes/Theme/Raster/guardKapiOrta.PNG" />
+                    <%--<telerik:RadBinaryImage ID="rbiKapiResmi" runat="server" ImageUrl="~/App_Themes/Theme/Raster/guardKapiOrta.PNG" />--%>
                 </td>
             </tr>
         </table>
@@ -330,7 +330,18 @@
 
         </table>
         <br />
-        <table class="AnaTablo">
+        <table  runat="server" id="tbIleri" width="70%" >
+            <tr>
+                <td style="text-align: right">
+                    <telerik:RadButton ID="btnIleri" runat="server" Text="Müşteri Sözleşmesi İçin Tıklayınız" OnClick="btnIleri_Click" >
+                        <Icon PrimaryIconCssClass="rbNext" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                    </telerik:RadButton>
+                    <br />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table class="AnaTablo" runat="server" id="tbMusteriSozlesme" visible="false">
             <tr>
                 <th colspan="4" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
 
@@ -338,7 +349,7 @@
             <tr>
                 <th style="width: 20%">Adı Soyadı : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtMusteriAdSoyad" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtMusteriAdSoyad" runat="server" Enabled="False"></telerik:RadTextBox>
                 </td>
                 <th colspan="2">Ödeme Şekli : </th>
 
@@ -346,7 +357,7 @@
             <tr>
                 <th rowspan="2">Adresi : </th>
                 <td rowspan="2">
-                    <telerik:RadTextBox ID="txtMusteriAdres" runat="server" TextMode="MultiLine" Height="50px" Width="250px"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtMusteriAdres" runat="server" TextMode="MultiLine" Height="50px" Width="250px" Enabled="False"></telerik:RadTextBox>
                 </td>
                 <th>Peşinat : </th>
                 <td>
@@ -362,7 +373,7 @@
             <tr>
                 <th>Cep Tel : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtMusteriCepTel" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtMusteriCepTel" runat="server" Enabled="False"></telerik:RadTextBox>
                 </td>
 
             </tr>
@@ -409,19 +420,16 @@
                     <br />
                 </td>
             </tr>
-        </table>
-        <br />
-        <table class="AnaTablo" runat="server" id="tbKaydet">
             <tr>
-                <td style="text-align: right">
-                    <br />
-                    <telerik:RadButton ID="btnKaydet" runat="server" Text="Kaydet" OnClick="btnKaydet_Click">
-                        <Icon PrimaryIconCssClass="rbSave" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                <td colspan="4" style="text-align:center">
+                    <telerik:RadButton ID="btnKaydet" runat="server" Text="Onayla" OnClick="btnKaydet_Click">
+                        <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
-                    <br />
                 </td>
             </tr>
         </table>
+        <br />
+        
     </div>
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
         <AjaxSettings>
