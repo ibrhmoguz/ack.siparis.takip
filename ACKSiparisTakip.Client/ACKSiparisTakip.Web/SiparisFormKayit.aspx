@@ -330,10 +330,10 @@
 
         </table>
         <br />
-        <table  runat="server" id="tbIleri" width="70%" >
+        <table runat="server" id="tbIleri" style="width: 70%">
             <tr>
                 <td style="text-align: right">
-                    <telerik:RadButton ID="btnIleri" runat="server" Text="Müşteri Sözleşmesi İçin Tıklayınız" OnClick="btnIleri_Click" >
+                    <telerik:RadButton ID="btnIleri" runat="server" Text="Müşteri Sözleşmesi İçin Tıklayınız" OnClick="btnIleri_Click">
                         <Icon PrimaryIconCssClass="rbNext" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
                     <br />
@@ -421,7 +421,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4" style="text-align:center">
+                <td colspan="4" style="text-align: center">
                     <telerik:RadButton ID="btnKaydet" runat="server" Text="Onayla" OnClick="btnKaydet_Click">
                         <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
@@ -429,7 +429,7 @@
             </tr>
         </table>
         <br />
-        
+
     </div>
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
         <AjaxSettings>

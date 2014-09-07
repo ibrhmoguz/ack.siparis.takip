@@ -414,7 +414,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.ExecuteStatement(sqlKaydet);
 
                 //MONTAJ BILGISI KAYDET
-                       
+
                 data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("TESLIMTARIH", sozlesme.MontajTeslimTarih, SqlDbType.DateTime, 50);
                 data.AddSqlParameter("DURUM", sozlesme.MontajDurum, SqlDbType.VarChar, 50);
@@ -444,7 +444,85 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlText = @"SELECT * FROM SIPARIS  WHERE SIPARISNO=@SIPARISNO";
             data.GetRecords(dt, sqlText);
             return dt;
-        
+
+        }
+
+        public DataTable SiparisSorgula(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            data.AddSqlParameter("SiparisNo", prms["SiparisNo"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("SiparisTarihiBas", prms["SiparisTarihiBas"], SqlDbType.DateTime, 50);
+            data.AddSqlParameter("SiparisTarihiBit", prms["SiparisTarihiBit"], SqlDbType.DateTime, 50);
+            data.AddSqlParameter("MusteriAdSoyad", prms["MusteriAdSoyad"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("TeslimTarihiBas", prms["TeslimTarihiBas"], SqlDbType.DateTime, 50);
+            data.AddSqlParameter("TeslimTarihiBit", prms["TeslimTarihiBit"], SqlDbType.DateTime, 50);
+            data.AddSqlParameter("PersonelListesi", prms["PersonelListesi"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlIcKapiModeli", prms["ddlIcKapiModeli"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlDisKapiModeli", prms["ddlDisKapiModeli"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlIcKapiRengi", prms["ddlIcKapiRengi"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlKilitSistemi", prms["ddlKilitSistemi"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlCita", prms["ddlCita"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlEsik", prms["ddlEsik"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlAksesuarRengi", prms["ddlAksesuarRengi"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlMontajSekli", prms["ddlMontajSekli"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlAluminyumRengi", prms["ddlAluminyumRengi"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlTacTipi", prms["ddlTacTipi"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlPervazTipi", prms["ddlPervazTipi"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlContaRengi", prms["ddlContaRengi"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("Il", prms["Il"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("Ilce", prms["Ilce"], SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT DISTINCT
+	                            S.[ID]
+                                ,S.[SIPARISNO]
+                                ,[SIPARISTARIH]
+                                ,[MUSTERIAD] +' '+[MUSTERISOYAD] AS MUSTERI
+                                ,[MUSTERIADRES]
+                                ,[MUSTERIIL]
+                                ,[MUSTERIILCE]
+                                ,[ICKAPIRENK]
+                                ,(CASE WHEN [KILITSISTEM]='Seçiniz' THEN '' ELSE [KILITSISTEM] END) AS [KILITSISTEM]
+                                ,(CASE WHEN [CITA]='Seçiniz' THEN '' ELSE [CITA] END) AS [CITA]
+                                ,(CASE WHEN [ESIK]='Seçiniz' THEN '' ELSE [ESIK] END) AS [ESIK]
+                                ,(CASE WHEN [ALUMINYUMRENK]='Seçiniz' THEN '' ELSE [ALUMINYUMRENK] END) AS [ALUMINYUMRENK]
+                                ,(CASE WHEN [AKSESUARRENK]='Seçiniz' THEN '' ELSE [AKSESUARRENK] END) AS [AKSESUARRENK]
+                                ,(CASE WHEN [CONTARENK]='Seçiniz' THEN '' ELSE [CONTARENK] END) AS [CONTARENK]
+                                ,(CASE WHEN [TACTIP]='Seçiniz' THEN '' ELSE [TACTIP] END) AS [TACTIP]
+                                ,(CASE WHEN [PERVAZTIP]='Seçiniz' THEN '' ELSE [PERVAZTIP] END) AS [PERVAZTIP]
+                                ,[OLCUMBILGI]
+                                ,[MONTAJSEKLI]
+                            FROM SIPARIS AS S
+	                            INNER JOIN [dbo].[MONTAJ] AS M ON S.SIPARISNO = M.SIPARISNO
+	                            LEFT OUTER JOIN [dbo].[MONTAJ_PERSONEL] AS MP ON M.[ID] = MP.[MONTAJID]
+                            WHERE (@SiparisNo IS NULL OR S.SIPARISNO=@SiparisNo)
+	                                AND (@SiparisTarihiBas IS NULL OR S.[SIPARISTARIH]>=@SiparisTarihiBas)
+	                                AND (@SiparisTarihiBit IS NULL OR S.[SIPARISTARIH]<=@SiparisTarihiBit)
+	                                AND (@MusteriAdSoyad IS NULL OR (S.[MUSTERIAD] LIKE '%{0}%' OR  S.[MUSTERISOYAD] LIKE '%{0}%'))
+	                                AND (@TeslimTarihiBas IS NULL OR M.[TESLIMTARIH] >= @TeslimTarihiBas)
+	                                AND (@TeslimTarihiBit IS NULL OR M.[TESLIMTARIH] >= @TeslimTarihiBit)
+	                                AND (@PersonelListesi IS NULL OR MP.PERSONELID IN ({1}))
+	                                AND (@ddlIcKapiModeli IS NULL OR [ICKAPIMODEL] = @ddlIcKapiModeli)
+	                                AND (@ddlDisKapiModeli IS NULL OR [DISKAPIMODEL] = @ddlDisKapiModeli)
+	                                AND (@ddlIcKapiRengi IS NULL OR [ICKAPIRENK] = @ddlIcKapiRengi)
+	                                AND (@ddlKilitSistemi IS NULL OR [KILITSISTEM] = @ddlKilitSistemi)
+	                                AND (@ddlCita IS NULL OR [CITA] = @ddlCita)
+	                                AND (@ddlEsik IS NULL OR [ESIK] = @ddlEsik)
+	                                AND (@ddlAksesuarRengi IS NULL OR [AKSESUARRENK] = @ddlAksesuarRengi)
+	                                AND (@ddlMontajSekli IS NULL OR [MONTAJSEKLI] = @ddlMontajSekli)
+	                                AND (@ddlAluminyumRengi IS NULL OR [ALUMINYUMRENK] = @ddlAluminyumRengi)
+	                                AND (@ddlTacTipi IS NULL OR [TACTIP] = @ddlTacTipi)
+	                                AND (@ddlPervazTipi IS NULL OR [PERVAZTIP] = @ddlPervazTipi)
+	                                AND (@ddlContaRengi IS NULL OR [CONTARENK] = @ddlContaRengi)
+	                                AND (@Il IS NULL OR [MUSTERIIL] = @Il)
+	                                AND (@Ilce IS NULL OR [MUSTERIILCE] = @Ilce)";
+
+            string liste = String.Empty;
+            liste = prms["PersonelListesi"] == null ? "1" : prms["PersonelListesi"].ToString();
+
+            data.GetRecords(dt, String.Format(sqlText, prms["MusteriAdSoyad"], liste));
+            return dt;
         }
     }
 }

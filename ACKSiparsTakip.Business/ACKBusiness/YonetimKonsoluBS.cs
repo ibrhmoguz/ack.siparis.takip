@@ -26,7 +26,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(PervazTipiGetir());
             ds.Tables.Add(MontajSekliGetir());
             ds.Tables.Add(TeslimSekliGetir());
-              
+            ds.Tables.Add(TumKapiModelGetir());
+
             return ds;
         }
 
@@ -36,7 +37,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             IData data = GetDataObject();
             dt.TableName = "REF_KAPIRENK";
 
-           string sqlText = @"SELECT * FROM REF_KAPIRENK";
+            string sqlText = @"SELECT * FROM REF_KAPIRENK";
             data.GetRecords(dt, sqlText);
 
             return dt;
@@ -161,7 +162,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
             return dt;
         }
-        
+
         public DataTable TabloAdlariGetir()
         {
             DataTable dt = new DataTable();
@@ -182,7 +183,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("TABLOADI", prms["TABLOADI"], SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ID", prms["ID"], SqlDbType.VarChar, 50);
 
-                string sqlSil = @"DELETE FROM "+ prms["TABLOADI"].ToString()+" WHERE ID=@ID";
+                string sqlSil = @"DELETE FROM " + prms["TABLOADI"].ToString() + " WHERE ID=@ID";
                 data.ExecuteStatement(sqlSil);
 
                 return true;
@@ -259,6 +260,18 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             data.AddSqlParameter("KAPISERIID", prms["KAPISERIID"], SqlDbType.VarChar, 50);
 
             string sqlText = @"SELECT ID,AD FROM REF_KAPIMODEL WHERE KAPISERIID=@KAPISERIID  ORDER BY 1 ";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        public DataTable TumKapiModelGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_TUMKAPIMODELLERI";
+
+            string sqlText = @"SELECT DISTINCT ID,AD FROM REF_KAPIMODEL";
             data.GetRecords(dt, sqlText);
 
             return dt;
