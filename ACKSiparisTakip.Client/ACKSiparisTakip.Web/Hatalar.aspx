@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="padding-top: 15px; text-align: center; width: 95%;">
+    <div style="padding-top: 15px; text-align: center; width: 100%;">
         <br />
         Hata Sayısı:
         <asp:Label ID="lblhataSayisi" runat="server"></asp:Label>
