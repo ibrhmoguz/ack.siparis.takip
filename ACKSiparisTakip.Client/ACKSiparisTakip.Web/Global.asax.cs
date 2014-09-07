@@ -35,7 +35,7 @@ namespace ACKSiparisTakip.Web
         {
             Exception exc = this.Server.GetLastError();
             string user = Session["user"] != null ? Session["user"].ToString() : null;
-            new LogWriter().Write(AppModules.None, System.Diagnostics.EventLogEntryType.Error, exc, "", "", "", user);
+            new LogWriter().Write(AppModules.ACKSiparisTakip, System.Diagnostics.EventLogEntryType.Error, exc, "", "", "", user);
         }
 
         protected void Session_End(object sender, EventArgs e)

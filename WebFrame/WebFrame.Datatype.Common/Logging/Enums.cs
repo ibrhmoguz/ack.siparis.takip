@@ -4,7 +4,7 @@ namespace WebFrame.DataType.Common.Logging
 
     public enum AppModules
     {
-        None = 0,
+        ACKSiparisTakip = 0,
         Siparis = 1,
         IsTakvimi = 2,
         YonetimKonsolu = 3,

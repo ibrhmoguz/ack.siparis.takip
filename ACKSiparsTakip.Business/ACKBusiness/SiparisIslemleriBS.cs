@@ -417,8 +417,9 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                        
                 data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("TESLIMTARIH", sozlesme.MontajTeslimTarih, SqlDbType.DateTime, 50);
+                data.AddSqlParameter("DURUM", sozlesme.MontajDurum, SqlDbType.VarChar, 50);
 
-                string sqlKaydetMontaj = @"INSERT INTO [ACKAppDB].[dbo].[MONTAJ] (SIPARISNO,TESLIMTARIH) VALUES (@SIPARISNO, @TESLIMTARIH)";
+                string sqlKaydetMontaj = @"INSERT INTO [ACKAppDB].[dbo].[MONTAJ] (SIPARISNO,TESLIMTARIH,DURUM) VALUES (@SIPARISNO, @TESLIMTARIH,@DURUM)";
                 data.ExecuteStatement(sqlKaydetMontaj);
 
 

@@ -162,7 +162,19 @@ namespace WebFrame.DataType.Common.Logging
 
             if (!string.IsNullOrEmpty(this.ConnectionStringName))
             {
-                LogWriter.sql = string.Format("insert into {0}(MODULEID,EVENTLOGENTRYTYPEID,EXCEPTION,PAGEURL,METHODNAME,MESSAGE,USERIDENTITY,PCNAME,USERAUTHORITY,EXTENDEDPROPERTIES,USERNAME) values({1}p1,{1}p2,{1}p3,{1}p4,{1}p5,{1}p6,{1}p7,{1}p8,{1}p9,{1}p10,{1}p11)", logTableName, parameterMarker);
+                LogWriter.sql = string.Format(@"INSERT INTO {0}([MODULEID]
+                                                               ,[EVENTLOGENTRYTYPEID]
+                                                               ,[EXCEPTION]
+                                                               ,[PAGEURL]
+                                                               ,[METHODNAME]
+                                                               ,[MESSAGE]
+                                                               ,[USERIDENTITY]
+                                                               ,[PCNAME]
+                                                               ,[USERAUTHORITY]
+                                                               ,[EXTENDEDPROPERTIES]
+                                                               ,[USERNAME]
+                                                               ,[DATE]) 
+                                                 VALUES({1}p1,{1}p2,{1}p3,{1}p4,{1}p5,{1}p6,{1}p7,{1}p8,{1}p9,{1}p10,{1}p11,{1}p12)", logTableName, parameterMarker);
                 #region Veritabanı hazırlıkları
 
                 _command.Parameters.Clear();
@@ -178,6 +190,7 @@ namespace WebFrame.DataType.Common.Logging
                 AddParameter("p9", yetkiler, DbType.String);
                 AddParameter("p10", properties, DbType.String);
                 AddParameter("p11", userName, DbType.String);
+                AddParameter("p12", DateTime.Now, DbType.DateTime);
 
                 try
                 {
@@ -287,7 +300,7 @@ namespace WebFrame.DataType.Common.Logging
 
         private void LogToSqlServer()
         {
-            _connection = new SqlConnection(ConfigurationManager.ConnectionStrings[this.ConnectionStringName].ToString());
+            _connection = new SqlConnection(ConnectionStringHelper.GetConnectionString(this.ConnectionStringName));
             _command = new SqlCommand("");
             _command.Connection = _connection;
             parameterMarker = "@";
@@ -311,7 +324,7 @@ namespace WebFrame.DataType.Common.Logging
             DbParameter parameter = _command.CreateParameter();
             parameter.ParameterName = database == DataProvider.Oracle ? parametername : parametername.Insert(0, "@");
             parameter.DbType = dbType;
-            parameter.Value = value;
+            parameter.Value = value == null ? DBNull.Value : value;
 
             return _command.Parameters.Add(parameter);
         }

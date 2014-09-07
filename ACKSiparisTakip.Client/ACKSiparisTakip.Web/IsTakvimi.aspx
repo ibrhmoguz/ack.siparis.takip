@@ -15,6 +15,9 @@
         function OnClientAppointmentDeleting(sender, eventArgs) {
             eventArgs.set_cancel(true);
         }
+        function OnClientAppointmenMoving(sender, eventArgs) {
+            eventArgs.set_cancel(true);
+        }
     </script>
     <br />
     <table style="width: 100%">
@@ -52,7 +55,9 @@
                     OnAppointmentCreated="RadSchedulerIsTakvimi_AppointmentCreated"
                     OnClientAppointmentInserting="OnClientAppointmentInserting"
                     OnClientAppointmentResizing="OnClientAppointmentResizing"
-                    OnClientAppointmentDeleting="OnClientAppointmentDeleting">
+                    OnClientAppointmentDeleting="OnClientAppointmentDeleting"
+                    OnClientAppointmentMoving="OnClientAppointmenMoving"
+                    OnFormCreated="RadSchedulerIsTakvimi_FormCreated">
                     <Localization ContextMenuGoToToday="Bugün" HeaderDay="Günlük Görünüm" HeaderMonth="Aylık Görünüm" HeaderNextDay="Sonraki Gün" HeaderPrevDay="Önceki Gün" HeaderToday="Bugün"
                         HeaderWeek="Haftalık Görünüm" AdvancedAllDayEvent="Tüm gün" AdvancedCalendarCancel="İptal" AdvancedCalendarOK="Tamam" AdvancedCalendarToday="Bugün" AdvancedClose="Kapat"
                         AdvancedDaily="Günlük" AdvancedDay="Gün" AdvancedDays="Gün(ler)" AdvancedDescription="Tanım" AdvancedDone="Bitti" AdvancedEvery="Her" AdvancedEveryWeekday="Her haftagünü"
@@ -69,7 +74,8 @@
                             <tr>
                                 <th style="width: 10%">Sipariş No:</th>
                                 <td class="TdRenkSolaYasla">
-                                    <asp:LinkButton ID="LinkButtonEditSiparisNo" runat="server"> <%# Eval("Subject") %></asp:LinkButton>
+                                    <asp:Label ID="LabelEditSiparisNo" runat="server"> <%# Eval("Subject") %></asp:Label>
+                                    <asp:Label ID="LabelEditMontajID" runat="server" Visible="false"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -98,15 +104,15 @@
                             <tr>
                                 <th>Montaj Ekibi</th>
                                 <td>
-                                    <telerik:RadListBox ID="ListBoxMontajEkibi" runat="server" Height="300" Width="350" SelectionMode="Multiple" CheckBoxes="true">
-                                        <Items>
-                                            <telerik:RadListBoxItem Checked="true" Value="sdfsdf" Text="qweqw" />
-                                            <telerik:RadListBoxItem Checked="true" Value="sdfsdf" Text="qweqw" />
-                                            <telerik:RadListBoxItem Checked="false" Value="sdfsdf" Text="qweqw" />
-                                            <telerik:RadListBoxItem Checked="true" Value="sdfsdf" Text="qweqw" />
-                                            <telerik:RadListBoxItem Checked="true" Value="sdfsdf" Text="qweqw" />
-                                        </Items>
+                                    <telerik:RadListBox ID="ListBoxMontajEkibi" runat="server" Height="300" Width="350" SelectionMode="Multiple" CheckBoxes="true" DataValueField="ID" DataTextField="AD">
                                     </telerik:RadListBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Montaj Durumu</th>
+                                <td>
+                                    <asp:CheckBox ID="chcBoxMontajDurumu" runat="server" Text="Montaj Tamamlandı" Checked="false" ToolTip="Montaj tamamlandı ise seçiniz" />
+
                                 </td>
                             </tr>
                             <tr>
@@ -123,9 +129,8 @@
                     </AdvancedEditTemplate>
                     <AppointmentTemplate>
                         <div>
-                            <span style="font-size: small; font-weight: 800">
-                                <asp:Label ID="LabelAppointmentSiparisNo" runat="server"><%# Eval("Subject") %></asp:Label>
-                            </span>
+                            <asp:Label ID="LableMontajDurum" runat="server">&nbsp;&nbsp;</asp:Label>
+                            <asp:LinkButton ID="LabelAppointmentSiparisNo" runat="server" Font-Bold="true"><%# Eval("Subject") %></asp:LinkButton>
                             <br />
                             <asp:Label ID="LabelAppointmentMusteriAdSoyad" runat="server">Müşteri Adı Soyadı</asp:Label>
                             <br />
