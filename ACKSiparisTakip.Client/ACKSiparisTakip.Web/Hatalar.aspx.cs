@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ACKSiparisTakip.Business.ACKBusiness;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +13,25 @@ namespace ACKSiparisTakip.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                HatalariYukle();
+            }
+        }
 
+        private void HatalariYukle()
+        {
+            DataTable dt = new YonetimKonsoluBS().HatalariGetir();
+
+            if (dt.Rows.Count > 0)
+            {
+                RepeaterHataListesi.DataSource = dt;
+                lblhataSayisi.Text = dt.Rows.Count.ToString();
+            }
+            else
+                RepeaterHataListesi.DataSource = null;
+
+            RepeaterHataListesi.DataBind();
         }
     }
 }

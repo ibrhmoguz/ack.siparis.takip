@@ -263,5 +263,41 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
             return dt;
         }
+
+        public DataTable HatalariGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            string sqlText = @"SELECT TOP 500
+                                  (CASE 
+			                            WHEN MODULEID = 0 THEN 'ACKSiparisTakip'
+			                            WHEN MODULEID = 1 THEN 'Siparis'
+			                            WHEN MODULEID = 2 THEN 'IsTakvimi'
+			                            WHEN MODULEID = 3 THEN 'YonetimKonsolu'  
+			                            WHEN MODULEID = 4 THEN 'SifreGuncelle'  
+		                             END) AS MODUL
+                                  ,(CASE 
+			                            WHEN EVENTLOGENTRYTYPEID=1 THEN 'Error'
+			                            WHEN EVENTLOGENTRYTYPEID=1 THEN 'Warning'
+			                            WHEN EVENTLOGENTRYTYPEID=1 THEN 'Information'
+			                            WHEN EVENTLOGENTRYTYPEID=1 THEN 'SuccessAudit'
+			                            WHEN EVENTLOGENTRYTYPEID=1 THEN 'FailureAudit'
+		                            END) AS LOGTYPE
+                                  ,[EXCEPTION]
+                                  ,[PAGEURL]
+                                  ,[METHODNAME]
+                                  ,[MESSAGE]
+                                  ,[USERIDENTITY]
+                                  ,[PCNAME]
+                                  ,[USERAUTHORITY]
+                                  ,[EXTENDEDPROPERTIES]
+                                  ,[USERNAME]
+                                  ,[DATE]
+                              FROM [ACKAppDB].[dbo].[HATA]
+                              ORDER BY [DATE] DESC";
+            data.GetRecords(dt, sqlText);
+            return dt;
+        }
     }
 }
