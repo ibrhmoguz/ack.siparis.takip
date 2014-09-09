@@ -304,6 +304,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("MUSTERICEPTEL", musteri.MusteriCepTel, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ICKAPIMODEL", siparis.IcKapiModel, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DISKAPIMODEL", siparis.DisKapiModel, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISKAPIRENK", siparis.DisKapiRenk, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ICKAPIRENK", siparis.IcKapiRenk, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("KILITSISTEM", siparis.KilitSistem, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("CITA", siparis.Cita, SqlDbType.VarChar, 50);
@@ -345,6 +346,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    ,[MUSTERICEPTEL]
                                    ,[ICKAPIMODEL]
                                    ,[DISKAPIMODEL]
+                                   ,[DISKAPIRENK]
                                    ,[ICKAPIRENK]
                                    ,[KILITSISTEM]
                                    ,[CITA]
@@ -385,6 +387,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    @MUSTERICEPTEL,
                                    @ICKAPIMODEL,
                                    @DISKAPIMODEL,
+                                   @DISKAPIRENK,
                                    @ICKAPIRENK,
                                    @KILITSISTEM,
                                    @CITA,
@@ -434,6 +437,126 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
         }
 
+        public string SiparisGuncelle(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
+        {
+            IData data = GetDataObject();
+
+            try
+            {
+                data.BeginTransaction();
+
+                // SIPARIS BILGILERINI GUNCELLE
+                data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("SIPARISTARIH", siparis.SiparisTarih, SqlDbType.DateTime, 50);
+                data.AddSqlParameter("BAYIADI", siparis.BayiAd, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MUSTERIAD", musteri.MusteriAd, SqlDbType.VarChar, 100);
+                data.AddSqlParameter("MUSTERISOYAD", musteri.MusteriSoyad, SqlDbType.VarChar, 100);
+                data.AddSqlParameter("MUSTERIADRES", musteri.MusteriAdres, SqlDbType.VarChar, 500);
+                data.AddSqlParameter("MUSTERIIL", musteri.MusteriIl, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MUSTERIILCE", musteri.MusteriIlce, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MUSTERIEVTEL", musteri.MusteriEvTel, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MUSTERIISTEL", musteri.MusteriIsTel, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MUSTERICEPTEL", musteri.MusteriCepTel, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICKAPIMODEL", siparis.IcKapiModel, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISKAPIMODEL", siparis.DisKapiModel, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISKAPIRENK", siparis.DisKapiRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICKAPIRENK", siparis.IcKapiRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KILITSISTEM", siparis.KilitSistem, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CITA", siparis.Cita, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ESIK", siparis.Esik, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ALUMINYUMRENK", siparis.AluminyumRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("AKSESUARRENK", siparis.AksesuarRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CONTARENK", siparis.ContaRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("TACTIP", siparis.TacTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("PERVAZTIP", siparis.PervazTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CEKMEKOLU", siparis.CekmeKolu, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAPINO", siparis.KapiNo, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("BARELTIP", siparis.BarelTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("BABA", siparis.Baba, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DURBUN", siparis.Durbun, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("TAKTAK", siparis.Taktak, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MONTAJDATAKILACAK", olcum.MontajdaTakilacak, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("OLCUMBILGI", olcum.OlcumBilgi, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("OLCUMTARIH", olcum.OlcumTarih, SqlDbType.Date, 50);
+                data.AddSqlParameter("OLCUMALANKISI", olcum.OlcumAlanKisi, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MONTAJSEKLI", olcum.MontajSekli, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("TESLIMSEKLI", olcum.TeslimSekli, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("PESINAT", sozlesme.Pesinat, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KALANODEME", sozlesme.KalanOdeme, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("FIYAT", sozlesme.Fiyat, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("VERGIDAIRESI", sozlesme.VergiDairesi, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("VERGINUMARASI", sozlesme.VergiNumarası, SqlDbType.VarChar, 50);
+
+                string sqlGuncelle = @"UPDATE [ACKAppDB].[dbo].[SIPARIS]
+                                        SET
+                                          ,[SIPARISTARIH] = @SIPARISTARIH
+                                          ,[BAYIADI] = @BAYIADI
+                                          ,[MUSTERIAD] =@MUSTERIAD
+                                          ,[MUSTERISOYAD] = @MUSTERISOYAD
+                                          ,[MUSTERIADRES] =@MUSTERIADRES
+                                          ,[MUSTERIIL] = @MUSTERIIL
+                                          ,[MUSTERIILCE] =@MUSTERIILCE
+                                          ,[MUSTERIEVTEL] = @MUSTERIEVTEL
+                                          ,[MUSTERIISTEL] = @MUSTERIISTEL
+                                          ,[MUSTERICEPTEL] = @MUSTERICEPTEL
+                                          ,[ICKAPIMODEL] = @ICKAPIMODEL
+                                          ,[DISKAPIMODEL] = @DISKAPIMODEL
+                                          ,[DISKAPIRENK] = @DISKAPIRENK
+                                          ,[ICKAPIRENK] = @ICKAPIRENK
+                                          ,[KILITSISTEM] = @KILITSISTEM
+                                          ,[CITA] = @CITA
+                                          ,[ESIK] = @ESIK
+                                          ,[ALUMINYUMRENK] = @ALUMINYUMRENK
+                                          ,[AKSESUARRENK] = @AKSESUARRENK
+                                          ,[CONTARENK] = @CONTARENK
+                                          ,[TACTIP] = @TACTIP
+                                          ,[PERVAZTIP] = @PERVAZTIP
+                                          ,[CEKMEKOLU] = @CEKMEKOLU
+                                          ,[KAPINO] = @KAPINO
+                                          ,[BARELTIP] = @BARELTIP
+                                          ,[BABA] = @BABA
+                                          ,[DURBUN] = @DURBUN
+                                          ,[TAKTAK] = @TAKTAK
+                                          ,[MONTAJDATAKILACAK] = @MONTAJDATAKILACAK
+                                          ,[OLCUMBILGI] = @OLCUMBILGI
+                                          ,[OLCUMTARIH] = @OLCUMTARIH
+                                          ,[OLCUMALANKISI] = @OLCUMALANKISI
+                                          ,[MONTAJSEKLI] = @MONTAJSEKLI
+                                          ,[TESLIMSEKLI] = @TESLIMSEKLI
+                                          ,[PESINAT] = @PESINAT
+                                          ,[KALANODEME] = @KALANODEME
+                                          ,[FIYAT] = @FIYAT
+                                          ,[VERGIDAIRESI] = @VERGIDAIRESI
+                                          ,[VERGINUMARASI] = @VERGINUMARASI
+                                     WHERE [SIPARISNO] =@SIPARISNO)";
+                                  
+                data.ExecuteStatement(sqlGuncelle);
+
+                //MONTAJ BILGISI GUNCELLE
+
+                data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("TESLIMTARIH", sozlesme.MontajTeslimTarih, SqlDbType.DateTime, 50);
+                data.AddSqlParameter("DURUM", sozlesme.MontajDurum, SqlDbType.VarChar, 50);
+
+                string sqlGuncelleMontaj = @"UPDATE [ACKAppDB].[dbo].[MONTAJ]
+                                                   SET 
+                                                      ,[TESLIMTARIH] =@TESLIMTARIH
+                                                      ,[DURUM] = @DURUM
+                                                       WHERE [SIPARISNO] =@SIPARISNO)";
+                data.ExecuteStatement(sqlGuncelleMontaj);
+
+
+                data.CommitTransaction();
+                return siparis.SiparisNo;
+            }
+            catch (Exception exc)
+            {
+                data.RollbackTransaction();
+                new LogWriter().Write(AppModules.Siparis, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "SiparisKaydet", "", null);
+                return "";
+            }
+        }
+        
         public DataTable SiparisBilgileriniGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();

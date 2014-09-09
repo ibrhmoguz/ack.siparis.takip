@@ -107,10 +107,7 @@
                                 <asp:Label ID="lblAdres" runat="server"></asp:Label>
                             </td>
                         </tr>
-                        <tr>
-                            
-                        </tr>
-                    </table>
+                        </table>
                 </td>
                 <th>Ev Tel : </th>
                 <td>
@@ -384,7 +381,7 @@
             </tr>
             <tr>
                 <td colspan="4" style="text-align:center">
-                    <telerik:RadButton ID="btnGuncelle" runat="server" Text="Güncelle" >
+                    <telerik:RadButton ID="btnGuncelle" runat="server" Text="Güncelle" OnClick="btnGuncelle_Click" >
                         <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

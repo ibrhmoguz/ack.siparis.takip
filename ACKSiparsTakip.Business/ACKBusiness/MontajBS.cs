@@ -83,5 +83,18 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 return false;
             }
         }
+
+        public DataTable MontajBilgisiGetir(string siparisNo)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            data.AddSqlParameter("SIPARISNO", siparisNo, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT * FROM MONTAJ WHERE SIPARISNO=@SIPARISNO";
+            data.GetRecords(dt, sqlText);
+            return dt;
+
+        }
     }
 }

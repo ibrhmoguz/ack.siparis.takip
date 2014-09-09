@@ -28,7 +28,7 @@ namespace ACKSiparisTakip.Web
                 Session["yetki"] = dt.Rows[0]["YETKI"].ToString();
                 Session["sifre"] = password.Text;
                 Session["user"] = userName.Text;
-                Response.Redirect("IsTakvimi.aspx");
+                Response.Redirect("SiparisFormKayit.aspx");
             }
             else
             {

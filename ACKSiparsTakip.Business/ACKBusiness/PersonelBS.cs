@@ -14,6 +14,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         public DataTable PersonelListesiGetir()
         {
             DataTable dt = new DataTable();
+            dt.TableName = "PERSONEL";
             IData data = GetDataObject();
 
             string sqlText = @"SELECT ID, AD+' ' +SOYAD AS AD FROM PERSONELBILGI ORDER BY 1";

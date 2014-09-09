@@ -180,6 +180,7 @@ namespace ACKSiparisTakip.Web
             siparis.Cita = ddlCita.SelectedText;
             siparis.ContaRenk = ddlContaRengi.SelectedText;
             siparis.DisKapiModel = ddlDisKapiModeli.SelectedText;
+            siparis.DisKapiRenk = ddlDisKapiRengi.SelectedText;
             siparis.Durbun = ddlDurbun.SelectedText;
             siparis.Esik = ddlEsik.SelectedText;
             siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
@@ -205,6 +206,7 @@ namespace ACKSiparisTakip.Web
             sozlesme.Pesinat = txtPesinat.Text;
             sozlesme.VergiDairesi = txtVergiDairesi.Text;
             sozlesme.VergiNumarası = txtVergiNumarasi.Text;
+            sozlesme.Fiyat = txtFiyat.Text;
 
             string seriAdi = this.KapiTip.ToString().ToUpper();
             string siparisNo = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);

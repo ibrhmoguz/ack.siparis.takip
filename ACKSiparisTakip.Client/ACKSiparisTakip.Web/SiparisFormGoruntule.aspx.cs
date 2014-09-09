@@ -61,15 +61,14 @@ namespace ACKSiparisTakip.Web
             {
                 FormBilgileriniGetir();
             }
-
-      
+                  
         }
 
         private void FormBilgileriniGetir()
         {
             lblKapiTur.Text = this.SeriAdi;
             lblSiparisNo.Text = this.SiparisNo;
-            string adres, il, ilce;
+            string adres, il, ilce, ad, soyad;
 
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("SIPARISNO", this.SiparisNo);
@@ -83,16 +82,19 @@ namespace ACKSiparisTakip.Web
             adres=(row["MUSTERIADRES"] != DBNull.Value) ? row["MUSTERIADRES"].ToString() : String.Empty;
             il = (row["MUSTERIIL"] != DBNull.Value) ? row["MUSTERIIL"].ToString() : String.Empty;
             ilce = (row["MUSTERIILCE"] != DBNull.Value) ? row["MUSTERIILCE"].ToString() : String.Empty;
+            ad = (row["MUSTERIAD"] != DBNull.Value) ? row["MUSTERIAD"].ToString() : String.Empty;
+            soyad = (row["MUSTERISOYAD"] != DBNull.Value) ? row["MUSTERISOYAD"].ToString() : String.Empty;
             lblSiparisTarih.Text = (row["SIPARISTARIH"] != DBNull.Value) ? row["SIPARISTARIH"].ToString() : String.Empty;
             lblBayiAdi.Text = (row["BAYIADI"] != DBNull.Value) ? row["BAYIADI"].ToString() : String.Empty;
-            lblAd.Text = (row["MUSTERIAD"] != DBNull.Value) ? row["MUSTERIAD"].ToString() : String.Empty;
-            lblSoyad.Text = (row["MUSTERISOYAD"] != DBNull.Value) ? row["MUSTERISOYAD"].ToString() : String.Empty;
-            lblAdres.Text = adres + il + ilce;
+            lblAd.Text = ad;
+            lblSoyad.Text = soyad;
+            lblAdres.Text = adres +"   "+ ilce+" / "+ il  ;
             lblEvTel.Text = (row["MUSTERIEVTEL"] != DBNull.Value) ? row["MUSTERIEVTEL"].ToString() : String.Empty;
             lblIsTel.Text = (row["MUSTERIISTEL"] != DBNull.Value) ? row["MUSTERIISTEL"].ToString() : String.Empty;
             lblCepTel.Text = (row["MUSTERICEPTEL"] != DBNull.Value) ? row["MUSTERICEPTEL"].ToString() : String.Empty;
             lblIcKapiModeli.Text = (row["ICKAPIMODEL"] != DBNull.Value) ? row["ICKAPIMODEL"].ToString() : String.Empty;
             lblDisKapiModeli.Text = (row["DISKAPIMODEL"] != DBNull.Value) ? row["DISKAPIMODEL"].ToString() : String.Empty;
+            lblDisKapiRengi.Text = (row["DISKAPIRENK"] != DBNull.Value) ? row["DISKAPIRENK"].ToString() : String.Empty;
             lblIcKapiRengi.Text = (row["ICKAPIRENK"] != DBNull.Value) ? row["ICKAPIRENK"].ToString() : String.Empty;
             lblKilitSistemi.Text = (row["KILITSISTEM"] != DBNull.Value) ? row["KILITSISTEM"].ToString() : String.Empty;
             lblCita.Text = (row["CITA"] != DBNull.Value) ? row["CITA"].ToString() : String.Empty;
@@ -114,12 +116,19 @@ namespace ACKSiparisTakip.Web
             lblOlcumAlan.Text = (row["OLCUMALANKISI"] != DBNull.Value) ? row["OLCUMALANKISI"].ToString() : String.Empty;
             lblMontajSekli.Text = (row["MONTAJSEKLI"] != DBNull.Value) ? row["MONTAJSEKLI"].ToString() : String.Empty;
             lblTeslimSekli.Text = (row["TESLIMSEKLI"] != DBNull.Value) ? row["TESLIMSEKLI"].ToString() : String.Empty;
+            lblMusteriAdSoyad.Text = ad + " " + soyad;
+            lblMusteriAdres.Text = adres + "   " + ilce + " / " + il;
             lblPesinat.Text = (row["PESINAT"] != DBNull.Value) ? row["PESINAT"].ToString() : String.Empty;
             lblKalanOdeme.Text = (row["KALANODEME"] != DBNull.Value) ? row["KALANODEME"].ToString() : String.Empty;
             lblFiyat.Text = (row["FIYAT"] != DBNull.Value) ? row["FIYAT"].ToString() : String.Empty;
             lblVergiDairesi.Text = (row["VERGIDAIRESI"] != DBNull.Value) ? row["VERGIDAIRESI"].ToString() : String.Empty;
             lblVergiNumarasi.Text = (row["VERGINUMARASI"] != DBNull.Value) ? row["VERGINUMARASI"].ToString() : String.Empty;
 
+        }
+
+        protected void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SiparisFormGuncelle.aspx?SayfaModu=Guncelle" + "&" + "SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi);
         }
     }
 }

@@ -25,6 +25,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string BayiAd { get; set; }
         public string IcKapiModel { get; set; }
         public string DisKapiModel { get; set; }
+        public string DisKapiRenk { get; set; }
         public string IcKapiRenk { get; set; }
         public string KilitSistem { get; set; }
         public string Cita { get; set; }
