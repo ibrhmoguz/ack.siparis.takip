@@ -60,8 +60,8 @@ namespace ACKSiparisTakip.Web
             if (!Page.IsPostBack)
             {
                 FormBilgileriniGetir();
+                KapiTurAyarla();
             }
-                  
         }
 
         private void FormBilgileriniGetir()
@@ -76,10 +76,10 @@ namespace ACKSiparisTakip.Web
             DataTable dt = new SiparisIslemleriBS().SiparisBilgileriniGetir(prms);
             if (dt.Rows.Count == 0)
                 return;
-           
+
             DataRow row = dt.Rows[0];
-           
-            adres=(row["MUSTERIADRES"] != DBNull.Value) ? row["MUSTERIADRES"].ToString() : String.Empty;
+
+            adres = (row["MUSTERIADRES"] != DBNull.Value) ? row["MUSTERIADRES"].ToString() : String.Empty;
             il = (row["MUSTERIIL"] != DBNull.Value) ? row["MUSTERIIL"].ToString() : String.Empty;
             ilce = (row["MUSTERIILCE"] != DBNull.Value) ? row["MUSTERIILCE"].ToString() : String.Empty;
             ad = (row["MUSTERIAD"] != DBNull.Value) ? row["MUSTERIAD"].ToString() : String.Empty;
@@ -88,7 +88,7 @@ namespace ACKSiparisTakip.Web
             lblBayiAdi.Text = (row["BAYIADI"] != DBNull.Value) ? row["BAYIADI"].ToString() : String.Empty;
             lblAd.Text = ad;
             lblSoyad.Text = soyad;
-            lblAdres.Text = adres +"   "+ ilce+" / "+ il  ;
+            lblAdres.Text = adres + "   " + ilce + " / " + il;
             lblEvTel.Text = (row["MUSTERIEVTEL"] != DBNull.Value) ? row["MUSTERIEVTEL"].ToString() : String.Empty;
             lblIsTel.Text = (row["MUSTERIISTEL"] != DBNull.Value) ? row["MUSTERIISTEL"].ToString() : String.Empty;
             lblCepTel.Text = (row["MUSTERICEPTEL"] != DBNull.Value) ? row["MUSTERICEPTEL"].ToString() : String.Empty;
@@ -129,6 +129,22 @@ namespace ACKSiparisTakip.Web
         protected void btnGuncelle_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/SiparisFormGuncelle.aspx?SayfaModu=Guncelle" + "&" + "SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi);
+        }
+
+        private void KapiTurAyarla()
+        {
+            if (this.SiparisNo[0] == 'N')
+            {
+                lblKapiTur.Text = "NOVA";
+            }
+            else if (this.SiparisNo[0] == 'K')
+            {
+                lblKapiTur.Text = "KROMA";
+            }
+            else if (this.SiparisNo[0] == 'G')
+            {
+                lblKapiTur.Text = "GUARD";
+            }
         }
     }
 }

@@ -136,21 +136,24 @@
             <tr>
                 <td>
                     <br />
-                    <telerik:RadGrid ID="gvSiparisler" runat="server" AllowPaging="True" PageSize="30" OnPageIndexChanged="gvSiparisler_PageIndexChanged">
+                    <telerik:RadGrid ID="gvSiparisler" runat="server" AllowPaging="True" PageSize="30" OnPageIndexChanged="gvSiparisler_PageIndexChanged" OnItemDataBound="gvSiparisler_ItemDataBound">
                         <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
                             <Columns>
                                 <telerik:GridBoundColumn DataField="ID" HeaderText="ID">
                                 </telerik:GridBoundColumn>
-                                <telerik:GridBoundColumn DataField="SIPARISNO" HeaderText="Sipariş No">
-                                </telerik:GridBoundColumn>
-                                <telerik:GridBoundColumn DataField="MUSTERI" HeaderText="Müşteri Adı-Soyadı">
-                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="SIPARISNO" HeaderText="SİPARİŞ NO" />
+                                <telerik:GridBoundColumn DataField="SIPARISTARIH" HeaderText="SİPARİŞ TARİHİ" />
+                                <telerik:GridBoundColumn DataField="MONTAJTARIHI" HeaderText="MONTAJ TARİHİ" />
+                                <telerik:GridBoundColumn DataField="MUSTERI" HeaderText="MÜŞTERİ" />
+                                <telerik:GridBoundColumn DataField="MUSTERIADRES" HeaderText="MÜŞTERİ ADRES" />
+                                <telerik:GridBoundColumn DataField="MUSTERIIL" HeaderText="İL" />
+                                <telerik:GridBoundColumn DataField="MUSTERIILCE" HeaderText="İLÇE" />
                                 <telerik:GridTemplateColumn UniqueName="TemplateColumn">
                                     <HeaderTemplate>
                                         Form Görüntüle
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="lnkGoruntule" runat="server" Text="Siparişi Görüntüle" NavigateUrl="~/SiparisFormGoruntule.aspx?SiparisNo='<%#Eval("SIPARISNO") %>'" />
+                                        <asp:HyperLink ID="lnkGoruntule" runat="server" Text="Siparişi Görüntüle" />
                                     </ItemTemplate>
                                 </telerik:GridTemplateColumn>
                             </Columns>

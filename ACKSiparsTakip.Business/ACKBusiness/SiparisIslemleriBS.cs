@@ -600,7 +600,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlText = @"SELECT DISTINCT
 	                            S.[ID]
                                 ,S.[SIPARISNO]
-                                ,[SIPARISTARIH]
+                                ,CONVERT(VARCHAR(10), [SIPARISTARIH],104) AS SIPARISTARIH
                                 ,[MUSTERIAD] +' '+[MUSTERISOYAD] AS MUSTERI
                                 ,[MUSTERIADRES]
                                 ,[MUSTERIIL]
@@ -616,6 +616,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                 ,(CASE WHEN [PERVAZTIP]='Seçiniz' THEN '' ELSE [PERVAZTIP] END) AS [PERVAZTIP]
                                 ,[OLCUMBILGI]
                                 ,[MONTAJSEKLI]
+                                ,CONVERT(VARCHAR(10), M.[TESLIMTARIH],104)  AS MONTAJTARIHI
                             FROM SIPARIS AS S
 	                            INNER JOIN [dbo].[MONTAJ] AS M ON S.SIPARISNO = M.SIPARISNO
 	                            LEFT OUTER JOIN [dbo].[MONTAJ_PERSONEL] AS MP ON M.[ID] = MP.[MONTAJID]

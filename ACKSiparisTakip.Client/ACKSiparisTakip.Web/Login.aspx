@@ -22,7 +22,6 @@
 
                                 <asp:Label ID="LBL_User" runat="server"></asp:Label>
                                 <br />
-
                             </td>
                         </tr>
                         <tr>

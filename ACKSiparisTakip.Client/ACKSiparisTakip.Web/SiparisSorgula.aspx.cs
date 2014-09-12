@@ -292,5 +292,18 @@ namespace ACKSiparisTakip.Web
             gvSiparisler.DataSource = this.SorguSonucListesi;
             gvSiparisler.DataBind();
         }
+
+        protected void gvSiparisler_ItemDataBound(object sender, GridItemEventArgs e)
+        {
+            if (e.Item.ItemType == GridItemType.Item || e.Item.ItemType == GridItemType.AlternatingItem)
+            {
+                HyperLink link = (HyperLink)e.Item.FindControl("lnkGoruntule");
+                if (e.Item.IsDataBound)
+                {
+                    DataRowView rowView = (DataRowView)e.Item.DataItem;
+                    link.NavigateUrl = "~/SiparisFormGoruntule.aspx?SiparisNo=" + rowView.Row[1].ToString();
+                }
+            }
+        }
     }
 }
