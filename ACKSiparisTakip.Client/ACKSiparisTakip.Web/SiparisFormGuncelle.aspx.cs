@@ -342,6 +342,7 @@ namespace ACKSiparisTakip.Web
             musteri.MusteriIlce = ddlMusteriIlce.SelectedItem != null ? ddlMusteriIlce.SelectedItem.Text : null;
             musteri.MusteriIsTel = txtIsTel.Text;
 
+            siparis.SiparisNo = this.SiparisNo;
             siparis.AksesuarRenk = ddlAksesuarRengi.SelectedText;
             siparis.AluminyumRenk = ddlAluminyumRengi.SelectedText;
             siparis.Baba = ddlBaba.SelectedText;
