@@ -39,7 +39,7 @@
                             <td>
                                 <telerik:RadBinaryImage ID="imgLogo" runat="server" ImageUrl="~/App_Themes/Theme/Raster/ackLogo.PNG" />
                                 <br />
-                                <h2 class="title" style="color: skyblue; border-color: black; text-align: center; align-self:center" >Sipariş Takip Programı</h2>
+                                <h2 class="title" style="color: skyblue; border-color: black; text-align: center; align-self: center">Sipariş Takip Programı</h2>
                             </td>
                         </tr>
 
@@ -47,10 +47,7 @@
 
                 </div>
                 <div id="ContentPage" style="text-align: center; padding-top: 25px;">
-
                     <div id="infobox">
-                        <br />
-                        <br />
                         <br />
                         <h2 class="posted">Lütfen Kullanıcı Girişi Yapınız</h2>
                         <table>
