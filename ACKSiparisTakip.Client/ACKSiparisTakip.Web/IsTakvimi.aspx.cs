@@ -63,6 +63,7 @@ namespace ACKSiparisTakip.Web
             if (!Page.IsPostBack)
             {
                 TakvimVarsayilanAyarlari();
+                HaftaMontajlariniYukle();
                 IsleriTakvimeYukle();
                 PersonelListesiYukle();
             }
@@ -84,15 +85,19 @@ namespace ACKSiparisTakip.Web
 
         private void IsleriTakvimeYukle()
         {
-            MontajlariListele();
             MontajlariAppointmenteCevir();
             RadSchedulerIsTakvimi.DataSource = this.Appointments;
         }
 
-        private void MontajlariListele()
+        private void HaftaMontajlariniYukle()
         {
             DateTime dtBaslangic = HaftaBaslangicGunu();
             DateTime dtBitis = HaftaBitisGunu(dtBaslangic);
+            MontajlariListele(dtBaslangic, dtBitis);
+        }
+
+        private void MontajlariListele(DateTime dtBaslangic, DateTime dtBitis)
+        {
             this.MontajListesi = new MontajBS().MontajlariListele(dtBaslangic, dtBitis);
         }
 
@@ -295,6 +300,19 @@ namespace ACKSiparisTakip.Web
                     }
                 }
 
+            }
+        }
+
+        protected void RadSchedulerIsTakvimi_NavigationCommand(object sender, SchedulerNavigationCommandEventArgs e)
+        {
+            if (e.Command == SchedulerNavigationCommand.SwitchToMonthView)
+            {
+                int ayGunSayisi = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                DateTime dtBaslangic = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                DateTime dtBitis = dtBaslangic.AddDays(ayGunSayisi);
+
+                MontajlariListele(dtBaslangic, dtBitis);
+                IsleriTakvimeYukle();
             }
         }
     }

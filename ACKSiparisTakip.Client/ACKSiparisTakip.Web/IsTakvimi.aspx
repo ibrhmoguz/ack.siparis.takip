@@ -57,7 +57,8 @@
                     OnClientAppointmentResizing="OnClientAppointmentResizing"
                     OnClientAppointmentDeleting="OnClientAppointmentDeleting"
                     OnClientAppointmentMoving="OnClientAppointmenMoving"
-                    OnFormCreated="RadSchedulerIsTakvimi_FormCreated">
+                    OnFormCreated="RadSchedulerIsTakvimi_FormCreated"
+                    OnNavigationCommand="RadSchedulerIsTakvimi_NavigationCommand">
                     <Localization ContextMenuGoToToday="Bugün" HeaderDay="Günlük Görünüm" HeaderMonth="Aylık Görünüm" HeaderNextDay="Sonraki Gün" HeaderPrevDay="Önceki Gün" HeaderToday="Bugün"
                         HeaderWeek="Haftalık Görünüm" AdvancedAllDayEvent="Tüm gün" AdvancedCalendarCancel="İptal" AdvancedCalendarOK="Tamam" AdvancedCalendarToday="Bugün" AdvancedClose="Kapat"
                         AdvancedDaily="Günlük" AdvancedDay="Gün" AdvancedDays="Gün(ler)" AdvancedDescription="Tanım" AdvancedDone="Bitti" AdvancedEvery="Her" AdvancedEveryWeekday="Her haftagünü"
