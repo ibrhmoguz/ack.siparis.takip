@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="ACKSiparisTakip.Web.Login" %>
 
 <!DOCTYPE html>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -32,9 +33,17 @@
                     </table>
                 </div>
 
-                <div style="width: 100%; text-align: left; padding-left: 43px;">
-                    <h2 class="title" style="color: skyblue; border-color: black; text-align: center">Sipariş Takip Programı</h2>
+                <div style="width: 100%; text-align: center; padding-left: 43px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <telerik:RadBinaryImage ID="imgLogo" runat="server" ImageUrl="~/App_Themes/Theme/Raster/ackLogo.PNG" />
+                                <br />
+                                <h2 class="title" style="color: skyblue; border-color: black; text-align: center; align-self:center" >Sipariş Takip Programı</h2>
+                            </td>
+                        </tr>
 
+                    </table>
 
                 </div>
                 <div id="ContentPage" style="text-align: center; padding-top: 25px;">
@@ -47,7 +56,7 @@
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;">
-                                    <img src="App_Themes/Theme/Raster/user.png" alt="" style="position: relative; top: 4px;" />
+                                    <img src="App_Themes/Theme/Raster/user.png" alt="" style="position: relative; top: 4px; left: 0px;" />
                                     <asp:TextBox ID="userName" runat="server" ToolTip="Kullanıcı adınızı giriniz." Width="95px"></asp:TextBox>
                                     <img src="App_Themes/Theme/Raster/lock.gif" alt="" style="position: relative; top: 6px;" />
                                     <asp:TextBox ID="password" runat="server" TextMode="Password" ToolTip="Şifrenizi Giriniz." Width="75px"></asp:TextBox>

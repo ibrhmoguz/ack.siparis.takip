@@ -339,6 +339,7 @@ namespace ACKSiparisTakip.Web
             siparis.Cita = ddlCita.SelectedText;
             siparis.ContaRenk = ddlContaRengi.SelectedText;
             siparis.DisKapiModel = ddlDisKapiModeli.SelectedText;
+            siparis.DisKapiRenk = ddlDisKapiRengi.SelectedText;
             siparis.Durbun = ddlDurbun.SelectedText;
             siparis.Esik = ddlEsik.SelectedText;
             siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
