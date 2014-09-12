@@ -26,7 +26,7 @@ namespace ACKSiparisTakip.Web
             {
                 LabelUserName.Text += Session["user"].ToString();
             }
-            if (Session["yetki"] != null && Session["yetki"].ToString() != "yonetici")
+            if (Session["yetki"] != null && Session["yetki"].ToString() != "Yönetici")
             {
                 RadRibbonBarMenu.Tabs[2].Visible = false;
             }

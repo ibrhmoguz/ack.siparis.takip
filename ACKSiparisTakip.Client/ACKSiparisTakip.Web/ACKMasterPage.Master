@@ -63,10 +63,10 @@
                         <telerik:RibbonBarButton ID="rbbSiparisEkleGuard" Size="Large" Text="GUARD" ToolTip="Guard sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guard.png" CommandName="SiparisEkleGuard" />
                     </Items>
                 </telerik:RibbonBarGroup>
-                <telerik:RibbonBarGroup Text="Sorgulama">
+                <telerik:RibbonBarGroup Text="Sorgula">
                     <Items>
                         <telerik:RibbonBarButton ID="rbbSiparisSorgula" Size="Large" Text="SİPARİŞ" ToolTip="Sipariş sorgulamak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/sorgulama.png" CommandName="SiparisSorgula" />
-                        <telerik:RibbonBarButton ID="rbbMontajSorgula" Size="Large" Text="MONTAJ" ToolTip="Montaj sorgulamak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/sorgulama.png" CommandName="MontajSorgula" />
+                        <%--<telerik:RibbonBarButton ID="rbbMontajSorgula" Size="Large" Text="MONTAJ" ToolTip="Montaj sorgulamak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/sorgulama.png" CommandName="MontajSorgula" />--%>
                     </Items>
                 </telerik:RibbonBarGroup>
                 <telerik:RibbonBarGroup ID="rbgSiparisIslemleri" Text="Sipariş İşlemleri" Visible="false">

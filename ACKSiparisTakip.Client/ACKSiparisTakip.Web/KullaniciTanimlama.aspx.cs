@@ -40,7 +40,7 @@ namespace ACKSiparisTakip.Web
             }
 
             string kullanici = txtKullaniciAdi.Text.Trim();
-            string yetki = ddlYetki.SelectedValue;
+            string yetki = ddlYetki.SelectedText;
             string sifre = "12345";
             bool sonuc = false;
 
