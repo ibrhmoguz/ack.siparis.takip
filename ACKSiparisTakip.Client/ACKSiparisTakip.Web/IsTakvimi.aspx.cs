@@ -169,6 +169,7 @@ namespace ACKSiparisTakip.Web
                 {
                     MessageBox.Basari(this, "Montaj bilgisi güncellendi.");
                     RadSchedulerIsTakvimi.Rebind();
+                    HaftaMontajlariniYukle();
                     IsleriTakvimeYukle();
                 }
                 else
@@ -309,7 +310,7 @@ namespace ACKSiparisTakip.Web
             {
                 int ayGunSayisi = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
                 DateTime dtBaslangic = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-                DateTime dtBitis = dtBaslangic.AddDays(ayGunSayisi);
+                DateTime dtBitis = dtBaslangic.AddDays(ayGunSayisi-1);
 
                 MontajlariListele(dtBaslangic, dtBitis);
                 IsleriTakvimeYukle();
