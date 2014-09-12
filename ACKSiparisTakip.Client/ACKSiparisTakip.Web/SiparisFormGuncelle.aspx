@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
     <div id="divSiparisForm" runat="server" style="width: 75%" class="RadGrid_Current_Theme">
         <br />
         <br />
@@ -67,7 +67,7 @@
                 </td>
                 <th style="width: 20%">Sipariş Tarihi :  </th>
                 <td style="width: 30%">
-                    <telerik:RadDatePicker ID="rdtOlcuSiparisTarih" runat="server"></telerik:RadDatePicker>
+                    <telerik:RadDatePicker ID="rdtOlcuSiparisTarih" runat="server" Enabled="false"></telerik:RadDatePicker>
                 </td>
             </tr>
             <tr>
@@ -411,7 +411,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4" style="text-align:center">
+                <td colspan="4" style="text-align: center">
                     <telerik:RadButton ID="btnGuncelle" runat="server" Text="Güncelle" OnClick="btnGuncelle_Click">
                         <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
@@ -419,7 +419,7 @@
             </tr>
         </table>
         <br />
-        
+
     </div>
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
         <AjaxSettings>

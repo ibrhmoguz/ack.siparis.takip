@@ -437,7 +437,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
         }
 
-        public string SiparisGuncelle(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
+        public bool SiparisGuncelle(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
         {
             IData data = GetDataObject();
 
@@ -489,8 +489,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
                 string sqlGuncelle = @"UPDATE [ACKAppDB].[dbo].[SIPARIS]
                                         SET
-                                          ,[SIPARISTARIH] = @SIPARISTARIH
-                                          ,[BAYIADI] = @BAYIADI
+                                          --[SIPARISTARIH] = @SIPARISTARIH
+                                          [BAYIADI] = @BAYIADI
                                           ,[MUSTERIAD] =@MUSTERIAD
                                           ,[MUSTERISOYAD] = @MUSTERISOYAD
                                           ,[MUSTERIADRES] =@MUSTERIADRES
@@ -528,7 +528,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                           ,[FIYAT] = @FIYAT
                                           ,[VERGIDAIRESI] = @VERGIDAIRESI
                                           ,[VERGINUMARASI] = @VERGINUMARASI
-                                     WHERE [SIPARISNO] =@SIPARISNO)";
+                                     WHERE [SIPARISNO] =@SIPARISNO";
                                   
                 data.ExecuteStatement(sqlGuncelle);
 
@@ -536,24 +536,21 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
                 data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("TESLIMTARIH", sozlesme.MontajTeslimTarih, SqlDbType.DateTime, 50);
-                data.AddSqlParameter("DURUM", sozlesme.MontajDurum, SqlDbType.VarChar, 50);
 
                 string sqlGuncelleMontaj = @"UPDATE [ACKAppDB].[dbo].[MONTAJ]
-                                                   SET 
-                                                      ,[TESLIMTARIH] =@TESLIMTARIH
-                                                      ,[DURUM] = @DURUM
-                                                       WHERE [SIPARISNO] =@SIPARISNO)";
+                                             SET  [TESLIMTARIH] =@TESLIMTARIH
+                                             WHERE [SIPARISNO] =@SIPARISNO";
                 data.ExecuteStatement(sqlGuncelleMontaj);
 
 
                 data.CommitTransaction();
-                return siparis.SiparisNo;
+                return true;
             }
             catch (Exception exc)
             {
                 data.RollbackTransaction();
                 new LogWriter().Write(AppModules.Siparis, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "SiparisKaydet", "", null);
-                return "";
+                return false;
             }
         }
         

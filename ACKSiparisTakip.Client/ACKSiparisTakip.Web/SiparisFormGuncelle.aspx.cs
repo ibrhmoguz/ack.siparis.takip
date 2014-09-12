@@ -153,7 +153,7 @@ namespace ACKSiparisTakip.Web
             sozlesme.VergiNumarası = (rowSiparis["VERGINUMARASI"] != DBNull.Value) ? rowSiparis["VERGINUMARASI"].ToString() : String.Empty;
             sozlesme.Fiyat = (rowSiparis["FIYAT"] != DBNull.Value) ? rowSiparis["FIYAT"].ToString() : String.Empty;
 
-            txtAd.Text=musteri.MusteriAd;
+            txtAd.Text = musteri.MusteriAd;
             txtSoyad.Text = musteri.MusteriSoyad;
             txtAdres.Text = musteri.MusteriAdres;
             txtCepTel.Text = musteri.MusteriCepTel;
@@ -161,37 +161,36 @@ namespace ACKSiparisTakip.Web
             ddlMusteriIl.FindItemByText(musteri.MusteriIl);
             ddlMusteriIlce.FindItemByText(musteri.MusteriIlce);
             txtIsTel.Text = musteri.MusteriIsTel;
+            rdtOlcuSiparisTarih.SelectedDate = siparis.SiparisTarih;
 
-            ddlAksesuarRengi.FindItemByText(siparis.AksesuarRenk).Selected=true;
-            ddlAluminyumRengi.FindItemByText(siparis.AluminyumRenk).Selected = true;
-            ddlBaba.FindItemByText(siparis.Baba).Selected = true;
+            DropDownSelectedIndexAyarla(ddlAksesuarRengi, siparis.AksesuarRenk);
+            DropDownSelectedIndexAyarla(ddlAluminyumRengi, siparis.AluminyumRenk);
+            DropDownSelectedIndexAyarla(ddlBaba, siparis.Baba);
+            DropDownSelectedIndexAyarla(ddlCita, siparis.Cita);
+            DropDownSelectedIndexAyarla(ddlContaRengi, siparis.ContaRenk);
+            DropDownSelectedIndexAyarla(ddlDisKapiModeli, siparis.DisKapiModel);
+            DropDownSelectedIndexAyarla(ddlDisKapiRengi, siparis.DisKapiRenk);
+            DropDownSelectedIndexAyarla(ddlDurbun, siparis.Durbun);
+            DropDownSelectedIndexAyarla(ddlEsik, siparis.Esik);
+            DropDownSelectedIndexAyarla(ddlIcKapiModeli, siparis.IcKapiModel);
+            DropDownSelectedIndexAyarla(ddlIcKapiRengi, siparis.IcKapiRenk);
+            DropDownSelectedIndexAyarla(ddlKilitSistemi, siparis.KilitSistem);
+            DropDownSelectedIndexAyarla(ddlPervazTipi, siparis.PervazTip);
+            DropDownSelectedIndexAyarla(ddlTacTipi, siparis.TacTip);
+            DropDownSelectedIndexAyarla(ddlTaktak, siparis.Taktak);
+            DropDownSelectedIndexAyarla(ddlMontajSekli, olcum.MontajSekli);
+            DropDownSelectedIndexAyarla(ddlTeslimSekli, olcum.TeslimSekli);
+
             txtBarelTipi.Text = siparis.BarelTip;
             txtBayiAdi.Text = siparis.BayiAd;
             txtCekmeKolu.Text = siparis.CekmeKolu;
-            ddlCita.FindItemByText(siparis.Cita).Selected = true;
-            ddlContaRengi.FindItemByText(siparis.ContaRenk).Selected = true;
-            ddlDisKapiModeli.FindItemByText(siparis.DisKapiModel).Selected = true;
-            ddlDisKapiRengi.FindItemByText(siparis.DisKapiRenk).Selected = true;
-            ddlDurbun.FindItemByText(siparis.Durbun).Selected = true;
-            ddlEsik.FindItemByText(siparis.Esik).Selected = true;
-            ddlIcKapiModeli.FindItemByText(siparis.IcKapiModel).Selected = true;
-            ddlIcKapiRengi.FindItemByText(siparis.IcKapiRenk).Selected = true;
             txtKapiNo.Text = siparis.KapiNo;
-            ddlKilitSistemi.FindItemByText(siparis.KilitSistem).Selected = true;
-            ddlPervazTipi.FindItemByText(siparis.PervazTip).Selected = true;
-            ddlTacTipi.FindItemByText(siparis.TacTip).Selected = true;
-            ddlTaktak.FindItemByText(siparis.Taktak).Selected = true;
-
-
             txtMontajdaTakilacaklar.Text = olcum.MontajdaTakilacak;
-            ddlMontajSekli.FindItemByText(olcum.MontajSekli).Selected=true;
-           // ddlOlcumAlan.FindItemByText(olcum.OlcumAlanKisi).Selected=true;
             txtOlcumBilgileri.Text = olcum.OlcumBilgi;
-            rdtOlcuTarihSaat.SelectedDate= olcum.OlcumTarih;
-            ddlTeslimSekli.FindItemByText(olcum.TeslimSekli).Selected=true;
+            rdtOlcuTarihSaat.SelectedDate = olcum.OlcumTarih;
 
-            txtMusteriAdSoyad.Text = musteri.MusteriAd+ " "+ musteri.MusteriSoyad;
-            txtMusteriAdres.Text = musteri.MusteriAdres+ "" +musteri.MusteriIl+" / "+ musteri.MusteriIlce;
+            txtMusteriAdSoyad.Text = musteri.MusteriAd + " " + musteri.MusteriSoyad;
+            txtMusteriAdres.Text = musteri.MusteriAdres + "" + musteri.MusteriIl + " / " + musteri.MusteriIlce;
             txtMusteriCepTel.Text = musteri.MusteriCepTel;
             txtKalanOdeme.Text = sozlesme.KalanOdeme;
             rdpTeslimTarihi.SelectedDate = sozlesme.MontajTeslimTarih;
@@ -200,7 +199,20 @@ namespace ACKSiparisTakip.Web
             txtVergiNumarasi.Text = sozlesme.VergiNumarası;
             txtFiyat.Text = sozlesme.Fiyat;
 
-         }
+        }
+
+        private void DropDownSelectedIndexAyarla(RadDropDownList dp, string selectedValue)
+        {
+            if (!String.IsNullOrWhiteSpace(selectedValue))
+            {
+                DropDownListItem lidp = dp.FindItemByText(selectedValue);
+                if (lidp != null)
+                    lidp.Selected = true;
+            }
+            else
+                dp.SelectedIndex = 0;
+        }
+
         private void FormDoldur()
         {
             string seriId = ((int)this.KapiTip).ToString();
@@ -326,8 +338,8 @@ namespace ACKSiparisTakip.Web
             musteri.MusteriAdres = txtAdres.Text;
             musteri.MusteriCepTel = txtCepTel.Text;
             musteri.MusteriEvTel = txtEvTel.Text;
-            musteri.MusteriIl = ddlMusteriIl.SelectedItem.Text;
-            musteri.MusteriIlce = ddlMusteriIlce.SelectedItem.Text;
+            musteri.MusteriIl = ddlMusteriIl.SelectedItem != null ? ddlMusteriIl.SelectedItem.Text : null;
+            musteri.MusteriIlce = ddlMusteriIlce.SelectedItem != null ? ddlMusteriIlce.SelectedItem.Text : null;
             musteri.MusteriIsTel = txtIsTel.Text;
 
             siparis.AksesuarRenk = ddlAksesuarRengi.SelectedText;
@@ -368,12 +380,12 @@ namespace ACKSiparisTakip.Web
             sozlesme.Fiyat = txtFiyat.Text;
 
             string seriAdi = this.KapiTip.ToString().ToUpper();
-            string siparisNo = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);
+            bool state = new SiparisIslemleriBS().SiparisGuncelle(musteri, siparis, olcum, sozlesme);
 
-            if (siparisNo != string.Empty)
+            if (state)
             {
                 MessageBox.Basari(this, "Sipariş güncellendi.");
-                Response.Redirect("~/SiparisFormGoruntule.aspx?SayfaModu=Guncelle" + "&" + "SiparisNo=" + siparisNo + "&SeriAdi=" + seriAdi);
+                Response.Redirect("~/SiparisFormGoruntule.aspx?SayfaModu=Guncelle" + "&" + "SiparisNo=" + SiparisNo);
             }
             else
                 MessageBox.Hata(this, "Sipariş güncellenemedi.");
