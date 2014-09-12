@@ -44,7 +44,16 @@
     </script>
     <form id="form1" runat="server">
         <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
-        <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="Telerik" ShowChooser="false" />
+        <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="Telerik" ShowChooser="false"></telerik:RadSkinManager>
+        <table style="width: 100%">
+            <tr style="text-align: right">
+                <td>
+                    <asp:Label ID="LabelUserName" runat="server" Text="Kullanıcı: "></asp:Label>
+                    <asp:LinkButton ID="LB_Logout" runat="server" OnClick="LB_Logout_Click">(Çıkış)</asp:LinkButton>
+                </td>
+            </tr>
+        </table>
+
         <telerik:RadRibbonBar ID="RadRibbonBarMenu" runat="server" Width="100%" OnCommand="RadRibbonBarMenu_Command">
             <telerik:RibbonBarTab Text="SİPARİŞ">
                 <telerik:RibbonBarGroup Text="Sipariş Ekle">

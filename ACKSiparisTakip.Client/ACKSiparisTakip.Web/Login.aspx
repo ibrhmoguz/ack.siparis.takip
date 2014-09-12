@@ -22,7 +22,7 @@
 
                                 <asp:Label ID="LBL_User" runat="server"></asp:Label>
                                 <br />
-                                <asp:LinkButton ID="LB_Logout" runat="server" OnClick="LB_Logout_Click">(Çıkış)</asp:LinkButton>
+
                             </td>
                         </tr>
                         <tr>

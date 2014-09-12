@@ -137,7 +137,24 @@
                 <td>
                     <br />
                     <telerik:RadGrid ID="gvSiparisler" runat="server" AllowPaging="True" PageSize="30" OnPageIndexChanged="gvSiparisler_PageIndexChanged">
-                        <MasterTableView AutoGenerateColumns="True" DataKeyNames="ID">
+                        <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
+                            <Columns>
+                                <telerik:GridBoundColumn DataField="ID" HeaderText="ID">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="SIPARISNO" HeaderText="Sipariş No">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="MUSTERI" HeaderText="Müşteri Adı-Soyadı">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridTemplateColumn UniqueName="TemplateColumn">
+                                    <HeaderTemplate>
+                                        Form Görüntüle
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <asp:HyperLink ID="lnkGoruntule" runat="server" Text="Siparişi Görüntüle" NavigateUrl="~/SiparisFormGoruntule.aspx?SiparisNo='<%#Eval("SIPARISNO") %>'" />
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                            </Columns>
+
                         </MasterTableView>
                     </telerik:RadGrid>
                 </td>

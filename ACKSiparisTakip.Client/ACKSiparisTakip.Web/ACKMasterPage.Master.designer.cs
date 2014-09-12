@@ -49,6 +49,24 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadSkinManager RadSkinManager1;
         
         /// <summary>
+        /// LabelUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelUserName;
+        
+        /// <summary>
+        /// LB_Logout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LB_Logout;
+        
+        /// <summary>
         /// RadRibbonBarMenu control.
         /// </summary>
         /// <remarks>

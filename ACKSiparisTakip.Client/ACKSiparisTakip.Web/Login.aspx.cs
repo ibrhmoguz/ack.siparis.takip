@@ -24,11 +24,12 @@ namespace ACKSiparisTakip.Web
 
             if (dt.Rows.Count > 0)
             {
-                FormsAuthentication.RedirectFromLoginPage(userName.Text, false);
                 Session["yetki"] = dt.Rows[0]["YETKI"].ToString();
                 Session["sifre"] = password.Text;
                 Session["user"] = userName.Text;
-                Response.Redirect("SiparisFormKayit.aspx");
+                FormsAuthentication.RedirectFromLoginPage(userName.Text, false);
+               
+                //Response.Redirect("SiparisFormKayit.aspx");
             }
             else
             {

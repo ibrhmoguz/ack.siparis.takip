@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace ACKSiparisTakip.Web
 {
@@ -15,6 +16,19 @@ namespace ACKSiparisTakip.Web
             if (!Page.IsPostBack)
             {
                 SeciliMenuAyarla();
+                YetkiyeGoreMenuAyarla();
+            }
+        }
+
+        private void YetkiyeGoreMenuAyarla()
+        {
+            if (Session["user"] != null)
+            {
+                LabelUserName.Text += Session["user"].ToString();
+            }
+            if (Session["yetki"] != null && Session["yetki"].ToString() != "yonetici")
+            {
+                RadRibbonBarMenu.Tabs[2].Visible = false;
             }
         }
 
@@ -112,6 +126,16 @@ namespace ACKSiparisTakip.Web
         private void NavigateUrl(string url)
         {
             Response.Redirect(url);
+        }
+
+        protected void LB_Logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cookies[FormsAuthentication.FormsCookieName].Expires = DateTime.Now;
+            FormsAuthentication.SignOut();
+            FormsAuthentication.RedirectToLoginPage();
         }
     }
 }
