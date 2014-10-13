@@ -70,6 +70,8 @@ namespace ACKSiparisTakip.Web
             DataTable dtPervazTip = ds.Tables["PERVAZTIP"];
             DataTable dtContaRenk = ds.Tables["CONTARENK"];
             DataTable dtPersonel = ds.Tables["PERSONEL"];
+            DataTable dtBarelTip = ds.Tables["BARELTIP"];
+            DataTable dtCekmeKol = ds.Tables["CEKMEKOL"];
 
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
@@ -86,6 +88,8 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlPervazTipi, dtPervazTip);
             DropDownBindEt(ddlContaRengi, dtContaRenk);
             DropDownBindEt(ddlOlcumAlan, dtPersonel);
+            DropDownBindEt(ddlBarelTipi, dtBarelTip);
+            DropDownBindEt(ddlCekmeKolu, dtCekmeKol);
 
             Kontrol();
             IlleriGetir();
@@ -174,9 +178,9 @@ namespace ACKSiparisTakip.Web
             siparis.AksesuarRenk = ddlAksesuarRengi.SelectedText;
             siparis.AluminyumRenk = ddlAluminyumRengi.SelectedText;
             siparis.Baba = ddlBaba.SelectedText;
-            siparis.BarelTip = txtBarelTipi.Text;
+            siparis.BarelTip = ddlBarelTipi.SelectedText;
             siparis.BayiAd = txtBayiAdi.Text;
-            siparis.CekmeKolu = txtCekmeKolu.Text;
+            siparis.CekmeKolu = ddlCekmeKolu.SelectedText;
             siparis.Cita = ddlCita.SelectedText;
             siparis.ContaRenk = ddlContaRengi.SelectedText;
             siparis.DisKapiModel = ddlDisKapiModeli.SelectedText;
@@ -185,7 +189,7 @@ namespace ACKSiparisTakip.Web
             siparis.Esik = ddlEsik.SelectedText;
             siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
             siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
-            siparis.KapiNo = txtKapiNo.Text;
+            siparis.KapiNo = ddlKapiNo.SelectedText;
             siparis.KilitSistem = ddlKilitSistemi.SelectedText;
             siparis.PervazTip = ddlPervazTipi.SelectedText;
             siparis.SiparisTarih = DateTime.Now;

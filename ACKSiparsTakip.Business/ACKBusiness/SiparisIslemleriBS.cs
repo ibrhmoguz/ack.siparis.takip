@@ -29,6 +29,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(TacTipGetir(prms));
             ds.Tables.Add(PervazTipGetir(prms));
             ds.Tables.Add(ContaRenkGetir(prms));
+            ds.Tables.Add(BarelTipGetir(prms));
+            ds.Tables.Add(CekmeKolGetir(prms));
             ds.Tables.Add(new PersonelBS().PersonelListesiGetir());
             return ds;
         }
@@ -218,6 +220,38 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
 
             string sqlText = @"SELECT ID,AD FROM REF_CONTARENK WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable BarelTipGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "BARELTIP";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_BARELTIP WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable CekmeKolGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "CEKMEKOL";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_CEKMEKOLU WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
             data.GetRecords(dt, sqlText);
 
             return dt;

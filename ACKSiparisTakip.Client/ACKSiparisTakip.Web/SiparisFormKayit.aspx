@@ -212,7 +212,7 @@
             <tr>
                 <th style="width: 20%">Çekme Kolu :</th>
                 <td>
-                    <telerik:RadTextBox ID="txtCekmeKolu" runat="server"></telerik:RadTextBox>
+                    <telerik:RadDropDownList ID="ddlCekmeKolu" runat="server"></telerik:RadDropDownList>
                 </td>
                 <th style="width: 20%">Baba :</th>
                 <td>
@@ -228,7 +228,7 @@
             <tr>
                 <th>Kapı No :</th>
                 <td>
-                    <telerik:RadTextBox ID="txtKapiNo" runat="server"></telerik:RadTextBox>
+                    <telerik:RadDropDownList ID="ddlKapiNo" runat="server"></telerik:RadDropDownList>
                 </td>
                 <th>Dürbün :</th>
                 <td>
@@ -244,7 +244,7 @@
             <tr>
                 <th>Barel Tipi :</th>
                 <td>
-                    <telerik:RadTextBox ID="txtBarelTipi" runat="server"></telerik:RadTextBox>
+                    <telerik:RadDropDownList ID="ddlBarelTipi" runat="server"></telerik:RadDropDownList>
                 </td>
                 <th>Taktak :</th>
                 <td>
