@@ -595,7 +595,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
             data.AddSqlParameter("SIPARISNO", prms["SIPARISNO"], SqlDbType.VarChar, 50);
 
-            string sqlText = @"SELECT * FROM SIPARIS  WHERE SIPARISNO=@SIPARISNO";
+            string sqlText = @"SELECT 
+                                    S.*
+                                    ,(SELECT TESLIMTARIH FROM [dbo].[MONTAJ] WHERE SIPARISNO = S.SIPARISNO) AS TESLIMTARIH
+                               FROM SIPARIS AS S
+                               WHERE SIPARISNO=@SIPARISNO";
             data.GetRecords(dt, sqlText);
             return dt;
 
@@ -656,7 +660,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 	                                AND (@SiparisTarihiBit IS NULL OR S.[SIPARISTARIH]<=@SiparisTarihiBit)
 	                                AND (@MusteriAdSoyad IS NULL OR (S.[MUSTERIAD] LIKE '%{0}%' OR  S.[MUSTERISOYAD] LIKE '%{0}%'))
 	                                AND (@TeslimTarihiBas IS NULL OR M.[TESLIMTARIH] >= @TeslimTarihiBas)
-	                                AND (@TeslimTarihiBit IS NULL OR M.[TESLIMTARIH] >= @TeslimTarihiBit)
+	                                AND (@TeslimTarihiBit IS NULL OR M.[TESLIMTARIH] <= @TeslimTarihiBit)
 	                                AND (@PersonelListesi IS NULL OR MP.PERSONELID IN ({1}))
 	                                AND (@ddlIcKapiModeli IS NULL OR [ICKAPIMODEL] = @ddlIcKapiModeli)
 	                                AND (@ddlDisKapiModeli IS NULL OR [DISKAPIMODEL] = @ddlDisKapiModeli)
