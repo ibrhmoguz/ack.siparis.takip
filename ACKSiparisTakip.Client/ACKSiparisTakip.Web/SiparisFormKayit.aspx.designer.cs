@@ -298,7 +298,7 @@ namespace ACKSiparisTakip.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlKapiNo;
+        protected global::Telerik.Web.UI.RadComboBox ddlKapiNo;
         
         /// <summary>
         /// ddlDurbun control.

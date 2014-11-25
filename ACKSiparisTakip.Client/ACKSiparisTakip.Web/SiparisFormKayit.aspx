@@ -144,62 +144,62 @@
             <tr>
                 <th style="width: 20%">İç Kapı Modeli :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlIcKapiModeli" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlIcKapiModeli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th style="width: 20%">Dış Kapı Modeli :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlDisKapiModeli" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlDisKapiModeli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
             <tr>
                 <th>İç Kapı Rengi :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlIcKapiRengi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlIcKapiRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Dış Kapı Rengi :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlDisKapiRengi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlDisKapiRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
             <tr>
                 <th>Kilit Sistemi :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlKilitSistemi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlKilitSistemi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Çıta :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlCita" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlCita" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
             <tr>
                 <th>Eşik :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlEsik" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlEsik" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Aksesuar Rengi :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlAksesuarRengi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlAksesuarRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
             <tr runat="server" id="trGuard1" visible="false">
                 <th>Aluminyum Rengi :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlAluminyumRengi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlAluminyumRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Conta Rengi :</th>
                 <td colspan="3">
-                    <telerik:RadDropDownList ID="ddlContaRengi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlContaRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
 
             <tr runat="server" id="trGuard2" visible="false">
                 <th>Taç Tipi :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlTacTipi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlTacTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Pervaz Tipi :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlPervazTipi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlPervazTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
 
             </tr>
@@ -212,11 +212,11 @@
             <tr>
                 <th style="width: 20%">Çekme Kolu :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlCekmeKolu" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlCekmeKolu" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th style="width: 20%">Baba :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlBaba" runat="server" SelectedText="Seçiniz">
+                    <telerik:RadDropDownList ID="ddlBaba" runat="server" SelectedText="Seçiniz" RenderMode="Lightweight">
                         <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
                             <telerik:DropDownListItem runat="server" Text="Var" />
@@ -228,11 +228,11 @@
             <tr>
                 <th>Kapı No :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlKapiNo" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadComboBox ID="ddlKapiNo" runat="server"></telerik:RadComboBox>
                 </td>
                 <th>Dürbün :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlDurbun" runat="server">
+                    <telerik:RadDropDownList ID="ddlDurbun" runat="server" RenderMode="Lightweight">
                         <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
                             <telerik:DropDownListItem runat="server" Text="Var" />
@@ -244,11 +244,11 @@
             <tr>
                 <th>Barel Tipi :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlBarelTipi" runat="server"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlBarelTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Taktak :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlTaktak" runat="server">
+                    <telerik:RadDropDownList ID="ddlTaktak" runat="server" RenderMode="Lightweight">
                         <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
                             <telerik:DropDownListItem runat="server" Text="Var" />
@@ -284,7 +284,7 @@
                         <tr>
                             <th style="width: 20%">Ölçümü Alan Kişi : </th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlOlcumAlan" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlOlcumAlan" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
 
                         </tr>
@@ -292,20 +292,20 @@
                         <tr>
                             <th>Montaj Şekli </th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlMontajSekli" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlMontajSekli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
 
                         </tr>
                         <tr>
                             <th>Teslim Şekli </th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlTeslimSekli" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlTeslimSekli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                         </tr>
                         <tr>
                             <th>Teslim Tarihi</th>
                             <td>
-                                <telerik:RadDatePicker ID="rdpTeslimTarihi" runat="server"></telerik:RadDatePicker>
+                                <telerik:RadDatePicker ID="rdpTeslimTarihi" runat="server" RenderMode="Lightweight"></telerik:RadDatePicker>
                             </td>
                         </tr>
 

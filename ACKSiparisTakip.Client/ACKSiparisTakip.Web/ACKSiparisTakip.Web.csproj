@@ -140,7 +140,7 @@
     </Compile>
     <Compile Include="Hatalar.aspx.designer.cs">
       <DependentUpon>Hatalar.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="FormOgeGuncelleme.aspx.cs">
       <DependentUpon>FormOgeGuncelleme.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -93,7 +93,20 @@ namespace ACKSiparisTakip.Web
 
             Kontrol();
             IlleriGetir();
+            KapiNumaralariDoldur();
+        }
 
+        private void KapiNumaralariDoldur()
+        {
+            if (ddlKapiNo.Items != null && ddlKapiNo.Items.Count > 0)
+                ddlKapiNo.Items.Clear();
+
+            for (int i = 1; i <= 100; i++)
+            {
+                ddlKapiNo.Items.Add(new RadComboBoxItem(i.ToString(), i.ToString()));
+            }
+
+            ddlKapiNo.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem("Seçiniz", "0"));
         }
 
         private void DropDownBindEt(Telerik.Web.UI.RadDropDownList ddl, DataTable dt)
@@ -112,7 +125,6 @@ namespace ACKSiparisTakip.Web
                 trGuard1.Visible = true;
                 trGuard2.Visible = true;
             }
-
         }
 
         protected void IlleriGetir()
@@ -189,7 +201,7 @@ namespace ACKSiparisTakip.Web
             siparis.Esik = ddlEsik.SelectedText;
             siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
             siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
-            siparis.KapiNo = ddlKapiNo.SelectedText;
+            siparis.KapiNo = ddlKapiNo.SelectedValue;
             siparis.KilitSistem = ddlKilitSistemi.SelectedText;
             siparis.PervazTip = ddlPervazTipi.SelectedText;
             siparis.SiparisTarih = DateTime.Now;
@@ -215,7 +227,7 @@ namespace ACKSiparisTakip.Web
             string seriAdi = this.KapiTip.ToString().ToUpper();
             string siparisNo = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);
 
-            if (siparisNo!=string.Empty)
+            if (siparisNo != string.Empty)
             {
                 MessageBox.Basari(this, "Sipariş eklendi.");
                 Response.Redirect("~/SiparisFormGoruntule.aspx?SayfaModu=Kayit" + "&" + "SiparisNo=" + siparisNo + "&SeriAdi=" + seriAdi);
@@ -228,7 +240,7 @@ namespace ACKSiparisTakip.Web
         {
             tbMusteriSozlesme.Visible = true;
             txtMusteriAdSoyad.Text = txtAd.Text + " " + txtSoyad.Text;
-            txtMusteriAdres.Text = txtAdres.Text + " " + ddlMusteriIlce.SelectedItem.Text+"  "+ ddlMusteriIl.SelectedItem.Text;
+            txtMusteriAdres.Text = txtAdres.Text + " " + ddlMusteriIlce.SelectedItem.Text + "  " + ddlMusteriIl.SelectedItem.Text;
             txtMusteriCepTel.Text = txtCepTel.Text;
         }
     }
