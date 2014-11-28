@@ -1,18 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ACKMasterPage.Master" AutoEventWireup="true" CodeBehind="SiparisFormGoruntule.aspx.cs" Inherits="ACKSiparisTakip.Web.SiparisFormGoruntule" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Print/PrinterFriendly.Master" AutoEventWireup="true" CodeBehind="Print.aspx.cs" Inherits="ACKSiparisTakip.Web.Print.Print" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div id="divSiparisForm" runat="server" style="width: 75%" class="RadGrid_Current_Theme">
-        <br />
-        <br />
-        <br />
-        <table class="AnaTablo">
+
+           <table class="AnaTablo" style="width: 100%" border="1">
             <tr>
                 <td rowspan="6" style="text-align: center">
-                    <telerik:RadBinaryImage ID="imgLogo" runat="server" ImageUrl="~/App_Themes/Theme/Raster/ackLogo.PNG" />
+                    <telerik:radbinaryimage id="imgLogo" runat="server" imageurl="~/App_Themes/Theme/Raster/ackLogo.PNG" />
                 </td>
                 <td colspan="2" rowspan="3" style="width: 45%; font-size: x-large; text-align: center;">
 
@@ -59,7 +55,7 @@
 
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%" border="1">
             <tr>
                 <th style="width: 15%">Ölçü Tarihi ve Saati :   </th>
                 <td style="width: 35%">
@@ -83,7 +79,7 @@
         </table>
         <br />
 
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%" border="1">
             <tr>
                 <th colspan="4">MÜŞTERİ BİLGİLERİ </th>
 
@@ -128,7 +124,7 @@
             </tr>
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%" border="1">
             <tr>
                 <th style="width: 20%">İç Kapı Modeli :</th>
                 <td>
@@ -193,7 +189,7 @@
             </tr>
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%" border="1">
             <tr>
                 <th colspan="4">AKSESUARLAR</th>
             </tr>
@@ -236,7 +232,7 @@
         </table>
         <br />
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%" border="1">
             <tr>
                 <th colspan="2">ÖLÇÜM ve MONTAJ</th>
             </tr>
@@ -287,7 +283,7 @@
             </tr>
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%" border="1">
             <tr>
                 <th>NOT
                 </th>
@@ -300,7 +296,7 @@
 
         </table>
         <br />
-        <table class="AnaTablo" runat="server" id="tbMusteriSozlesme">
+        <table class="AnaTablo" style="width: 100%" border="1" runat="server" id="tbMusteriSozlesme">
             <tr>
                 <th colspan="4" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
 
@@ -379,20 +375,9 @@
                     <br />
                 </td>
             </tr>
-            <tr>
-                <td colspan="4" style="text-align:center">
-                    <telerik:RadButton ID="btnGuncelle" runat="server" Text="Güncelle" OnClick="btnGuncelle_Click" >
-                        <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
-                    </telerik:RadButton>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır" OnClick="btnYazdir_Click" >
-                        <Icon PrimaryIconCssClass="rbPrint" PrimaryIconLeft="4" PrimaryIconTop="3" />
-                    </telerik:RadButton>
-                </td>
-            </tr>
+            
         </table>
         <br />
         
     </div>
 </asp:Content>
-

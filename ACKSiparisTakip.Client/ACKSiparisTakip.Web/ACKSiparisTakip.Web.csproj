@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Theme\Buttons.css" />
     <Content Include="App_Themes\Theme\Raster\ackLogo.PNG" />
     <Content Include="App_Themes\Theme\Raster\BlankProfile.gif" />
     <Content Include="App_Themes\Theme\Raster\buton.jpg" />
@@ -112,11 +113,14 @@
     <Content Include="FormOgeGuncelleme.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Hatalar.aspx" />
+    <Content Include="Helper\jquery.js" />
     <Content Include="IsTakvimi.aspx" />
     <Content Include="KullaniciTanimlama.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MontajSorgula.aspx" />
     <Content Include="PersonelTanimlama.aspx" />
+    <Content Include="Print\Print.aspx" />
+    <Content Include="Print\PrinterFriendly.css" />
     <Content Include="SiparisFormKayit.aspx" />
     <Content Include="SiparisFormGoruntule.aspx" />
     <Content Include="SiparisFormGuncelle.aspx" />
@@ -148,7 +152,9 @@
     <Compile Include="FormOgeGuncelleme.aspx.designer.cs">
       <DependentUpon>FormOgeGuncelleme.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Helper\JavascriptHelper.cs" />
     <Compile Include="Helper\MessageBox.cs" />
+    <Compile Include="Helper\PopupPageHelper.cs" />
     <Compile Include="IsTakvimi.aspx.cs">
       <DependentUpon>IsTakvimi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,6 +182,20 @@
     </Compile>
     <Compile Include="PersonelTanimlama.aspx.designer.cs">
       <DependentUpon>PersonelTanimlama.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Print.aspx.cs">
+      <DependentUpon>Print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print\Print.aspx.designer.cs">
+      <DependentUpon>Print.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PrinterFriendly.Master.cs">
+      <DependentUpon>PrinterFriendly.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print\PrinterFriendly.Master.designer.cs">
+      <DependentUpon>PrinterFriendly.Master</DependentUpon>
     </Compile>
     <Compile Include="SiparisFormKayit.aspx.cs">
       <DependentUpon>SiparisFormKayit.aspx</DependentUpon>
@@ -234,6 +254,7 @@
   <ItemGroup>
     <Content Include="ACKMasterPage.Master" />
     <None Include="bin\ACKSiparisTakip.Web.dll.config" />
+    <Content Include="Print\PrinterFriendly.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
