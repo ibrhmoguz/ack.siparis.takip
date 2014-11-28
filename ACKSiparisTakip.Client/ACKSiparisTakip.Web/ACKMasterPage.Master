@@ -102,6 +102,13 @@
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
+             <telerik:RibbonBarTab Text="RAPORLAR">
+                <telerik:RibbonBarGroup Text="Takip Formu">
+                    <Items>
+                        <telerik:RibbonBarButton ID="rbbGunlukIsTakipFormu" Size="Large" Text="GÜNLÜK İŞ TAKİP FORMU" ToolTip="Günlük iş takip formu için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/gunlukRapor.png" CommandName="GunlukIsTakipFormu" />
+                    </Items>
+                </telerik:RibbonBarGroup>
+            </telerik:RibbonBarTab>
         </telerik:RadRibbonBar>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

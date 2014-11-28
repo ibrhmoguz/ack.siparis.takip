@@ -58,6 +58,10 @@ namespace ACKSiparisTakip.Web
             {
                 RadRibbonBarMenu.SelectedTabIndex = 3;
             }
+            else if (url.Contains("GunlukIsTakipFormu"))
+            {
+                RadRibbonBarMenu.SelectedTabIndex = 4;
+            }
         }
 
         protected void RadRibbonBarMenu_Command(object sender, CommandEventArgs e)
@@ -76,6 +80,7 @@ namespace ACKSiparisTakip.Web
             string urlSiparisSorgula = "SiparisSorgula.aspx";
             string urlMontajSorgula = "MontajSorgula.aspx";
             string urlHatalar = "Hatalar.aspx";
+            string urlGunlukIsTakipFormu = "GunlukIsTakipFormu.aspx";
 
             switch (e.CommandName)
             {
@@ -112,6 +117,10 @@ namespace ACKSiparisTakip.Web
                 case "HataListesi":
                     NavigateUrl(urlHatalar);
                     break;
+                    case "GunlukIsTakipFormu":
+                    NavigateUrl(urlGunlukIsTakipFormu);
+                    break;
+                    
                 default:
                     break;
             }
