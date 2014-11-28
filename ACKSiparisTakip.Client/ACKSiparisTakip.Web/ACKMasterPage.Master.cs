@@ -28,6 +28,8 @@ namespace ACKSiparisTakip.Web
             }
             if (Session["yetki"] != null && Session["yetki"].ToString() != "Yönetici")
             {
+                RadRibbonBarMenu.Tabs[0].FindGroupByValue("Sorgula").Visible = false;
+                RadRibbonBarMenu.Tabs[1].Visible = false;
                 RadRibbonBarMenu.Tabs[2].Visible = false;
             }
         }

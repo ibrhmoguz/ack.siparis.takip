@@ -74,6 +74,12 @@ namespace ACKSiparisTakip.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["yetki"].ToString() == "Kullanici")
+            {
+                MessageBox.Hata(this, "Bu sayfaya erişim yetkiniz yoktur!");
+                return;
+            }
+
             if (!Page.IsPostBack)
             {
                 FormDoldur();
