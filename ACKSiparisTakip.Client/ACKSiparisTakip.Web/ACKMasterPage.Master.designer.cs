@@ -112,33 +112,6 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisSorgula;
         
         /// <summary>
-        /// rbgSiparisIslemleri control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RibbonBarGroup rbgSiparisIslemleri;
-        
-        /// <summary>
-        /// rbbSiparisGuncelle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisGuncelle;
-        
-        /// <summary>
-        /// rbbSiparisYazdir control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RibbonBarButton rbbSiparisYazdir;
-        
-        /// <summary>
         /// rbbIsTakvimiTakvimGorunumu control.
         /// </summary>
         /// <remarks>
@@ -200,14 +173,5 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
-        
-        /// <summary>
-        /// RadNotificationACKMaster control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadNotification RadNotificationACKMaster;
     }
 }

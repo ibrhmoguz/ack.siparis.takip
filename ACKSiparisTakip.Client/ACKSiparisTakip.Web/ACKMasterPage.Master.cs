@@ -56,11 +56,6 @@ namespace ACKSiparisTakip.Web
             {
                 RadRibbonBarMenu.SelectedTabIndex = 3;
             }
-
-            if (url.Contains("SiparisFormGoruntule"))
-            {
-                rbgSiparisIslemleri.Visible = true;
-            }
         }
 
         protected void RadRibbonBarMenu_Command(object sender, CommandEventArgs e)
@@ -102,9 +97,6 @@ namespace ACKSiparisTakip.Web
                     break;
                 case "IsTakvimiGoruntule":
                     NavigateUrl(urlIsTakvimi);
-                    break;
-                case "SiparisGuncelle":
-                    NavigateUrl(urlSiparisFormGuncelle);
                     break;
                 case "SifreGuncelle":
                     NavigateUrl(urlSifre);

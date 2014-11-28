@@ -13,35 +13,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <script type="text/javascript">
-        var modalDiv = null;
-        function showNotification() {
-            $find("<%=RadNotificationACKMaster.ClientID %>").show();
-        }
 
-        function showModalDiv(sender, args) {
-            if (!modalDiv) {
-                modalDiv = document.createElement("div");
-                modalDiv.style.width = "100%";
-                modalDiv.style.height = "100%";
-                modalDiv.style.backgroundColor = "#aaaaaa";
-                modalDiv.style.position = "absolute";
-                modalDiv.style.left = "0px";
-                modalDiv.style.top = "0px";
-                modalDiv.style.filter = "progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=50)";
-                modalDiv.style.opacity = ".5";
-                modalDiv.style.MozOpacity = ".5";
-                modalDiv.setAttribute("unselectable", "on");
-                modalDiv.style.zIndex = (sender.get_zIndex() - 1).toString();
-                document.body.appendChild(modalDiv);
-            }
-            modalDiv.style.display = "";
-        }
-
-        function hideModalDiv() {
-            modalDiv.style.display = "none";
-        }
-    </script>
     <form id="form1" runat="server">
         <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
         <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="Telerik" ShowChooser="false"></telerik:RadSkinManager>
@@ -67,12 +39,6 @@
                     <Items>
                         <telerik:RibbonBarButton ID="rbbSiparisSorgula" Size="Large" Text="SİPARİŞ" ToolTip="Sipariş sorgulamak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/sorgulama.png" CommandName="SiparisSorgula" />
                         <%--<telerik:RibbonBarButton ID="rbbMontajSorgula" Size="Large" Text="MONTAJ" ToolTip="Montaj sorgulamak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/sorgulama.png" CommandName="MontajSorgula" />--%>
-                    </Items>
-                </telerik:RibbonBarGroup>
-                <telerik:RibbonBarGroup ID="rbgSiparisIslemleri" Text="Sipariş İşlemleri" Visible="false">
-                    <Items>
-                        <telerik:RibbonBarButton ID="rbbSiparisGuncelle" Size="Large" Text=" GÜNCELLE " ToolTip="Sipariş güncellemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="SiparisGuncelle" />
-                        <telerik:RibbonBarButton ID="rbbSiparisYazdir" Size="Large" Text=" YAZDIR " ToolTip="Sipariş yazdırmak için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/print.jpg" />
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
@@ -113,10 +79,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <telerik:RadNotification ID="RadNotificationACKMaster" runat="server" Position="Center" AutoCloseDelay="3000" Width="300px" EnableRoundedCorners="true"
-            Height="120px" Text="Lorem ipsum dolor sit amet" OnClientShowing="showModalDiv" OnClientHidden="hideModalDiv"
-            ShowCloseButton="true" ShowTitleMenu="false" TitleIcon="" EnableShadow="true">
-        </telerik:RadNotification>
+
     </form>
 </body>
 </html>

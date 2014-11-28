@@ -203,10 +203,11 @@ namespace ACKSiparisTakip.Web
 
         private void DropDownSelectedIndexAyarla(RadDropDownList dp, string selectedValue)
         {
+            dp.ClearSelection();
             if (!String.IsNullOrWhiteSpace(selectedValue))
             {
                 DropDownListItem lidp = dp.FindItemByText(selectedValue);
-                if (lidp != null)
+                if (lidp != null && lidp.Selected == false)
                     lidp.Selected = true;
             }
             else

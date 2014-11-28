@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div id="divSiparisForm" runat="server" style="width: 75%" class="RadGrid_Current_Theme">
+    <div id="divSiparisForm" runat="server"  style="width: 75%" class="RadGrid_Current_Theme">
         <br />
         <br />
         <br />
@@ -85,7 +85,7 @@
 
         <table class="AnaTablo">
             <tr>
-                <th colspan="4">MÜŞTERİ BİLGİLERİ </th>
+                <th colspan="4">MÜŞTERİ/FİRMA BİLGİLERİ </th>
 
             </tr>
             <tr>
