@@ -13,23 +13,11 @@ using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
 using ACKSiparisTakip.Web.Helper;
 using Telerik.Web.UI;
 
-namespace ACKSiparisTakip.Web
+namespace ACKSiparisTakip.Web.Print
 {
-    public partial class SiparisFormGoruntule : System.Web.UI.Page
+    public partial class Print : System.Web.UI.Page
     {
-        public string SayfaModu
-        {
-            get
-            {
-                if (!String.IsNullOrEmpty(Request.QueryString["SayfaModu"]))
-                {
-                    return Request.QueryString["SayfaModu"].ToString();
-                }
-                else
-                    return String.Empty;
-            }
-        }
-
+        
         public string SiparisNo
         {
             get
@@ -64,7 +52,23 @@ namespace ACKSiparisTakip.Web
             {
                 FormBilgileriniGetir();
                 KapiTurAyarla();
-                PopupPageHelper.OpenPopUp(btnYazdir, "Print/Print.aspx?SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi, "", true, false, true, false, false, false, 844, 900, true, false, "onclick");
+                
+            }
+        }
+
+        private void KapiTurAyarla()
+        {
+            if (this.SiparisNo[0] == 'N')
+            {
+                lblKapiTur.Text = "NOVA";
+            }
+            else if (this.SiparisNo[0] == 'K')
+            {
+                lblKapiTur.Text = "KROMA";
+            }
+            else if (this.SiparisNo[0] == 'G')
+            {
+                lblKapiTur.Text = "GUARD";
             }
         }
 
@@ -128,32 +132,6 @@ namespace ACKSiparisTakip.Web
             lblVergiDairesi.Text = (row["VERGIDAIRESI"] != DBNull.Value) ? row["VERGIDAIRESI"].ToString() : String.Empty;
             lblVergiNumarasi.Text = (row["VERGINUMARASI"] != DBNull.Value) ? row["VERGINUMARASI"].ToString() : String.Empty;
             lblTeslimTarihi.Text = (row["TESLIMTARIH"] != DBNull.Value) ? row["TESLIMTARIH"].ToString() : String.Empty;
-
-        }
-
-        protected void btnGuncelle_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/SiparisFormGuncelle.aspx?SayfaModu=Guncelle" + "&" + "SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi);
-        }
-
-        private void KapiTurAyarla()
-        {
-            if (this.SiparisNo[0] == 'N')
-            {
-                lblKapiTur.Text = "NOVA";
-            }
-            else if (this.SiparisNo[0] == 'K')
-            {
-                lblKapiTur.Text = "KROMA";
-            }
-            else if (this.SiparisNo[0] == 'G')
-            {
-                lblKapiTur.Text = "GUARD";
-            }
-        }
-
-        protected void btnYazdir_Click(object sender, EventArgs e)
-        {
 
         }
     }
