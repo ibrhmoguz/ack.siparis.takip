@@ -3,7 +3,7 @@
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <div id="divSiparisForm" runat="server" style="width: 75%" class="RadGrid_Current_Theme">
+    <div id="divSiparisForm" runat="server" style="width: 100%" class="RadGrid_Current_Theme">
 
            <table class="AnaTablo" style="width: 100%" border="1">
             <tr>

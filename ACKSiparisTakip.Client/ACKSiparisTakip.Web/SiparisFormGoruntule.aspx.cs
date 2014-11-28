@@ -64,7 +64,7 @@ namespace ACKSiparisTakip.Web
             {
                 FormBilgileriniGetir();
                 KapiTurAyarla();
-                PopupPageHelper.OpenPopUp(btnYazdir, "Print/Print.aspx?SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi, "", true, false, true, false, false, false, 844, 900, true, false, "onclick");
+                PopupPageHelper.OpenPopUp(btnYazdir, "Print/Print.aspx?SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi, "", true, false, true, false, false, false, 800, 900, true, false, "onclick");
             }
         }
 
