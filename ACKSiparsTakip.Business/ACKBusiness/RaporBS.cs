@@ -19,7 +19,9 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 	                            ROW_NUMBER() OVER(ORDER BY S.SIPARISNO DESC) AS ID
 	                            , S.SIPARISNO
 	                            , S.MUSTERIAD + ' ' + S.MUSTERISOYAD AS MUSTERI
-	                            , 'CEP: '+ S.MUSTERICEPTEL + ' EV:' + S.MUSTERIEVTEL + ' İŞ:' + S.MUSTERIISTEL AS TEL
+	                            ,  ISNULL(CASE WHEN S.MUSTERICEPTEL IS NOT NULL THEN 'CEP: '+ S.MUSTERICEPTEL ELSE NULL END,'') + ' ' +
+	                               ISNULL(CASE WHEN S.MUSTERIEVTEL IS NOT NULL THEN 'EV: '+ S.MUSTERIEVTEL ELSE NULL END,'') + ' ' +
+	                               ISNULL(CASE WHEN S.MUSTERIISTEL IS NOT NULL THEN 'İŞ: '+ S.MUSTERIISTEL ELSE NULL END,'') AS TEL
 	                            , S.MUSTERIADRES AS ADRES
 	                            , S.MUSTERIILCE AS SEMT
 	                            , dbo.MONTAJ_EKIP_LISTESI(M.ID) AS MONTAJEKIBI
