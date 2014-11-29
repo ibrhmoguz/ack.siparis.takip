@@ -256,13 +256,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadButton btnSorgula;
         
         /// <summary>
-        /// gvSiparisler control.
+        /// grdSiparisler control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid gvSiparisler;
+        protected global::System.Web.UI.WebControls.GridView grdSiparisler;
         
         /// <summary>
         /// RadAjaxManager1 control.

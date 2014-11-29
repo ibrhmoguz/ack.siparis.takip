@@ -148,31 +148,27 @@
         <br />
 
     </div>
-    <table class="AnaTablo" style="width: 100%">
-        <telerik:RadGrid ID="gvSiparisler" runat="server" AllowPaging="True" PageSize="30"
-            OnPageIndexChanged="gvSiparisler_PageIndexChanged" OnItemDataBound="gvSiparisler_ItemDataBound" ItemStyle-CssClass="tdTabStripAktif" AlternatingItemStyle-CssClass="TdRenkSolResimsizSerbest">
-            <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
-                <Columns>
-                    <telerik:GridBoundColumn DataField="ID" HeaderText="ID" />
-                    <telerik:GridBoundColumn DataField="SIPARISNO" HeaderText="SİPARİŞ NO" />
-                    <telerik:GridBoundColumn DataField="SIPARISTARIH" HeaderText="SİPARİŞ TARİHİ" />
-                    <telerik:GridBoundColumn DataField="MONTAJTARIHI" HeaderText="MONTAJ TARİHİ" />
-                    <telerik:GridBoundColumn DataField="MUSTERI" HeaderText="MÜŞTERİ" />
-                    <telerik:GridBoundColumn DataField="MUSTERIADRES" HeaderText="MÜŞTERİ ADRES" />
-                    <telerik:GridBoundColumn DataField="MUSTERIIL" HeaderText="İL" />
-                    <telerik:GridBoundColumn DataField="MUSTERIILCE" HeaderText="İLÇE" />
-                    <telerik:GridTemplateColumn UniqueName="TemplateColumn">
-                        <HeaderTemplate>
-                            Form Görüntüle
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <asp:HyperLink ID="lnkGoruntule" runat="server" Text="Siparişi Görüntüle" />
-                        </ItemTemplate>
-                    </telerik:GridTemplateColumn>
-                </Columns>
-            </MasterTableView>
-        </telerik:RadGrid>
-    </table>
+
+    <asp:GridView ID="grdSiparisler" runat="server" AutoGenerateColumns="false" AllowPaging="True" PageSize="30" OnPageIndexChanging="grdSiparisler_PageIndexChanging"
+        OnRowDataBound="grdSiparisler_RowDataBound" Width="100%" CssClass="AnaTablo" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2">
+        <Columns>
+            <asp:BoundField DataField="ID" HeaderText="ID" />
+            <asp:BoundField DataField="SIPARISNO" HeaderText="SİPARİŞ NO" />
+            <asp:BoundField DataField="SIPARISTARIH" HeaderText="SİPARİŞ TARİHİ" />
+            <asp:BoundField DataField="MONTAJTARIHI" HeaderText="MONTAJ TARİHİ" />
+            <asp:BoundField DataField="MUSTERI" HeaderText="MÜŞTERİ" />
+            <asp:BoundField DataField="MUSTERIADRES" HeaderText="MÜŞTERİ ADRES" />
+            <asp:BoundField DataField="MUSTERIIL" HeaderText="İL" />
+            <asp:BoundField DataField="MUSTERIILCE" HeaderText="İLÇE" />
+            <asp:TemplateField>
+                <HeaderTemplate>Form Görüntüle</HeaderTemplate>
+                <ItemTemplate>
+                    <asp:HyperLink ID="lnkGoruntule" runat="server" Text="Siparişi Görüntüle" />
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="ddlMusteriIl">

@@ -247,8 +247,9 @@ namespace ACKSiparisTakip.Web
                 prms.Add("Durum", ddlSiparisDurumu.SelectedText);
 
             DataTable dt = new SiparisIslemleriBS().SiparisSorgula(prms);
-            gvSiparisler.DataSource = dt;
-            gvSiparisler.DataBind();
+
+            grdSiparisler.DataSource = dt;
+            grdSiparisler.DataBind();
             this.SorguSonucListesi = dt;
         }
 
@@ -298,23 +299,19 @@ namespace ACKSiparisTakip.Web
             ddlMusteriIlce.Items.Insert(0, new DropDownListItem("Seçiniz", "0"));
         }
 
-        protected void gvSiparisler_PageIndexChanged(object sender, GridPageChangedEventArgs e)
+        protected void grdSiparisler_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvSiparisler.CurrentPageIndex = e.NewPageIndex;
-            gvSiparisler.DataSource = this.SorguSonucListesi;
-            gvSiparisler.DataBind();
+            grdSiparisler.PageIndex = e.NewPageIndex;
+            grdSiparisler.DataSource = this.SorguSonucListesi;
+            grdSiparisler.DataBind();
         }
 
-        protected void gvSiparisler_ItemDataBound(object sender, GridItemEventArgs e)
+        protected void grdSiparisler_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Item.ItemType == GridItemType.Item || e.Item.ItemType == GridItemType.AlternatingItem)
+            HyperLink link = (HyperLink)e.Row.FindControl("lnkGoruntule");
+            if (link != null)
             {
-                HyperLink link = (HyperLink)e.Item.FindControl("lnkGoruntule");
-                if (e.Item.IsDataBound)
-                {
-                    DataRowView rowView = (DataRowView)e.Item.DataItem;
-                    link.NavigateUrl = "~/SiparisFormGoruntule.aspx?SiparisNo=" + rowView.Row[1].ToString();
-                }
+                link.NavigateUrl = "~/SiparisFormGoruntule.aspx?SiparisNo=" + e.Row.Cells[0].ToString();
             }
         }
     }
