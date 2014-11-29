@@ -17,7 +17,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             dt.TableName = "PERSONEL";
             IData data = GetDataObject();
 
-            string sqlText = @"SELECT ID, AD+' ' +SOYAD AS AD FROM PERSONELBILGI ORDER BY 1";
+            string sqlText = @"SELECT ID, RTRIM(AD)+' ' +SOYAD AS AD FROM PERSONELBILGI ORDER BY 1";
             data.GetRecords(dt, sqlText);
             return dt;
         }
