@@ -11,7 +11,7 @@ using ACKSiparisTakip.Web.Helper;
 
 namespace ACKSiparisTakip.Web
 {
-    public partial class SifreGuncelleme : System.Web.UI.Page
+    public partial class SifreGuncelleme : ACKBasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

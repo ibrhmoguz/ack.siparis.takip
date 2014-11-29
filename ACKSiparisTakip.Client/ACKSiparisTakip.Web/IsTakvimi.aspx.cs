@@ -11,7 +11,7 @@ using Telerik.Web.UI.Calendar;
 
 namespace ACKSiparisTakip.Web
 {
-    public partial class IsTakvimi : System.Web.UI.Page
+    public partial class IsTakvimi : ACKBasePage
     {
         private List<Appointment> Appointments
         {
@@ -316,7 +316,7 @@ namespace ACKSiparisTakip.Web
             {
                 int ayGunSayisi = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
                 DateTime dtBaslangic = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-                DateTime dtBitis = dtBaslangic.AddDays(ayGunSayisi-1);
+                DateTime dtBitis = dtBaslangic.AddDays(ayGunSayisi - 1);
 
                 MontajlariListele(dtBaslangic, dtBitis);
                 IsleriTakvimeYukle();

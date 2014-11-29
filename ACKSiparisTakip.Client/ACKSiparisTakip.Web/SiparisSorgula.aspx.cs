@@ -11,7 +11,7 @@ using ACKSiparisTakip.Web.Helper;
 
 namespace ACKSiparisTakip.Web
 {
-    public partial class SiparisSorgula : System.Web.UI.Page
+    public partial class SiparisSorgula : ACKBasePage
     {
         private DataTable PersonelListesi
         {

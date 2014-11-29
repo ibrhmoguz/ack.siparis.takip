@@ -35,11 +35,11 @@
                         <tr>
                             <th>İç Kapı Modeli :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlIcKapiModeli" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlIcKapiModeli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                             <th>Dış Kapı Modeli :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlDisKapiModeli" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlDisKapiModeli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                             <th>Montaj Ekibi</th>
                             <td rowspan="5">
@@ -50,57 +50,57 @@
                         <tr>
                             <th>İç Kapı Rengi :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlIcKapiRengi" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlIcKapiRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                             <th>Dış Kapı Rengi :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlDisKapiRengi" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlDisKapiRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                         </tr>
                         <tr>
                             <th>Kilit Sistemi :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlKilitSistemi" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlKilitSistemi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                             <th>Çıta :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlCita" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlCita" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                         </tr>
                         <tr>
                             <th>Eşik :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlEsik" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlEsik" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                             <th>Aksesuar Rengi :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlAksesuarRengi" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlAksesuarRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                         </tr>
                         <tr runat="server" id="trGuard1" visible="false">
                             <th>Aluminyum Rengi :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlAluminyumRengi" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlAluminyumRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                             <th>Conta Rengi :</th>
                             <td colspan="3">
-                                <telerik:RadDropDownList ID="ddlContaRengi" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlContaRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                         </tr>
                         <tr runat="server" id="trGuard2" visible="false">
                             <th>Taç Tipi :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlTacTipi" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlTacTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                             <th>Pervaz Tipi :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlPervazTipi" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlPervazTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                         </tr>
                         <tr>
                             <th>Montaj Şekli </th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlMontajSekli" runat="server"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlMontajSekli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
                             <th>Teslim Tarihi</th>
                             <td>
@@ -111,12 +111,12 @@
                         <tr>
                             <th>İl :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlMusteriIl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMusteriIl_SelectedIndexChanged">
+                                <telerik:RadDropDownList ID="ddlMusteriIl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMusteriIl_SelectedIndexChanged" RenderMode="Lightweight">
                                 </telerik:RadDropDownList>
                             </td>
                             <th>İlçe :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlMusteriIlce" runat="server" AutoPostBack="false">
+                                <telerik:RadDropDownList ID="ddlMusteriIlce" runat="server" AutoPostBack="false" RenderMode="Lightweight">
                                     <Items>
                                         <telerik:DropDownListItem Value="0" Text="Seçiniz" Selected="true" />
                                     </Items>
@@ -142,8 +142,7 @@
             OnPageIndexChanged="gvSiparisler_PageIndexChanged" OnItemDataBound="gvSiparisler_ItemDataBound" ItemStyle-CssClass="tdTabStripAktif" AlternatingItemStyle-CssClass="TdRenkSolResimsizSerbest">
             <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
                 <Columns>
-                    <telerik:GridBoundColumn DataField="ID" HeaderText="ID">
-                    </telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="ID" HeaderText="ID" />
                     <telerik:GridBoundColumn DataField="SIPARISNO" HeaderText="SİPARİŞ NO" />
                     <telerik:GridBoundColumn DataField="SIPARISTARIH" HeaderText="SİPARİŞ TARİHİ" />
                     <telerik:GridBoundColumn DataField="MONTAJTARIHI" HeaderText="MONTAJ TARİHİ" />

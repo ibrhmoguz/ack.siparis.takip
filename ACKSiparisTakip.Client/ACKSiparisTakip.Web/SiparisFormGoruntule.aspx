@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
     <div id="divSiparisForm" runat="server" style="width: 75%" class="RadGrid_Current_Theme">
         <br />
         <br />
@@ -80,13 +80,18 @@
                     <asp:Label ID="lblSiparisNo" runat="server"></asp:Label>
                 </td>
             </tr>
+            <tr>
+                <td colspan="2"></td>
+                <th>Sipariş Durumu : </th>
+                <td>
+                    <asp:Label ID="lblSiparisDurum" runat="server"></asp:Label>
+                </td>
+            </tr>
         </table>
         <br />
-
         <table class="AnaTablo">
             <tr>
                 <th colspan="4">MÜŞTERİ BİLGİLERİ </th>
-
             </tr>
             <tr>
                 <th style="width: 20%">Adı : </th>
@@ -107,7 +112,7 @@
                                 <asp:Label ID="lblAdres" runat="server"></asp:Label>
                             </td>
                         </tr>
-                        </table>
+                    </table>
                 </td>
                 <th>Ev Tel : </th>
                 <td>
@@ -380,19 +385,19 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4" style="text-align:center">
-                    <telerik:RadButton ID="btnGuncelle" runat="server" Text="Güncelle" OnClick="btnGuncelle_Click" >
+                <td colspan="4" style="text-align: center">
+                    <telerik:RadButton ID="btnGuncelle" runat="server" Text="Güncelle" OnClick="btnGuncelle_Click">
                         <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır" OnClick="btnYazdir_Click" >
+                    <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır" OnClick="btnYazdir_Click">
                         <Icon PrimaryIconCssClass="rbPrint" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
                 </td>
             </tr>
         </table>
         <br />
-        
+
     </div>
 </asp:Content>
 

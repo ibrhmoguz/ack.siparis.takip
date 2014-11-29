@@ -15,7 +15,7 @@ using Telerik.Web.UI;
 
 namespace ACKSiparisTakip.Web
 {
-    public partial class SiparisFormGoruntule : System.Web.UI.Page
+    public partial class SiparisFormGoruntule : ACKBasePage
     {
         public string SayfaModu
         {
@@ -43,6 +43,7 @@ namespace ACKSiparisTakip.Web
             }
         }
 
+        private string seriAdi;
         public string SeriAdi
         {
             get
@@ -52,7 +53,7 @@ namespace ACKSiparisTakip.Web
                     return Request.QueryString["SeriAdi"].ToString();
                 }
                 else
-                    return String.Empty;
+                    return lblKapiTur.Text;
             }
         }
 
@@ -134,7 +135,7 @@ namespace ACKSiparisTakip.Web
             lblVergiDairesi.Text = (row["VERGIDAIRESI"] != DBNull.Value) ? row["VERGIDAIRESI"].ToString() : String.Empty;
             lblVergiNumarasi.Text = (row["VERGINUMARASI"] != DBNull.Value) ? row["VERGINUMARASI"].ToString() : String.Empty;
             lblTeslimTarihi.Text = (row["TESLIMTARIH"] != DBNull.Value) ? row["TESLIMTARIH"].ToString() : String.Empty;
-
+            lblSiparisDurum.Text = (row["DURUM"] != DBNull.Value) ? row["DURUM"].ToString() : String.Empty;
         }
 
         protected void btnGuncelle_Click(object sender, EventArgs e)
@@ -144,6 +145,9 @@ namespace ACKSiparisTakip.Web
 
         private void KapiTurAyarla()
         {
+            if (String.IsNullOrEmpty(this.SiparisNo))
+                return;
+
             if (this.SiparisNo[0] == 'N')
             {
                 lblKapiTur.Text = "NOVA";

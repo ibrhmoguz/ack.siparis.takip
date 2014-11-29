@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div id="divSiparisForm" runat="server"  style="width: 75%" class="RadGrid_Current_Theme">
+    <div id="divSiparisForm" runat="server" style="width: 75%" class="RadGrid_Current_Theme">
         <br />
         <br />
         <br />
@@ -115,7 +115,7 @@
                             </td>
                             <th>İlçe :</th>
                             <td>
-                                <telerik:RadComboBox ID="ddlMusteriIlce" runat="server" AutoPostBack="false" EmptyMessage="İlçe Seçiniz">
+                                <telerik:RadComboBox ID="ddlMusteriIlce" runat="server" AutoPostBack="false" EmptyMessage="İlçe Seçiniz" RenderMode="Lightweight">
                                 </telerik:RadComboBox>
                             </td>
                         </tr>

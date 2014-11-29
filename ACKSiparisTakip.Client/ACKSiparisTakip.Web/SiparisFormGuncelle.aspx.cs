@@ -12,7 +12,7 @@ using Telerik.Web.UI;
 
 namespace ACKSiparisTakip.Web
 {
-    public partial class SiparisFormGuncelle : System.Web.UI.Page
+    public partial class SiparisFormGuncelle : ACKBasePage
     {
         public string SayfaModu
         {
@@ -84,8 +84,8 @@ namespace ACKSiparisTakip.Web
             {
                 FormDoldur();
                 FormBilgileriniGetir();
+                KapiTurAyarla();
             }
-
         }
 
         private void FormBilgileriniGetir()
@@ -143,6 +143,7 @@ namespace ACKSiparisTakip.Web
             siparis.TacTip = (rowSiparis["TACTIP"] != DBNull.Value) ? rowSiparis["TACTIP"].ToString() : String.Empty;
             siparis.Taktak = (rowSiparis["TAKTAK"] != DBNull.Value) ? rowSiparis["TAKTAK"].ToString() : String.Empty;
             siparis.KapiTipi = this.KapiTip.ToString();
+            siparis.Durum = (rowSiparis["DURUM"] != DBNull.Value) ? rowSiparis["DURUM"].ToString() : String.Empty;
 
             olcum.MontajdaTakilacak = (rowSiparis["MONTAJDATAKILACAK"] != DBNull.Value) ? rowSiparis["MONTAJDATAKILACAK"].ToString() : String.Empty;
             olcum.MontajSekli = (rowSiparis["MONTAJSEKLI"] != DBNull.Value) ? rowSiparis["MONTAJSEKLI"].ToString() : String.Empty;
@@ -164,8 +165,17 @@ namespace ACKSiparisTakip.Web
             txtAdres.Text = musteri.MusteriAdres;
             txtCepTel.Text = musteri.MusteriCepTel;
             txtEvTel.Text = musteri.MusteriEvTel;
-            ddlMusteriIl.FindItemByText(musteri.MusteriIl);
-            ddlMusteriIlce.FindItemByText(musteri.MusteriIlce);
+            RadComboBoxItem radComboBoxItemMusteriIl = ddlMusteriIl.FindItemByText(musteri.MusteriIl);
+            if (radComboBoxItemMusteriIl != null)
+            {
+                radComboBoxItemMusteriIl.Selected = true;
+                IlceleriGetirIlAdinaGore(musteri.MusteriIl);
+            }
+            RadComboBoxItem radComboBoxItemMusteriIlce = ddlMusteriIlce.FindItemByText(musteri.MusteriIlce);
+            if (radComboBoxItemMusteriIlce != null)
+            {
+                radComboBoxItemMusteriIlce.Selected = true;
+            }
             txtIsTel.Text = musteri.MusteriIsTel;
             rdtOlcuSiparisTarih.SelectedDate = siparis.SiparisTarih;
 
@@ -184,6 +194,7 @@ namespace ACKSiparisTakip.Web
             DropDownSelectedIndexAyarla(ddlPervazTipi, siparis.PervazTip);
             DropDownSelectedIndexAyarla(ddlTacTipi, siparis.TacTip);
             DropDownSelectedIndexAyarla(ddlTaktak, siparis.Taktak);
+            DropDownSelectedIndexAyarla(ddlSiparisDurumu, siparis.Durum);
             DropDownSelectedIndexAyarla(ddlMontajSekli, olcum.MontajSekli);
             DropDownSelectedIndexAyarla(ddlTeslimSekli, olcum.TeslimSekli);
 
@@ -205,6 +216,25 @@ namespace ACKSiparisTakip.Web
             txtVergiNumarasi.Text = sozlesme.VergiNumarası;
             txtFiyat.Text = sozlesme.Fiyat;
 
+        }
+
+        private void KapiTurAyarla()
+        {
+            if (String.IsNullOrEmpty(this.SiparisNo))
+                return;
+
+            if (this.SiparisNo[0] == 'N')
+            {
+                lblKapiTur.Text = "NOVA";
+            }
+            else if (this.SiparisNo[0] == 'K')
+            {
+                lblKapiTur.Text = "KROMA";
+            }
+            else if (this.SiparisNo[0] == 'G')
+            {
+                lblKapiTur.Text = "GUARD";
+            }
         }
 
         private void DropDownSelectedIndexAyarla(RadDropDownList dp, string selectedValue)
@@ -311,6 +341,24 @@ namespace ACKSiparisTakip.Web
             prms.Add("ILKOD", ilKod);
 
             DataTable dt = new SiparisIslemleriBS().IlceleriGetir(prms);
+
+            if (dt.Rows.Count > 0)
+            {
+                ddlMusteriIlce.DataSource = dt;
+                ddlMusteriIlce.DataTextField = "ILCEAD";
+                ddlMusteriIlce.DataValueField = "PKEY";
+                ddlMusteriIlce.DataBind();
+            }
+            else
+            {
+                ddlMusteriIlce.DataSource = null;
+                ddlMusteriIlce.DataBind();
+            }
+        }
+
+        protected void IlceleriGetirIlAdinaGore(string ilAd)
+        {
+            DataTable dt = new SiparisIslemleriBS().IlceleriGetir(ilAd);
 
             if (dt.Rows.Count > 0)
             {

@@ -119,7 +119,6 @@
     <Content Include="IsTakvimi.aspx" />
     <Content Include="KullaniciTanimlama.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="MontajSorgula.aspx" />
     <Content Include="PersonelTanimlama.aspx" />
     <Content Include="Print\Print.aspx" />
     <Content Include="Print\PrinterFriendly.css" />
@@ -133,6 +132,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACKBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="ACKMasterPage.Master.cs">
       <DependentUpon>ACKMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -177,13 +179,6 @@
     </Compile>
     <Compile Include="KullaniciTanimlama.aspx.designer.cs">
       <DependentUpon>KullaniciTanimlama.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MontajSorgula.aspx.cs">
-      <DependentUpon>MontajSorgula.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MontajSorgula.aspx.designer.cs">
-      <DependentUpon>MontajSorgula.aspx</DependentUpon>
     </Compile>
     <Compile Include="PersonelTanimlama.aspx.cs">
       <DependentUpon>PersonelTanimlama.aspx</DependentUpon>

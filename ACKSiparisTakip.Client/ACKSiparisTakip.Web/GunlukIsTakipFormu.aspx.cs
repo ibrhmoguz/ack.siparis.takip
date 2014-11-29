@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ACKSiparisTakip.Web
 {
-    public partial class GunlukIsTakipFormu : System.Web.UI.Page
+    public partial class GunlukIsTakipFormu : ACKBasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

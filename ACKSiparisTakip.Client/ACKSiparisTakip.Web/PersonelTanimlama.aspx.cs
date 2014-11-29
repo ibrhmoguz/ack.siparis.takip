@@ -10,7 +10,7 @@ using ACKSiparisTakip.Web.Helper;
 
 namespace ACKSiparisTakip.Web
 {
-    public partial class PersonelTanimlama : System.Web.UI.Page
+    public partial class PersonelTanimlama : ACKBasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

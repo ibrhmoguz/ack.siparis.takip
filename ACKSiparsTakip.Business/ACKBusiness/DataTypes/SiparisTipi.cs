@@ -42,6 +42,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string Durbun { get; set; }
         public string Taktak { get; set; }
         public string KapiTipi { get; set; }
+        public string Durum { get; set; }
     }
 
     public class Olcum

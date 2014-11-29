@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace ACKSiparisTakip.Web
 {
-    public partial class Hatalar : System.Web.UI.Page
+    public partial class Hatalar : ACKBasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -12,7 +12,7 @@ using Telerik.Web.UI;
 
 namespace ACKSiparisTakip.Web
 {
-    public partial class SiparisFormKayit : System.Web.UI.Page
+    public partial class SiparisFormKayit : ACKBasePage
     {
         public KapiTipi KapiTip
         {
@@ -208,6 +208,7 @@ namespace ACKSiparisTakip.Web
             siparis.TacTip = ddlTacTipi.SelectedText;
             siparis.Taktak = ddlTaktak.SelectedText;
             siparis.KapiTipi = this.KapiTip.ToString();
+            siparis.Durum = "BEKLEYEN";
 
             olcum.MontajdaTakilacak = txtMontajdaTakilacaklar.Text;
             olcum.MontajSekli = ddlMontajSekli.SelectedText;
@@ -238,6 +239,16 @@ namespace ACKSiparisTakip.Web
 
         protected void btnIleri_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtAdres.Text) ||
+                ddlMusteriIlce.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(ddlMusteriIlce.SelectedItem.Text) ||
+                ddlMusteriIl.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(ddlMusteriIl.SelectedItem.Text))
+            {
+                MessageBox.Hata(this, "Zorunlu alanları doldurmalısınız!");
+                return;
+            }
+
             tbMusteriSozlesme.Visible = true;
             txtMusteriAdSoyad.Text = txtAd.Text + " " + txtSoyad.Text;
             txtMusteriAdres.Text = txtAdres.Text + " " + ddlMusteriIlce.SelectedItem.Text + "  " + ddlMusteriIl.SelectedItem.Text;

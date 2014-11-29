@@ -281,6 +281,19 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         }
 
+        public DataTable IlceleriGetir(string ilAdi)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            data.AddSqlParameter("ILAD", ilAdi, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT * FROM REF_ILCELER WHERE ILAD=@ILAD ORDER BY ILCEAD";
+            data.GetRecords(dt, sqlText);
+            return dt;
+
+        }
+
         public string SiparisKaydet(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
         {
             IData data = GetDataObject();
@@ -365,6 +378,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("FIYAT", sozlesme.Fiyat, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("VERGIDAIRESI", sozlesme.VergiDairesi, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("VERGINUMARASI", sozlesme.VergiNumarası, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DURUM", siparis.Durum, SqlDbType.VarChar, 50);
 
                 string sqlKaydet = @"INSERT INTO [ACKAppDB].[dbo].[SIPARIS]
                                    ([SIPARISNO]
@@ -406,7 +420,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    ,[KALANODEME]
                                    ,[FIYAT]
                                    ,[VERGIDAIRESI]
-                                   ,[VERGINUMARASI])
+                                   ,[VERGINUMARASI]
+                                   ,[DURUM])
                              VALUES
                                    (@SIPARISNO,
                                    @SIPARISTARIH,
@@ -447,7 +462,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    @KALANODEME,
                                    @FIYAT,
                                    @VERGIDAIRESI,
-                                   @VERGINUMARASI)";
+                                   @VERGINUMARASI,
+                                   @DURUM)";
                 data.ExecuteStatement(sqlKaydet);
 
                 //MONTAJ BILGISI KAYDET
