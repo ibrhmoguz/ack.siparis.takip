@@ -156,14 +156,13 @@
             <asp:BoundField DataField="SIPARISNO" HeaderText="SİPARİŞ NO" />
             <asp:BoundField DataField="SIPARISTARIH" HeaderText="SİPARİŞ TARİHİ" />
             <asp:BoundField DataField="MONTAJTARIHI" HeaderText="MONTAJ TARİHİ" />
-            <asp:BoundField DataField="MUSTERI" HeaderText="MÜŞTERİ" />
+            <asp:BoundField DataField="MUSTERI" HeaderText="MÜŞTERİ/FİRMA" />
             <asp:BoundField DataField="MUSTERIADRES" HeaderText="MÜŞTERİ ADRES" />
             <asp:BoundField DataField="MUSTERIIL" HeaderText="İL" />
             <asp:BoundField DataField="MUSTERIILCE" HeaderText="İLÇE" />
             <asp:TemplateField>
-                <HeaderTemplate>Form Görüntüle</HeaderTemplate>
                 <ItemTemplate>
-                    <asp:HyperLink ID="lnkGoruntule" runat="server" Text="Siparişi Görüntüle" />
+                    <asp:HyperLink ID="lnkGoruntule" runat="server" Text="Siparişi Görüntüle" ForeColor="Blue" Font-Underline="true" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
