@@ -122,6 +122,17 @@
                                     </Items>
                                 </telerik:RadDropDownList>
                             </td>
+                            <th>Sipariş Durumu : </th>
+                            <td>
+                                <telerik:RadDropDownList ID="ddlSiparisDurumu" runat="server">
+                                    <Items>
+                                        <telerik:DropDownListItem Text="Seçiniz" Value="Seçiniz" />
+                                        <telerik:DropDownListItem Text="BEKLEYEN" Value="BEKLEYEN" />
+                                        <telerik:DropDownListItem Text="İMALATTA" Value="İMALATTA" />
+                                        <telerik:DropDownListItem Text="TAMAMLANDI" Value="TAMAMLANDI" />
+                                    </Items>
+                                </telerik:RadDropDownList>
+                            </td>
                         </tr>
                     </table>
                 </td>

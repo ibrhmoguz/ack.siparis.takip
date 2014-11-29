@@ -647,6 +647,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             data.AddSqlParameter("ddlContaRengi", prms["ddlContaRengi"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("Il", prms["Il"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("Ilce", prms["Ilce"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("Durum", prms["Durum"], SqlDbType.VarChar, 50);
 
             string sqlText = @"SELECT DISTINCT
 	                            S.[ID]
@@ -691,7 +692,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 	                                AND (@ddlPervazTipi IS NULL OR [PERVAZTIP] = @ddlPervazTipi)
 	                                AND (@ddlContaRengi IS NULL OR [CONTARENK] = @ddlContaRengi)
 	                                AND (@Il IS NULL OR [MUSTERIIL] = @Il)
-	                                AND (@Ilce IS NULL OR [MUSTERIILCE] = @Ilce)";
+	                                AND (@Ilce IS NULL OR [MUSTERIILCE] = @Ilce)
+                                    AND (@Durum IS NULL OR S.[DURUM] = @Durum)";
 
             string liste = String.Empty;
             liste = prms["PersonelListesi"] == null ? "1" : prms["PersonelListesi"].ToString();

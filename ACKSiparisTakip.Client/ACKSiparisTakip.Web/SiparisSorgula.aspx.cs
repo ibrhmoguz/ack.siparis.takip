@@ -241,6 +241,11 @@ namespace ACKSiparisTakip.Web
             else
                 prms.Add("Ilce", ddlMusteriIlce.SelectedText);
 
+            if (ddlSiparisDurumu.SelectedIndex == 0)
+                prms.Add("Durum", null);
+            else
+                prms.Add("Durum", ddlSiparisDurumu.SelectedText);
+
             DataTable dt = new SiparisIslemleriBS().SiparisSorgula(prms);
             gvSiparisler.DataSource = dt;
             gvSiparisler.DataBind();
