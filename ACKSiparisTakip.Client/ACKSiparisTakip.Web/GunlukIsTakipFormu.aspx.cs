@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ACKSiparisTakip.Business.ACKBusiness;
+using ACKSiparisTakip.Web.Helper;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,9 +12,62 @@ namespace ACKSiparisTakip.Web
 {
     public partial class GunlukIsTakipFormu : ACKBasePage
     {
+        private DataTable SorguSonucListesi
+        {
+            get
+            {
+                if (Session["GunlukIsTakipListesi"] != null)
+                    return Session["GunlukIsTakipListesi"] as DataTable;
+                else
+                    return null;
+            }
+            set
+            {
+                Session["GunlukIsTakipListesi"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["yetki"].ToString() == "Kullanici")
+            {
+                MessageBox.Hata(this, "Bu sayfaya erişim yetkiniz yoktur!");
+                return;
+            }
 
+            if (!Page.IsPostBack)
+            {
+                rdtTarih.SelectedDate = DateTime.Now;
+                RaporOlustur();
+            }
+        }
+
+        protected void btnSorgula_Click(object sender, EventArgs e)
+        {
+            RaporOlustur();
+        }
+
+        private void RaporOlustur()
+        {
+            DataTable dt = new RaporBS().GunlukIsTakipFormuListele(rdtTarih.SelectedDate.Value.Date);
+
+            if (dt.Rows.Count > 0)
+            {
+                grdSiparisler.DataSource = dt;
+                grdSiparisler.DataBind();
+            }
+            else
+            {
+                grdSiparisler.DataSource = null;
+                grdSiparisler.DataBind();
+            }
+        }
+
+        protected void grdSiparisler_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdSiparisler.PageIndex = e.NewPageIndex;
+            grdSiparisler.DataSource = this.SorguSonucListesi;
+            grdSiparisler.DataBind();
         }
     }
 }

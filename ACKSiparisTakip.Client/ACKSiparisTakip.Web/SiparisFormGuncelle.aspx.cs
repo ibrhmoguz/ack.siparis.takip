@@ -197,7 +197,8 @@ namespace ACKSiparisTakip.Web
             DropDownSelectedIndexAyarla(ddlSiparisDurumu, siparis.Durum);
             DropDownSelectedIndexAyarla(ddlMontajSekli, olcum.MontajSekli);
             DropDownSelectedIndexAyarla(ddlTeslimSekli, olcum.TeslimSekli);
-
+            DropDownSelectedIndexAyarla(ddlOlcumAlan, olcum.OlcumAlanKisi);
+            
             txtBarelTipi.Text = siparis.BarelTip;
             txtBayiAdi.Text = siparis.BayiAd;
             txtCekmeKolu.Text = siparis.CekmeKolu;

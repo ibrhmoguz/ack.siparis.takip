@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="DataTypes\KapiTipi.cs" />
     <Compile Include="DataTypes\SiparisTipi.cs" />
+    <Compile Include="RaporBS.cs" />
     <Compile Include="KullaniciBS.cs" />
     <Compile Include="MontajBS.cs" />
     <Compile Include="PersonelBS.cs" />

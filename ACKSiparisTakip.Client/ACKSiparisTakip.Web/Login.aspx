@@ -30,7 +30,7 @@
                     <asp:TextBox ID="userName" runat="server" ToolTip="Kullanıcı adınızı giriniz." Width="95px"></asp:TextBox>
                     <img src="App_Themes/Theme/Raster/lock.gif" alt="" style="position: relative; top: 6px;" />
                     <asp:TextBox ID="password" runat="server" TextMode="Password" ToolTip="Şifrenizi Giriniz." Width="75px"></asp:TextBox>
-                    <asp:LinkButton ID="LB_Login" runat="server" OnClick="LB_Login_Click" Text="Giriş"></asp:LinkButton>
+                    <asp:LinkButton ID="LB_Login" runat="server" OnClick="LB_Login_Click" Text="Giriş" ForeColor="Blue" Font-Underline="true"></asp:LinkButton>
                 </td>
             </tr>
         </table>

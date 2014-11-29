@@ -311,7 +311,8 @@ namespace ACKSiparisTakip.Web
             HyperLink link = (HyperLink)e.Row.FindControl("lnkGoruntule");
             if (link != null)
             {
-                link.NavigateUrl = "~/SiparisFormGoruntule.aspx?SiparisNo=" + e.Row.Cells[0].ToString();
+                DataRowView view = (DataRowView)e.Row.DataItem;
+                link.NavigateUrl = "~/SiparisFormGoruntule.aspx?SiparisNo=" + view.Row.ItemArray[1].ToString(); ;
             }
         }
     }
