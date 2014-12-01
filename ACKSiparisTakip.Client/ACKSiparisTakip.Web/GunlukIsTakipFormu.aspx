@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <table style="width:80%">
+    <table style="width:100%">
         <tr>
             <td style="text-align: center">
                 <telerik:RadDatePicker ID="rdtTarih" runat="server" Width="150px"></telerik:RadDatePicker>
@@ -16,7 +16,7 @@
             </td>
         </tr>
     </table>
-    <table style="width: 80%">
+    <table style="width: 100%">
         <tr>
             <th style="text-align: center">
                 <h3>Günlük İş Takip Formu</h3>

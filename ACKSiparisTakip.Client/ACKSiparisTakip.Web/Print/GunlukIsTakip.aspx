@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
-    <table style="width: 80%">
+    <table style="width: 100%">
         <tr>
             <th style="text-align: center">
                 <h3>Günlük İş Takip Formu</h3>

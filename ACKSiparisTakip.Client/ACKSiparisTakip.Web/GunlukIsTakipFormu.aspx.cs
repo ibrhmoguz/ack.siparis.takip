@@ -38,10 +38,8 @@ namespace ACKSiparisTakip.Web
             if (!Page.IsPostBack)
             {
                 rdtTarih.SelectedDate = DateTime.Now;
-                RaporOlustur();               
+                RaporOlustur();
             }
-
-            PopupPageHelper.OpenPopUp(btnYazdir, "Print/GunlukIsTakip.aspx?Tarih=" + Session["Tarih"].ToString(), "", true, false, true, false, false, false, 800, 900, true, false, "onclick");
         }
 
         protected void btnSorgula_Click(object sender, EventArgs e)
@@ -64,7 +62,7 @@ namespace ACKSiparisTakip.Web
                 grdSiparisler.DataBind();
             }
             string tarih = rdtTarih.SelectedDate.Value.ToShortDateString();
-            Session["Tarih"] = tarih;
+            PopupPageHelper.OpenPopUp(btnYazdir, "Print/GunlukIsTakip.aspx?Tarih=" + tarih, "", true, false, true, false, false, false, 800, 900, true, false, "onclick");
         }
 
         protected void grdSiparisler_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -76,7 +74,7 @@ namespace ACKSiparisTakip.Web
 
         protected void btnYazdir_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
