@@ -1,16 +1,21 @@
-﻿using ACKSiparisTakip.Business.ACKBusiness;
-using ACKSiparisTakip.Web.Helper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
+using System.IO;
+using System.Data;
+using ACKSiparisTakip.Business.ACKBusiness;
+using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
+using ACKSiparisTakip.Web.Helper;
+using Telerik.Web.UI;
 
-namespace ACKSiparisTakip.Web
+namespace ACKSiparisTakip.Web.Print
 {
-    public partial class GunlukIsTakipFormu : ACKBasePage
+    public partial class GunlukIsTakip : System.Web.UI.Page
     {
         private DataTable SorguSonucListesi
         {
@@ -27,31 +32,32 @@ namespace ACKSiparisTakip.Web
             }
         }
 
+        public string Tarih
+        {
+            get
+            {
+                if (!String.IsNullOrEmpty(Request.QueryString["Tarih"]))
+                {
+                    return Request.QueryString["Tarih"];
+                }
+                else
+                    return string.Empty;
+            }
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["yetki"].ToString() == "Kullanici")
-            {
-                MessageBox.Hata(this, "Bu sayfaya erişim yetkiniz yoktur!");
-                return;
-            }
-
             if (!Page.IsPostBack)
             {
-                rdtTarih.SelectedDate = DateTime.Now;
-                RaporOlustur();               
+                RaporOlustur();
+
             }
-
-            PopupPageHelper.OpenPopUp(btnYazdir, "Print/GunlukIsTakip.aspx?Tarih=" + Session["Tarih"].ToString(), "", true, false, true, false, false, false, 800, 900, true, false, "onclick");
+            
         }
-
-        protected void btnSorgula_Click(object sender, EventArgs e)
-        {
-            RaporOlustur();
-        }
-
         private void RaporOlustur()
         {
-            DataTable dt = new RaporBS().GunlukIsTakipFormuListele(rdtTarih.SelectedDate.Value.Date);
+            DataTable dt = new RaporBS().GunlukIsTakipFormuListele(DateTime.Parse(this.Tarih));
 
             if (dt.Rows.Count > 0)
             {
@@ -63,20 +69,12 @@ namespace ACKSiparisTakip.Web
                 grdSiparisler.DataSource = null;
                 grdSiparisler.DataBind();
             }
-            string tarih = rdtTarih.SelectedDate.Value.ToShortDateString();
-            Session["Tarih"] = tarih;
         }
-
         protected void grdSiparisler_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdSiparisler.PageIndex = e.NewPageIndex;
             grdSiparisler.DataSource = this.SorguSonucListesi;
             grdSiparisler.DataBind();
-        }
-
-        protected void btnYazdir_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

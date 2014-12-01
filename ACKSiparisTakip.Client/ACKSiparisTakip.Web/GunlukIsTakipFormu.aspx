@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <table style="width: 100%">
+    <table style="width:80%">
         <tr>
             <td style="text-align: center">
                 <telerik:RadDatePicker ID="rdtTarih" runat="server" Width="150px"></telerik:RadDatePicker>
@@ -16,7 +16,7 @@
             </td>
         </tr>
     </table>
-    <table style="width: 100%">
+    <table style="width: 80%">
         <tr>
             <th style="text-align: center">
                 <h3>Günlük İş Takip Formu</h3>
@@ -37,6 +37,14 @@
                         <asp:BoundField DataField="KAPICINSI" HeaderText="KAPI CİNSİ" />
                     </Columns>
                 </asp:GridView>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır" OnClick="btnYazdir_Click">
+                        <Icon PrimaryIconCssClass="rbPrint" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                    </telerik:RadButton>
             </td>
         </tr>
     </table>

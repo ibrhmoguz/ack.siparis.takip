@@ -120,6 +120,7 @@
     <Content Include="KullaniciTanimlama.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="PersonelTanimlama.aspx" />
+    <Content Include="Print\GunlukIsTakip.aspx" />
     <Content Include="Print\Print.aspx" />
     <Content Include="Print\PrinterFriendly.css" />
     <Content Include="SiparisFormKayit.aspx" />
@@ -186,6 +187,13 @@
     </Compile>
     <Compile Include="PersonelTanimlama.aspx.designer.cs">
       <DependentUpon>PersonelTanimlama.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GunlukIsTakip.aspx.cs">
+      <DependentUpon>GunlukIsTakip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print\GunlukIsTakip.aspx.designer.cs">
+      <DependentUpon>GunlukIsTakip.aspx</DependentUpon>
     </Compile>
     <Compile Include="Print\Print.aspx.cs">
       <DependentUpon>Print.aspx</DependentUpon>

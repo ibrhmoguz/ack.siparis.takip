@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div id="divSiparisForm" runat="server" style="width: 100%" class="RadGrid_Current_Theme">
-
+        <br />  <br />
            <table class="AnaTablo" style="width: 100%" border="1">
             <tr>
                 <td rowspan="6" style="text-align: center">
