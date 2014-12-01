@@ -25,7 +25,7 @@
         <tr>
             <td>
                 <asp:GridView ID="grdSiparisler" runat="server" AutoGenerateColumns="false" Width="100%" CssClass="AnaTablo"
-                    AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2" EmptyDataText="Sipariş Yoktur!">
+                    AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2" EmptyDataText="Sipariş teslimatı yoktur!">
                     <Columns>
                         <asp:BoundField DataField="ID" HeaderText="ID" />
                         <asp:BoundField DataField="SIPARISNO" HeaderText="SİPARİŞ NO" />
