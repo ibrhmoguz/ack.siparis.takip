@@ -19,7 +19,7 @@
                     <table style="width: 100%">
                         <tr>
                             <th style="width: 10%">Sipariş No: </th>
-                            <td style="width: 25%">
+                            <td style="width: 15%">
                                 <telerik:RadTextBox ID="txtSiparisNo" runat="server"></telerik:RadTextBox>
                             </td>
                             <th style="width: 10%">Sipariş Tarihi:</th>
@@ -27,9 +27,16 @@
                                 <telerik:RadDatePicker ID="rdtSiparisTarihiBas" runat="server"></telerik:RadDatePicker>
                                 <telerik:RadDatePicker ID="rdtSiparisTarihiBit" runat="server"></telerik:RadDatePicker>
                             </td>
-                            <th style="width: 10%">Müşteri Ad Soyad:</th>
+                            <th>Sipariş Durumu : </th>
                             <td>
-                                <telerik:RadTextBox ID="txtMusteriAdSoyad" runat="server" Width="230"></telerik:RadTextBox>
+                                <telerik:RadDropDownList ID="ddlSiparisDurumu" runat="server">
+                                    <Items>
+                                        <telerik:DropDownListItem Text="Seçiniz" Value="Seçiniz" />
+                                        <telerik:DropDownListItem Text="BEKLEYEN" Value="BEKLEYEN" />
+                                        <telerik:DropDownListItem Text="İMALATTA" Value="İMALATTA" />
+                                        <telerik:DropDownListItem Text="TAMAMLANDI" Value="TAMAMLANDI" />
+                                    </Items>
+                                </telerik:RadDropDownList>
                             </td>
                         </tr>
                         <tr>
@@ -122,17 +129,18 @@
                                     </Items>
                                 </telerik:RadDropDownList>
                             </td>
-                            <th>Sipariş Durumu : </th>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <th>Müşteri Ad:</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlSiparisDurumu" runat="server">
-                                    <Items>
-                                        <telerik:DropDownListItem Text="Seçiniz" Value="Seçiniz" />
-                                        <telerik:DropDownListItem Text="BEKLEYEN" Value="BEKLEYEN" />
-                                        <telerik:DropDownListItem Text="İMALATTA" Value="İMALATTA" />
-                                        <telerik:DropDownListItem Text="TAMAMLANDI" Value="TAMAMLANDI" />
-                                    </Items>
-                                </telerik:RadDropDownList>
+                                <telerik:RadTextBox ID="txtMusteriAd" runat="server"></telerik:RadTextBox>
                             </td>
+                            <th>Müşteri Soyad:</th>
+                            <td>
+                                <telerik:RadTextBox ID="txtMusteriSoyad" runat="server"></telerik:RadTextBox>
+                            </td>
+                            <td colspan="2"></td>
                         </tr>
                     </table>
                 </td>
@@ -150,7 +158,9 @@
     </div>
 
     <asp:GridView ID="grdSiparisler" runat="server" AutoGenerateColumns="false" AllowPaging="True" PageSize="30" OnPageIndexChanging="grdSiparisler_PageIndexChanging"
-        OnRowDataBound="grdSiparisler_RowDataBound" Width="100%" CssClass="AnaTablo" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2">
+        OnRowDataBound="grdSiparisler_RowDataBound" Width="100%" CssClass="AnaTablo" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2"
+        EmptyDataText="Sipariş bulunamamıştır!" EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center" 
+        EmptyDataRowStyle-CssClass="TdRenkAciklama">
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="ID" />
             <asp:BoundField DataField="SIPARISNO" HeaderText="SİPARİŞ NO" />

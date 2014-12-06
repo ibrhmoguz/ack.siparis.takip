@@ -64,7 +64,7 @@ namespace ACKSiparisTakip.Web
                 btnYazdir.Visible = false;
             }
             string tarih = rdtTarih.SelectedDate.Value.ToShortDateString();
-            PopupPageHelper.OpenPopUp(btnYazdir, "Print/GunlukIsTakip.aspx?Tarih=" + tarih, "", true, false, true, false, false, false, 800, 900, true, false, "onclick");
+            PopupPageHelper.OpenPopUp(btnYazdir, "Print/GunlukIsTakip.aspx?Tarih=" + tarih, "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
         }
 
         protected void grdSiparisler_PageIndexChanging(object sender, GridViewPageEventArgs e)

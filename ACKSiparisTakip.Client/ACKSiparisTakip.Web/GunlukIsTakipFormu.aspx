@@ -25,8 +25,10 @@
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="grdSiparisler" runat="server" AutoGenerateColumns="false" Width="80%" CssClass="AnaTablo"
-                        AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2" EmptyDataText="Sipariş teslimatı yoktur!">
+                    <asp:GridView ID="grdSiparisler" runat="server" AutoGenerateColumns="false" Width="100%" CssClass="AnaTablo"
+                        AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2" EmptyDataText="Bugün sipariş teslimatı yoktur!"
+                        EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
+                        EmptyDataRowStyle-CssClass="TdRenkAciklama">
                         <Columns>
                             <asp:BoundField DataField="ID" HeaderText="ID" />
                             <asp:BoundField DataField="SIPARISNO" HeaderText="SİPARİŞ NO" />

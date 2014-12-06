@@ -49,13 +49,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadDatePicker rdtSiparisTarihiBit;
         
         /// <summary>
-        /// txtMusteriAdSoyad control.
+        /// ddlSiparisDurumu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtMusteriAdSoyad;
+        protected global::Telerik.Web.UI.RadDropDownList ddlSiparisDurumu;
         
         /// <summary>
         /// ddlIcKapiModeli control.
@@ -238,13 +238,22 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadDropDownList ddlMusteriIlce;
         
         /// <summary>
-        /// ddlSiparisDurumu control.
+        /// txtMusteriAd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlSiparisDurumu;
+        protected global::Telerik.Web.UI.RadTextBox txtMusteriAd;
+        
+        /// <summary>
+        /// txtMusteriSoyad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtMusteriSoyad;
         
         /// <summary>
         /// btnSorgula control.

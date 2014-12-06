@@ -684,7 +684,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             data.AddSqlParameter("SiparisNo", prms["SiparisNo"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("SiparisTarihiBas", prms["SiparisTarihiBas"], SqlDbType.DateTime, 50);
             data.AddSqlParameter("SiparisTarihiBit", prms["SiparisTarihiBit"], SqlDbType.DateTime, 50);
-            data.AddSqlParameter("MusteriAdSoyad", prms["MusteriAdSoyad"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("MusteriAd", prms["MusteriAd"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("MusteriSoyad", prms["MusteriSoyad"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("TeslimTarihiBas", prms["TeslimTarihiBas"], SqlDbType.DateTime, 50);
             data.AddSqlParameter("TeslimTarihiBit", prms["TeslimTarihiBit"], SqlDbType.DateTime, 50);
             data.AddSqlParameter("PersonelListesi", prms["PersonelListesi"], SqlDbType.VarChar, 50);
@@ -730,10 +731,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                             WHERE (@SiparisNo IS NULL OR S.SIPARISNO=@SiparisNo)
 	                                AND (@SiparisTarihiBas IS NULL OR S.[SIPARISTARIH]>=@SiparisTarihiBas)
 	                                AND (@SiparisTarihiBit IS NULL OR S.[SIPARISTARIH]<=@SiparisTarihiBit)
-	                                AND (@MusteriAdSoyad IS NULL OR (S.[MUSTERIAD] LIKE '%{0}%' OR  S.[MUSTERISOYAD] LIKE '%{0}%'))
+	                                AND (@MusteriAd IS NULL OR S.[MUSTERIAD] LIKE '%{0}%') 
+                                    AND (@MusteriSoyad IS NULL OR S.[MUSTERISOYAD] LIKE '%{1}%')
 	                                AND (@TeslimTarihiBas IS NULL OR M.[TESLIMTARIH] >= @TeslimTarihiBas)
 	                                AND (@TeslimTarihiBit IS NULL OR M.[TESLIMTARIH] <= @TeslimTarihiBit)
-	                                AND (@PersonelListesi IS NULL OR MP.PERSONELID IN ({1}))
+	                                AND (@PersonelListesi IS NULL OR MP.PERSONELID IN ({2}))
 	                                AND (@ddlIcKapiModeli IS NULL OR [ICKAPIMODEL] = @ddlIcKapiModeli)
 	                                AND (@ddlDisKapiModeli IS NULL OR [DISKAPIMODEL] = @ddlDisKapiModeli)
 	                                AND (@ddlIcKapiRengi IS NULL OR [ICKAPIRENK] = @ddlIcKapiRengi)
@@ -753,7 +755,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string liste = String.Empty;
             liste = prms["PersonelListesi"] == null ? "1" : prms["PersonelListesi"].ToString();
 
-            data.GetRecords(dt, String.Format(sqlText, prms["MusteriAdSoyad"], liste));
+            data.GetRecords(dt, String.Format(sqlText, prms["MusteriAd"], prms["MusteriSoyad"], liste));
             return dt;
         }
     }

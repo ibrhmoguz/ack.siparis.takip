@@ -31,14 +31,12 @@
         }
     </script>
     <style type="text/css">
-        .style1
-        {
+        .style1 {
             text-decoration: underline;
         }
     </style>
     <style type="text/css">
-        .dikeyYazi
-        {
+        .dikeyYazi {
             writing-mode: tb-rl;
             filter: flipH flipV;
         }
@@ -53,16 +51,16 @@
 </head>
 <body>
     <form id="form2" runat="server">
-    <asp:ScriptManager ID="ScriptManager" runat="server" EnableScriptGlobalization="true"
-        LoadScriptsBeforeUI="true" EnableScriptLocalization="true" EnablePageMethods="true"
-        EnablePartialRendering="true">
-    </asp:ScriptManager>
-    <input id="yazdir" type="button" value="yazdır" style="padding-left: 30px; width: 80px;"
-        visible="true" onclick="$.jPrintArea();" />
-    <asp:HiddenField ID="HiddenFieldInnerHtml" runat="server" />
-    <asp:HiddenField ID="HiddenFieldPageOrientation" runat="server" />
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-    </asp:ContentPlaceHolder>
+        <asp:ScriptManager ID="ScriptManager" runat="server" EnableScriptGlobalization="true"
+            LoadScriptsBeforeUI="true" EnableScriptLocalization="true" EnablePageMethods="true"
+            EnablePartialRendering="true">
+        </asp:ScriptManager>
+        <input id="yazdir" type="button" value="yazdır" style="padding-left: 30px; width: 80px;"
+            visible="true" onclick="$.jPrintArea();" />
+        <asp:HiddenField ID="HiddenFieldInnerHtml" runat="server" />
+        <asp:HiddenField ID="HiddenFieldPageOrientation" runat="server" />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
     </form>
 </body>
 </html>

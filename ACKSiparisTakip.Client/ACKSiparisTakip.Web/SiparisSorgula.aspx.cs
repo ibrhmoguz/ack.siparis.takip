@@ -135,10 +135,15 @@ namespace ACKSiparisTakip.Web
             else
                 prms.Add("SiparisTarihiBit", rdtSiparisTarihiBit.SelectedDate);
 
-            if (String.IsNullOrWhiteSpace(txtMusteriAdSoyad.Text))
-                prms.Add("MusteriAdSoyad", null);
+            if (String.IsNullOrWhiteSpace(txtMusteriAd.Text))
+                prms.Add("MusteriAd", null);
             else
-                prms.Add("MusteriAdSoyad", txtMusteriAdSoyad.Text);
+                prms.Add("MusteriAd", txtMusteriAd.Text);
+
+            if (String.IsNullOrWhiteSpace(txtMusteriSoyad.Text))
+                prms.Add("MusteriSoyad", null);
+            else
+                prms.Add("MusteriSoyad", txtMusteriSoyad.Text);
 
             if (rdpTeslimTarihiBas.SelectedDate == null)
                 prms.Add("TeslimTarihiBas", null);
