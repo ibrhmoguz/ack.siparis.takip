@@ -85,6 +85,15 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadDropDownList ddlSiparisDurumu;
         
         /// <summary>
+        /// txtFirmaAdi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtFirmaAdi;
+        
+        /// <summary>
         /// txtAd control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadComboBox ddlMusteriIlce;
+        
+        /// <summary>
+        /// ddlMusteriSemt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadComboBox ddlMusteriSemt;
         
         /// <summary>
         /// txtEvTel control.
@@ -283,13 +301,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadDropDownList ddlPervazTipi;
         
         /// <summary>
-        /// txtCekmeKolu control.
+        /// ddlCekmeKolu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtCekmeKolu;
+        protected global::Telerik.Web.UI.RadDropDownList ddlCekmeKolu;
         
         /// <summary>
         /// ddlBaba control.
@@ -301,13 +319,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadDropDownList ddlBaba;
         
         /// <summary>
-        /// txtKapiNo control.
+        /// ddlKapiNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtKapiNo;
+        protected global::Telerik.Web.UI.RadComboBox ddlKapiNo;
         
         /// <summary>
         /// ddlDurbun control.
@@ -319,13 +337,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadDropDownList ddlDurbun;
         
         /// <summary>
-        /// txtBarelTipi control.
+        /// ddlBarelTipi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtBarelTipi;
+        protected global::Telerik.Web.UI.RadDropDownList ddlBarelTipi;
         
         /// <summary>
         /// ddlTaktak control.
@@ -335,6 +353,42 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadDropDownList ddlTaktak;
+        
+        /// <summary>
+        /// ddlKayitsizKam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlKayitsizKam;
+        
+        /// <summary>
+        /// ddlKayitYapanKam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlKayitYapanKam;
+        
+        /// <summary>
+        /// ddlAlarm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlAlarm;
+        
+        /// <summary>
+        /// ddlOtomatikKilit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlOtomatikKilit;
         
         /// <summary>
         /// txtMontajdaTakilacaklar control.

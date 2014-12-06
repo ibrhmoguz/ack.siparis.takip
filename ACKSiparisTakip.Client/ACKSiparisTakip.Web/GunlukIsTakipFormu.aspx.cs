@@ -55,11 +55,13 @@ namespace ACKSiparisTakip.Web
             {
                 grdSiparisler.DataSource = dt;
                 grdSiparisler.DataBind();
+                btnYazdir.Visible = true;
             }
             else
             {
                 grdSiparisler.DataSource = null;
                 grdSiparisler.DataBind();
+                btnYazdir.Visible = false;
             }
             string tarih = rdtTarih.SelectedDate.Value.ToShortDateString();
             PopupPageHelper.OpenPopUp(btnYazdir, "Print/GunlukIsTakip.aspx?Tarih=" + tarih, "", true, false, true, false, false, false, 800, 900, true, false, "onclick");

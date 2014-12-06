@@ -97,9 +97,18 @@
         <br />
 
         <table class="AnaTablo">
-            <tr>
-                <th colspan="4">MÜŞTERİ BİLGİLERİ </th>
+             <tr>
+                <th colspan="4">MÜŞTERİ/FİRMA BİLGİLERİ </th>
 
+            </tr>
+            <tr>
+                <th>Firma Adı:
+
+                </th>
+                <td>
+                    <telerik:RadTextBox ID="txtFirmaAdi" runat="server"></telerik:RadTextBox>
+                </td>
+                <td colspan="2"></td>
             </tr>
             <tr>
                 <th style="width: 20%">Adı : </th>
@@ -126,9 +135,19 @@
                                 <telerik:RadComboBox ID="ddlMusteriIl" runat="server" AutoPostBack="true" EmptyMessage="İl Seçiniz" Skin="Telerik" OnSelectedIndexChanged="ddlMusteriIl_SelectedIndexChanged">
                                 </telerik:RadComboBox>
                             </td>
-                            <th>İlçe :</th>
+                            <td colspan="2"></td>
+                            
+                        </tr>
+                         <tr>
+                             <th>İlçe :</th>
                             <td>
-                                <telerik:RadComboBox ID="ddlMusteriIlce" runat="server" AutoPostBack="false" EmptyMessage="İlçe Seçiniz">
+                                <telerik:RadComboBox ID="ddlMusteriIlce" runat="server" AutoPostBack="True" EmptyMessage="İlçe Seçiniz" RenderMode="Lightweight" OnSelectedIndexChanged="ddlMusteriIlce_SelectedIndexChanged" >
+                                </telerik:RadComboBox>
+                            </td>
+                           
+                            <th>Semt :</th>
+                            <td>
+                                <telerik:RadComboBox ID="ddlMusteriSemt" runat="server" AutoPostBack="false" EmptyMessage="Semt Seçiniz" RenderMode="Lightweight">
                                 </telerik:RadComboBox>
                             </td>
                         </tr>
@@ -222,14 +241,14 @@
             <tr>
                 <th colspan="4">AKSESUARLAR</th>
             </tr>
-            <tr>
+             <tr>
                 <th style="width: 20%">Çekme Kolu :</th>
                 <td>
-                    <telerik:RadTextBox ID="txtCekmeKolu" runat="server"></telerik:RadTextBox>
+                    <telerik:RadDropDownList ID="ddlCekmeKolu" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th style="width: 20%">Baba :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlBaba" runat="server" SelectedText="Seçiniz">
+                    <telerik:RadDropDownList ID="ddlBaba" runat="server" SelectedText="Seçiniz" RenderMode="Lightweight">
                         <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
                             <telerik:DropDownListItem runat="server" Text="Var" />
@@ -241,11 +260,11 @@
             <tr>
                 <th>Kapı No :</th>
                 <td>
-                    <telerik:RadTextBox ID="txtKapiNo" runat="server"></telerik:RadTextBox>
+                    <telerik:RadComboBox ID="ddlKapiNo" runat="server"></telerik:RadComboBox>
                 </td>
                 <th>Dürbün :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlDurbun" runat="server">
+                    <telerik:RadDropDownList ID="ddlDurbun" runat="server" RenderMode="Lightweight">
                         <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
                             <telerik:DropDownListItem runat="server" Text="Var" />
@@ -257,11 +276,55 @@
             <tr>
                 <th>Barel Tipi :</th>
                 <td>
-                    <telerik:RadTextBox ID="txtBarelTipi" runat="server"></telerik:RadTextBox>
+                    <telerik:RadDropDownList ID="ddlBarelTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Taktak :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlTaktak" runat="server">
+                    <telerik:RadDropDownList ID="ddlTaktak" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+            </tr>
+            <tr>
+                <th>Kayıt Yapmayan Kamera :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlKayitsizKam" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+                <th>Kayıt Fonksiyonlu Kamera :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlKayitYapanKam" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+            </tr>
+            <tr>
+                <th>Desi Uzaktan Kumandalı Alarm :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlAlarm" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+                <th>Otomatik Kilit Karşılığı :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlOtomatikKilit" runat="server" RenderMode="Lightweight">
                         <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
                             <telerik:DropDownListItem runat="server" Text="Var" />
@@ -439,6 +502,12 @@
             <telerik:AjaxSetting AjaxControlID="ddlMusteriIl">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="ddlMusteriIlce" />
+                    <telerik:AjaxUpdatedControl ControlID="ddlMusteriSemt" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="ddlMusteriIlce">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="ddlMusteriSemt" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>

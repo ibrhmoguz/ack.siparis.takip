@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
-    <table style="width: 100%">
+    <table class="AnaTablo" style="width: 100%" border="1">
         <tr>
             <th style="text-align: center">
                 <h3>Günlük İş Takip Formu</h3>
@@ -21,6 +21,7 @@
                         <asp:BoundField DataField="ADRES" HeaderText="ADRES" />
                         <asp:BoundField DataField="SEMT" HeaderText="SEMT" />
                         <asp:BoundField DataField="MONTAJEKIBI" HeaderText="MONTAJ EKİBİ" />
+                        <asp:BoundField DataField="ACIKLAMA" HeaderText="AÇIKLAMA" />
                         <asp:BoundField DataField="KAPICINSI" HeaderText="KAPI CİNSİ" />
                     </Columns>
                 </asp:GridView>

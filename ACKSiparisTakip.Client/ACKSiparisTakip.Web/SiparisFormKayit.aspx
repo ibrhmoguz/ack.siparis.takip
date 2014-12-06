@@ -25,12 +25,12 @@
             </tr>
             <tr>
 
-                <td style="font-size: smaller; text-align: left">
+                <td style="font-size: xx-small; text-align: left">
                     <b>Adres: </b>Alınteri Bulvarı No:212 Ostim/ANKARA
                 </td>
             </tr>
             <tr>
-                <td style="font-size: smaller; text-align: left">
+                <td style="font-size: xx-small; text-align: left">
                     <b>Telefon: </b>(0 312) 385 37 83 - 84
                 </td>
 
@@ -39,19 +39,19 @@
                 <td colspan="2" rowspan="3" style="font-size: x-large; text-align: center">
                     <b>SİPARİŞ FORMU</b>
                 </td>
-                <td style="font-size: smaller; text-align: left">
+                <td style="font-size: xx-small; text-align: left">
                     <b>Faks : </b>(0 312) 354 61 81
                 </td>
 
             </tr>
             <tr>
-                <td style="font-size: smaller; text-align: left">
+                <td style="font-size: xx-small; text-align: left">
                     <b>Web : </b>www.ankaracelikkapi.com.tr
                 </td>
 
             </tr>
             <tr>
-                <td style="font-size: smaller; text-align: left">
+                <td style="font-size: xx-small; text-align: left">
                     <b>e-posta : </b>ankara@celikkapi.net
                 </td>
 
@@ -89,6 +89,15 @@
 
             </tr>
             <tr>
+                <th>Firma Adı:
+
+                </th>
+                <td>
+                    <telerik:RadTextBox ID="txtFirmaAdi" runat="server"></telerik:RadTextBox>
+                </td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
                 <th style="width: 20%">Adı : </th>
                 <td>
                     <telerik:RadTextBox ID="txtAd" runat="server"></telerik:RadTextBox>
@@ -113,9 +122,19 @@
                                 <telerik:RadComboBox ID="ddlMusteriIl" runat="server" AutoPostBack="true" EmptyMessage="İl Seçiniz" Skin="Telerik" OnSelectedIndexChanged="ddlMusteriIl_SelectedIndexChanged">
                                 </telerik:RadComboBox>
                             </td>
-                            <th>İlçe :</th>
+                            <td colspan="2"></td>
+                            
+                        </tr>
+                         <tr>
+                             <th>İlçe :</th>
                             <td>
-                                <telerik:RadComboBox ID="ddlMusteriIlce" runat="server" AutoPostBack="false" EmptyMessage="İlçe Seçiniz" RenderMode="Lightweight">
+                                <telerik:RadComboBox ID="ddlMusteriIlce" runat="server" AutoPostBack="True" EmptyMessage="İlçe Seçiniz" RenderMode="Lightweight" OnSelectedIndexChanged="ddlMusteriIlce_SelectedIndexChanged" >
+                                </telerik:RadComboBox>
+                            </td>
+                           
+                            <th>Semt :</th>
+                            <td>
+                                <telerik:RadComboBox ID="ddlMusteriSemt" runat="server" AutoPostBack="false" EmptyMessage="Semt Seçiniz" RenderMode="Lightweight">
                                 </telerik:RadComboBox>
                             </td>
                         </tr>
@@ -257,6 +276,51 @@
                     </telerik:RadDropDownList>
                 </td>
             </tr>
+            <tr>
+                <th>Kayıt Yapmayan Kamera :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlKayitsizKam" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+                <th>Kayıt Fonksiyonlu Kamera :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlKayitYapanKam" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+            </tr>
+            <tr>
+                <th>Desi Uzaktan Kumandalı Alarm :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlAlarm" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+                <th>Otomatik Kilit Karşılığı :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlOtomatikKilit" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+            </tr>
+
             <tr>
                 <th>Montajda Takılacaklar</th>
                 <td colspan="3">
@@ -436,6 +500,12 @@
             <telerik:AjaxSetting AjaxControlID="ddlMusteriIl">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="ddlMusteriIlce" />
+                    <telerik:AjaxUpdatedControl ControlID="ddlMusteriSemt" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="ddlMusteriIlce">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="ddlMusteriSemt" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>

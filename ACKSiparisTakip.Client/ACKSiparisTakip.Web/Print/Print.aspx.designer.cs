@@ -76,6 +76,15 @@ namespace ACKSiparisTakip.Web.Print {
         protected global::System.Web.UI.WebControls.Label lblSiparisNo;
         
         /// <summary>
+        /// lblFirmaAdi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFirmaAdi;
+        
+        /// <summary>
         /// lblAd control.
         /// </summary>
         /// <remarks>
@@ -308,6 +317,42 @@ namespace ACKSiparisTakip.Web.Print {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTaktak;
+        
+        /// <summary>
+        /// lblKayitsizKam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKayitsizKam;
+        
+        /// <summary>
+        /// lblKayitYapanKam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKayitYapanKam;
+        
+        /// <summary>
+        /// lblAlarm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAlarm;
+        
+        /// <summary>
+        /// lblOtoKilit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOtoKilit;
         
         /// <summary>
         /// lblMontajdaTakilacaklar control.

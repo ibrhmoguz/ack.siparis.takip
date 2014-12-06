@@ -155,7 +155,7 @@ namespace ACKSiparisTakip.Web
             {
                 ddlMusteriIlce.DataSource = dt;
                 ddlMusteriIlce.DataTextField = "ILCEAD";
-                ddlMusteriIlce.DataValueField = "PKEY";
+                ddlMusteriIlce.DataValueField = "ILCEKOD";
                 ddlMusteriIlce.DataBind();
             }
             else
@@ -165,12 +165,39 @@ namespace ACKSiparisTakip.Web
             }
         }
 
+        protected void SemtleriGetir(string ilceKod)
+        {
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms.Add("ILCEKOD", ilceKod);
+
+            DataTable dt = new SiparisIslemleriBS().SemtleriGetir(prms);
+
+            if (dt.Rows.Count > 0)
+            {
+                ddlMusteriSemt.DataSource = dt;
+                ddlMusteriSemt.DataTextField = "SEMTAD";
+                ddlMusteriSemt.DataValueField = "SEMTKOD";
+                ddlMusteriSemt.DataBind();
+            }
+            else
+            {
+                ddlMusteriSemt.DataSource = null;
+                ddlMusteriSemt.DataBind();
+            }
+        }
         protected void ddlMusteriIl_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
         {
             ddlMusteriIlce.Text = "";
+            ddlMusteriSemt.Items.Clear();
+            ddlMusteriSemt.Text = "";
             IlceleriGetir(e.Value);
         }
 
+        protected void ddlMusteriIlce_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            SemtleriGetir(e.Value);
+        }
+           
         protected void btnKaydet_Click(object sender, EventArgs e)
         {
             Musteri musteri = new Musteri();
@@ -185,7 +212,9 @@ namespace ACKSiparisTakip.Web
             musteri.MusteriEvTel = txtEvTel.Text;
             musteri.MusteriIl = ddlMusteriIl.SelectedItem.Text;
             musteri.MusteriIlce = ddlMusteriIlce.SelectedItem.Text;
+            musteri.MusteriSemt = ddlMusteriSemt.SelectedItem.Text;
             musteri.MusteriIsTel = txtIsTel.Text;
+
 
             siparis.AksesuarRenk = ddlAksesuarRengi.SelectedText;
             siparis.AluminyumRenk = ddlAluminyumRengi.SelectedText;
@@ -209,6 +238,11 @@ namespace ACKSiparisTakip.Web
             siparis.Taktak = ddlTaktak.SelectedText;
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = "BEKLEYEN";
+            siparis.FirmaAdi = txtFirmaAdi.Text;
+            siparis.KayıtYapanKamera = ddlKayitYapanKam.SelectedText;
+            siparis.KayıtYapmayanKamera = ddlKayitsizKam.SelectedText;
+            siparis.Alarm = ddlAlarm.SelectedText;
+            siparis.OtomatikKilit = ddlOtomatikKilit.SelectedText;
 
             olcum.MontajdaTakilacak = txtMontajdaTakilacaklar.Text;
             olcum.MontajSekli = ddlMontajSekli.SelectedText;
@@ -243,16 +277,29 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriIlce.SelectedItem == null ||
                 string.IsNullOrWhiteSpace(ddlMusteriIlce.SelectedItem.Text) ||
                 ddlMusteriIl.SelectedItem == null ||
-                string.IsNullOrWhiteSpace(ddlMusteriIl.SelectedItem.Text))
+                string.IsNullOrWhiteSpace(ddlMusteriIl.SelectedItem.Text) ||
+                ddlMusteriSemt.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(ddlMusteriSemt.SelectedItem.Text))
             {
                 MessageBox.Hata(this, "Zorunlu alanları doldurmalısınız!");
                 return;
             }
 
             tbMusteriSozlesme.Visible = true;
-            txtMusteriAdSoyad.Text = txtAd.Text + " " + txtSoyad.Text;
-            txtMusteriAdres.Text = txtAdres.Text + " " + ddlMusteriIlce.SelectedItem.Text + "  " + ddlMusteriIl.SelectedItem.Text;
+            if (txtFirmaAdi.Text.Trim()!=string.Empty)
+            {
+                txtMusteriAdSoyad.Text = txtFirmaAdi.Text+"  ("+ txtAd.Text + " " + txtSoyad.Text+")";
+            }
+            else
+            {
+                txtMusteriAdSoyad.Text = txtAd.Text + " " + txtSoyad.Text;
+            }
+           
+            txtMusteriAdres.Text = txtAdres.Text + " " + ddlMusteriSemt.SelectedItem.Text + "  " + ddlMusteriIlce.SelectedItem.Text + "  " + ddlMusteriIl.SelectedItem.Text;
             txtMusteriCepTel.Text = txtCepTel.Text;
         }
+
+       
+        
     }
-}
+}     

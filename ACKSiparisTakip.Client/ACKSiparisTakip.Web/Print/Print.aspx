@@ -81,8 +81,17 @@
 
         <table class="AnaTablo" style="width: 100%" border="1">
             <tr>
-                <th colspan="4">MÜŞTERİ BİLGİLERİ </th>
+                <th colspan="4">MÜŞTERİ/FİRMA BİLGİLERİ </th>
 
+            </tr>
+            <tr>
+                <th>Firma Adı:
+
+                </th>
+                <td>
+                    <asp:Label ID="lblFirmaAdi" runat="server"></asp:Label>
+                </td>
+                <td colspan="2"></td>
             </tr>
             <tr>
                 <th style="width: 20%">Adı : </th>
@@ -221,6 +230,26 @@
                 <th>Taktak :</th>
                 <td>
                     <asp:Label ID="lblTaktak" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <th>Kayıt Yapmayan Kamera :</th>
+                <td>
+                    <asp:Label ID="lblKayitsizKam" runat="server"></asp:Label>
+                </td>
+                <th>Kayıt Fonksiyonlu Kamera :</th>
+                <td>
+                    <asp:Label ID="lblKayitYapanKam" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <th>Desi Uzaktan Kumandalı Alarm :</th>
+                <td>
+                    <asp:Label ID="lblAlarm" runat="server"></asp:Label>
+                </td>
+                <th>Otomatik Kilit Karşılığı :</th>
+                <td>
+                    <asp:Label ID="lblOtoKilit" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>

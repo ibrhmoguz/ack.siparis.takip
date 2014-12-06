@@ -8,8 +8,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
 {
     public enum KapiTipi
     {
-        Nova = 1,
+        Guard = 1,
         Kroma = 2,
-        Guard = 3
+        Nova = 3
     }
 }

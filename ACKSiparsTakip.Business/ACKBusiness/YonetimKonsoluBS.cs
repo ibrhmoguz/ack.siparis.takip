@@ -27,6 +27,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(MontajSekliGetir());
             ds.Tables.Add(TeslimSekliGetir());
             ds.Tables.Add(TumKapiModelGetir());
+            ds.Tables.Add(BarelTipGetir());
+            ds.Tables.Add(CekmeKoluGetir());
 
             return ds;
         }
@@ -62,6 +64,29 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             dt.TableName = "REF_CITA";
 
             string sqlText = @"SELECT * FROM REF_CITA";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable BarelTipGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_BARELTIP";
+
+            string sqlText = @"SELECT * FROM REF_BARELTIP";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+        private DataTable CekmeKoluGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_CEKMEKOLU";
+
+            string sqlText = @"SELECT * FROM REF_CEKMEKOLU";
             data.GetRecords(dt, sqlText);
 
             return dt;

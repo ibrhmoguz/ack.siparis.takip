@@ -16,6 +16,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string MusteriEvTel { get; set; }
         public string MusteriIsTel { get; set; }
         public string MusteriCepTel { get; set; }
+        public string MusteriSemt { get; set; }
     }
 
     public class Siparis
@@ -43,6 +44,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string Taktak { get; set; }
         public string KapiTipi { get; set; }
         public string Durum { get; set; }
+        public string KayıtYapanKamera { get; set; }
+        public string KayıtYapmayanKamera { get; set; }
+        public string Alarm { get; set; }
+        public string OtomatikKilit { get; set; }
+        public string FirmaAdi { get; set; }
     }
 
     public class Olcum

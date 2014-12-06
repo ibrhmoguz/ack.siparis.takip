@@ -260,5 +260,18 @@ namespace ACKSiparisTakip.Web
             rgOgeler2.Visible = false;
         }
 
+        protected void rgOgeler1_PageIndexChanged(object sender, GridPageChangedEventArgs e)
+        {
+            rgOgeler1.CurrentPageIndex= e.NewPageIndex;
+            GridDoldur(Session["TabloAdi"].ToString());
+            GridDoldur2(Session["kapiSeriId"].ToString());
+        }
+
+        protected void rgOgeler2_PageIndexChanged(object sender, GridPageChangedEventArgs e)
+        {
+            rgOgeler2.CurrentPageIndex = e.NewPageIndex;
+            GridDoldur2(Session["kapiSeriId"].ToString());
+        }
+
     }
 }

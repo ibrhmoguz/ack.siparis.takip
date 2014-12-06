@@ -294,6 +294,31 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         }
 
+        public DataTable SemtleriGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            data.AddSqlParameter("ILCEKOD", prms["ILCEKOD"], SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT * FROM REF_SEMTLER WHERE ILCEKOD=@ILCEKOD ORDER BY SEMTAD";
+            data.GetRecords(dt, sqlText);
+            return dt;
+
+        }
+        public DataTable SemtleriGetir(string ilceAdi)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            data.AddSqlParameter("ILCEAD", ilceAdi, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT * FROM REF_SEMTLER WHERE ILCEAD=@ILCEAD ORDER BY SEMTAD";
+            data.GetRecords(dt, sqlText);
+            return dt;
+
+        }
+
         public string SiparisKaydet(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
         {
             IData data = GetDataObject();
@@ -341,11 +366,13 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("SIPARISTARIH", siparis.SiparisTarih, SqlDbType.DateTime, 50);
                 data.AddSqlParameter("BAYIADI", siparis.BayiAd, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("FIRMAADI", siparis.FirmaAdi, SqlDbType.VarChar, 150);
                 data.AddSqlParameter("MUSTERIAD", musteri.MusteriAd, SqlDbType.VarChar, 100);
                 data.AddSqlParameter("MUSTERISOYAD", musteri.MusteriSoyad, SqlDbType.VarChar, 100);
                 data.AddSqlParameter("MUSTERIADRES", musteri.MusteriAdres, SqlDbType.VarChar, 500);
                 data.AddSqlParameter("MUSTERIIL", musteri.MusteriIl, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MUSTERIILCE", musteri.MusteriIlce, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MUSTERISEMT", musteri.MusteriSemt, SqlDbType.VarChar, 250);
                 data.AddSqlParameter("MUSTERIEVTEL", musteri.MusteriEvTel, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MUSTERIISTEL", musteri.MusteriIsTel, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MUSTERICEPTEL", musteri.MusteriCepTel, SqlDbType.VarChar, 50);
@@ -367,6 +394,10 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("BABA", siparis.Baba, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DURBUN", siparis.Durbun, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("TAKTAK", siparis.Taktak, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAYITSIZKAMERA", siparis.KayıtYapmayanKamera, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAYITYAPANKAMERA", siparis.KayıtYapanKamera, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ALARM", siparis.Alarm, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("OTOKILIT", siparis.OtomatikKilit, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MONTAJDATAKILACAK", olcum.MontajdaTakilacak, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("OLCUMBILGI", olcum.OlcumBilgi, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("OLCUMTARIH", olcum.OlcumTarih, SqlDbType.Date, 50);
@@ -384,11 +415,13 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    ([SIPARISNO]
                                    ,[SIPARISTARIH]
                                    ,[BAYIADI]
+                                   ,[FIRMAADI]
                                    ,[MUSTERIAD]
                                    ,[MUSTERISOYAD]
                                    ,[MUSTERIADRES]
                                    ,[MUSTERIIL]
                                    ,[MUSTERIILCE]
+                                   ,[MUSTERISEMT]
                                    ,[MUSTERIEVTEL]
                                    ,[MUSTERIISTEL]
                                    ,[MUSTERICEPTEL]
@@ -410,6 +443,10 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    ,[BABA]
                                    ,[DURBUN]
                                    ,[TAKTAK]
+                                   ,[KAYITSIZKAMERA]
+                                   ,[KAYITYAPANKAMERA]
+                                   ,[ALARM]
+                                   ,[OTOKILIT]
                                    ,[MONTAJDATAKILACAK]
                                    ,[OLCUMBILGI]
                                    ,[OLCUMTARIH]
@@ -426,11 +463,13 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    (@SIPARISNO,
                                    @SIPARISTARIH,
                                    @BAYIADI,
+                                   @FIRMAADI,
                                    @MUSTERIAD,
                                    @MUSTERISOYAD,
                                    @MUSTERIADRES,
                                    @MUSTERIIL,
                                    @MUSTERIILCE,
+                                   @MUSTERISEMT,
                                    @MUSTERIEVTEL,
                                    @MUSTERIISTEL,
                                    @MUSTERICEPTEL,
@@ -452,6 +491,10 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    @BABA,
                                    @DURBUN,
                                    @TAKTAK,
+                                   @KAYITSIZKAMERA,
+                                   @KAYITYAPANKAMERA,
+                                   @ALARM,
+                                   @OTOKILIT,
                                    @MONTAJDATAKILACAK,
                                    @OLCUMBILGI,
                                    @OLCUMTARIH,
@@ -499,11 +542,13 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("SIPARISTARIH", siparis.SiparisTarih, SqlDbType.DateTime, 50);
                 data.AddSqlParameter("BAYIADI", siparis.BayiAd, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("FIRMAADI", siparis.FirmaAdi, SqlDbType.VarChar, 150);
                 data.AddSqlParameter("MUSTERIAD", musteri.MusteriAd, SqlDbType.VarChar, 100);
                 data.AddSqlParameter("MUSTERISOYAD", musteri.MusteriSoyad, SqlDbType.VarChar, 100);
                 data.AddSqlParameter("MUSTERIADRES", musteri.MusteriAdres, SqlDbType.VarChar, 500);
                 data.AddSqlParameter("MUSTERIIL", musteri.MusteriIl, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MUSTERIILCE", musteri.MusteriIlce, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MUSTERISEMT", musteri.MusteriSemt, SqlDbType.VarChar, 250);
                 data.AddSqlParameter("MUSTERIEVTEL", musteri.MusteriEvTel, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MUSTERIISTEL", musteri.MusteriIsTel, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MUSTERICEPTEL", musteri.MusteriCepTel, SqlDbType.VarChar, 50);
@@ -525,6 +570,10 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("BABA", siparis.Baba, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DURBUN", siparis.Durbun, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("TAKTAK", siparis.Taktak, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAYITSIZKAMERA", siparis.KayıtYapmayanKamera, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAYITYAPANKAMERA", siparis.KayıtYapanKamera, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ALARM", siparis.Alarm, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("OTOKILIT", siparis.OtomatikKilit, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MONTAJDATAKILACAK", olcum.MontajdaTakilacak, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("OLCUMBILGI", olcum.OlcumBilgi, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("OLCUMTARIH", olcum.OlcumTarih, SqlDbType.Date, 50);
@@ -541,11 +590,13 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                         SET
                                           --[SIPARISTARIH] = @SIPARISTARIH
                                           [BAYIADI] = @BAYIADI
+                                          ,[FIRMADI] = @FIRMADI
                                           ,[MUSTERIAD] =@MUSTERIAD
                                           ,[MUSTERISOYAD] = @MUSTERISOYAD
                                           ,[MUSTERIADRES] =@MUSTERIADRES
                                           ,[MUSTERIIL] = @MUSTERIIL
                                           ,[MUSTERIILCE] =@MUSTERIILCE
+                                          ,[MUSTERISEMT]=@MUSTERISEMT
                                           ,[MUSTERIEVTEL] = @MUSTERIEVTEL
                                           ,[MUSTERIISTEL] = @MUSTERIISTEL
                                           ,[MUSTERICEPTEL] = @MUSTERICEPTEL
@@ -567,6 +618,10 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                           ,[BABA] = @BABA
                                           ,[DURBUN] = @DURBUN
                                           ,[TAKTAK] = @TAKTAK
+                                          ,[KAYITSIZKAMERA] = @KAYITSIZKAMERA,
+                                          ,[KAYITYAPANKAMERA] = @KAYITYAPANKAMERA,
+                                          ,[ALARM] = @ALARM,
+                                          ,[OTOKILIT]= @OTOKILIT,
                                           ,[MONTAJDATAKILACAK] = @MONTAJDATAKILACAK
                                           ,[OLCUMBILGI] = @OLCUMBILGI
                                           ,[OLCUMTARIH] = @OLCUMTARIH

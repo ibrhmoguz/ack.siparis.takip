@@ -27,7 +27,7 @@
             <tr>
                 <td colspan="2">
 
-                    <telerik:RadGrid ID="rgOgeler1" runat="server" AllowPaging="True" OnItemCommand="rgOgeler1_ItemCommand">
+                    <telerik:RadGrid ID="rgOgeler1" runat="server" AllowPaging="True" OnItemCommand="rgOgeler1_ItemCommand" OnPageIndexChanged="rgOgeler1_PageIndexChanged">
 
                         <MasterTableView AutoGenerateColumns="False" DataKeyNames="ID">
                             <Columns>
@@ -98,7 +98,7 @@
             <tr>
                 <td colspan="2">
 
-                    <telerik:RadGrid ID="rgOgeler2" runat="server" AllowPaging="True" OnItemCommand="rgOgeler1_ItemCommand">
+                    <telerik:RadGrid ID="rgOgeler2" runat="server" AllowPaging="True" OnItemCommand="rgOgeler1_ItemCommand" OnPageIndexChanged="rgOgeler2_PageIndexChanged">
 
                         <MasterTableView AutoGenerateColumns="False" DataKeyNames="ID">
                             <Columns>
