@@ -7,6 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script src="Helper/jquery.js"></script>
     <link href="App_Themes/Theme/Template/Template.css" type="text/css" rel="stylesheet" />
     <link href="App_Themes/Theme/StyleSheet.css" type="text/css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">

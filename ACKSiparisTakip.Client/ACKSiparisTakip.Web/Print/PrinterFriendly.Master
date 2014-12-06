@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
+    <script src="../Helper/jquery.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="PrinterFriendly.css" rel="stylesheet" type="text/css" />
     <link href="../../App_Themes/Theme/Buttons.css" rel="stylesheet" type="text/css" />
@@ -42,7 +43,7 @@
             filter: flipH flipV;
         }
     </style>
-    <script src="../../Helper/jquery.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         jQuery.jPrintArea = function (el) {
             $('#yazdir').css('visibility', 'hidden');
