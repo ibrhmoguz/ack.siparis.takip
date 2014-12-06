@@ -1,0 +1,7 @@
+
+v1.0 
+-----
+01.01.2014 
+- Sipariþ tablosuna Firma Adý eklendi.
+	ALTER TABLE dbo.SIPARIS ADD FIRMAADI varchar(250) NULL
+- 
