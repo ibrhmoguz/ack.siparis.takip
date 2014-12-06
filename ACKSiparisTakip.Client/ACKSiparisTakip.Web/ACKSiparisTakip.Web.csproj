@@ -115,7 +115,9 @@
     <Content Include="Global.asax" />
     <Content Include="GunlukIsTakipFormu.aspx" />
     <Content Include="Hatalar.aspx" />
-    <Content Include="Helper\jquery.js" />
+    <Content Include="Helper\jquery.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="IsTakvimi.aspx" />
     <Content Include="KullaniciTanimlama.aspx" />
     <Content Include="Login.aspx" />
@@ -267,6 +269,7 @@
     <Content Include="ACKMasterPage.Master" />
     <None Include="bin\ACKSiparisTakip.Web.dll.config" />
     <Content Include="Print\PrinterFriendly.Master" />
+    <None Include="Properties\PublishProfiles\ACK.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
