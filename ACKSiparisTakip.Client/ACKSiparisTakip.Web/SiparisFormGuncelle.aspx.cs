@@ -141,7 +141,7 @@ namespace ACKSiparisTakip.Web
             siparis.Esik = (rowSiparis["ESIK"] != DBNull.Value) ? rowSiparis["ESIK"].ToString() : String.Empty;
             siparis.IcKapiModel = (rowSiparis["ICKAPIMODEL"] != DBNull.Value) ? rowSiparis["ICKAPIMODEL"].ToString() : String.Empty;
             siparis.IcKapiRenk = (rowSiparis["ICKAPIRENK"] != DBNull.Value) ? rowSiparis["ICKAPIRENK"].ToString() : String.Empty;
-            siparis.KapiNo = (rowSiparis["KAPINO"] != DBNull.Value) ? rowSiparis["KAPINO"].ToString() : String.Empty;
+            //siparis.KapiNo = (rowSiparis["KAPINO"] != DBNull.Value) ? rowSiparis["KAPINO"].ToString() : String.Empty;
             siparis.KilitSistem = (rowSiparis["KILITSISTEM"] != DBNull.Value) ? rowSiparis["KILITSISTEM"].ToString() : String.Empty;
             siparis.PervazTip = (rowSiparis["PERVAZTIP"] != DBNull.Value) ? rowSiparis["PERVAZTIP"].ToString() : String.Empty;
             siparis.SiparisTarih = (rowSiparis["SIPARISTARIH"] != DBNull.Value) ? Convert.ToDateTime(rowSiparis["SIPARISTARIH"].ToString()) : DateTime.MinValue;
@@ -202,7 +202,7 @@ namespace ACKSiparisTakip.Web
             DropDownSelectedIndexAyarla(ddlOtomatikKilit, olcum.OlcumAlanKisi);
             DropDownSelectedIndexAyarla(ddlBaba, siparis.Baba);
             DropDownSelectedIndexAyarla(ddlCita, siparis.Cita);            
-            DropDownSelectedIndexAyarla(ddlKapiNo, siparis.KapiNo);
+            //DropDownSelectedIndexAyarla(ddlKapiNo, siparis.KapiNo);
             DropDownSelectedIndexAyarla(ddlContaRengi, siparis.ContaRenk);
             DropDownSelectedIndexAyarla(ddlDisKapiModeli, siparis.DisKapiModel);
             DropDownSelectedIndexAyarla(ddlDisKapiRengi, siparis.DisKapiRenk);
@@ -494,7 +494,7 @@ namespace ACKSiparisTakip.Web
             siparis.Esik = ddlEsik.SelectedText;
             siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
             siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
-            siparis.KapiNo = ddlKapiNo.SelectedValue;
+            //siparis.KapiNo = ddlKapiNo.SelectedValue;
             siparis.KilitSistem = ddlKilitSistemi.SelectedText;
             siparis.PervazTip = ddlPervazTipi.SelectedText;
             siparis.SiparisTarih = DateTime.Now;

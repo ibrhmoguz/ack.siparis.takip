@@ -223,9 +223,13 @@
                 </td>
             </tr>
             <tr>
-                <th>Kapı No :</th>
+                <%-- <th>Kapı No :</th>
                 <td>
                     <asp:Label ID="lblKapiNo" runat="server"></asp:Label>
+                </td>--%>
+                <th>Otomatik Kilit Karşılığı :</th>
+                <td>
+                    <asp:Label ID="lblOtoKilit" runat="server"></asp:Label>
                 </td>
                 <th>Dürbün :</th>
                 <td>
@@ -242,7 +246,7 @@
                     <asp:Label ID="lblTaktak" runat="server"></asp:Label>
                 </td>
             </tr>
-             <tr>
+            <tr>
                 <th>Kayıt Yapmayan Kamera :</th>
                 <td>
                     <asp:Label ID="lblKayitsizKam" runat="server"></asp:Label>
@@ -257,10 +261,7 @@
                 <td>
                     <asp:Label ID="lblAlarm" runat="server"></asp:Label>
                 </td>
-                <th>Otomatik Kilit Karşılığı :</th>
-                <td>
-                    <asp:Label ID="lblOtoKilit" runat="server"></asp:Label>
-                </td>
+
             </tr>
             <tr>
                 <th>Montajda Takılacaklar</th>

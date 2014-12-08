@@ -292,13 +292,13 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblBaba;
         
         /// <summary>
-        /// lblKapiNo control.
+        /// lblOtoKilit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblKapiNo;
+        protected global::System.Web.UI.WebControls.Label lblOtoKilit;
         
         /// <summary>
         /// lblDurbun control.
@@ -353,15 +353,6 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAlarm;
-        
-        /// <summary>
-        /// lblOtoKilit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOtoKilit;
         
         /// <summary>
         /// lblMontajdaTakilacaklar control.

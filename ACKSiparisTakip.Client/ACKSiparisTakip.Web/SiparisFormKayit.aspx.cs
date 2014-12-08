@@ -14,6 +14,8 @@ namespace ACKSiparisTakip.Web
 {
     public partial class SiparisFormKayit : ACKBasePage
     {
+        private static string ANKARA_IL_KODU = "6";
+
         public KapiTipi KapiTip
         {
             get
@@ -93,21 +95,21 @@ namespace ACKSiparisTakip.Web
 
             Kontrol();
             IlleriGetir();
-            KapiNumaralariDoldur();
+            //KapiNumaralariDoldur();
         }
 
-        private void KapiNumaralariDoldur()
-        {
-            if (ddlKapiNo.Items != null && ddlKapiNo.Items.Count > 0)
-                ddlKapiNo.Items.Clear();
+        //private void KapiNumaralariDoldur()
+        //{
+        //    if (ddlKapiNo.Items != null && ddlKapiNo.Items.Count > 0)
+        //        ddlKapiNo.Items.Clear();
 
-            for (int i = 1; i <= 100; i++)
-            {
-                ddlKapiNo.Items.Add(new RadComboBoxItem(i.ToString(), i.ToString()));
-            }
+        //    for (int i = 1; i <= 100; i++)
+        //    {
+        //        ddlKapiNo.Items.Add(new RadComboBoxItem(i.ToString(), i.ToString()));
+        //    }
 
-            ddlKapiNo.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem("Seçiniz", "0"));
-        }
+        //    ddlKapiNo.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem("Seçiniz", "0"));
+        //}
 
         private void DropDownBindEt(Telerik.Web.UI.RadDropDownList ddl, DataTable dt)
         {
@@ -136,6 +138,9 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriIl.DataTextField = "ILAD";
                 ddlMusteriIl.DataValueField = "ILKOD";
                 ddlMusteriIl.DataBind();
+
+                ddlMusteriIl.FindItemByValue(ANKARA_IL_KODU).Selected = true;
+                IlceleriGetir(ANKARA_IL_KODU);
             }
             else
             {
@@ -197,7 +202,7 @@ namespace ACKSiparisTakip.Web
         {
             SemtleriGetir(e.Value);
         }
-           
+
         protected void btnKaydet_Click(object sender, EventArgs e)
         {
             Musteri musteri = new Musteri();
@@ -230,7 +235,7 @@ namespace ACKSiparisTakip.Web
             siparis.Esik = ddlEsik.SelectedText;
             siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
             siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
-            siparis.KapiNo = ddlKapiNo.SelectedValue;
+            //siparis.KapiNo = ddlKapiNo.SelectedValue;
             siparis.KilitSistem = ddlKilitSistemi.SelectedText;
             siparis.PervazTip = ddlPervazTipi.SelectedText;
             siparis.SiparisTarih = DateTime.Now;
@@ -281,25 +286,25 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriSemt.SelectedItem == null ||
                 string.IsNullOrWhiteSpace(ddlMusteriSemt.SelectedItem.Text))
             {
-                MessageBox.Hata(this, "Zorunlu alanları doldurmalısınız!");
+                MessageBox.Hata(this, "İl, ilçe ve semt alanlarını doldurmalısınız!");
                 return;
             }
 
             tbMusteriSozlesme.Visible = true;
-            if (txtFirmaAdi.Text.Trim()!=string.Empty)
-            {
-                txtMusteriAdSoyad.Text = txtFirmaAdi.Text+"  ("+ txtAd.Text + " " + txtSoyad.Text+")";
-            }
-            else
-            {
-                txtMusteriAdSoyad.Text = txtAd.Text + " " + txtSoyad.Text;
-            }
-           
+            //if (txtFirmaAdi.Text.Trim() != string.Empty)
+            //{
+            //    txtMusteriAdSoyad.Text = txtFirmaAdi.Text + "  (" + txtAd.Text + " " + txtSoyad.Text + ")";
+            //}
+            //else
+            //{
+            //    txtMusteriAdSoyad.Text = txtAd.Text + " " + txtSoyad.Text;
+            //}
+
             txtMusteriAdres.Text = txtAdres.Text + " " + ddlMusteriSemt.SelectedItem.Text + "  " + ddlMusteriIlce.SelectedItem.Text + "  " + ddlMusteriIl.SelectedItem.Text;
             txtMusteriCepTel.Text = txtCepTel.Text;
         }
 
-       
-        
+
+
     }
-}     
+}
