@@ -94,6 +94,15 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadTextBox txtFirmaAdi;
         
         /// <summary>
+        /// txtSiparisAdedi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtSiparisAdedi;
+        
+        /// <summary>
         /// txtAd control.
         /// </summary>
         /// <remarks>
@@ -445,33 +454,6 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadTextBox txtNot;
         
         /// <summary>
-        /// tbIleri control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbIleri;
-        
-        /// <summary>
-        /// btnIleri control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnIleri;
-        
-        /// <summary>
-        /// tbMusteriSozlesme control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbMusteriSozlesme;
-        
-        /// <summary>
         /// txtMusteriAdSoyad control.
         /// </summary>
         /// <remarks>
@@ -544,13 +526,13 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadTextBox txtVergiNumarasi;
         
         /// <summary>
-        /// btnKaydet control.
+        /// btnGuncelle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnKaydet;
+        protected global::Telerik.Web.UI.RadButton btnGuncelle;
         
         /// <summary>
         /// RadAjaxManager1 control.

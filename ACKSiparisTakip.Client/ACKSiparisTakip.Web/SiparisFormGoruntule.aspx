@@ -5,11 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div id="divSiparisForm" runat="server" style="width: 75%" class="RadGrid_Current_Theme">
+    <div id="divSiparisForm" runat="server" style="width: 100%" class="RadGrid_Current_Theme">
         <br />
-        <br />
-        <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%">
             <tr>
                 <td rowspan="6" style="text-align: center">
                     <telerik:RadBinaryImage ID="imgLogo" runat="server" ImageUrl="~/App_Themes/Theme/Raster/ackLogo.PNG" />
@@ -59,14 +57,14 @@
 
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th style="width: 15%">Ölçü Tarihi ve Saati :   </th>
                 <td style="width: 35%">
                     <asp:Label ID="lblOlcuTarihSaat" runat="server"></asp:Label>
                 </td>
-                <th style="width: 20%">Sipariş Tarihi :  </th>
-                <td style="width: 30%">
+                <th style="width: 10%">Sipariş Tarihi :  </th>
+                <td>
                     <asp:Label ID="lblSiparisTarih" runat="server"></asp:Label>
                 </td>
             </tr>
@@ -89,26 +87,27 @@
             </tr>
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th colspan="4">MÜŞTERİ/FİRMA BİLGİLERİ </th>
-
             </tr>
             <tr>
-                <th>Firma Adı:
-
+                <th style="width: 15%">Firma Adı:
                 </th>
-                <td>
+                <td style="width: 35%">
                     <asp:Label ID="lblFirmaAdi" runat="server"></asp:Label>
                 </td>
-                <td colspan="2"></td>
+                <th style="width: 10%">Sipariş Adedi: </th>
+                <td>
+                    <asp:Label ID="lblSiparisAdedi" runat="server"></asp:Label>
+                </td>
             </tr>
             <tr>
-                <th style="width: 20%">Adı : </th>
+                <th>Adı : </th>
                 <td>
                     <asp:Label ID="lblAd" runat="server"></asp:Label>
                 </td>
-                <th style="width: 20%">Soyadı </th>
+                <th style="width: 10%">Soyadı </th>
                 <td>
                     <asp:Label ID="lblSoyad" runat="server"></asp:Label>
                 </td>
@@ -143,13 +142,13 @@
             </tr>
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%">
             <tr>
-                <th style="width: 20%">İç Kapı Modeli :</th>
-                <td>
+                <th style="width: 15%">İç Kapı Modeli :</th>
+                <td style="width: 35%">
                     <asp:Label ID="lblIcKapiModeli" runat="server"></asp:Label>
                 </td>
-                <th style="width: 20%">Dış Kapı Modeli :</th>
+                <th style="width: 10%">Dış Kapı Modeli :</th>
                 <td>
                     <asp:Label ID="lblDisKapiModeli" runat="server"></asp:Label>
                 </td>
@@ -208,16 +207,16 @@
             </tr>
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th colspan="4">AKSESUARLAR</th>
             </tr>
             <tr>
-                <th style="width: 20%">Çekme Kolu :</th>
-                <td>
+                <th style="width: 15%">Çekme Kolu :</th>
+                <td style="width: 35%">
                     <asp:Label ID="lblCekmeKolu" runat="server"></asp:Label>
                 </td>
-                <th style="width: 20%">Baba :</th>
+                <th style="width: 10%">Baba :</th>
                 <td>
                     <asp:Label ID="lblBaba" runat="server"></asp:Label>
                 </td>
@@ -271,59 +270,51 @@
             </tr>
         </table>
         <br />
-        <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th colspan="2">ÖLÇÜM ve MONTAJ</th>
             </tr>
             <tr>
-
+                <th style="width: 15%">Ölçüm Bilgileri : </th>
                 <td>
-                    <table>
-                        <tr>
-                            <th style="width: 20%">Ölçüm Bilgileri : </th>
-                            <td>
-                                <asp:Label ID="lblOlcumBilgileri" runat="server"></asp:Label>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Ölçümü Alan Kişi : </th>
-                            <td>
-                                <asp:Label ID="lblOlcumAlan" runat="server"></asp:Label>
-                            </td>
-
-                        </tr>
-
-                        <tr>
-                            <th>Montaj Şekli </th>
-                            <td>
-                                <asp:Label ID="lblMontajSekli" runat="server"></asp:Label>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <th>Teslim Şekli </th>
-                            <td>
-                                <asp:Label ID="lblTeslimSekli" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Teslim Tarihi</th>
-                            <td>
-                                <asp:Label ID="lblTeslimTarihi" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-
-                    </table>
+                    <asp:Label ID="lblOlcumBilgileri" runat="server"></asp:Label>
                 </td>
-                <td style="width: 25%" rowspan="8">
+            </tr>
+            <tr>
+                <th>Ölçümü Alan Kişi : </th>
+                <td>
+                    <asp:Label ID="lblOlcumAlan" runat="server"></asp:Label>
+                </td>
+
+            </tr>
+
+            <tr>
+                <th>Montaj Şekli </th>
+                <td>
+                    <asp:Label ID="lblMontajSekli" runat="server"></asp:Label>
+                </td>
+
+            </tr>
+            <tr>
+                <th>Teslim Şekli </th>
+                <td>
+                    <asp:Label ID="lblTeslimSekli" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <th>Teslim Tarihi</th>
+                <td>
+                    <asp:Label ID="lblTeslimTarihi" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <%--<telerik:RadBinaryImage ID="rbiKapiResmi" runat="server" ImageUrl="~/App_Themes/Theme/Raster/guardKapiOrta.PNG" />--%>
                 </td>
             </tr>
         </table>
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th>NOT
                 </th>
@@ -336,18 +327,20 @@
 
         </table>
         <br />
-        <table class="AnaTablo" runat="server" id="tbMusteriSozlesme">
+        <table class="AnaTablo" runat="server" id="tbMusteriSozlesme" style="width: 100%">
             <tr>
                 <th colspan="4" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
 
             </tr>
             <tr>
-                <th style="width: 20%">Adı Soyadı : </th>
-                <td>
+                <th style="width: 15%">Adı Soyadı : </th>
+                <td style="width: 35%">
                     <asp:Label ID="lblMusteriAdSoyad" runat="server"></asp:Label>
                 </td>
-                <th colspan="2">Ödeme Şekli : </th>
-
+                <th style="width: 10%">Ödeme Şekli : </th>
+                <td>
+                    <asp:Label ID="lblOdemeSekli" runat="server"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <th rowspan="2">Adresi : </th>

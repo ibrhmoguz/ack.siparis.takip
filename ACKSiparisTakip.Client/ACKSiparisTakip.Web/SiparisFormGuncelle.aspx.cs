@@ -141,7 +141,6 @@ namespace ACKSiparisTakip.Web
             siparis.Esik = (rowSiparis["ESIK"] != DBNull.Value) ? rowSiparis["ESIK"].ToString() : String.Empty;
             siparis.IcKapiModel = (rowSiparis["ICKAPIMODEL"] != DBNull.Value) ? rowSiparis["ICKAPIMODEL"].ToString() : String.Empty;
             siparis.IcKapiRenk = (rowSiparis["ICKAPIRENK"] != DBNull.Value) ? rowSiparis["ICKAPIRENK"].ToString() : String.Empty;
-            //siparis.KapiNo = (rowSiparis["KAPINO"] != DBNull.Value) ? rowSiparis["KAPINO"].ToString() : String.Empty;
             siparis.KilitSistem = (rowSiparis["KILITSISTEM"] != DBNull.Value) ? rowSiparis["KILITSISTEM"].ToString() : String.Empty;
             siparis.PervazTip = (rowSiparis["PERVAZTIP"] != DBNull.Value) ? rowSiparis["PERVAZTIP"].ToString() : String.Empty;
             siparis.SiparisTarih = (rowSiparis["SIPARISTARIH"] != DBNull.Value) ? Convert.ToDateTime(rowSiparis["SIPARISTARIH"].ToString()) : DateTime.MinValue;
@@ -150,6 +149,7 @@ namespace ACKSiparisTakip.Web
             siparis.Taktak = (rowSiparis["TAKTAK"] != DBNull.Value) ? rowSiparis["TAKTAK"].ToString() : String.Empty;
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = (rowSiparis["DURUM"] != DBNull.Value) ? rowSiparis["DURUM"].ToString() : String.Empty;
+            siparis.SiparisAdedi = (rowSiparis["ADET"] != DBNull.Value) ? rowSiparis["ADET"].ToString() : String.Empty;
 
             olcum.MontajdaTakilacak = (rowSiparis["MONTAJDATAKILACAK"] != DBNull.Value) ? rowSiparis["MONTAJDATAKILACAK"].ToString() : String.Empty;
             olcum.MontajSekli = (rowSiparis["MONTAJSEKLI"] != DBNull.Value) ? rowSiparis["MONTAJSEKLI"].ToString() : String.Empty;
@@ -220,6 +220,7 @@ namespace ACKSiparisTakip.Web
             DropDownSelectedIndexAyarla(ddlOlcumAlan, olcum.OlcumAlanKisi);
                       
             txtBayiAdi.Text = siparis.BayiAd;
+            txtSiparisAdedi.Text = siparis.SiparisAdedi;
             txtMontajdaTakilacaklar.Text = olcum.MontajdaTakilacak;
             txtOlcumBilgileri.Text = olcum.OlcumBilgi;
             rdtOlcuTarihSaat.SelectedDate = olcum.OlcumTarih;
@@ -376,7 +377,7 @@ namespace ACKSiparisTakip.Web
             {
                 ddlMusteriIlce.DataSource = dt;
                 ddlMusteriIlce.DataTextField = "ILCEAD";
-                ddlMusteriIlce.DataValueField = "PKEY";
+                ddlMusteriIlce.DataValueField = "ILCEKOD";
                 ddlMusteriIlce.DataBind();
             }
             else
@@ -446,6 +447,7 @@ namespace ACKSiparisTakip.Web
         protected void ddlMusteriIl_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
         {
             ddlMusteriIlce.Text = "";
+            ddlMusteriIlce.Items.Clear();
             ddlMusteriSemt.Items.Clear();
             ddlMusteriSemt.Text = "";
             IlceleriGetir(e.Value);
@@ -453,12 +455,13 @@ namespace ACKSiparisTakip.Web
 
         protected void ddlMusteriIlce_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
+            ddlMusteriSemt.Items.Clear();
+            ddlMusteriSemt.Text = "";
             SemtleriGetir(e.Value);
         }
 
         protected void btnGuncelle_Click(object sender, EventArgs e)
         {
-
             Musteri musteri = new Musteri();
             Siparis siparis = new Siparis();
             Olcum olcum = new Olcum();
@@ -494,13 +497,14 @@ namespace ACKSiparisTakip.Web
             siparis.Esik = ddlEsik.SelectedText;
             siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
             siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
-            //siparis.KapiNo = ddlKapiNo.SelectedValue;
             siparis.KilitSistem = ddlKilitSistemi.SelectedText;
             siparis.PervazTip = ddlPervazTipi.SelectedText;
             siparis.SiparisTarih = DateTime.Now;
             siparis.TacTip = ddlTacTipi.SelectedText;
             siparis.Taktak = ddlTaktak.SelectedText;
             siparis.KapiTipi = this.KapiTip.ToString();
+            siparis.FirmaAdi = txtFirmaAdi.Text;
+            siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
 
             olcum.MontajdaTakilacak = txtMontajdaTakilacaklar.Text;
             olcum.MontajSekli = ddlMontajSekli.SelectedText;

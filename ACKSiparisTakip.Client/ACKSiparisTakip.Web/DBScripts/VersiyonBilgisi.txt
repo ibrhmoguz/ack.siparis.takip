@@ -1,7 +1,8 @@
 
 v1.0 
 -----
-01.01.2014 
-- Sipariþ tablosuna Firma Adý eklendi.
-	ALTER TABLE dbo.SIPARIS ADD FIRMAADI varchar(250) NULL
-- 
+08.12.2014 
+- Sipariþ Adedi Eklendi.
+	- ALTER TABLE dbo.SIPARIS ADD ADET int NULL
+		GO
+	  ALTER TABLE dbo.SIPARIS ADD CONSTRAINT DF_SIPARIS_ADET DEFAULT 1 FOR ADET

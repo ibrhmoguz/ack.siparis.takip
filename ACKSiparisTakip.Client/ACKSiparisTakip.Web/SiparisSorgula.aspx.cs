@@ -239,29 +239,69 @@ namespace ACKSiparisTakip.Web
             if (ddlMusteriIl.SelectedIndex == 0)
                 prms.Add("Il", null);
             else
-                prms.Add("Il", ddlMusteriIl.SelectedText);
+                prms.Add("Il", ddlMusteriIl.SelectedItem.Text);
 
             if (ddlMusteriIlce.SelectedIndex == 0)
                 prms.Add("Ilce", null);
             else
-                prms.Add("Ilce", ddlMusteriIlce.SelectedText);
+                prms.Add("Ilce", ddlMusteriIlce.SelectedItem.Text);
+
+            if (ddlMusteriSemt.SelectedIndex == 0)
+                prms.Add("Semt", null);
+            else
+                prms.Add("Semt", ddlMusteriSemt.SelectedItem.Text);
 
             if (ddlSiparisDurumu.SelectedIndex == 0)
                 prms.Add("Durum", null);
             else
                 prms.Add("Durum", ddlSiparisDurumu.SelectedText);
 
+            if (String.IsNullOrWhiteSpace(txtAdres.Text))
+                prms.Add("Adres", null);
+            else
+                prms.Add("Adres", txtAdres.Text);
+
+            if (String.IsNullOrWhiteSpace(txtTel.Text))
+                prms.Add("Tel", null);
+            else
+                prms.Add("Tel", txtTel.Text);
+
             DataTable dt = new SiparisIslemleriBS().SiparisSorgula(prms);
 
             grdSiparisler.DataSource = dt;
             grdSiparisler.DataBind();
             this.SorguSonucListesi = dt;
+            ToplamSiparisDegerHesapla();
+            tblSonuc.Visible = true;
+        }
+
+        private void ToplamSiparisDegerHesapla()
+        {
+            DataTable dt = (DataTable)this.SorguSonucListesi;
+            if (dt == null)
+                return;
+
+            int temp = 0;
+            lblToplamSiparis.Text = dt.Rows.Count.ToString();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["ADET"] != DBNull.Value)
+                    temp += Convert.ToInt32(row["ADET"]);
+            }
+            lblToplamKapi.Text = temp.ToString();
         }
 
         protected void ddlMusteriIl_SelectedIndexChanged(object sender, DropDownListEventArgs e)
         {
+            ddlMusteriIlce.Items.Clear();
+            ddlMusteriSemt.Items.Clear();
             IlceleriGetir(e.Value);
-            ddlMusteriIlce.SelectedIndex = 0;
+        }
+
+        protected void ddlMusteriIlce_SelectedIndexChanged(object sender, DropDownListEventArgs e)
+        {
+            SemtleriGetir(e.Value);
         }
 
         protected void IlleriGetir()
@@ -279,7 +319,9 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriIl.DataSource = null;
                 ddlMusteriIl.DataBind();
             }
-            ddlMusteriIl.Items.Insert(0, new DropDownListItem("Seçiniz", "0"));
+            ddlMusteriIl.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+            ddlMusteriIlce.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+            ddlMusteriSemt.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
         }
 
         protected void IlceleriGetir(string ilKod)
@@ -293,7 +335,7 @@ namespace ACKSiparisTakip.Web
             {
                 ddlMusteriIlce.DataSource = dt;
                 ddlMusteriIlce.DataTextField = "ILCEAD";
-                ddlMusteriIlce.DataValueField = "PKEY";
+                ddlMusteriIlce.DataValueField = "ILCEKOD";
                 ddlMusteriIlce.DataBind();
             }
             else
@@ -301,7 +343,33 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriIlce.DataSource = null;
                 ddlMusteriIlce.DataBind();
             }
-            ddlMusteriIlce.Items.Insert(0, new DropDownListItem("Seçiniz", "0"));
+            ddlMusteriIlce.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+            ddlMusteriSemt.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+            ddlMusteriIlce.SelectedIndex = 0;
+            ddlMusteriSemt.SelectedIndex = 0;
+        }
+
+        protected void SemtleriGetir(string ilceKod)
+        {
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms.Add("ILCEKOD", ilceKod);
+
+            DataTable dt = new SiparisIslemleriBS().SemtleriGetir(prms);
+
+            if (dt.Rows.Count > 0)
+            {
+                ddlMusteriSemt.DataSource = dt;
+                ddlMusteriSemt.DataTextField = "SEMTAD";
+                ddlMusteriSemt.DataValueField = "SEMTKOD";
+                ddlMusteriSemt.DataBind();
+            }
+            else
+            {
+                ddlMusteriSemt.DataSource = null;
+                ddlMusteriSemt.DataBind();
+            }
+            ddlMusteriSemt.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+            ddlMusteriSemt.SelectedIndex = 0;
         }
 
         protected void grdSiparisler_PageIndexChanging(object sender, GridViewPageEventArgs e)

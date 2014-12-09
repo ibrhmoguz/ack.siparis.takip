@@ -7,8 +7,6 @@
 
     <div id="divSiparisForm" runat="server" style="width: 100%" class="RadGrid_Current_Theme">
         <br />
-        <br />
-        <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
                 <td rowspan="6" style="text-align: center">
@@ -93,11 +91,14 @@
                 <td style="width: 35%">
                     <telerik:RadTextBox ID="txtFirmaAdi" runat="server"></telerik:RadTextBox>
                 </td>
-                <td colspan="2"></td>
+                <th style="width: 10%">Sipariş Adedi: </th>
+                <td>
+                    <telerik:RadTextBox ID="txtSiparisAdedi" runat="server" Text="1"></telerik:RadTextBox>
+                </td>
             </tr>
             <tr>
                 <th>Adı : </th>
-                <td >
+                <td>
                     <telerik:RadTextBox ID="txtAd" runat="server"></telerik:RadTextBox>
                 </td>
                 <th style="width: 10%">Soyadı </th>

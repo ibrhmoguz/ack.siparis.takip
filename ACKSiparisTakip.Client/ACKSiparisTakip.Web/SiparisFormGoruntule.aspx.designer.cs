@@ -94,6 +94,15 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblFirmaAdi;
         
         /// <summary>
+        /// lblSiparisAdedi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSiparisAdedi;
+        
+        /// <summary>
         /// lblAd control.
         /// </summary>
         /// <remarks>
@@ -434,6 +443,15 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMusteriAdSoyad;
+        
+        /// <summary>
+        /// lblOdemeSekli control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOdemeSekli;
         
         /// <summary>
         /// lblMusteriAdres control.

@@ -7,8 +7,6 @@
 
     <div id="divSiparisForm" runat="server" style="width: 100%" class="RadGrid_Current_Theme">
         <br />
-        <br />
-        <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
                 <td rowspan="6" style="text-align: center">
@@ -106,7 +104,10 @@
                 <td style="width: 35%">
                     <telerik:RadTextBox ID="txtFirmaAdi" runat="server"></telerik:RadTextBox>
                 </td>
-                <td colspan="2"></td>
+                <th style="width: 10%">Sipariş Adedi: </th>
+                <td>
+                    <telerik:RadTextBox ID="txtSiparisAdedi" runat="server" Text="1"></telerik:RadTextBox>
+                </td>
             </tr>
             <tr>
                 <th>Adı : </th>
@@ -397,18 +398,7 @@
 
         </table>
         <br />
-        <table runat="server" id="tbIleri" style="width: 100%">
-            <tr>
-                <td style="text-align: right">
-                    <telerik:RadButton ID="btnIleri" runat="server" Text="Müşteri Sözleşmesi İçin Tıklayınız" OnClick="btnIleri_Click">
-                        <Icon PrimaryIconCssClass="rbNext" PrimaryIconLeft="4" PrimaryIconTop="3" />
-                    </telerik:RadButton>
-                    <br />
-                </td>
-            </tr>
-        </table>
-        <br />
-        <table class="AnaTablo" runat="server" id="tbMusteriSozlesme" visible="false" style="width: 100%">
+        <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th colspan="4" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
 
@@ -489,7 +479,7 @@
             </tr>
             <tr>
                 <td colspan="4" style="text-align: center">
-                    <telerik:RadButton ID="btnKaydet" runat="server" Text="Onayla" OnClick="btnKaydet_Click">
+                    <telerik:RadButton ID="btnGuncelle" runat="server" Text="Güncelle" OnClick="btnGuncelle_Click">
                         <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
                 </td>

@@ -118,7 +118,7 @@ namespace ACKSiparisTakip.Web.Print
             lblKayitsizKam.Text = (row["KAYITSIZKAMERA"] != DBNull.Value) ? row["KAYITSIZKAMERA"].ToString() : String.Empty; ;
             lblKayitYapanKam.Text = (row["KAYITYAPANKAMERA"] != DBNull.Value) ? row["KAYITYAPANKAMERA"].ToString() : String.Empty; ;
             lblAlarm.Text = (row["ALARM"] != DBNull.Value) ? row["ALARM"].ToString() : String.Empty; ;
-            lblOtoKilit.Text = (row["OTOKİLİT"] != DBNull.Value) ? row["OTOKİLİT"].ToString() : String.Empty; ;
+            lblOtoKilit.Text = (row["OTOKILIT"] != DBNull.Value) ? row["OTOKILIT"].ToString() : String.Empty; ;
             lblKapiNo.Text = (row["KAPINO"] != DBNull.Value) ? row["KAPINO"].ToString() : String.Empty;
             lblBarelTipi.Text = (row["BARELTIP"] != DBNull.Value) ? row["BARELTIP"].ToString() : String.Empty;
             lblBaba.Text = (row["BABA"] != DBNull.Value) ? row["BABA"].ToString() : String.Empty;

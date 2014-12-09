@@ -42,7 +42,7 @@ namespace ACKSiparisTakip.Web
                     return String.Empty;
             }
         }
-             
+
         public string SeriAdi
         {
             get
@@ -99,7 +99,7 @@ namespace ACKSiparisTakip.Web
             lblBayiAdi.Text = (row["BAYIADI"] != DBNull.Value) ? row["BAYIADI"].ToString() : String.Empty;
             lblAd.Text = ad;
             lblSoyad.Text = soyad;
-            lblAdres.Text = adres + "   " + semt+" / "+ilce + " / " + il;
+            lblAdres.Text = adres + "   " + semt + " / " + ilce + " / " + il;
             lblFirmaAdi.Text = (row["FIRMAADI"] != DBNull.Value) ? row["FIRMAADI"].ToString() : String.Empty;
             lblEvTel.Text = (row["MUSTERIEVTEL"] != DBNull.Value) ? row["MUSTERIEVTEL"].ToString() : String.Empty;
             lblIsTel.Text = (row["MUSTERIISTEL"] != DBNull.Value) ? row["MUSTERIISTEL"].ToString() : String.Empty;
@@ -120,8 +120,7 @@ namespace ACKSiparisTakip.Web
             lblKayitsizKam.Text = (row["KAYITSIZKAMERA"] != DBNull.Value) ? row["KAYITSIZKAMERA"].ToString() : String.Empty; ;
             lblKayitYapanKam.Text = (row["KAYITYAPANKAMERA"] != DBNull.Value) ? row["KAYITYAPANKAMERA"].ToString() : String.Empty; ;
             lblAlarm.Text = (row["ALARM"] != DBNull.Value) ? row["ALARM"].ToString() : String.Empty; ;
-            lblOtoKilit.Text = (row["OTOKILIT"] != DBNull.Value) ? row["OTOKILIT"].ToString() : String.Empty; ;
-            lblKapiNo.Text = (row["KAPINO"] != DBNull.Value) ? row["KAPINO"].ToString() : String.Empty;
+            lblOtoKilit.Text = (row["OTOKILIT"] != DBNull.Value) ? row["OTOKILIT"].ToString() : String.Empty;
             lblBarelTipi.Text = (row["BARELTIP"] != DBNull.Value) ? row["BARELTIP"].ToString() : String.Empty;
             lblBaba.Text = (row["BABA"] != DBNull.Value) ? row["BABA"].ToString() : String.Empty;
             lblDurbun.Text = (row["DURBUN"] != DBNull.Value) ? row["DURBUN"].ToString() : String.Empty;
@@ -141,6 +140,7 @@ namespace ACKSiparisTakip.Web
             lblVergiNumarasi.Text = (row["VERGINUMARASI"] != DBNull.Value) ? row["VERGINUMARASI"].ToString() : String.Empty;
             lblTeslimTarihi.Text = (row["TESLIMTARIH"] != DBNull.Value) ? row["TESLIMTARIH"].ToString() : String.Empty;
             lblSiparisDurum.Text = (row["DURUM"] != DBNull.Value) ? row["DURUM"].ToString() : String.Empty;
+            lblSiparisAdedi.Text = (row["ADET"] != DBNull.Value) ? row["ADET"].ToString() : String.Empty;
         }
 
         protected void btnGuncelle_Click(object sender, EventArgs e)

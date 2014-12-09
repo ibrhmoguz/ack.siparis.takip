@@ -95,21 +95,7 @@ namespace ACKSiparisTakip.Web
 
             Kontrol();
             IlleriGetir();
-            //KapiNumaralariDoldur();
         }
-
-        //private void KapiNumaralariDoldur()
-        //{
-        //    if (ddlKapiNo.Items != null && ddlKapiNo.Items.Count > 0)
-        //        ddlKapiNo.Items.Clear();
-
-        //    for (int i = 1; i <= 100; i++)
-        //    {
-        //        ddlKapiNo.Items.Add(new RadComboBoxItem(i.ToString(), i.ToString()));
-        //    }
-
-        //    ddlKapiNo.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem("Seçiniz", "0"));
-        //}
 
         private void DropDownBindEt(Telerik.Web.UI.RadDropDownList ddl, DataTable dt)
         {
@@ -193,6 +179,7 @@ namespace ACKSiparisTakip.Web
         protected void ddlMusteriIl_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
         {
             ddlMusteriIlce.Text = "";
+            ddlMusteriIlce.Items.Clear();
             ddlMusteriSemt.Items.Clear();
             ddlMusteriSemt.Text = "";
             IlceleriGetir(e.Value);
@@ -200,6 +187,8 @@ namespace ACKSiparisTakip.Web
 
         protected void ddlMusteriIlce_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
+            ddlMusteriSemt.Items.Clear();
+            ddlMusteriSemt.Text = "";
             SemtleriGetir(e.Value);
         }
 
@@ -235,7 +224,6 @@ namespace ACKSiparisTakip.Web
             siparis.Esik = ddlEsik.SelectedText;
             siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
             siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
-            //siparis.KapiNo = ddlKapiNo.SelectedValue;
             siparis.KilitSistem = ddlKilitSistemi.SelectedText;
             siparis.PervazTip = ddlPervazTipi.SelectedText;
             siparis.SiparisTarih = DateTime.Now;
@@ -248,6 +236,7 @@ namespace ACKSiparisTakip.Web
             siparis.KayıtYapmayanKamera = ddlKayitsizKam.SelectedText;
             siparis.Alarm = ddlAlarm.SelectedText;
             siparis.OtomatikKilit = ddlOtomatikKilit.SelectedText;
+            siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
 
             olcum.MontajdaTakilacak = txtMontajdaTakilacaklar.Text;
             olcum.MontajSekli = ddlMontajSekli.SelectedText;

@@ -410,6 +410,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("VERGIDAIRESI", sozlesme.VergiDairesi, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("VERGINUMARASI", sozlesme.VergiNumarası, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DURUM", siparis.Durum, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ADET", siparis.SiparisAdedi, SqlDbType.Int, 50);
 
                 string sqlKaydet = @"INSERT INTO [ACKAppDB].[dbo].[SIPARIS]
                                    ([SIPARISNO]
@@ -458,7 +459,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    ,[FIYAT]
                                    ,[VERGIDAIRESI]
                                    ,[VERGINUMARASI]
-                                   ,[DURUM])
+                                   ,[DURUM]
+                                   ,[ADET])
                              VALUES
                                    (@SIPARISNO,
                                    @SIPARISTARIH,
@@ -506,7 +508,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    @FIYAT,
                                    @VERGIDAIRESI,
                                    @VERGINUMARASI,
-                                   @DURUM)";
+                                   @DURUM,
+                                   @ADET)";
                 data.ExecuteStatement(sqlKaydet);
 
                 //MONTAJ BILGISI KAYDET
@@ -574,6 +577,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("KAYITYAPANKAMERA", siparis.KayıtYapanKamera, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ALARM", siparis.Alarm, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("OTOKILIT", siparis.OtomatikKilit, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ADET", siparis.SiparisAdedi, SqlDbType.Int, 50);
                 data.AddSqlParameter("MONTAJDATAKILACAK", olcum.MontajdaTakilacak, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("OLCUMBILGI", olcum.OlcumBilgi, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("OLCUMTARIH", olcum.OlcumTarih, SqlDbType.Date, 50);
@@ -590,7 +594,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                         SET
                                           --[SIPARISTARIH] = @SIPARISTARIH
                                           [BAYIADI] = @BAYIADI
-                                          ,[FIRMADI] = @FIRMADI
+                                          ,[FIRMAADI] = @FIRMAADI
                                           ,[MUSTERIAD] =@MUSTERIAD
                                           ,[MUSTERISOYAD] = @MUSTERISOYAD
                                           ,[MUSTERIADRES] =@MUSTERIADRES
@@ -618,10 +622,10 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                           ,[BABA] = @BABA
                                           ,[DURBUN] = @DURBUN
                                           ,[TAKTAK] = @TAKTAK
-                                          ,[KAYITSIZKAMERA] = @KAYITSIZKAMERA,
-                                          ,[KAYITYAPANKAMERA] = @KAYITYAPANKAMERA,
-                                          ,[ALARM] = @ALARM,
-                                          ,[OTOKILIT]= @OTOKILIT,
+                                          ,[KAYITSIZKAMERA] = @KAYITSIZKAMERA
+                                          ,[KAYITYAPANKAMERA] = @KAYITYAPANKAMERA
+                                          ,[ALARM] = @ALARM
+                                          ,[OTOKILIT]= @OTOKILIT
                                           ,[MONTAJDATAKILACAK] = @MONTAJDATAKILACAK
                                           ,[OLCUMBILGI] = @OLCUMBILGI
                                           ,[OLCUMTARIH] = @OLCUMTARIH
@@ -633,8 +637,9 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                           ,[FIYAT] = @FIYAT
                                           ,[VERGIDAIRESI] = @VERGIDAIRESI
                                           ,[VERGINUMARASI] = @VERGINUMARASI
+                                          ,[ADET] = @ADET
                                      WHERE [SIPARISNO] =@SIPARISNO";
-                                  
+
                 data.ExecuteStatement(sqlGuncelle);
 
                 //MONTAJ BILGISI GUNCELLE
@@ -658,7 +663,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 return false;
             }
         }
-        
+
         public DataTable SiparisBilgileriniGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
@@ -704,6 +709,9 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             data.AddSqlParameter("Il", prms["Il"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("Ilce", prms["Ilce"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("Durum", prms["Durum"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("Semt", prms["Semt"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("Adres", prms["Adres"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("Tel", prms["Tel"], SqlDbType.VarChar, 50);
 
             string sqlText = @"SELECT DISTINCT
 	                            S.[ID]
@@ -725,6 +733,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                 ,[OLCUMBILGI]
                                 ,[MONTAJSEKLI]
                                 ,CONVERT(VARCHAR(10), M.[TESLIMTARIH],104)  AS MONTAJTARIHI
+                                ,S.ADET
+                                ,S.MUSTERISEMT
                             FROM SIPARIS AS S
 	                            INNER JOIN [dbo].[MONTAJ] AS M ON S.SIPARISNO = M.SIPARISNO
 	                            LEFT OUTER JOIN [dbo].[MONTAJ_PERSONEL] AS MP ON M.[ID] = MP.[MONTAJID]
@@ -750,12 +760,15 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 	                                AND (@ddlContaRengi IS NULL OR [CONTARENK] = @ddlContaRengi)
 	                                AND (@Il IS NULL OR [MUSTERIIL] = @Il)
 	                                AND (@Ilce IS NULL OR [MUSTERIILCE] = @Ilce)
-                                    AND (@Durum IS NULL OR S.[DURUM] = @Durum)";
+                                    AND (@Durum IS NULL OR S.[DURUM] = @Durum)
+                                    AND (@Semt IS NULL OR S.[MUSTERISEMT] = @Semt)
+                                    AND (@Adres IS NULL OR S.[MUSTERIADRES] = @Adres)
+                                    AND (@Tel IS NULL OR S.[MUSTERICEPTEL] LIKE '%{3}%')";
 
             string liste = String.Empty;
             liste = prms["PersonelListesi"] == null ? "1" : prms["PersonelListesi"].ToString();
 
-            data.GetRecords(dt, String.Format(sqlText, prms["MusteriAd"], prms["MusteriSoyad"], liste));
+            data.GetRecords(dt, String.Format(sqlText, prms["MusteriAd"], prms["MusteriSoyad"], liste, prms["Tel"]));
             return dt;
         }
     }
