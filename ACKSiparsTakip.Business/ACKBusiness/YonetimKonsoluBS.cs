@@ -29,6 +29,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(TumKapiModelGetir());
             ds.Tables.Add(BarelTipGetir());
             ds.Tables.Add(CekmeKoluGetir());
+            ds.Tables.Add(KapiSeriGetir());
 
             return ds;
         }
@@ -270,8 +271,9 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
+            dt.TableName = "REF_KAPISERI";
 
-            string sqlText = @"SELECT ID,AD FROM REF_KAPISERI ORDER BY 1 ";
+            string sqlText = @"SELECT ID,AD,VALUE FROM REF_KAPISERI ORDER BY 1 ";
             data.GetRecords(dt, sqlText);
 
             return dt;

@@ -145,6 +145,10 @@
                                 <telerik:RadListBox ID="ListBoxMontajEkibi" runat="server" Width="160" Height="70" SelectionMode="Multiple" CheckBoxes="true" DataValueField="ID" DataTextField="AD">
                                 </telerik:RadListBox>
                             </td>
+                            <th>Kapı Tipi :</th>
+                            <td>
+                                <telerik:RadDropDownList ID="ddlKapiSeri" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                            </td>
 
                         </tr>
                     </table>

@@ -283,6 +283,15 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadListBox ListBoxMontajEkibi;
         
         /// <summary>
+        /// ddlKapiSeri control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlKapiSeri;
+        
+        /// <summary>
         /// btnSorgula control.
         /// </summary>
         /// <remarks>

@@ -54,6 +54,7 @@ namespace ACKSiparisTakip.Web
             if (!Page.IsPostBack)
             {
                 VarsayilanDegerleriAyarla();
+                
             }
         }
 
@@ -61,6 +62,7 @@ namespace ACKSiparisTakip.Web
         {
             PersonelListesiYukle();
             DropDownlariDoldur();
+            KapiSeriDoldur();
         }
 
         private void PersonelListesiYukle()
@@ -90,6 +92,7 @@ namespace ACKSiparisTakip.Web
             DataTable dtPervazTip = ds.Tables["REF_PERVAZTIP"];
             DataTable dtContaRenk = ds.Tables["REF_CONTARENK"];
             DataTable dtPersonel = ds.Tables["REF_PERSONEL"];
+        
 
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
@@ -104,6 +107,7 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlTacTipi, dtTacTip);
             DropDownBindEt(ddlPervazTipi, dtPervazTip);
             DropDownBindEt(ddlContaRengi, dtContaRenk);
+       
             IlleriGetir();
         }
 
@@ -256,6 +260,11 @@ namespace ACKSiparisTakip.Web
             else
                 prms.Add("Durum", ddlSiparisDurumu.SelectedText);
 
+            if (ddlKapiSeri.SelectedIndex == 0)
+                prms.Add("ddlKapiSeri", null);
+            else
+                prms.Add("ddlKapiSeri", ddlKapiSeri.SelectedValue.ToString());
+
             if (String.IsNullOrWhiteSpace(txtAdres.Text))
                 prms.Add("Adres", null);
             else
@@ -387,6 +396,25 @@ namespace ACKSiparisTakip.Web
                 DataRowView view = (DataRowView)e.Row.DataItem;
                 link.NavigateUrl = "~/SiparisFormGoruntule.aspx?SiparisNo=" + view.Row.ItemArray[1].ToString(); ;
             }
+        }
+        private void KapiSeriDoldur()
+        {
+            DataTable dt = new YonetimKonsoluBS().KapiSeriGetir();
+            if (dt.Rows.Count > 0)
+            {
+                ddlKapiSeri.DataSource = dt;
+                ddlKapiSeri.DataTextField = "AD";
+                ddlKapiSeri.DataValueField = "VALUE";
+                ddlKapiSeri.DataBind();
+                ddlKapiSeri.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+
+            }
+            else
+            {
+                ddlKapiSeri.DataSource = null;
+                ddlKapiSeri.DataBind();
+            }
+
         }
     }
 }

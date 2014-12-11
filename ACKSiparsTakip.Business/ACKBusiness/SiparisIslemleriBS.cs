@@ -706,6 +706,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             data.AddSqlParameter("ddlTacTipi", prms["ddlTacTipi"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("ddlPervazTipi", prms["ddlPervazTipi"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("ddlContaRengi", prms["ddlContaRengi"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ddlKapiSeri", prms["ddlKapiSeri"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("Il", prms["Il"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("Ilce", prms["Ilce"], SqlDbType.VarChar, 50);
             data.AddSqlParameter("Durum", prms["Durum"], SqlDbType.VarChar, 50);
@@ -758,6 +759,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 	                                AND (@ddlTacTipi IS NULL OR [TACTIP] = @ddlTacTipi)
 	                                AND (@ddlPervazTipi IS NULL OR [PERVAZTIP] = @ddlPervazTipi)
 	                                AND (@ddlContaRengi IS NULL OR [CONTARENK] = @ddlContaRengi)
+                                    AND (@ddlKapiSeri IS NULL OR SUBSTRING(S.SIPARISNO, 1, 1)= @ddlKapiSeri)
 	                                AND (@Il IS NULL OR [MUSTERIIL] = @Il)
 	                                AND (@Ilce IS NULL OR [MUSTERIILCE] = @Ilce)
                                     AND (@Durum IS NULL OR S.[DURUM] = @Durum)
