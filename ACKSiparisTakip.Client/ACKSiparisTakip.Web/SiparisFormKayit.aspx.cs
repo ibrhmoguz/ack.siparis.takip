@@ -212,43 +212,81 @@ namespace ACKSiparisTakip.Web
             Olcum olcum = new Olcum();
             Sozlesme sozlesme = new Sozlesme();
 
+            if (!string.IsNullOrEmpty(txtAd.Text))
             musteri.MusteriAd = txtAd.Text;
+            if (!string.IsNullOrEmpty(txtSoyad.Text))
             musteri.MusteriSoyad = txtSoyad.Text;
+            if (!string.IsNullOrEmpty(txtAdres.Text))
             musteri.MusteriAdres = txtAdres.Text;
+            if (!string.IsNullOrEmpty(txtCepTel.Text))
             musteri.MusteriCepTel = txtCepTel.Text;
+            if (!string.IsNullOrEmpty(txtEvTel.Text))
             musteri.MusteriEvTel = txtEvTel.Text;
-            musteri.MusteriIl = ddlMusteriIl.SelectedItem.Text;
-            musteri.MusteriIlce = ddlMusteriIlce.SelectedItem.Text;
-            musteri.MusteriSemt = ddlMusteriSemt.SelectedItem.Text;
-            musteri.MusteriIsTel = txtIsTel.Text;
+            if (ddlMusteriIl.SelectedIndex!=0)
+                musteri.MusteriIl = ddlMusteriIl.SelectedItem.Text;
 
-
-            siparis.AksesuarRenk = ddlAksesuarRengi.SelectedText;
-            siparis.AluminyumRenk = ddlAluminyumRengi.SelectedText;
-            siparis.Baba = ddlBaba.SelectedText;
-            siparis.BarelTip = ddlBarelTipi.SelectedText;
+            if (ddlMusteriIlce.SelectedIndex!=0)
+                musteri.MusteriIlce = ddlMusteriIlce.SelectedItem.Text;
+            if (ddlMusteriSemt.SelectedIndex==0)
+                musteri.MusteriSemt = ddlMusteriSemt.SelectedItem.Text;
+            if (!string.IsNullOrEmpty(txtIsTel.Text))   
+                musteri.MusteriIsTel = txtIsTel.Text;
+            if (ddlAksesuarRengi.SelectedIndex==0)
+                siparis.AksesuarRenk = ddlAksesuarRengi.SelectedText;
+            if (ddlAluminyumRengi.SelectedIndex==0)
+                siparis.AluminyumRenk = ddlAluminyumRengi.SelectedText;
+            if (ddlBaba.SelectedIndex!=0)
+                siparis.Baba = ddlBaba.SelectedText;
+            if (ddlBarelTipi.SelectedIndex != 0)
+                siparis.BarelTip = ddlBarelTipi.SelectedText;
+            if (!string.IsNullOrEmpty(txtBayiAdi.Text))   
             siparis.BayiAd = txtBayiAdi.Text;
-            siparis.CekmeKolu = ddlCekmeKolu.SelectedText;
-            siparis.Cita = ddlCita.SelectedText;
-            siparis.ContaRenk = ddlContaRengi.SelectedText;
-            siparis.DisKapiModel = ddlDisKapiModeli.SelectedText;
-            siparis.DisKapiRenk = ddlDisKapiRengi.SelectedText;
-            siparis.Durbun = ddlDurbun.SelectedText;
-            siparis.Esik = ddlEsik.SelectedText;
-            siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
-            siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
-            siparis.KilitSistem = ddlKilitSistemi.SelectedText;
-            siparis.PervazTip = ddlPervazTipi.SelectedText;
+            if (ddlCekmeKolu.SelectedIndex != 0)
+                siparis.CekmeKolu = ddlCekmeKolu.SelectedText;
+            if (ddlCita.SelectedIndex == 0)
+                siparis.Cita = ddlCita.SelectedText;
+            if (ddlContaRengi.SelectedIndex != 0)
+                siparis.ContaRenk = ddlContaRengi.SelectedText;
+            if (ddlDisKapiModeli.SelectedIndex != 0)
+                siparis.DisKapiModel = ddlDisKapiModeli.SelectedText;
+            if (ddlDisKapiRengi.SelectedIndex != 0)
+                siparis.DisKapiRenk = ddlDisKapiRengi.SelectedText;
+            if (ddlDurbun.SelectedIndex != 0)
+                siparis.Durbun = ddlDurbun.SelectedText;
+            if (ddlEsik.SelectedIndex != 0)
+                siparis.Esik = ddlEsik.SelectedText;
+            if (ddlEsik.SelectedIndex != 0)
+                siparis.Esik = ddlEsik.SelectedText;
+            if (ddlIcKapiModeli.SelectedIndex != 0)
+                siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
+            if (ddlIcKapiRengi.SelectedIndex != 0)
+                siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
+            if (ddlKilitSistemi.SelectedIndex != 0)
+                siparis.KilitSistem = ddlKilitSistemi.SelectedText;
+            if (ddlPervazTipi.SelectedIndex != 0)
+                siparis.PervazTip = ddlPervazTipi.SelectedText;
+            if (ddlTacTipi.SelectedIndex != 0)
+                siparis.TacTip = ddlTacTipi.SelectedText;
+          
             siparis.SiparisTarih = DateTime.Now;
-            siparis.TacTip = ddlTacTipi.SelectedText;
-            siparis.Taktak = ddlTaktak.SelectedText;
+
+            if (ddlTaktak.SelectedIndex != 0)
+                siparis.Taktak = ddlTaktak.SelectedText;
+      
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = "BEKLEYEN";
-            siparis.FirmaAdi = txtFirmaAdi.Text;
-            siparis.KayıtYapanKamera = ddlKayitYapanKam.SelectedText;
-            siparis.KayıtYapmayanKamera = ddlKayitsizKam.SelectedText;
-            siparis.Alarm = ddlAlarm.SelectedText;
-            siparis.OtomatikKilit = ddlOtomatikKilit.SelectedText;
+            if (!string.IsNullOrEmpty(txtFirmaAdi.Text))
+                siparis.FirmaAdi = txtFirmaAdi.Text;
+
+            if (ddlKayitYapanKam.SelectedIndex != 0)
+                siparis.KayıtYapanKamera = ddlKayitYapanKam.SelectedText;
+            if (ddlKayitsizKam.SelectedIndex != 0)
+                siparis.KayıtYapmayanKamera = ddlKayitsizKam.SelectedText;
+            if (ddlAlarm.SelectedIndex != 0)
+                siparis.Alarm = ddlAlarm.SelectedText;
+            if (ddlOtomatikKilit.SelectedIndex != 0)
+                siparis.OtomatikKilit = ddlOtomatikKilit.SelectedText;
+            
             siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
 
             if (!string.IsNullOrWhiteSpace(txtNakitPesin.Text))
@@ -284,19 +322,27 @@ namespace ACKSiparisTakip.Web
                 siparis.CekKalan = null;
             siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
 
+            if (!string.IsNullOrEmpty(txtMontajdaTakilacaklar.Text))
             olcum.MontajdaTakilacak = txtMontajdaTakilacaklar.Text;
-            olcum.MontajSekli = ddlMontajSekli.SelectedText;
-            olcum.OlcumAlanKisi = ddlOlcumAlan.SelectedText;
+            if (ddlMontajSekli.SelectedIndex != 0)
+                olcum.MontajSekli = ddlMontajSekli.SelectedText;
+            if (ddlOlcumAlan.SelectedIndex != 0)
+                olcum.OlcumAlanKisi = ddlOlcumAlan.SelectedText;
+            if (!string.IsNullOrEmpty(txtOlcumBilgileri.Text))
             olcum.OlcumBilgi = txtOlcumBilgileri.Text;
+            if (rdtOlcuTarihSaat.SelectedDate!=null)
             olcum.OlcumTarih = rdtOlcuTarihSaat.SelectedDate.Value;
+            if (ddlTeslimSekli.SelectedIndex != 0)
             olcum.TeslimSekli = ddlTeslimSekli.SelectedText;
-
-            //sozlesme.KalanOdeme = txtKalanOdeme.Text;
+            
             sozlesme.MontajDurum = "A";
-            sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;
-            //sozlesme.Pesinat = txtPesinat.Text;
+            if (rdpTeslimTarihi.SelectedDate != null)
+                sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;
+            if (!string.IsNullOrEmpty(txtVergiDairesi.Text))
             sozlesme.VergiDairesi = txtVergiDairesi.Text;
+            if (!string.IsNullOrEmpty(txtVergiNumarasi.Text))
             sozlesme.VergiNumarası = txtVergiNumarasi.Text;
+            if (!string.IsNullOrEmpty(txtFiyat.Text))
             sozlesme.Fiyat = txtFiyat.Text;
 
             string seriAdi = this.KapiTip.ToString().ToUpper();
