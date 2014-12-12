@@ -62,14 +62,14 @@ ol          { list-style-type: decimal; }
 
 table.normalTablo, table.normalTablo td { /*margin-bottom: 1.4em;*/ border-collapse:collapse; border:1px solid gray;}
 table.normalTablo th   		{ font-weight: bold; background: #C3D9FF; }
-table.normalTablo th,td		{ padding: 4px 10px 4px 5px; vertical-align:top; }
+table.normalTablo th,td		{ padding: 5px 5px 5px 5px; vertical-align:top; }
 table.normalTablo tr.AlternatifTabloSatiri td  { background: #E5ECF9; }
 table.normalTablo tfoot		{ font-style: italic; }
 table.normalTablo caption	{ background: #eee; }
 
 table.boldTablo, table.boldTablo td { font-size:x-small; font-weight:bold; margin-bottom: 1.4em; border-collapse:collapse; border:1px solid gray;}
 table.boldTablo th   		{ font-weight: bold; background: #C3D9FF; }
-table.boldTablo th,td		{ padding: 4px 10px 4px 5px; }
+table.boldTablo th,td		{ padding: 0px 0px 0px 0px; }
 table.boldTablo tr.AlternatifTabloSatiri td  { background: #E5ECF9; }
 table.boldTablo tfoot		{ font-style: italic; }
 table.boldTablo caption		{ background: #eee; }

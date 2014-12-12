@@ -55,7 +55,7 @@
             LoadScriptsBeforeUI="true" EnableScriptLocalization="true" EnablePageMethods="true"
             EnablePartialRendering="true">
         </asp:ScriptManager>
-        <input id="yazdir" type="button" value="yazdır" style="padding-left: 30px; width: 80px;"
+        <input id="yazdir" type="button" value="yazdır" style="width: 50px;"
             visible="true" onclick="$.jPrintArea();" />
         <asp:HiddenField ID="HiddenFieldInnerHtml" runat="server" />
         <asp:HiddenField ID="HiddenFieldPageOrientation" runat="server" />

@@ -51,7 +51,7 @@ namespace ACKSiparisTakip.Web.Print
             if (!Page.IsPostBack)
             {
                 RaporOlustur();
-
+                lblTarih.Text = DateTime.Now.Date.ToShortDateString();
             }
             
         }

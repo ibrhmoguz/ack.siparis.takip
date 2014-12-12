@@ -4,15 +4,37 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
-    <table class="AnaTablo" style="width: 100%">
+    <br />
+    <table style="width: 100%" class="normalTablo">
         <tr>
-            <th style="text-align: center">
+            <td style="width: 70px">
+                <telerik:RadBinaryImage ID="imgLogo" runat="server" ImageUrl="~/App_Themes/Theme/Raster/ackLogo.PNG" Width="70" Height="70" />
+            </td>
+            <td style="text-align: center; vertical-align: central">
                 <h3>Günlük İş Takip Formu</h3>
-            </th>
+            </td>
+            <td style="width: 170px">
+                <table style="width: 100%; border-collapse: inherit" border="0">
+                    <tr>
+                        <td>Doküman Kodu : F27</td>
+                    </tr>
+                    <tr>
+                        <td>Yürürlük Tarihi : 20.08.2004</td>
+                    </tr>
+                    <tr>
+                        <td>Rev. No-Tarihi : 0</td>
+                    </tr>
+                </table>
+            </td>
         </tr>
         <tr>
-            <td>
-                <asp:GridView ID="grdSiparisler" runat="server" AutoGenerateColumns="false" Width="100%" CssClass="AnaTablo"
+            <td colspan="3" style="font-weight: bold">TARİH:
+                <asp:Label ID="lblTarih" runat="server"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <asp:GridView ID="grdSiparisler" runat="server" AutoGenerateColumns="false" Width="100%"
                     AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2">
                     <Columns>
                         <asp:BoundField DataField="ID" HeaderText="ID" />
@@ -26,48 +48,86 @@
                         <asp:BoundField DataField="KAPICINSI" HeaderText="KAPI CİNSİ" />
                     </Columns>
                 </asp:GridView>
-                <table style="width: 100%; border: 1px solid; ">
-                    <tr>
-                        <td colspan="3">MONTAJ EKİBİ</td>
-                        <td colspan="3">MONTAJ EKİBİ</td>
-                        <td colspan="3">MONTAJ EKİBİ</td>
-                    </tr>
-                    <tr>
-                        <td>SİPARİŞ NO</td>
-                        <td>SEMT</td>
-                        <td>KAPI CİNSİ</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label runat="server" Width="30px"></asp:Label>
-
-                        </td>
-                        <td>
-                            <asp:Label runat="server" Width="30px"></asp:Label>
-
-                        </td>
-                        <td>
-                            <asp:Label runat="server" Width="30px"></asp:Label>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
             </td>
+        </tr>
+    </table>
+    <br />
+    <table class="normalTablo" style="width: 100%; text-align: center">
+        <tr>
+            <td colspan="3">MONTAJ EKİBİ:
+                <br />
+                <br />
+                <br />
+            </td>
+            <td colspan="3">MONTAJ EKİBİ:</td>
+            <td colspan="3">MONTAJ EKİBİ:</td>
+        </tr>
+        <tr>
+            <td>SİPARİŞ NO</td>
+            <td>SEMT</td>
+            <td>KAPI CİNSİ</td>
+            <td>SİPARİŞ NO</td>
+            <td>SEMT</td>
+            <td>KAPI CİNSİ</td>
+            <td>SİPARİŞ NO</td>
+            <td>SEMT</td>
+            <td>KAPI CİNSİ</td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                <br />
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                <br />
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                <br />
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                <br />
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 </asp:Content>

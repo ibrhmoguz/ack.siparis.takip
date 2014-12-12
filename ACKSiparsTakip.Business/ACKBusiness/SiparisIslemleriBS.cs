@@ -763,7 +763,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 	                            S.[ID]
                                 ,S.[SIPARISNO]
                                 ,CONVERT(VARCHAR(10), [SIPARISTARIH],104) AS SIPARISTARIH
-                                ,[MUSTERIAD] +' '+[MUSTERISOYAD] AS MUSTERI
+                                ,[MUSTERIAD] +' '+[MUSTERISOYAD] + ' ' + ISNULL(FIRMAADI,'') AS MUSTERI
                                 ,[MUSTERIADRES]
                                 ,[MUSTERIIL]
                                 ,[MUSTERIILCE]
