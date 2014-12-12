@@ -329,58 +329,94 @@
         <br />
         <table class="AnaTablo" runat="server" id="tbMusteriSozlesme" style="width: 100%">
             <tr>
-                <th colspan="4" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
-
+                <th colspan="2" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
             </tr>
             <tr>
-                <th style="width: 15%">Adı Soyadı : </th>
-                <td style="width: 35%">
-                    <asp:Label ID="lblMusteriAdSoyad" runat="server"></asp:Label>
+                <td style="width: 45%">
+                    <table>
+                        <tr>
+                            <th style="width: 15%">Adı Soyadı : </th>
+                            <td style="width: 35%">
+                                <asp:Label ID="lblMusteriAdSoyad" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Adresi : </th>
+                            <td>
+                                <asp:Label ID="lblMusteriAdres" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Cep Tel : </th>
+                            <td>
+                                <asp:Label ID="lblMusteriCepTel" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Fiyat : </th>
+                            <td>
+                                <asp:Label ID="lblFiyat" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Vergi Dairesi : </th>
+                            <td>
+                                <asp:Label ID="lblVergiDairesi" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Vergi Numarası : </th>
+                            <td>
+                                <asp:Label ID="lblVergiNumarasi" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
-                <th style="width: 10%">Ödeme Şekli : </th>
-                <td>
-                    <asp:Label ID="lblOdemeSekli" runat="server"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <th rowspan="2">Adresi : </th>
-                <td rowspan="2">
-                    <asp:Label ID="lblMusteriAdres" runat="server"></asp:Label>
-                </td>
-                <th>Peşinat : </th>
-                <td>
-                    <asp:Label ID="lblPesinat" runat="server"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <th rowspan="5">Kalan Ödeme : </th>
-                <td rowspan="5">
-                    <asp:Label ID="lblKalanOdeme" runat="server"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <th>Cep Tel : </th>
-                <td>
-                    <asp:Label ID="lblMusteriCepTel" runat="server"></asp:Label>
-                </td>
-
-            </tr>
-            <tr>
-                <th>Fiyat : </th>
-                <td>
-                    <asp:Label ID="lblFiyat" runat="server"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <th>Vergi Dairesi : </th>
-                <td>
-                    <asp:Label ID="lblVergiDairesi" runat="server"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <th>Vergi Numarası : </th>
-                <td>
-                    <asp:Label ID="lblVergiNumarasi" runat="server"></asp:Label>
+                <td style="text-align: left">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <th style="text-align: center">Peşin</th>
+                            <th style="text-align: center">Kalan</th>
+                            <th style="text-align: center">Ödeme Notu</th>
+                        </tr>
+                        <tr>
+                            <th>Nakit:</th>
+                            <td>
+                                <asp:Label ID="lblNakitPesin" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblNakitKalan" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblNakitOdemeNotu" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Kredi Kartı:</th>
+                            <td>
+                                <asp:Label ID="lblKKartiPesin" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblKKartiKalan" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblKKartiOdemeNotu" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Çek:</th>
+                            <td>
+                                <asp:Label ID="lblCekPesin" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblCekKalan" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblCekOdemeNotu" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
             <tr>
@@ -392,7 +428,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4" style="text-align: center">
+                <td colspan="2" style="text-align: center">
                     <b>MÜŞTERİ
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -402,14 +438,8 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4">
-                    <br />
-                    <br />
-                    <br />
-                </td>
-            </tr>
-            <tr>
                 <td colspan="4" style="text-align: center">
+                    <br />
                     <telerik:RadButton ID="btnGuncelle" runat="server" Text="Güncelle" OnClick="btnGuncelle_Click">
                         <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>

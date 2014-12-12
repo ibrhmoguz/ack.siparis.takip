@@ -116,7 +116,7 @@
     <Content Include="Global.asax" />
     <Content Include="GunlukIsTakipFormu.aspx" />
     <Content Include="Hatalar.aspx" />
-    <Content Include="Helper\jquery.js">
+    <Content Include="Script\jquery.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="IsTakvimi.aspx" />

@@ -445,15 +445,6 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblMusteriAdSoyad;
         
         /// <summary>
-        /// lblOdemeSekli control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOdemeSekli;
-        
-        /// <summary>
         /// lblMusteriAdres control.
         /// </summary>
         /// <remarks>
@@ -461,24 +452,6 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMusteriAdres;
-        
-        /// <summary>
-        /// lblPesinat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPesinat;
-        
-        /// <summary>
-        /// lblKalanOdeme control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblKalanOdeme;
         
         /// <summary>
         /// lblMusteriCepTel control.
@@ -515,6 +488,87 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblVergiNumarasi;
+        
+        /// <summary>
+        /// lblNakitPesin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNakitPesin;
+        
+        /// <summary>
+        /// lblNakitKalan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNakitKalan;
+        
+        /// <summary>
+        /// lblNakitOdemeNotu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNakitOdemeNotu;
+        
+        /// <summary>
+        /// lblKKartiPesin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKKartiPesin;
+        
+        /// <summary>
+        /// lblKKartiKalan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKKartiKalan;
+        
+        /// <summary>
+        /// lblKKartiOdemeNotu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKKartiOdemeNotu;
+        
+        /// <summary>
+        /// lblCekPesin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCekPesin;
+        
+        /// <summary>
+        /// lblCekKalan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCekKalan;
+        
+        /// <summary>
+        /// lblCekOdemeNotu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCekOdemeNotu;
         
         /// <summary>
         /// btnGuncelle control.

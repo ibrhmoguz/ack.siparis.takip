@@ -9,6 +9,7 @@ using ACKSiparisTakip.Business.ACKBusiness;
 using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
 using ACKSiparisTakip.Web.Helper;
 using Telerik.Web.UI;
+using System.Globalization;
 
 namespace ACKSiparisTakip.Web
 {
@@ -42,7 +43,19 @@ namespace ACKSiparisTakip.Web
             if (!Page.IsPostBack)
             {
                 FormDoldur();
+                CurrencyAyarla();
             }
+        }
+
+        private void CurrencyAyarla()
+        {
+            CultureInfo c = new CultureInfo("TR-tr");
+            txtNakitPesin.Culture = c;
+            txtNakitKalan.Culture = c;
+            txtKKartiPesin.Culture = c;
+            txtKKartiKalan.Culture = c;
+            txtCekPesin.Culture = c;
+            txtCekKalan.Culture = c;
         }
 
         private void FormDoldur()
@@ -238,6 +251,39 @@ namespace ACKSiparisTakip.Web
             siparis.OtomatikKilit = ddlOtomatikKilit.SelectedText;
             siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
 
+            if (!string.IsNullOrWhiteSpace(txtNakitPesin.Text))
+                siparis.NakitPesin = Convert.ToDouble(txtNakitPesin.Text);
+            else
+                siparis.NakitPesin = null;
+
+            if (!string.IsNullOrWhiteSpace(txtNakitKalan.Text))
+                siparis.NakitKalan = Convert.ToDouble(txtNakitKalan.Text);
+            else
+                siparis.NakitKalan = null;
+            siparis.NakitOdemeNot = string.IsNullOrWhiteSpace(txtNakitOdemeNotu.Text) ? null : txtNakitOdemeNotu.Text;
+
+
+            if (!string.IsNullOrWhiteSpace(txtKKartiPesin.Text))
+                siparis.KKartiPesin = Convert.ToDouble(txtKKartiPesin.Text);
+            else
+                siparis.KKartiPesin = null;
+            if (!string.IsNullOrWhiteSpace(txtKKartiKalan.Text))
+                siparis.KKartiKalan = Convert.ToDouble(txtKKartiKalan.Text);
+            else
+                siparis.KKartiKalan = null;
+            siparis.KKartiOdemeNot = string.IsNullOrWhiteSpace(txtKKartiOdemeNotu.Text) ? null : txtKKartiOdemeNotu.Text;
+
+
+            if (!string.IsNullOrWhiteSpace(txtCekPesin.Text))
+                siparis.CekPesin = Convert.ToDouble(txtCekPesin.Text);
+            else
+                siparis.CekPesin = null;
+            if (!string.IsNullOrWhiteSpace(txtCekKalan.Text))
+                siparis.CekKalan = Convert.ToDouble(txtCekKalan.Text);
+            else
+                siparis.CekKalan = null;
+            siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
+
             olcum.MontajdaTakilacak = txtMontajdaTakilacaklar.Text;
             olcum.MontajSekli = ddlMontajSekli.SelectedText;
             olcum.OlcumAlanKisi = ddlOlcumAlan.SelectedText;
@@ -245,10 +291,10 @@ namespace ACKSiparisTakip.Web
             olcum.OlcumTarih = rdtOlcuTarihSaat.SelectedDate.Value;
             olcum.TeslimSekli = ddlTeslimSekli.SelectedText;
 
-            sozlesme.KalanOdeme = txtKalanOdeme.Text;
+            //sozlesme.KalanOdeme = txtKalanOdeme.Text;
             sozlesme.MontajDurum = "A";
             sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;
-            sozlesme.Pesinat = txtPesinat.Text;
+            //sozlesme.Pesinat = txtPesinat.Text;
             sozlesme.VergiDairesi = txtVergiDairesi.Text;
             sozlesme.VergiNumarası = txtVergiNumarasi.Text;
             sozlesme.Fiyat = txtFiyat.Text;
@@ -280,20 +326,8 @@ namespace ACKSiparisTakip.Web
             }
 
             tbMusteriSozlesme.Visible = true;
-            //if (txtFirmaAdi.Text.Trim() != string.Empty)
-            //{
-            //    txtMusteriAdSoyad.Text = txtFirmaAdi.Text + "  (" + txtAd.Text + " " + txtSoyad.Text + ")";
-            //}
-            //else
-            //{
-            //    txtMusteriAdSoyad.Text = txtAd.Text + " " + txtSoyad.Text;
-            //}
-
             txtMusteriAdres.Text = txtAdres.Text + " " + ddlMusteriSemt.SelectedItem.Text + "  " + ddlMusteriIlce.SelectedItem.Text + "  " + ddlMusteriIl.SelectedItem.Text;
             txtMusteriCepTel.Text = txtCepTel.Text;
         }
-
-
-
     }
 }

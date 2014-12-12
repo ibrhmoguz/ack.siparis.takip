@@ -14,6 +14,9 @@
                     <telerik:RadButton ID="btnSorgula" runat="server" Text="Sorgula" OnClick="btnSorgula_Click">
                         <Icon PrimaryIconCssClass="rbSearch" />
                     </telerik:RadButton>
+                     <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır" Visible="false" OnClick="btnYazdir_Click">
+                        <Icon PrimaryIconCssClass="rbPrint" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                    </telerik:RadButton>
                 </td>
             </tr>
         </table>
@@ -40,13 +43,6 @@
                             <asp:BoundField DataField="KAPICINSI" HeaderText="KAPI CİNSİ" />
                         </Columns>
                     </asp:GridView>
-                </td>
-            </tr>
-            <tr>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır" Visible="false" OnClick="btnYazdir_Click">
-                        <Icon PrimaryIconCssClass="rbPrint" PrimaryIconLeft="4" PrimaryIconTop="3" />
-                    </telerik:RadButton>
                 </td>
             </tr>
         </table>

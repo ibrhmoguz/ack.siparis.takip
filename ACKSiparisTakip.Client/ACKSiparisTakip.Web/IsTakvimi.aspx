@@ -49,6 +49,8 @@
                     AllowDelete="false"
                     ShowFullTime="true"
                     HoursPanelTimeFormat="HH:mm"
+                    DayView-ShowHoursColumn="false"
+                    WeekView-ShowHoursColumn="false"
                     AllowInsert="False"
                     SelectedView="WeekView"
                     OnAppointmentCommand="RadSchedulerIsTakvimi_AppointmentCommand"

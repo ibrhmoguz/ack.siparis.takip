@@ -49,7 +49,16 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string Alarm { get; set; }
         public string OtomatikKilit { get; set; }
         public string FirmaAdi { get; set; }
-        public string SiparisAdedi { get; set; }
+        public string SiparisAdedi { get; set; }        
+        public double? NakitPesin { get; set; }
+        public double? NakitKalan { get; set; }
+        public string NakitOdemeNot { get; set; }
+        public double? KKartiPesin { get; set; }
+        public double? KKartiKalan { get; set; }
+        public string KKartiOdemeNot { get; set; }
+        public double? CekPesin { get; set; }
+        public double? CekKalan { get; set; }
+        public string CekOdemeNot { get; set; }
     }
 
     public class Olcum

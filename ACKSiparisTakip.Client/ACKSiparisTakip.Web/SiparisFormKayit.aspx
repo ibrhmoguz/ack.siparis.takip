@@ -71,11 +71,11 @@
             <tr>
                 <th>Bayi Adı : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtBayiAdi" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtBayiAdi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
                 <th>Sipariş No : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtSiparisNo" runat="server" Enabled="False" Text="Sistem Tarafından Verilir"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtSiparisNo" runat="server" Enabled="False" Text="Sistem Tarafından Verilir" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -89,21 +89,21 @@
                 <th style="width: 15%">Firma Adı:
                 </th>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="txtFirmaAdi" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtFirmaAdi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
                 <th style="width: 10%">Sipariş Adedi: </th>
                 <td>
-                    <telerik:RadTextBox ID="txtSiparisAdedi" runat="server" Text="1"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtSiparisAdedi" runat="server" Text="1" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
                 <th>Adı : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtAd" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtAd" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
                 <th style="width: 10%">Soyadı </th>
                 <td>
-                    <telerik:RadTextBox ID="txtSoyad" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtSoyad" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
@@ -112,7 +112,7 @@
                     <table style="width: 100%">
                         <tr>
                             <td colspan="2">
-                                <telerik:RadTextBox ID="txtAdres" runat="server" TextMode="MultiLine" Height="50px" Width="250px"></telerik:RadTextBox>
+                                <telerik:RadTextBox ID="txtAdres" runat="server" TextMode="MultiLine" Height="50px" Width="250px" RenderMode="Lightweight"></telerik:RadTextBox>
                             </td>
                         </tr>
                         <tr>
@@ -140,19 +140,19 @@
                 </td>
                 <th>Ev Tel : </th>
                 <td>
-                    <telerik:RadMaskedTextBox ID="txtEvTel" runat="server" Mask="(###) ### ## ##"></telerik:RadMaskedTextBox>
+                    <telerik:RadMaskedTextBox ID="txtEvTel" runat="server" Mask="(###) ### ## ##" RenderMode="Lightweight"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
             <tr>
                 <th>iş Tel : </th>
                 <td>
-                    <telerik:RadMaskedTextBox ID="txtIsTel" runat="server" Mask="(###) ### ## ##"></telerik:RadMaskedTextBox>
+                    <telerik:RadMaskedTextBox ID="txtIsTel" runat="server" Mask="(###) ### ## ##" RenderMode="Lightweight"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
             <tr>
                 <th>Cep Tel : </th>
                 <td>
-                    <telerik:RadMaskedTextBox ID="txtCepTel" runat="server" Mask="(###) ### ## ##"></telerik:RadMaskedTextBox>
+                    <telerik:RadMaskedTextBox ID="txtCepTel" runat="server" Mask="(###) ### ## ##" RenderMode="Lightweight"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
         </table>
@@ -324,7 +324,7 @@
             <tr>
                 <th>Montajda Takılacaklar</th>
                 <td colspan="3">
-                    <telerik:RadTextBox ID="txtMontajdaTakilacaklar" runat="server" Width="400px" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtMontajdaTakilacaklar" runat="server" Width="400px" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -336,7 +336,7 @@
             <tr>
                 <th style="width: 15%">Ölçüm Bilgileri : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtOlcumBilgileri" runat="server" Width="400px" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtOlcumBilgileri" runat="server" Width="400px" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
@@ -379,10 +379,9 @@
             </tr>
             <tr>
                 <td>
-                    <telerik:RadTextBox ID="txtNot" runat="server" TextMode="MultiLine" Height="50px" Width="750px"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtNot" runat="server" TextMode="MultiLine" Height="50px" Width="750px" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
-
         </table>
         <br />
         <table runat="server" id="tbIleri" style="width: 100%">
@@ -396,62 +395,101 @@
             </tr>
         </table>
         <br />
-        <table class="AnaTablo" runat="server" id="tbMusteriSozlesme" visible="false" style="width: 100%">
+        <table class="AnaTablo" runat="server" id="tbMusteriSozlesme" visible="true" style="width: 100%">
             <tr>
-                <th colspan="4" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
-
+                <th colspan="2" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
             </tr>
             <tr>
-                <th style="width: 20%">Adı Soyadı : </th>
-                <td>
-                    <telerik:RadTextBox ID="txtMusteriAdSoyad" runat="server" Enabled="False" Width="300px"></telerik:RadTextBox>
+                <td style="width: 45%">
+                    <table>
+                        <tr>
+                            <th style="width: 15%">Adı Soyadı : </th>
+                            <td style="width: 35%">
+                                <telerik:RadTextBox ID="txtMusteriAdSoyad" runat="server" Enabled="False" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Adresi : </th>
+                            <td>
+                                <telerik:RadTextBox ID="txtMusteriAdres" runat="server" TextMode="MultiLine" Height="50px" Width="300px" Enabled="False" RenderMode="Lightweight"></telerik:RadTextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Cep Tel : </th>
+                            <td>
+                                <telerik:RadTextBox ID="txtMusteriCepTel" runat="server" Enabled="False" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Fiyat : </th>
+                            <td>
+                                <telerik:RadTextBox ID="txtFiyat" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Vergi Dairesi : </th>
+                            <td>
+                                <telerik:RadTextBox ID="txtVergiDairesi" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Vergi Numarası : </th>
+                            <td>
+                                <telerik:RadTextBox ID="txtVergiNumarasi" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
-                <th colspan="2">Ödeme Şekli : </th>
-
+                <td style="text-align: left">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <th style="text-align: center">Peşin</th>
+                            <th style="text-align: center">Kalan</th>
+                            <th style="text-align: center">Ödeme Notu</th>
+                        </tr>
+                        <tr>
+                            <th>Nakit:</th>
+                            <td>
+                                <telerik:RadNumericTextBox ID="txtNakitPesin" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency">
+                                </telerik:RadNumericTextBox>
+                            </td>
+                            <td>
+                                <telerik:RadNumericTextBox ID="txtNakitKalan" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                            </td>
+                            <td>
+                                <telerik:RadTextBox ID="txtNakitOdemeNotu" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Kredi Kartı:</th>
+                            <td>
+                                <telerik:RadNumericTextBox ID="txtKKartiPesin" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                            </td>
+                            <td>
+                                <telerik:RadNumericTextBox ID="txtKKartiKalan" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                            </td>
+                            <td>
+                                <telerik:RadTextBox ID="txtKKartiOdemeNotu" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Çek:</th>
+                            <td>
+                                <telerik:RadNumericTextBox ID="txtCekPesin" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                            </td>
+                            <td>
+                                <telerik:RadNumericTextBox ID="txtCekKalan" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                            </td>
+                            <td>
+                                <telerik:RadTextBox ID="txtCekOdemeNotu" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
             <tr>
-                <th rowspan="2">Adresi : </th>
-                <td rowspan="2">
-                    <telerik:RadTextBox ID="txtMusteriAdres" runat="server" TextMode="MultiLine" Height="50px" Width="300px" Enabled="False"></telerik:RadTextBox>
-                </td>
-                <th>Peşinat : </th>
-                <td>
-                    <telerik:RadTextBox ID="txtPesinat" runat="server"></telerik:RadTextBox>
-                </td>
-            </tr>
-            <tr>
-                <th rowspan="5">Kalan Ödeme : </th>
-                <td rowspan="5">
-                    <telerik:RadTextBox ID="txtKalanOdeme" runat="server" TextMode="MultiLine" Height="75px" Width="300px"></telerik:RadTextBox>
-                </td>
-            </tr>
-            <tr>
-                <th>Cep Tel : </th>
-                <td>
-                    <telerik:RadTextBox ID="txtMusteriCepTel" runat="server" Enabled="False" Width="300px"></telerik:RadTextBox>
-                </td>
-
-            </tr>
-            <tr>
-                <th>Fiyat : </th>
-                <td>
-                    <telerik:RadTextBox ID="txtFiyat" runat="server" Width="300px"></telerik:RadTextBox>
-                </td>
-            </tr>
-            <tr>
-                <th>Vergi Dairesi : </th>
-                <td>
-                    <telerik:RadTextBox ID="txtVergiDairesi" runat="server" Width="300px"></telerik:RadTextBox>
-                </td>
-            </tr>
-            <tr>
-                <th>Vergi Numarası : </th>
-                <td>
-                    <telerik:RadTextBox ID="txtVergiNumarasi" runat="server" Width="300px"></telerik:RadTextBox>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="4">Yukarıda yazılı olan şartlarda sipariş verdim. İhtilaf halinde Ankara Mahkemeleri yetkilidir.
+                <td colspan="2">Yukarıda yazılı olan şartlarda sipariş verdim. İhtilaf halinde Ankara Mahkemeleri yetkilidir.
                     <b>Müşteri tarafından aksi yazılı olarak Ankara Çelik Kapı'ya bildirilmedikçe kapıların ölçüleri ve
                     açılış yönleri mevcut takılı olan kapıya göre imal edilecektir.</b>
                     <br />
@@ -459,7 +497,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4" style="text-align: center">
+                <td colspan="2" style="text-align: center">
                     <b>MÜŞTERİ
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -469,14 +507,8 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4">
+                <td colspan="2" style="text-align: center">
                     <br />
-                    <br />
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="4" style="text-align: center">
                     <telerik:RadButton ID="btnKaydet" runat="server" Text="Onayla" OnClick="btnKaydet_Click">
                         <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
