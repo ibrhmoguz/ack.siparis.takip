@@ -1,6 +1,131 @@
 USE [ACKAppDB]
 GO
-/****** Object:  Table [dbo].[MONTAJ]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_ID_LISTESI]    Script Date: 12/13/2014 03:59:17 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MONTAJ_EKIP_ID_LISTESI]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[MONTAJ_EKIP_ID_LISTESI]
+GO
+/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_LISTESI]    Script Date: 12/13/2014 03:59:17 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MONTAJ_EKIP_LISTESI]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[MONTAJ_EKIP_LISTESI]
+GO
+/****** Object:  Table [dbo].[MONTAJ_PERSONEL]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MONTAJ_PERSONEL]') AND type in (N'U'))
+DROP TABLE [dbo].[MONTAJ_PERSONEL]
+GO
+/****** Object:  Table [dbo].[PERSONELBILGI]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PERSONELBILGI]') AND type in (N'U'))
+DROP TABLE [dbo].[PERSONELBILGI]
+GO
+/****** Object:  Table [dbo].[REF_AKSESUARRENK]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_AKSESUARRENK]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_AKSESUARRENK]
+GO
+/****** Object:  Table [dbo].[REF_ALUMINYUMRENK]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_ALUMINYUMRENK]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_ALUMINYUMRENK]
+GO
+/****** Object:  Table [dbo].[REF_BARELTIP]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_BARELTIP]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_BARELTIP]
+GO
+/****** Object:  Table [dbo].[REF_CEKMEKOLU]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_CEKMEKOLU]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_CEKMEKOLU]
+GO
+/****** Object:  Table [dbo].[REF_CITA]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_CITA]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_CITA]
+GO
+/****** Object:  Table [dbo].[REF_CONTARENK]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_CONTARENK]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_CONTARENK]
+GO
+/****** Object:  Table [dbo].[REF_ESIK]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_ESIK]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_ESIK]
+GO
+/****** Object:  Table [dbo].[REF_ILCELER]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_ILCELER]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_ILCELER]
+GO
+/****** Object:  Table [dbo].[REF_ILLER]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_ILLER]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_ILLER]
+GO
+/****** Object:  Table [dbo].[REF_KAPIMODEL]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_KAPIMODEL]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_KAPIMODEL]
+GO
+/****** Object:  Table [dbo].[REF_KAPIRENK]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_KAPIRENK]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_KAPIRENK]
+GO
+/****** Object:  Table [dbo].[REF_KAPISERI]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_KAPISERI]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_KAPISERI]
+GO
+/****** Object:  Table [dbo].[REF_KILITSISTEM]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_KILITSISTEM]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_KILITSISTEM]
+GO
+/****** Object:  Table [dbo].[REF_MONTAJSEKLI]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_MONTAJSEKLI]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_MONTAJSEKLI]
+GO
+/****** Object:  Table [dbo].[REF_PERVAZTIP]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_PERVAZTIP]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_PERVAZTIP]
+GO
+/****** Object:  Table [dbo].[REF_SEMTLER]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_SEMTLER]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_SEMTLER]
+GO
+/****** Object:  Table [dbo].[REF_TABLOLAR]    Script Date: 12/13/2014 03:59:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_TABLOLAR]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_TABLOLAR]
+GO
+/****** Object:  Table [dbo].[REF_TACTIP]    Script Date: 12/13/2014 03:59:16 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_TACTIP]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_TACTIP]
+GO
+/****** Object:  Table [dbo].[REF_TESLIMSEKLI]    Script Date: 12/13/2014 03:59:16 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_TESLIMSEKLI]') AND type in (N'U'))
+DROP TABLE [dbo].[REF_TESLIMSEKLI]
+GO
+/****** Object:  Table [dbo].[SEMTLER]    Script Date: 12/13/2014 03:59:16 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SEMTLER]') AND type in (N'U'))
+DROP TABLE [dbo].[SEMTLER]
+GO
+/****** Object:  Table [dbo].[SIPARIS]    Script Date: 12/13/2014 03:59:16 ******/
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_SIPARIS_ADET]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[SIPARIS] DROP CONSTRAINT [DF_SIPARIS_ADET]
+END
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SIPARIS]') AND type in (N'U'))
+DROP TABLE [dbo].[SIPARIS]
+GO
+/****** Object:  Table [dbo].[SIPARISNOSAYAC]    Script Date: 12/13/2014 03:59:16 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SIPARISNOSAYAC]') AND type in (N'U'))
+DROP TABLE [dbo].[SIPARISNOSAYAC]
+GO
+/****** Object:  Table [dbo].[HATA]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HATA]') AND type in (N'U'))
+DROP TABLE [dbo].[HATA]
+GO
+/****** Object:  Table [dbo].[ILCELER]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ILCELER]') AND type in (N'U'))
+DROP TABLE [dbo].[ILCELER]
+GO
+/****** Object:  Table [dbo].[KULLANICIBILGI]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[KULLANICIBILGI]') AND type in (N'U'))
+DROP TABLE [dbo].[KULLANICIBILGI]
+GO
+/****** Object:  Table [dbo].[MONTAJ]    Script Date: 12/13/2014 03:59:14 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MONTAJ]') AND type in (N'U'))
+DROP TABLE [dbo].[MONTAJ]
+GO
+/****** Object:  Table [dbo].[MONTAJ]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -30,8 +155,10 @@ SET IDENTITY_INSERT [dbo].[MONTAJ] ON
 INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DURUM]) VALUES (1, N'N-9', CAST(0x0000A3E200000000 AS DateTime), NULL, N'A')
 INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DURUM]) VALUES (2, N'K-3', CAST(0x0000A3E200000000 AS DateTime), NULL, N'K')
 INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DURUM]) VALUES (3, N'N-10', CAST(0x0000A3E200000000 AS DateTime), NULL, N'A')
+INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DURUM]) VALUES (4, N'N-11', CAST(0x0000A40B00000000 AS DateTime), NULL, N'A')
+INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DURUM]) VALUES (5, N'N-12', CAST(0x0000A3FE00000000 AS DateTime), NULL, N'A')
 SET IDENTITY_INSERT [dbo].[MONTAJ] OFF
-/****** Object:  Table [dbo].[KULLANICIBILGI]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[KULLANICIBILGI]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -53,7 +180,7 @@ INSERT [dbo].[KULLANICIBILGI] ([KULLANICIADI], [SIFRE], [YETKI]) VALUES (N'nejla
 INSERT [dbo].[KULLANICIBILGI] ([KULLANICIADI], [SIFRE], [YETKI]) VALUES (N'ibo', N'12345', N'Kullanici')
 INSERT [dbo].[KULLANICIBILGI] ([KULLANICIADI], [SIFRE], [YETKI]) VALUES (N'nej', N'12345', N'Yönetici')
 INSERT [dbo].[KULLANICIBILGI] ([KULLANICIADI], [SIFRE], [YETKI]) VALUES (N'kurtulus', N'12345', N'Kullanici')
-/****** Object:  Table [dbo].[ILCELER]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[ILCELER]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1047,7 +1174,7 @@ INSERT [dbo].[ILCELER] ([ILCEKOD], [ILKOD], [ILCEAD]) VALUES (N'955', N'81', N'G
 INSERT [dbo].[ILCELER] ([ILCEKOD], [ILKOD], [ILCEAD]) VALUES (N'956', N'81', N'GÜMÜÞOVA')
 INSERT [dbo].[ILCELER] ([ILCEKOD], [ILKOD], [ILCEAD]) VALUES (N'957', N'81', N'KAYNAÞLI')
 INSERT [dbo].[ILCELER] ([ILCEKOD], [ILKOD], [ILCEAD]) VALUES (N'958', N'81', N'YIÐILCA')
-/****** Object:  Table [dbo].[HATA]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[HATA]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1692,8 +1819,56 @@ INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGE
    at ASP.siparisformguncelle_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\root\d7e34744\13ad272a\App_Web_wc3iox0h.2.cs:line 0
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A3F10179039F AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1049, 1, 1, N'Message: Must declare the scalar variable "@FIRMADI". StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql, CommandType commandType) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 215
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 187
+   at ACKSiparisTakip.Business.ACKBusiness.SiparisIslemleriBS.SiparisGuncelle(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme) in c:\GitHub\ACKSiparisTakip\ACKSiparsTakip.Business\ACKBusiness\SiparisIslemleriBS.cs:line 638 Source: .Net SqlClient Data Provider', N'ServerSide', N'SiparisKaydet', N'', N'', N'', N'', N'', NULL, CAST(0x0000A3FB01824BFA AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1050, 1, 1, N'Message: Must declare the scalar variable "@FIRMADI". StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql, CommandType commandType) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 215
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 187
+   at ACKSiparisTakip.Business.ACKBusiness.SiparisIslemleriBS.SiparisGuncelle(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme) in c:\GitHub\ACKSiparisTakip\ACKSiparsTakip.Business\ACKBusiness\SiparisIslemleriBS.cs:line 638 Source: .Net SqlClient Data Provider', N'ServerSide', N'SiparisKaydet', N'', N'', N'', N'', N'', NULL, CAST(0x0000A3FB01836896 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1051, 1, 1, N'Message: Incorrect syntax near '',''. StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql, CommandType commandType) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 215
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 187
+   at ACKSiparisTakip.Business.ACKBusiness.SiparisIslemleriBS.SiparisGuncelle(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme) in c:\GitHub\ACKSiparisTakip\ACKSiparsTakip.Business\ACKBusiness\SiparisIslemleriBS.cs:line 638 Source: .Net SqlClient Data Provider', N'ServerSide', N'SiparisKaydet', N'', N'', N'', N'', N'', NULL, CAST(0x0000A3FB0183D8F1 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1052, 1, 1, N'Message: Incorrect syntax near '',''. StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql, CommandType commandType) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 215
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 187
+   at ACKSiparisTakip.Business.ACKBusiness.SiparisIslemleriBS.SiparisGuncelle(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme) in c:\GitHub\ACKSiparisTakip\ACKSiparsTakip.Business\ACKBusiness\SiparisIslemleriBS.cs:line 638 Source: .Net SqlClient Data Provider', N'ServerSide', N'SiparisKaydet', N'', N'', N'', N'', N'', NULL, CAST(0x0000A3FB01844B73 AS DateTime))
 SET IDENTITY_INSERT [dbo].[HATA] OFF
-/****** Object:  Table [dbo].[SIPARISNOSAYAC]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[SIPARISNOSAYAC]    Script Date: 12/13/2014 03:59:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1711,10 +1886,10 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Nova', 10)
-INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Nova', 10)
+INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Nova', 12)
+INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Nova', 12)
 INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Kroma', 3)
-/****** Object:  Table [dbo].[SIPARIS]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[SIPARIS]    Script Date: 12/13/2014 03:59:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1773,18 +1948,29 @@ ALTER TABLE [dbo].[SIPARIS] ADD [KAYITYAPANKAMERA] [varchar](50) NULL
 ALTER TABLE [dbo].[SIPARIS] ADD [ALARM] [varchar](50) NULL
 ALTER TABLE [dbo].[SIPARIS] ADD [OTOKILIT] [varchar](50) NULL
 ALTER TABLE [dbo].[SIPARIS] ADD [MUSTERISEMT] [varchar](250) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [FIRMAADI] [varchar](250) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [ADET] [int] NULL CONSTRAINT [DF_SIPARIS_ADET]  DEFAULT ((1))
+ALTER TABLE [dbo].[SIPARIS] ADD [NAKITPESIN] [numeric](10, 2) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [NAKITKALAN] [numeric](10, 2) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [NAKITODEMENOTU] [varchar](500) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [KKARTPESIN] [numeric](10, 2) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [KKARTKALAN] [numeric](10, 2) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [KKARTODEMENOTU] [varchar](500) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [CEKPESIN] [numeric](10, 2) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [CEKKALAN] [numeric](10, 2) NULL
+ALTER TABLE [dbo].[SIPARIS] ADD [CEKODEMENOTU] [varchar](500) NULL
 END
 GO
 SET ANSI_PADDING OFF
 GO
 SET IDENTITY_INSERT [dbo].[SIPARIS] ON
-INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT]) VALUES (1, N'N-9', CAST(0x0000A3A500282300 AS DateTime), N'asdfasdf', N'ibrahim', N'oguz', N'batikent', N'ANKARA', N'YENIMAHALLE', N'1111111111', N'2222222222', N'3333333333', N'101', N'102', N'Tik', N'Amerikan Ceviz', N'Kale 14''lü', N'H-Eloksal', N'Carmen Red', N'Seçiniz', N'Saten', N'Seçiniz', N'Seçiniz', N'Seçiniz', N'wer', N'9', N'qwe', N'Var', N'Var', N'Yok', N'asdfasdfasd', N'dfgsdfgsdf', CAST(0xF5380B00 AS Date), N'NEJLA GÜNER', N'Betonlu', N'Montajli', N'', N'', N'', N'', N'', N'TAMAMLANDI', NULL, NULL, NULL, NULL, NULL)
-INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT]) VALUES (2, N'K-3', CAST(0x0000A3F200BE2463 AS DateTime), N'Bayi 1', N'Mustafa', N'TAS', N'Batikent', N'ANKARA', N'YENIMAHALLE', NULL, N'2222222222', N'3333333333', N'601', N'601', N'Karaagaç', N'Porte Ceviz', N'Kale 14''lü', N'H-Eloksal', N'Harmankaya', N'Seçiniz', N'Pirinç', N'Seçiniz', N'Seçiniz', N'Seçiniz', N'asd', N'9', N'dfgsdfgsd', N'Var', N'Var', N'Var', N'srgsdfgsdfg', N'safsdfasdfasdf', CAST(0xF8380B00 AS Date), N'NEJLA GÜNER', N'Vidali', N'Montajli', N'500', N'-1500
--1000', N'3000', N'KEÇIÖREN', N'123123123', N'BEKLEYEN', NULL, NULL, NULL, NULL, NULL)
-INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT]) VALUES (3, N'N-10', CAST(0x0000A3AC00D8643B AS DateTime), N'Bayi 3', N'Ahmet', N'AYDIN', N'Batikent', N'ANKARA', N'YENIMAHALLE', N'1111111111', N'2222222222', N'3333333333', N'101', N'102', N'Karaagaç', N'Karaagaç', N'Kale 14''lü', N'H-Eloksal', N'Harmankaya', N'Seçiniz', N'Saten', N'Seçiniz', N'Seçiniz', N'Seçiniz', N'asd', N'8', N'sdfsd', N'Var', N'Yok', N'Var', N'werwerwe', N'dgdrtdtgdf', CAST(0xF6380B00 AS Date), N'DERIN GEÇMEZ', N'Vidali', N'Montajli', N'1000', N'-1000
--1000', N'3000', N'asdasd', N'45641231', N'ÝMALATTA', NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU]) VALUES (1, N'N-9', CAST(0x0000A3A500282300 AS DateTime), N'asdfasdf', N'ibrahim', N'oguz', N'batikent', N'ANKARA', N'YENÝMAHALLE', N'1111111111', N'2222222222', N'3333333333', NULL, NULL, N'Tik', N'Amerikan Ceviz', N'Kale 14''lü', N'H-Eloksal', N'Carmen Red', NULL, N'Saten', NULL, NULL, NULL, NULL, NULL, NULL, N'Var', NULL, N'Yok', N'asdfasdfasd', N'dfgsdfgsdf', CAST(0xF5380B00 AS Date), NULL, N'Betonlu', N'Montajli', NULL, NULL, N'4000', NULL, NULL, N'TAMAMLANDI', N'Var', NULL, NULL, NULL, NULL, N'ack', 15, CAST(2000.00 AS Numeric(10, 2)), NULL, NULL, CAST(1000.00 AS Numeric(10, 2)), CAST(1000.00 AS Numeric(10, 2)), N'2 taksit', NULL, NULL, NULL)
+INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU]) VALUES (2, N'K-3', CAST(0x0000A3F200BE2463 AS DateTime), N'Bayi 1', N'Mustafa', N'TAS', N'Batikent', N'ANKARA', N'ALTINDAÐ', NULL, N'2222222222', N'3333333333', N'601', N'601', N'Karaagaç', N'Porte Ceviz', N'Kale 14''lü', N'H-Eloksal', N'Harmankaya', NULL, N'Pirinç', NULL, NULL, NULL, NULL, NULL, NULL, N'Var', NULL, N'Var', N'srgsdfgsdfg', N'safsdfasdfasdf', CAST(0xF8380B00 AS Date), NULL, N'Vidali', N'Montajli', NULL, NULL, N'3000', N'KEÇIÖREN', N'123123123', N'BEKLEYEN', NULL, NULL, NULL, NULL, NULL, N'', 1, CAST(500.00 AS Numeric(10, 2)), NULL, NULL, CAST(750.00 AS Numeric(10, 2)), CAST(1750.00 AS Numeric(10, 2)), N'5 taksit', NULL, NULL, NULL)
+INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU]) VALUES (3, N'N-10', CAST(0x0000A3AC00D8643B AS DateTime), N'Bayi 3', N'Ahmet', N'AYDIN', N'Batikent', N'ANKARA', N'YENÝMAHALLE', N'1111111111', N'2222222222', N'3333333333', NULL, NULL, N'Karaagaç', N'Karaagaç', N'Kale 14''lü', N'H-Eloksal', N'Harmankaya', NULL, N'Saten', NULL, NULL, NULL, NULL, NULL, NULL, N'Var', NULL, N'Var', N'werwerwe', N'dgdrtdtgdf', CAST(0xF6380B00 AS Date), NULL, N'Vidali', N'Montajli', NULL, NULL, N'3000', N'asdasd', N'45641231', N'ÝMALATTA', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(500.00 AS Numeric(10, 2)), NULL, NULL, CAST(1000.00 AS Numeric(10, 2)), N'2 taksit', CAST(1500.00 AS Numeric(10, 2)), NULL, NULL)
+INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU]) VALUES (4, N'N-11', CAST(0x0000A3FB018A1175 AS DateTime), NULL, N'asds', NULL, N'asdasfasd', N'DIYARBAKIR', N'KAYAPINAR', NULL, NULL, NULL, NULL, N'801', N'Seçiniz', N'Seçiniz', N'Seçiniz', N'Seçiniz', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, CAST(0x5E390B00 AS Date), NULL, N'Betonlu', N'Montajli', NULL, NULL, NULL, NULL, NULL, N'BEKLEYEN', NULL, NULL, NULL, NULL, N'YOLBOYU', N'aack', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU]) VALUES (5, N'N-12', CAST(0x0000A3FE017009EC AS DateTime), N'ABC Bayi', N'Mehmt', N'Demir', N'1234. Cd 34. Sk. No:5', N'ANKARA', N'YENÝMAHALLE', NULL, NULL, NULL, N'801', N'801', N'Amerikan Ceviz', N'Karaagaç', N'Kale 14''lü', N'H-Eloksal', N'Carmen Red', NULL, N'Saten', NULL, NULL, NULL, NULL, NULL, NULL, N'Var', N'Var', N'Var', NULL, NULL, CAST(0x59390B00 AS Date), NULL, N'Betonlu', N'Montajli', NULL, NULL, N'3500', N'12345678', N'1234567', N'BEKLEYEN', NULL, NULL, NULL, NULL, NULL, N'WER', 1, CAST(1000.00 AS Numeric(10, 2)), CAST(500.00 AS Numeric(10, 2)), N'20.12.2014 de verecek', NULL, CAST(2000.00 AS Numeric(10, 2)), N'4 taksit - 01.01.2015 ilk taksit', NULL, NULL, NULL)
 SET IDENTITY_INSERT [dbo].[SIPARIS] OFF
-/****** Object:  Table [dbo].[SEMTLER]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[SEMTLER]    Script Date: 12/13/2014 03:59:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6007,7 +6193,7 @@ INSERT [dbo].[SEMTLER] ([SEMTKOD], [ILKOD], [ILCEKOD], [SEMTAD]) VALUES (N'4121'
 INSERT [dbo].[SEMTLER] ([SEMTKOD], [ILKOD], [ILCEKOD], [SEMTAD]) VALUES (N'4122', N'81', N'957', N'KÖYLER')
 INSERT [dbo].[SEMTLER] ([SEMTKOD], [ILKOD], [ILCEKOD], [SEMTAD]) VALUES (N'4123', N'81', N'958', N'YIÐILCA')
 INSERT [dbo].[SEMTLER] ([SEMTKOD], [ILKOD], [ILCEKOD], [SEMTAD]) VALUES (N'4124', N'81', N'958', N'KÖYLER')
-/****** Object:  Table [dbo].[REF_TESLIMSEKLI]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_TESLIMSEKLI]    Script Date: 12/13/2014 03:59:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6035,7 +6221,7 @@ SET IDENTITY_INSERT [dbo].[REF_TESLIMSEKLI] ON
 INSERT [dbo].[REF_TESLIMSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (1, N'Montajli', 1, 1, 1)
 INSERT [dbo].[REF_TESLIMSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (2, N'Sevk', 1, 1, 1)
 SET IDENTITY_INSERT [dbo].[REF_TESLIMSEKLI] OFF
-/****** Object:  Table [dbo].[REF_TACTIP]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_TACTIP]    Script Date: 12/13/2014 03:59:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6064,7 +6250,7 @@ INSERT [dbo].[REF_TACTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (1, N'T1
 INSERT [dbo].[REF_TACTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (2, N'T2', 0, 0, 1)
 INSERT [dbo].[REF_TACTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (3, N'T3', 0, 0, 1)
 SET IDENTITY_INSERT [dbo].[REF_TACTIP] OFF
-/****** Object:  Table [dbo].[REF_TABLOLAR]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_TABLOLAR]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6102,7 +6288,7 @@ INSERT [dbo].[REF_TABLOLAR] ([ID], [AD], [TABLO]) VALUES (12, N'TESLIM SEKLI', N
 INSERT [dbo].[REF_TABLOLAR] ([ID], [AD], [TABLO]) VALUES (13, N'BAREL TIPI', N'REF_BARELTIP')
 INSERT [dbo].[REF_TABLOLAR] ([ID], [AD], [TABLO]) VALUES (14, N'ÇEKME KOLU', N'REF_CEKMEKOLU')
 SET IDENTITY_INSERT [dbo].[REF_TABLOLAR] OFF
-/****** Object:  Table [dbo].[REF_SEMTLER]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_SEMTLER]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10326,7 +10512,7 @@ INSERT [dbo].[REF_SEMTLER] ([SEMTKOD], [SEMTAD], [ILCEKOD], [ILCEAD], [ILKOD]) V
 INSERT [dbo].[REF_SEMTLER] ([SEMTKOD], [SEMTAD], [ILCEKOD], [ILCEAD], [ILKOD]) VALUES (N'4122', N'KÖYLER', N'957', N'KAYNAÞLI', N'81')
 INSERT [dbo].[REF_SEMTLER] ([SEMTKOD], [SEMTAD], [ILCEKOD], [ILCEAD], [ILKOD]) VALUES (N'4123', N'YIÐILCA', N'958', N'YIÐILCA', N'81')
 INSERT [dbo].[REF_SEMTLER] ([SEMTKOD], [SEMTAD], [ILCEKOD], [ILCEAD], [ILKOD]) VALUES (N'4124', N'KÖYLER', N'958', N'YIÐILCA', N'81')
-/****** Object:  Table [dbo].[REF_PERVAZTIP]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_PERVAZTIP]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10355,7 +10541,7 @@ INSERT [dbo].[REF_PERVAZTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (1, N
 INSERT [dbo].[REF_PERVAZTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (2, N'P2', 0, 0, 1)
 INSERT [dbo].[REF_PERVAZTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (3, N'P3', 0, 0, 1)
 SET IDENTITY_INSERT [dbo].[REF_PERVAZTIP] OFF
-/****** Object:  Table [dbo].[REF_MONTAJSEKLI]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_MONTAJSEKLI]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10384,7 +10570,7 @@ INSERT [dbo].[REF_MONTAJSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (1,
 INSERT [dbo].[REF_MONTAJSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (2, N'Vidali', 1, 1, 1)
 INSERT [dbo].[REF_MONTAJSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (3, N'Köpüklü', 1, 1, 1)
 SET IDENTITY_INSERT [dbo].[REF_MONTAJSEKLI] OFF
-/****** Object:  Table [dbo].[REF_KILITSISTEM]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_KILITSISTEM]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10417,7 +10603,7 @@ INSERT [dbo].[REF_KILITSISTEM] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (6,
 INSERT [dbo].[REF_KILITSISTEM] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (7, N'Moturra 21''li', 1, 1, 1)
 INSERT [dbo].[REF_KILITSISTEM] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (8, N'Moturra 24''lü', 1, 1, 1)
 SET IDENTITY_INSERT [dbo].[REF_KILITSISTEM] OFF
-/****** Object:  Table [dbo].[REF_KAPISERI]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_KAPISERI]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10429,6 +10615,7 @@ BEGIN
 CREATE TABLE [dbo].[REF_KAPISERI](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[AD] [varchar](50) NOT NULL,
+	[VALUE] [varchar](50) NULL,
  CONSTRAINT [PK_REF_KAPISERI] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -10439,11 +10626,11 @@ GO
 SET ANSI_PADDING OFF
 GO
 SET IDENTITY_INSERT [dbo].[REF_KAPISERI] ON
-INSERT [dbo].[REF_KAPISERI] ([ID], [AD]) VALUES (1, N'GUARD')
-INSERT [dbo].[REF_KAPISERI] ([ID], [AD]) VALUES (2, N'KROMA')
-INSERT [dbo].[REF_KAPISERI] ([ID], [AD]) VALUES (3, N'NOVA')
+INSERT [dbo].[REF_KAPISERI] ([ID], [AD], [VALUE]) VALUES (1, N'GUARD', N'G')
+INSERT [dbo].[REF_KAPISERI] ([ID], [AD], [VALUE]) VALUES (2, N'KROMA', N'K')
+INSERT [dbo].[REF_KAPISERI] ([ID], [AD], [VALUE]) VALUES (3, N'NOVA', N'N')
 SET IDENTITY_INSERT [dbo].[REF_KAPISERI] OFF
-/****** Object:  Table [dbo].[REF_KAPIRENK]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_KAPIRENK]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10477,7 +10664,7 @@ INSERT [dbo].[REF_KAPIRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (6, N'
 INSERT [dbo].[REF_KAPIRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (7, N'Venge', 1, 1, 1)
 INSERT [dbo].[REF_KAPIRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (9, N'Kenya Silver', 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_KAPIRENK] OFF
-/****** Object:  Table [dbo].[REF_KAPIMODEL]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_KAPIMODEL]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10519,7 +10706,7 @@ INSERT [dbo].[REF_KAPIMODEL] ([ID], [KAPISERIID], [AD]) VALUES (27, 1, N'104')
 INSERT [dbo].[REF_KAPIMODEL] ([ID], [KAPISERIID], [AD]) VALUES (28, 1, N'105')
 INSERT [dbo].[REF_KAPIMODEL] ([ID], [KAPISERIID], [AD]) VALUES (29, 3, N'801')
 SET IDENTITY_INSERT [dbo].[REF_KAPIMODEL] OFF
-/****** Object:  Table [dbo].[REF_ILLER]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_ILLER]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10621,7 +10808,7 @@ INSERT [dbo].[REF_ILLER] ([ILKOD], [ILAD]) VALUES (N'8', N'ARTVIN')
 INSERT [dbo].[REF_ILLER] ([ILKOD], [ILAD]) VALUES (N'80', N'OSMANIYE')
 INSERT [dbo].[REF_ILLER] ([ILKOD], [ILAD]) VALUES (N'81', N'DÜZCE')
 INSERT [dbo].[REF_ILLER] ([ILKOD], [ILAD]) VALUES (N'9', N'AYDIN')
-/****** Object:  Table [dbo].[REF_ILCELER]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_ILCELER]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11616,7 +11803,7 @@ INSERT [dbo].[REF_ILCELER] ([ILCEKOD], [ILCEAD], [ILKOD], [ILAD]) VALUES (N'955'
 INSERT [dbo].[REF_ILCELER] ([ILCEKOD], [ILCEAD], [ILKOD], [ILAD]) VALUES (N'956', N'GÜMÜÞOVA', N'81', N'DÜZCE')
 INSERT [dbo].[REF_ILCELER] ([ILCEKOD], [ILCEAD], [ILKOD], [ILAD]) VALUES (N'957', N'KAYNAÞLI', N'81', N'DÜZCE')
 INSERT [dbo].[REF_ILCELER] ([ILCEKOD], [ILCEAD], [ILKOD], [ILAD]) VALUES (N'958', N'YIÐILCA', N'81', N'DÜZCE')
-/****** Object:  Table [dbo].[REF_ESIK]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_ESIK]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11646,7 +11833,7 @@ INSERT [dbo].[REF_ESIK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (2, N'Carm
 INSERT [dbo].[REF_ESIK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (3, N'Siyah', 1, 1, 1)
 INSERT [dbo].[REF_ESIK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (4, N'Yok', 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_ESIK] OFF
-/****** Object:  Table [dbo].[REF_CONTARENK]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_CONTARENK]    Script Date: 12/13/2014 03:59:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11674,7 +11861,7 @@ SET IDENTITY_INSERT [dbo].[REF_CONTARENK] ON
 INSERT [dbo].[REF_CONTARENK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (1, N'SIYAH', 0, 0, 1)
 INSERT [dbo].[REF_CONTARENK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (2, N'GRI', 0, 0, 1)
 SET IDENTITY_INSERT [dbo].[REF_CONTARENK] OFF
-/****** Object:  Table [dbo].[REF_CITA]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_CITA]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11706,7 +11893,7 @@ INSERT [dbo].[REF_CITA] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (5, N'Ince
 INSERT [dbo].[REF_CITA] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (6, N'Kalin Alüminyum', 1, 1, 0)
 INSERT [dbo].[REF_CITA] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (7, N'Ince Pirinç', 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_CITA] OFF
-/****** Object:  Table [dbo].[REF_CEKMEKOLU]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_CEKMEKOLU]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11743,7 +11930,7 @@ INSERT [dbo].[REF_CEKMEKOLU] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (9, N
 INSERT [dbo].[REF_CEKMEKOLU] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (10, N'70cm’lik Kare Kol', 1, 0, 1)
 INSERT [dbo].[REF_CEKMEKOLU] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (11, N'100cm’lik Dik Kol', 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_CEKMEKOLU] OFF
-/****** Object:  Table [dbo].[REF_BARELTIP]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_BARELTIP]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11773,7 +11960,7 @@ INSERT [dbo].[REF_BARELTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (2, N'
 INSERT [dbo].[REF_BARELTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (3, N'Multilock Barel', 1, 0, 1)
 INSERT [dbo].[REF_BARELTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (4, N'Mottura Barel', 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_BARELTIP] OFF
-/****** Object:  Table [dbo].[REF_ALUMINYUMRENK]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_ALUMINYUMRENK]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11801,7 +11988,7 @@ SET IDENTITY_INSERT [dbo].[REF_ALUMINYUMRENK] ON
 INSERT [dbo].[REF_ALUMINYUMRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (1, N'GRI', 0, 0, 1)
 INSERT [dbo].[REF_ALUMINYUMRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (2, N'SIYAH', 0, 0, 1)
 SET IDENTITY_INSERT [dbo].[REF_ALUMINYUMRENK] OFF
-/****** Object:  Table [dbo].[REF_AKSESUARRENK]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[REF_AKSESUARRENK]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11829,7 +12016,7 @@ SET IDENTITY_INSERT [dbo].[REF_AKSESUARRENK] ON
 INSERT [dbo].[REF_AKSESUARRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (1, N'Saten', 1, 1, 1)
 INSERT [dbo].[REF_AKSESUARRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD]) VALUES (2, N'Pirinç', 1, 1, 1)
 SET IDENTITY_INSERT [dbo].[REF_AKSESUARRENK] OFF
-/****** Object:  Table [dbo].[PERSONELBILGI]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[PERSONELBILGI]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11860,7 +12047,7 @@ INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (8, N'HATICE          
 INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (9, N'SARE                                              ', N'GÜNER                                                                                               ')
 INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (10, N'Ahmet                                             ', N'Usta                                                                                                ')
 SET IDENTITY_INSERT [dbo].[PERSONELBILGI] OFF
-/****** Object:  Table [dbo].[MONTAJ_PERSONEL]    Script Date: 12/06/2014 13:01:17 ******/
+/****** Object:  Table [dbo].[MONTAJ_PERSONEL]    Script Date: 12/13/2014 03:59:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11885,8 +12072,14 @@ INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (11, 3, 4
 INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (12, 3, 7)
 INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (15, 2, 4)
 INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (16, 2, 6)
+INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (17, 5, 5)
+INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (18, 5, 6)
+INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (19, 5, 7)
+INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (20, 5, 9)
+INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (21, 4, 7)
+INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (22, 4, 10)
 SET IDENTITY_INSERT [dbo].[MONTAJ_PERSONEL] OFF
-/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_LISTESI]    Script Date: 12/06/2014 13:01:18 ******/
+/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_LISTESI]    Script Date: 12/13/2014 03:59:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11904,7 +12097,7 @@ BEGIN
 	DECLARE @PersonelListesi VARCHAR(1000) 
 
 	SELECT 
-		@PersonelListesi = (STUFF((SELECT '',''+RTRIM(P.AD) +'' ''+RTRIM(P.SOYAD) AS [text()]
+		@PersonelListesi = (STUFF((SELECT '', ''+RTRIM(P.AD) +'' ''+RTRIM(P.SOYAD) AS [text()]
 									FROM [dbo].[MONTAJ_PERSONEL] AS MP
 										INNER JOIN [dbo].[PERSONELBILGI] AS P ON MP.PERSONELID = P.ID
 									WHERE MP.MONTAJID = @MontajID
@@ -11916,7 +12109,7 @@ END
 ' 
 END
 GO
-/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_ID_LISTESI]    Script Date: 12/06/2014 13:01:18 ******/
+/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_ID_LISTESI]    Script Date: 12/13/2014 03:59:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
