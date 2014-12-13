@@ -240,9 +240,8 @@ namespace ACKSiparisTakip.Web
             if (DropDownCheck(ddlTacTipi)) siparis.TacTip = ddlTacTipi.SelectedText;
 
             siparis.SiparisTarih = DateTime.Now;
-
+            if (!string.IsNullOrWhiteSpace(txtNot.Text)) siparis.Not = txtNot.Text;
             if (DropDownCheck(ddlTaktak)) siparis.Taktak = ddlTaktak.SelectedText;
-
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = "BEKLEYEN";
             if (!string.IsNullOrEmpty(txtFirmaAdi.Text)) siparis.FirmaAdi = txtFirmaAdi.Text;

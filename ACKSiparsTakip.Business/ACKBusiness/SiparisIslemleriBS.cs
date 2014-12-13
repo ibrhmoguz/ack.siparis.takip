@@ -420,6 +420,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("CEKPESIN", siparis.CekPesin, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("CEKKALAN", siparis.CekKalan, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("CEKODEMENOTU", siparis.CekOdemeNot, SqlDbType.VarChar, 500);
+                data.AddSqlParameter("SIPARISNOT", siparis.Not, SqlDbType.VarChar, 500);
 
                 string sqlKaydet = @"INSERT INTO [ACKAppDB].[dbo].[SIPARIS]
                                    ([SIPARISNO]
@@ -478,7 +479,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                     ,KKARTODEMENOTU
                                     ,CEKPESIN
                                     ,CEKKALAN
-                                    ,CEKODEMENOTU)
+                                    ,CEKODEMENOTU
+                                    ,SIPARISNOT)
                              VALUES
                                    (@SIPARISNO,
                                    @SIPARISTARIH,
@@ -536,7 +538,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                     ,@KKARTODEMENOTU
                                     ,@CEKPESIN
                                     ,@CEKKALAN
-                                    ,@CEKODEMENOTU)";
+                                    ,@CEKODEMENOTU
+                                    ,@SIPARISNOT)";
                 data.ExecuteStatement(sqlKaydet);
 
                 //MONTAJ BILGISI KAYDET
@@ -625,6 +628,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("CEKPESIN", siparis.CekPesin, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("CEKKALAN", siparis.CekKalan, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("CEKODEMENOTU", siparis.CekOdemeNot, SqlDbType.VarChar, 500);
+                data.AddSqlParameter("SIPARISNOT", siparis.Not, SqlDbType.VarChar, 500);
 
                 string sqlGuncelle = @"UPDATE [ACKAppDB].[dbo].[SIPARIS]
                                         SET
@@ -683,6 +687,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                             ,CEKPESIN = @CEKPESIN
                                             ,CEKKALAN = @CEKKALAN
                                             ,CEKODEMENOTU = @CEKODEMENOTU 
+                                            ,SIPARISNOT = @SIPARISNOT
                                      WHERE [SIPARISNO] =@SIPARISNO";
 
                 data.ExecuteStatement(sqlGuncelle);

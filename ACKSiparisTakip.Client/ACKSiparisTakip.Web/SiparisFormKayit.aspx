@@ -379,7 +379,7 @@
             </tr>
             <tr>
                 <td>
-                    <telerik:RadTextBox ID="txtNot" runat="server" TextMode="MultiLine" Height="50px" Width="750px" RenderMode="Lightweight"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtNot" runat="server" TextMode="MultiLine" Height="50px" Width="100%" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -395,7 +395,7 @@
             </tr>
         </table>
         <br />
-        <table class="AnaTablo" runat="server" id="tbMusteriSozlesme" visible="true" style="width: 100%">
+        <table class="AnaTablo" runat="server" id="tbMusteriSozlesme" visible="false" style="width: 100%">
             <tr>
                 <th colspan="2" style="text-align: center; font-size: large;">MÜŞTERİ SÖZLEŞMESİ </th>
             </tr>

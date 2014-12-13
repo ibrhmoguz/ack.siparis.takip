@@ -392,7 +392,7 @@
             </tr>
             <tr>
                 <td>
-                    <telerik:RadTextBox ID="txtNot" runat="server" TextMode="MultiLine" Height="50px" Width="750px"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtNot" runat="server" TextMode="MultiLine" Height="50px" Width="100%"></telerik:RadTextBox>
                 </td>
             </tr>
 
@@ -408,7 +408,7 @@
                         <tr>
                             <th style="width: 15%">Adı Soyadı : </th>
                             <td style="width: 35%">
-                                <telerik:RadTextBox ID="txtMusteriAdSoyad" runat="server" Enabled="False" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                                <telerik:RadTextBox ID="txtMusteriAdSoyad" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
                             </td>
                         </tr>
                         <tr>
@@ -426,7 +426,8 @@
                         <tr>
                             <th>Fiyat : </th>
                             <td>
-                                <telerik:RadTextBox ID="txtFiyat" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                                 <telerik:RadNumericTextBox ID="txtFiyat" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency">
+                                </telerik:RadNumericTextBox>
                             </td>
                         </tr>
                         <tr>

@@ -167,6 +167,7 @@ namespace ACKSiparisTakip.Web
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = (rowSiparis["DURUM"] != DBNull.Value) ? rowSiparis["DURUM"].ToString() : String.Empty;
             siparis.SiparisAdedi = (rowSiparis["ADET"] != DBNull.Value) ? rowSiparis["ADET"].ToString() : String.Empty;
+            siparis.Not = (rowSiparis["SIPARISNOT"] != DBNull.Value) ? rowSiparis["SIPARISNOT"].ToString() : String.Empty;
 
             olcum.MontajdaTakilacak = (rowSiparis["MONTAJDATAKILACAK"] != DBNull.Value) ? rowSiparis["MONTAJDATAKILACAK"].ToString() : String.Empty;
             olcum.MontajSekli = (rowSiparis["MONTAJSEKLI"] != DBNull.Value) ? rowSiparis["MONTAJSEKLI"].ToString() : String.Empty;
@@ -539,6 +540,7 @@ namespace ACKSiparisTakip.Web
             if (!string.IsNullOrWhiteSpace(txtCekPesin.Text)) siparis.CekPesin = Convert.ToDouble(txtCekPesin.Text);
             if (!string.IsNullOrWhiteSpace(txtCekKalan.Text)) siparis.CekKalan = Convert.ToDouble(txtCekKalan.Text);
             siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
+            siparis.Not = string.IsNullOrWhiteSpace(txtNot.Text) ? null : txtNot.Text;
             olcum.MontajdaTakilacak = string.IsNullOrWhiteSpace(txtMontajdaTakilacaklar.Text) ? null : txtMontajdaTakilacaklar.Text;
             olcum.MontajSekli = DropDownCheck(ddlMontajSekli) ? null : ddlMontajSekli.SelectedText;
             olcum.OlcumAlanKisi = DropDownCheck(ddlOlcumAlan) ? null : ddlOlcumAlan.SelectedText;
