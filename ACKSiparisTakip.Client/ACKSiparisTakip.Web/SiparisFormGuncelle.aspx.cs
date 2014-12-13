@@ -492,90 +492,64 @@ namespace ACKSiparisTakip.Web
             Olcum olcum = new Olcum();
             Sozlesme sozlesme = new Sozlesme();
 
-            musteri.MusteriAd = txtAd.Text;
-            musteri.MusteriSoyad = txtSoyad.Text;
-            musteri.MusteriAdres = txtAdres.Text;
-            musteri.MusteriCepTel = txtCepTel.Text;
-            musteri.MusteriEvTel = txtEvTel.Text;
-            musteri.MusteriIl = ddlMusteriIl.SelectedItem != null ? ddlMusteriIl.SelectedItem.Text : null;
-            musteri.MusteriIlce = ddlMusteriIlce.SelectedItem != null ? ddlMusteriIlce.SelectedItem.Text : null;
-            musteri.MusteriSemt = ddlMusteriSemt.SelectedItem != null ? ddlMusteriSemt.SelectedItem.Text : null;
-            musteri.MusteriIsTel = txtIsTel.Text;
+            musteri.MusteriAd = string.IsNullOrWhiteSpace(txtAd.Text) ? null : txtAd.Text;
+            musteri.MusteriSoyad = string.IsNullOrWhiteSpace(txtSoyad.Text) ? null : txtSoyad.Text;
+            musteri.MusteriAdres = string.IsNullOrWhiteSpace(txtAdres.Text) ? null : txtAdres.Text;
+            musteri.MusteriCepTel = string.IsNullOrWhiteSpace(txtCepTel.Text) ? null : txtCepTel.Text;
+            musteri.MusteriEvTel = string.IsNullOrWhiteSpace(txtEvTel.Text) ? null : txtEvTel.Text;
+            musteri.MusteriIl = ComboBoxCheck(ddlMusteriIl) ? null : ddlMusteriIl.SelectedItem.Text;
+            musteri.MusteriIlce = ComboBoxCheck(ddlMusteriIlce) ? null : ddlMusteriIlce.SelectedItem.Text;
+            musteri.MusteriSemt = ComboBoxCheck(ddlMusteriSemt) ? null : ddlMusteriSemt.SelectedItem.Text;
+            musteri.MusteriIsTel = string.IsNullOrWhiteSpace(txtIsTel.Text) ? null : txtIsTel.Text;
 
             siparis.SiparisNo = this.SiparisNo;
-            siparis.FirmaAdi = txtFirmaAdi.Text;
-            siparis.AksesuarRenk = ddlAksesuarRengi.SelectedText;
-            siparis.AluminyumRenk = ddlAluminyumRengi.SelectedText;
-            siparis.Baba = ddlBaba.SelectedText;
-            siparis.BarelTip = ddlBarelTipi.SelectedText;
-            siparis.BayiAd = txtBayiAdi.Text;
-            siparis.CekmeKolu = ddlCekmeKolu.SelectedText;
-            siparis.Cita = ddlCita.SelectedText;
-            siparis.ContaRenk = ddlContaRengi.SelectedText;
-            siparis.DisKapiModel = ddlDisKapiModeli.SelectedText;
-            siparis.DisKapiRenk = ddlDisKapiRengi.SelectedText;
-            siparis.Durbun = ddlDurbun.SelectedText;
-            siparis.KayıtYapanKamera = ddlKayitYapanKam.SelectedText;
-            siparis.KayıtYapmayanKamera = ddlKayitsizKam.SelectedText;
-            siparis.Alarm = ddlAlarm.SelectedText;
-            siparis.OtomatikKilit = ddlOtomatikKilit.SelectedText;
-            siparis.Esik = ddlEsik.SelectedText;
-            siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
-            siparis.IcKapiRenk = ddlIcKapiRengi.SelectedText;
-            siparis.KilitSistem = ddlKilitSistemi.SelectedText;
-            siparis.PervazTip = ddlPervazTipi.SelectedText;
+            siparis.FirmaAdi = string.IsNullOrWhiteSpace(txtFirmaAdi.Text) ? null : txtFirmaAdi.Text;
+            siparis.AksesuarRenk = DropDownCheck(ddlAksesuarRengi) ? null : ddlAksesuarRengi.SelectedText;
+            siparis.AluminyumRenk = DropDownCheck(ddlAluminyumRengi) ? null : ddlAluminyumRengi.SelectedText;
+            siparis.Baba = DropDownCheck(ddlBaba) ? null : ddlBaba.SelectedText;
+            siparis.BarelTip = DropDownCheck(ddlBarelTipi) ? null : ddlBarelTipi.SelectedText;
+            siparis.BayiAd = string.IsNullOrWhiteSpace(txtBayiAdi.Text) ? null : txtBayiAdi.Text;
+            siparis.CekmeKolu = DropDownCheck(ddlCekmeKolu) ? null : ddlCekmeKolu.SelectedText;
+            siparis.Cita = DropDownCheck(ddlCita) ? null : ddlCita.SelectedText;
+            siparis.ContaRenk = DropDownCheck(ddlContaRengi) ? null : ddlContaRengi.SelectedText;
+            siparis.DisKapiModel = DropDownCheck(ddlDisKapiModeli) ? null : ddlDisKapiModeli.SelectedText;
+            siparis.DisKapiRenk = DropDownCheck(ddlDisKapiRengi) ? null : ddlDisKapiRengi.SelectedText;
+            siparis.Durbun = DropDownCheck(ddlDurbun) ? null : ddlDurbun.SelectedText;
+            siparis.KayıtYapanKamera = DropDownCheck(ddlKayitYapanKam) ? null : ddlKayitYapanKam.SelectedText;
+            siparis.KayıtYapmayanKamera = DropDownCheck(ddlKayitsizKam) ? null : ddlKayitsizKam.SelectedText;
+            siparis.Alarm = DropDownCheck(ddlAlarm) ? null : ddlAlarm.SelectedText;
+            siparis.OtomatikKilit = DropDownCheck(ddlOtomatikKilit) ? null : ddlOtomatikKilit.SelectedText;
+            siparis.Esik = DropDownCheck(ddlEsik) ? null : ddlEsik.SelectedText;
+            siparis.IcKapiModel = DropDownCheck(ddlIcKapiModeli) ? null : ddlIcKapiModeli.SelectedText;
+            siparis.IcKapiRenk = DropDownCheck(ddlIcKapiRengi) ? null : ddlIcKapiRengi.SelectedText;
+            siparis.KilitSistem = DropDownCheck(ddlKilitSistemi) ? null : ddlKilitSistemi.SelectedText;
+            siparis.PervazTip = DropDownCheck(ddlPervazTipi) ? null : ddlPervazTipi.SelectedText;
             siparis.SiparisTarih = DateTime.Now;
-            siparis.TacTip = ddlTacTipi.SelectedText;
-            siparis.Taktak = ddlTaktak.SelectedText;
+            siparis.TacTip = DropDownCheck(ddlTacTipi) ? null : ddlTacTipi.SelectedText;
+            siparis.Taktak = DropDownCheck(ddlTaktak) ? null : ddlTaktak.SelectedText;
             siparis.KapiTipi = this.KapiTip.ToString();
-            siparis.FirmaAdi = txtFirmaAdi.Text;
+            siparis.FirmaAdi = string.IsNullOrWhiteSpace(txtFirmaAdi.Text) ? null : txtFirmaAdi.Text;
             siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
-
-            if (!string.IsNullOrWhiteSpace(txtNakitPesin.Text))
-                siparis.NakitPesin = Convert.ToDouble(txtNakitPesin.Text);
-            else
-                siparis.NakitPesin = null;
-
-            if (!string.IsNullOrWhiteSpace(txtNakitKalan.Text))
-                siparis.NakitKalan = Convert.ToDouble(txtNakitKalan.Text);
-            else
-                siparis.NakitKalan = null;
+            if (!string.IsNullOrWhiteSpace(txtNakitPesin.Text)) siparis.NakitPesin = Convert.ToDouble(txtNakitPesin.Text);
+            if (!string.IsNullOrWhiteSpace(txtNakitKalan.Text)) siparis.NakitKalan = Convert.ToDouble(txtNakitKalan.Text);
             siparis.NakitOdemeNot = string.IsNullOrWhiteSpace(txtNakitOdemeNotu.Text) ? null : txtNakitOdemeNotu.Text;
-
-
-            if (!string.IsNullOrWhiteSpace(txtKKartiPesin.Text))
-                siparis.KKartiPesin = Convert.ToDouble(txtKKartiPesin.Text);
-            else
-                siparis.KKartiPesin = null;
-            if (!string.IsNullOrWhiteSpace(txtKKartiKalan.Text))
-                siparis.KKartiKalan = Convert.ToDouble(txtKKartiKalan.Text);
-            else
-                siparis.KKartiKalan = null;
+            if (!string.IsNullOrWhiteSpace(txtKKartiPesin.Text)) siparis.KKartiPesin = Convert.ToDouble(txtKKartiPesin.Text);
+            if (!string.IsNullOrWhiteSpace(txtKKartiKalan.Text)) siparis.KKartiKalan = Convert.ToDouble(txtKKartiKalan.Text);
             siparis.KKartiOdemeNot = string.IsNullOrWhiteSpace(txtKKartiOdemeNotu.Text) ? null : txtKKartiOdemeNotu.Text;
-
-
-            if (!string.IsNullOrWhiteSpace(txtCekPesin.Text))
-                siparis.CekPesin = Convert.ToDouble(txtCekPesin.Text);
-            else
-                siparis.CekPesin = null;
-            if (!string.IsNullOrWhiteSpace(txtCekKalan.Text))
-                siparis.CekKalan = Convert.ToDouble(txtCekKalan.Text);
-            else
-                siparis.CekKalan = null;
+            if (!string.IsNullOrWhiteSpace(txtCekPesin.Text)) siparis.CekPesin = Convert.ToDouble(txtCekPesin.Text);
+            if (!string.IsNullOrWhiteSpace(txtCekKalan.Text)) siparis.CekKalan = Convert.ToDouble(txtCekKalan.Text);
             siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
-
-            olcum.MontajdaTakilacak = txtMontajdaTakilacaklar.Text;
-            olcum.MontajSekli = ddlMontajSekli.SelectedText;
-            olcum.OlcumAlanKisi = ddlOlcumAlan.SelectedText;
-            olcum.OlcumBilgi = txtOlcumBilgileri.Text;
-            olcum.OlcumTarih = rdtOlcuTarihSaat.SelectedDate.Value;
-            olcum.TeslimSekli = ddlTeslimSekli.SelectedText;
-
+            olcum.MontajdaTakilacak = string.IsNullOrWhiteSpace(txtMontajdaTakilacaklar.Text) ? null : txtMontajdaTakilacaklar.Text;
+            olcum.MontajSekli = DropDownCheck(ddlMontajSekli) ? null : ddlMontajSekli.SelectedText;
+            olcum.OlcumAlanKisi = DropDownCheck(ddlOlcumAlan) ? null : ddlOlcumAlan.SelectedText;
+            olcum.OlcumBilgi = string.IsNullOrWhiteSpace(txtOlcumBilgileri.Text) ? null : txtOlcumBilgileri.Text;
+            if (rdtOlcuTarihSaat.SelectedDate != null) olcum.OlcumTarih = rdtOlcuTarihSaat.SelectedDate.Value;
+            olcum.TeslimSekli = DropDownCheck(ddlTeslimSekli) ? null : ddlTeslimSekli.SelectedText;
             sozlesme.MontajDurum = "A";
-            sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;
-            sozlesme.VergiDairesi = txtVergiDairesi.Text;
-            sozlesme.VergiNumarası = txtVergiNumarasi.Text;
-            sozlesme.Fiyat = txtFiyat.Text;
+            if (rdpTeslimTarihi.SelectedDate != null) sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;
+            sozlesme.VergiDairesi = string.IsNullOrWhiteSpace(txtVergiDairesi.Text) ? null : txtVergiDairesi.Text;
+            sozlesme.VergiNumarası = string.IsNullOrWhiteSpace(txtVergiNumarasi.Text) ? null : txtVergiNumarasi.Text;
+            sozlesme.Fiyat = string.IsNullOrWhiteSpace(txtFiyat.Text) ? null : txtFiyat.Text;
 
             string seriAdi = this.KapiTip.ToString().ToUpper();
             bool state = new SiparisIslemleriBS().SiparisGuncelle(musteri, siparis, olcum, sozlesme);
@@ -589,5 +563,20 @@ namespace ACKSiparisTakip.Web
                 MessageBox.Hata(this, "Sipariş güncellenemedi.");
         }
 
+        private bool DropDownCheck(RadDropDownList ddl)
+        {
+            if (ddl.SelectedItem == null || ddl.SelectedIndex == 0)
+                return true;
+            else
+                return false;
+        }
+
+        private bool ComboBoxCheck(RadComboBox rcb)
+        {
+            if (rcb.SelectedItem == null || rcb.SelectedIndex == 0)
+                return true;
+            else
+                return false;
+        }
     }
 }

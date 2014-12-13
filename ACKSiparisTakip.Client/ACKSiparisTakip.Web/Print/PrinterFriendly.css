@@ -67,7 +67,7 @@ table.normalTablo tr.AlternatifTabloSatiri td  { background: #E5ECF9; }
 table.normalTablo tfoot		{ font-style: italic; }
 table.normalTablo caption	{ background: #eee; }
 
-table.boldTablo, table.boldTablo td { font-size:x-small; font-weight:bold; margin-bottom: 1.4em; border-collapse:collapse; border:1px solid gray;}
+table.boldTablo, table.boldTablo td { font-size:9pt; font-weight:normal; margin-bottom: 1.4em; border-collapse:collapse; border:1px solid gray;}
 table.boldTablo th   		{ font-weight: bold; background: #C3D9FF; }
 table.boldTablo th,td		{ padding: 0px 0px 0px 0px; }
 table.boldTablo tr.AlternatifTabloSatiri td  { background: #E5ECF9; }

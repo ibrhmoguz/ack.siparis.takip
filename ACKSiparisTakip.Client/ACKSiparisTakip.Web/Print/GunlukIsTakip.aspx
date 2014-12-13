@@ -3,32 +3,27 @@
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <br />
-    <br />
+
     <table style="width: 100%" class="normalTablo">
         <tr>
-            <td style="width: 70px">
+            <td rowspan="4" style="width: 70px; padding: 5px 5px 5px 5px">
                 <telerik:RadBinaryImage ID="imgLogo" runat="server" ImageUrl="~/App_Themes/Theme/Raster/ackLogo.PNG" Width="70" Height="70" />
             </td>
-            <td style="text-align: center; vertical-align: central">
+            <td rowspan="4" style="text-align: center; vertical-align: central">
                 <h3>Günlük İş Takip Formu</h3>
-            </td>
-            <td style="width: 170px">
-                <table style="width: 100%; border-collapse: inherit" border="0">
-                    <tr>
-                        <td>Doküman Kodu : F27</td>
-                    </tr>
-                    <tr>
-                        <td>Yürürlük Tarihi : 20.08.2004</td>
-                    </tr>
-                    <tr>
-                        <td>Rev. No-Tarihi : 0</td>
-                    </tr>
-                </table>
             </td>
         </tr>
         <tr>
-            <td colspan="3" style="font-weight: bold">TARİH:
+            <td style="width: 170px; vertical-align: middle; padding: 3px 3px 3px 3px">Doküman Kodu : F27</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: middle; padding: 3px 3px 3px 3px">Yürürlük Tarihi : 20.08.2004</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: middle; padding: 3px 3px 3px 3px">Rev. No-Tarihi : 0</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="font-weight: bold; vertical-align: middle; padding: 3px 3px 3px 3px">TARİH:
                 <asp:Label ID="lblTarih" runat="server"></asp:Label>
             </td>
         </tr>
