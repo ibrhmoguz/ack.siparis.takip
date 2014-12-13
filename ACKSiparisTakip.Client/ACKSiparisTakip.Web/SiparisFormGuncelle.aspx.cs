@@ -334,6 +334,8 @@ namespace ACKSiparisTakip.Web
             DataTable dtPervazTip = ds.Tables["PERVAZTIP"];
             DataTable dtContaRenk = ds.Tables["CONTARENK"];
             DataTable dtPersonel = ds.Tables["PERSONEL"];
+            DataTable dtBarelTip = ds.Tables["BARELTIP"];
+            DataTable dtCekmeKol = ds.Tables["CEKMEKOL"];
 
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
@@ -350,6 +352,8 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlPervazTipi, dtPervazTip);
             DropDownBindEt(ddlContaRengi, dtContaRenk);
             DropDownBindEt(ddlOlcumAlan, dtPersonel);
+            DropDownBindEt(ddlBarelTipi, dtBarelTip);
+            DropDownBindEt(ddlCekmeKolu, dtCekmeKol);
 
             Kontrol();
             IlleriGetir();
