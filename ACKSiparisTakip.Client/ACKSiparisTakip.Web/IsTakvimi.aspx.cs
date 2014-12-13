@@ -132,6 +132,7 @@ namespace ACKSiparisTakip.Web
                 return;
 
             List<Appointment> appointmentList = new List<Appointment>();
+            DateTime tempDate = new DateTime();
 
             for (int i = 0; i < dtMontajlar.Rows.Count; i++)
             {
@@ -142,7 +143,15 @@ namespace ACKSiparisTakip.Web
                 int montajID = Convert.ToInt32(row[0]);
                 string siparisNo = row["SIPARISNO"].ToString();
                 DateTime montajTarihi = Convert.ToDateTime(row["TESLIMTARIH"]);
-                Appointment app = new Appointment(montajID, montajTarihi, montajTarihi.AddHours(2), siparisNo);
+                if (tempDate.Date == montajTarihi.Date)
+                {
+                    tempDate = tempDate.AddHours(0.5);
+                    if (tempDate > montajTarihi)
+                        montajTarihi = tempDate;
+                }
+                tempDate = montajTarihi;
+
+                Appointment app = new Appointment(montajID, montajTarihi, montajTarihi.AddHours(0.5), siparisNo);
                 appointmentList.Add(app);
             }
 

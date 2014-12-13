@@ -9,9 +9,9 @@
         function OnClientAppointmentInserting(sender, eventArgs) {
             eventArgs.set_cancel(true);
         }
-        function OnClientAppointmentResizing(sender, eventArgs) {
-            eventArgs.set_cancel(true);
-        }
+        //function OnClientAppointmentResizing(sender, eventArgs) {
+        //    //eventArgs.set_cancel(true);
+        //}
         function OnClientAppointmentDeleting(sender, eventArgs) {
             eventArgs.set_cancel(true);
         }
@@ -19,6 +19,23 @@
             eventArgs.set_cancel(true);
         }
     </script>
+    <style type="text/css">
+        .rsWeekView .rsWrap {
+            height: 0px !important;
+        }
+
+        .rsWeekView .rsDateWrap {
+            height: 12px !important;
+        }
+
+        .rsWeekView .rsLastWrap {
+            height: 12px !important;
+        }
+
+        .rsWeekView .rsApt {
+            height: 60px !important;
+        }
+    </style>
     <br />
     <table style="width: 100%">
         <tr>
@@ -51,12 +68,13 @@
                     HoursPanelTimeFormat="HH:mm"
                     DayView-ShowHoursColumn="false"
                     WeekView-ShowHoursColumn="false"
+                    MonthView-AdaptiveRowHeight="true"
                     AllowInsert="False"
                     SelectedView="WeekView"
+                    MinutesPerRow="10"
                     OnAppointmentCommand="RadSchedulerIsTakvimi_AppointmentCommand"
                     OnAppointmentCreated="RadSchedulerIsTakvimi_AppointmentCreated"
                     OnClientAppointmentInserting="OnClientAppointmentInserting"
-                    OnClientAppointmentResizing="OnClientAppointmentResizing"
                     OnClientAppointmentDeleting="OnClientAppointmentDeleting"
                     OnClientAppointmentMoving="OnClientAppointmenMoving"
                     OnFormCreated="RadSchedulerIsTakvimi_FormCreated"
@@ -66,7 +84,7 @@
                         AdvancedDaily="Günlük" AdvancedDay="Gün" AdvancedDays="Gün(ler)" AdvancedDescription="Tanım" AdvancedDone="Bitti" AdvancedEvery="Her" AdvancedEveryWeekday="Her haftagünü"
                         AdvancedFirst="birinci" AdvancedFourth="dördüncü" AdvancedFrom="Başlangıç zamanı" AdvancedHourly="Saatlik" AdvancedHours="saat(ler)" AdvancedInvalidNumber="Geçersiz sayı"
                         AdvancedLast="son" AdvancedMaskDay="gün" AllDay="tüm gün işleri" ReminderWeek="hafta" Save="Kaydet" Show24Hours="24 saati göster" ShowAdvancedForm="Seçenekler"
-                        ShowBusinessHours="İş saatlerini göster" HeaderTimeline="Ajanda Görünümü" />
+                        ShowBusinessHours="İş saatlerini göster" HeaderTimeline="Ajanda Görünümü" ShowMore="Tümü" />
                     <DayView UserSelectable="true" />
                     <WeekView UserSelectable="true" />
                     <MonthView VisibleAppointmentsPerDay="3" />
@@ -136,15 +154,10 @@
                             <asp:LinkButton ID="LabelAppointmentSiparisNo" runat="server" Font-Bold="true"><%# Eval("Subject") %></asp:LinkButton>
                             <br />
                             <asp:Label ID="LabelAppointmentMusteriAdSoyad" runat="server">Müşteri Adı Soyadı</asp:Label>
-                            <br />
                             <asp:Label ID="LabelAppointmentAdresIlIlce" runat="server">Adres İl İlçe</asp:Label>
-                            <br />
                             <asp:Label ID="LabelAppointmentAdres" runat="server">Adres</asp:Label>
-                            <br />
                             <asp:Label ID="LabelAppointmentTelefon" runat="server">Telefon</asp:Label>
-                            <br />
                             <asp:Label ID="LabelAppointmentMontajEkibi" runat="server">Montaj Ekibi</asp:Label>
-                            <br />
                         </div>
                     </AppointmentTemplate>
                 </telerik:RadScheduler>

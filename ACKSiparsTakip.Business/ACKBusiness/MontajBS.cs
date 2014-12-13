@@ -33,7 +33,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                     , M.DURUM
                                 FROM MONTAJ AS M
 	                                INNER JOIN SIPARIS as S ON M.SIPARISNO = S.SIPARISNO
-                                WHERE M.TESLIMTARIH >=@BASTAR AND M.TESLIMTARIH <=@BITTAR";
+                                WHERE M.TESLIMTARIH >=@BASTAR AND M.TESLIMTARIH <=@BITTAR
+                                ORDER BY M.TESLIMTARIH, S.SIPARISNO";
             data.GetRecords(dt, sqlKaydet);
             return dt;
         }
