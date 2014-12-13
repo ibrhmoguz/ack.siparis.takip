@@ -405,7 +405,7 @@
                         <tr>
                             <th style="width: 15%">Adı Soyadı : </th>
                             <td style="width: 35%">
-                                <telerik:RadTextBox ID="txtMusteriAdSoyad" runat="server" Enabled="False" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                                <telerik:RadTextBox ID="txtMusteriAdSoyad" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
                             </td>
                         </tr>
                         <tr>
