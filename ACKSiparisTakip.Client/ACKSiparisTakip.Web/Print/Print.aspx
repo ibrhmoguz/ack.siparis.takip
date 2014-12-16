@@ -85,7 +85,10 @@
                 <td>
                     <asp:Label ID="lblFirmaAdi" runat="server"></asp:Label>
                 </td>
-                <td colspan="2"></td>
+                <td style="font-weight: bold">Sipariş Adedi: </td>
+                <td>
+                    <asp:Label ID="lblSiparisAdedi" runat="server"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td style="font-weight: bold">Adı : </td>
@@ -100,13 +103,7 @@
             <tr>
                 <td style="font-weight: bold" rowspan="3">Adresi : </td>
                 <td rowspan="3">
-                    <table>
-                        <tr>
-                            <td colspan="4">
-                                <asp:Label ID="lblAdres" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                    </table>
+                    <asp:Label ID="lblAdres" runat="server"></asp:Label>
                 </td>
                 <td style="font-weight: bold">Ev Tel : </td>
                 <td>

@@ -38,7 +38,6 @@ namespace ACKSiparisTakip.Web
                 ddlOge.DataSource = null;
                 ddlOge.DataBind();
             }
-
         }
 
         protected void ddlOge_SelectedIndexChanged(object sender, DropDownListEventArgs e)
@@ -56,7 +55,6 @@ namespace ACKSiparisTakip.Web
                 trKapiModel.Visible = true;
                 KapiSeriDoldur();
                 rgOgeler1.Visible = false;
-
             }
             else
             {
@@ -64,7 +62,6 @@ namespace ACKSiparisTakip.Web
                 GridDoldur(tabloAdi);
                 rgOgeler1.Visible = true;
             }
-
         }
 
         private void KapiSeriDoldur()
@@ -77,14 +74,12 @@ namespace ACKSiparisTakip.Web
                 ddlKapiSeri.DataValueField = "ID";
                 ddlKapiSeri.DataBind();
                 ddlKapiSeri.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
-
             }
             else
             {
                 ddlKapiSeri.DataSource = null;
                 ddlKapiSeri.DataBind();
             }
-
         }
 
         protected void ddlKapiSeri_SelectedIndexChanged(object sender, DropDownListEventArgs e)
@@ -103,6 +98,12 @@ namespace ACKSiparisTakip.Web
                 return;
 
             DataView dv = ds.Tables[tabloAdi].DefaultView;
+            GridBind(dv);
+            Session["YonetimSayfasiOgeListesi1"] = dv;
+        }
+
+        private void GridBind(DataView dv)
+        {
             rgOgeler1.DataSource = dv;
             rgOgeler1.DataBind();
         }
@@ -116,6 +117,12 @@ namespace ACKSiparisTakip.Web
             if (dt.Rows.Count == 0)
                 return;
 
+            GridBind2(dt);
+            Session["YonetimSayfasiOgeListesi2"] = dt;
+        }
+
+        private void GridBind2(DataTable dt)
+        {
             rgOgeler2.DataSource = dt;
             rgOgeler2.DataBind();
         }
@@ -146,14 +153,10 @@ namespace ACKSiparisTakip.Web
                         GridDoldur(tabloAdi);
                         MessageBox.Basari(this, "Seçiminiz silindi.");
                     }
-
                 }
                 else
-                {
                     MessageBox.Hata(this, "Silme işleminde hata oluştu!");
-                }
             }
-
         }
 
         protected void btnEkle_Click(object sender, EventArgs e)
@@ -172,20 +175,11 @@ namespace ACKSiparisTakip.Web
             ad = txtAd.Text;
 
             if (cbxKapiTuru.Items[0].Selected)
-            {
                 nova = true;
-
-            }
             if (cbxKapiTuru.Items[1].Selected)
-            {
                 kroma = true;
-
-            }
             if (cbxKapiTuru.Items[2].Selected)
-            {
                 guard = true;
-
-            }
 
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("TABLOADI", tabloAdi);
@@ -203,9 +197,7 @@ namespace ACKSiparisTakip.Web
                 MessageBox.Basari(this, "Seçiminiz eklendi.");
             }
             else
-            {
                 MessageBox.Hata(this, "Ekleme işleminde hata oluştu!");
-            }
         }
 
         protected void btnEkle2_Click(object sender, EventArgs e)
@@ -234,9 +226,7 @@ namespace ACKSiparisTakip.Web
                 MessageBox.Basari(this, "Seçiminiz eklendi.");
             }
             else
-            {
                 MessageBox.Hata(this, "Ekleme işleminde hata oluştu!");
-            }
         }
 
         protected void lbYeniKayit_Click(object sender, EventArgs e)
@@ -262,16 +252,14 @@ namespace ACKSiparisTakip.Web
 
         protected void rgOgeler1_PageIndexChanged(object sender, GridPageChangedEventArgs e)
         {
-            rgOgeler1.CurrentPageIndex= e.NewPageIndex;
-            GridDoldur(Session["TabloAdi"].ToString());
-            GridDoldur2(Session["kapiSeriId"].ToString());
+            rgOgeler1.CurrentPageIndex = e.NewPageIndex;
+            GridBind((DataView)Session["YonetimSayfasiOgeListesi1"]);
         }
 
         protected void rgOgeler2_PageIndexChanged(object sender, GridPageChangedEventArgs e)
         {
             rgOgeler2.CurrentPageIndex = e.NewPageIndex;
-            GridDoldur2(Session["kapiSeriId"].ToString());
+            GridBind2((DataTable)Session["YonetimSayfasiOgeListesi2"]);
         }
-
     }
 }

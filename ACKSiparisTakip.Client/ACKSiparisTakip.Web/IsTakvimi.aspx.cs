@@ -84,6 +84,27 @@ namespace ACKSiparisTakip.Web
 
         protected void RadCalendarIsTakvimi_SelectionChanged(object sender, SelectedDatesEventArgs e)
         {
+            DateTime dtBaslangic = new DateTime();
+            DateTime dtBitis = new DateTime();
+
+            if (RadSchedulerIsTakvimi.SelectedView == SchedulerViewType.DayView)
+            {
+                dtBaslangic = e.SelectedDates[0].Date;
+                dtBitis = dtBaslangic;
+            }
+            else if (RadSchedulerIsTakvimi.SelectedView == SchedulerViewType.WeekView)
+            {
+                dtBaslangic = HaftaBaslangicGunu(e.SelectedDates[0].Date);
+                dtBitis = HaftaBitisGunu(dtBaslangic);
+            }
+            else if (RadSchedulerIsTakvimi.SelectedView == SchedulerViewType.MonthView || RadSchedulerIsTakvimi.SelectedView == SchedulerViewType.TimelineView)
+            {
+                DateTime dtTemp = e.SelectedDates[0].Date;
+                dtBaslangic = new DateTime(dtTemp.Year, dtTemp.Month, 1);
+                dtBitis = dtBaslangic.AddMonths(1).AddDays(-1);
+            }
+
+            MontajlariListele(dtBaslangic, dtBitis);
             RadSchedulerIsTakvimi.SelectedDate = e.SelectedDates[0].Date;
             RadSchedulerIsTakvimi.Rebind();
             IsleriTakvimeYukle();
@@ -97,7 +118,7 @@ namespace ACKSiparisTakip.Web
 
         private void HaftaMontajlariniYukle()
         {
-            DateTime dtBaslangic = HaftaBaslangicGunu();
+            DateTime dtBaslangic = HaftaBaslangicGunu(RadSchedulerIsTakvimi.SelectedDate);
             DateTime dtBitis = HaftaBitisGunu(dtBaslangic);
             MontajlariListele(dtBaslangic, dtBitis);
         }
@@ -107,9 +128,8 @@ namespace ACKSiparisTakip.Web
             this.MontajListesi = new MontajBS().MontajlariListele(dtBaslangic, dtBitis);
         }
 
-        public DateTime HaftaBaslangicGunu()
+        public DateTime HaftaBaslangicGunu(DateTime dtStart)
         {
-            DateTime dtStart = RadSchedulerIsTakvimi.SelectedDate;
             int margin = 0;
             if (dtStart.Day % 7 == 0)
                 margin = 7;
@@ -142,6 +162,14 @@ namespace ACKSiparisTakip.Web
 
                 int montajID = Convert.ToInt32(row[0]);
                 string siparisNo = row["SIPARISNO"].ToString();
+                int siparisAdedi;
+                if (Int32.TryParse(row["ADET"].ToString(), out siparisAdedi))
+                {
+                    if (siparisAdedi > 1)
+                    {
+                        siparisNo += " ADT:" + siparisAdedi.ToString();
+                    }
+                }
                 DateTime montajTarihi = Convert.ToDateTime(row["TESLIMTARIH"]);
                 if (tempDate.Date == montajTarihi.Date)
                 {

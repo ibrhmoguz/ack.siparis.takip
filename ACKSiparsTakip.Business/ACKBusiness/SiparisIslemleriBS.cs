@@ -814,13 +814,13 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 	                                AND (@Ilce IS NULL OR [MUSTERIILCE] = @Ilce)
                                     AND (@Durum IS NULL OR S.[DURUM] = @Durum)
                                     AND (@Semt IS NULL OR S.[MUSTERISEMT] = @Semt)
-                                    AND (@Adres IS NULL OR S.[MUSTERIADRES] = @Adres)
-                                    AND (@Tel IS NULL OR S.[MUSTERICEPTEL] LIKE '%{3}%')";
+                                    AND (@Adres IS NULL OR S.[MUSTERIADRES] LIKE '%{3}%')
+                                    AND (@Tel IS NULL OR S.[MUSTERICEPTEL] LIKE '%{4}%')";
 
             string liste = String.Empty;
             liste = prms["PersonelListesi"] == null ? "1" : prms["PersonelListesi"].ToString();
 
-            data.GetRecords(dt, String.Format(sqlText, prms["MusteriAd"], prms["MusteriSoyad"], liste, prms["Tel"]));
+            data.GetRecords(dt, String.Format(sqlText, prms["MusteriAd"], prms["MusteriSoyad"], liste, prms["Adres"], prms["Tel"]));
             return dt;
         }
     }

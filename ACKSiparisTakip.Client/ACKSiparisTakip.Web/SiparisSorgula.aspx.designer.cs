@@ -301,6 +301,15 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadButton btnSorgula;
         
         /// <summary>
+        /// btnTemizle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnTemizle;
+        
+        /// <summary>
         /// tblSonuc control.
         /// </summary>
         /// <remarks>

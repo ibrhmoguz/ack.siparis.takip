@@ -6,23 +6,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 75%">
+    <style type="text/css">
+        .rgAdvPart {
+            display: none;
+        }
+    </style>
+    <div style="width: 100%">
         <br />
         <br />
         <br />
-        <table class="AnaTablo">
+        <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th colspan="2" style="text-align: center; font-size: large;">FORM ÖĞELERİ<br />
                 </th>
             </tr>
             <tr>
-                <th style="width: 30%">Düzenlemek istediğiniz öğeyi seçiniz : </th>
+                <th style="width: 20%">Düzenlemek istediğiniz öğeyi seçiniz : </th>
                 <td>
                     <telerik:RadDropDownList ID="ddlOge" runat="server" OnSelectedIndexChanged="ddlOge_SelectedIndexChanged" AutoPostBack="True"></telerik:RadDropDownList>
                 </td>
-            </tr>
-            <tr>
-                <td colspan="2"></td>
             </tr>
             <tr>
                 <td colspan="2">
@@ -72,9 +74,9 @@
                             <th style="width: 15%;">Kapı Türü :</th>
                             <td>
                                 <asp:CheckBoxList ID="cbxKapiTuru" runat="server" AutoPostBack="True" RepeatDirection="Horizontal">
-                                    <asp:ListItem >Nova</asp:ListItem>
-                                    <asp:ListItem >Kroma</asp:ListItem>
-                                    <asp:ListItem > Guard</asp:ListItem>
+                                    <asp:ListItem>Nova</asp:ListItem>
+                                    <asp:ListItem>Kroma</asp:ListItem>
+                                    <asp:ListItem> Guard</asp:ListItem>
                                 </asp:CheckBoxList>
                             </td>
                             <td>
@@ -87,7 +89,7 @@
                 </td>
             </tr>
             <tr id="trKapiModel" runat="server" visible="false">
-                <th> Kapı serisini seçiniz : </th>
+                <th>Kapı serisini seçiniz : </th>
                 <td>
                     <telerik:RadDropDownList ID="ddlKapiSeri" runat="server" OnSelectedIndexChanged="ddlKapiSeri_SelectedIndexChanged" AutoPostBack="True"></telerik:RadDropDownList>
                 </td>
@@ -102,10 +104,10 @@
 
                         <MasterTableView AutoGenerateColumns="False" DataKeyNames="ID">
                             <Columns>
-                                <telerik:GridBoundColumn DataField="ID" HeaderText="ID" 
+                                <telerik:GridBoundColumn DataField="ID" HeaderText="ID"
                                     UniqueName="ID" Visible="false">
                                 </telerik:GridBoundColumn>
-                                <telerik:GridBoundColumn DataField="AD" HeaderText="AD" 
+                                <telerik:GridBoundColumn DataField="AD" HeaderText="AD"
                                     UniqueName="AD">
                                 </telerik:GridBoundColumn>
                                 <telerik:GridButtonColumn Text="Sil" CommandName="Delete" ButtonType="ImageButton" />
@@ -117,7 +119,7 @@
                     </telerik:RadGrid>
                 </td>
             </tr>
-             <tr id="trKayitEkle2" runat="server" visible="false">
+            <tr id="trKayitEkle2" runat="server" visible="false">
                 <td colspan="2">
                     <br />
                     <asp:LinkButton ID="lbYeniKayit2" runat="server" OnClick="lbYeniKayit2_Click"> Yeni Kayıt İçin Tıklayınız </asp:LinkButton>
@@ -130,7 +132,7 @@
                             <th style="width: 10%;">Ad :</th>
                             <td style="width: 30%;">
                                 <telerik:RadTextBox ID="txtAd2" runat="server"></telerik:RadTextBox>
-                            </td>                            
+                            </td>
                             <td>
                                 <telerik:RadButton ID="RadButton1" runat="server" Text="Ekle" OnClick="btnEkle2_Click">
                                     <Icon PrimaryIconCssClass="rbAdd" PrimaryIconLeft="4" PrimaryIconTop="3" />

@@ -145,6 +145,16 @@ namespace ACKSiparisTakip.Web.Print
             lblCekPesin.Text = (row["CEKPESIN"] != DBNull.Value) ? row["CEKPESIN"].ToString() : String.Empty;
             lblCekKalan.Text = (row["CEKKALAN"] != DBNull.Value) ? row["CEKKALAN"].ToString() : String.Empty;
             lblCekOdemeNotu.Text = (row["CEKODEMENOTU"] != DBNull.Value) ? row["CEKODEMENOTU"].ToString() : String.Empty;
+            lblSiparisAdedi.Text = (row["ADET"] != DBNull.Value) ? row["ADET"].ToString() : String.Empty;
+
+            int siparisAdedi;
+            if (Int32.TryParse(lblSiparisAdedi.Text, out siparisAdedi))
+            {
+                if (siparisAdedi > 1)
+                {
+                    lblSiparisNo.Text = this.SiparisNo + ".1 / " + this.SiparisNo + "." + siparisAdedi;
+                }
+            }
         }
     }
 }

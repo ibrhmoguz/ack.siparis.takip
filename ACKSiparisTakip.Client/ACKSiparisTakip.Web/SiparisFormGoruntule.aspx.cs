@@ -150,6 +150,15 @@ namespace ACKSiparisTakip.Web
             lblCekKalan.Text = (row["CEKKALAN"] != DBNull.Value) ? row["CEKKALAN"].ToString() : String.Empty;
             lblCekOdemeNotu.Text = (row["CEKODEMENOTU"] != DBNull.Value) ? row["CEKODEMENOTU"].ToString() : String.Empty;
             lblNot.Text = (row["SIPARISNOT"] != DBNull.Value) ? row["SIPARISNOT"].ToString() : String.Empty;
+
+            int siparisAdedi;
+            if (Int32.TryParse(lblSiparisAdedi.Text, out siparisAdedi))
+            {
+                if (siparisAdedi > 1)
+                {
+                    lblSiparisNo.Text = this.SiparisNo + ".1 / " + this.SiparisNo + "." + siparisAdedi;
+                }
+            }
         }
 
         protected void btnGuncelle_Click(object sender, EventArgs e)

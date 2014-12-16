@@ -74,6 +74,7 @@
     <Content Include="App_Themes\Theme\Raster\buton.jpg" />
     <Content Include="App_Themes\Theme\Raster\calendar.jpg" />
     <Content Include="App_Themes\Theme\Raster\cancel.gif" />
+    <Content Include="App_Themes\Theme\Raster\clear.png" />
     <Content Include="App_Themes\Theme\Raster\dl.png" />
     <Content Include="App_Themes\Theme\Raster\error.png" />
     <Content Include="App_Themes\Theme\Raster\guard.png" />

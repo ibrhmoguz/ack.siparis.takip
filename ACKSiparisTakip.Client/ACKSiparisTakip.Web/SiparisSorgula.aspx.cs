@@ -54,7 +54,7 @@ namespace ACKSiparisTakip.Web
             if (!Page.IsPostBack)
             {
                 VarsayilanDegerleriAyarla();
-                
+
             }
         }
 
@@ -92,7 +92,7 @@ namespace ACKSiparisTakip.Web
             DataTable dtPervazTip = ds.Tables["REF_PERVAZTIP"];
             DataTable dtContaRenk = ds.Tables["REF_CONTARENK"];
             DataTable dtPersonel = ds.Tables["REF_PERSONEL"];
-        
+
 
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
@@ -107,7 +107,7 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlTacTipi, dtTacTip);
             DropDownBindEt(ddlPervazTipi, dtPervazTip);
             DropDownBindEt(ddlContaRengi, dtContaRenk);
-       
+
             IlleriGetir();
         }
 
@@ -415,6 +415,42 @@ namespace ACKSiparisTakip.Web
                 ddlKapiSeri.DataBind();
             }
 
+        }
+
+        protected void btnTemizle_Click(object sender, EventArgs e)
+        {
+            ddlKapiSeri.SelectedIndex = 0;
+            ddlPervazTipi.SelectedIndex = 0;
+            ddlTacTipi.SelectedIndex = 0;
+            ddlAksesuarRengi.SelectedIndex = 0;
+            ddlEsik.SelectedIndex = 0;
+            ddlMusteriSemt.Items.Clear();
+            ddlMusteriSemt.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+            ddlMusteriIlce.Items.Clear();
+            ddlMusteriIlce.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
+            ddlKilitSistemi.SelectedIndex = 0;
+            ddlMusteriIl.SelectedIndex = 0;
+            ddlContaRengi.SelectedIndex = 0;
+            ddlIcKapiRengi.SelectedIndex = 0;
+            ddlDisKapiModeli.SelectedIndex = 0;
+            ddlAluminyumRengi.SelectedIndex = 0;
+            ddlDisKapiRengi.SelectedIndex = 0;
+            ddlIcKapiModeli.SelectedIndex = 0;
+            ddlMusteriSemt.SelectedIndex = 0;
+            ddlMontajSekli.SelectedIndex = 0;
+            ddlCita.SelectedIndex = 0;
+            ddlSiparisDurumu.SelectedIndex = 0;
+            txtMusteriSoyad.Text = string.Empty;
+            txtMusteriAd.Text = string.Empty;
+            txtSiparisNo.Text = string.Empty;
+            txtAdres.Text = string.Empty;
+            txtTel.Text = string.Empty;
+            rdpTeslimTarihiBit.SelectedDate = null;
+            rdpTeslimTarihiBas.SelectedDate = null;
+            rdtSiparisTarihiBit.SelectedDate = null;
+            rdtSiparisTarihiBas.SelectedDate = null;
+            foreach (RadListBoxItem item in ListBoxMontajEkibi.Items)
+                if (item.Checked) item.Checked = false;
         }
     }
 }

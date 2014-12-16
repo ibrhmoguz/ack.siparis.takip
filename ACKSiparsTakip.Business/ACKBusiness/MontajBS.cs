@@ -24,6 +24,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 	                                M.ID
                                     , M.TESLIMTARIH
 	                                , S.SIPARISNO
+                                    , S.ADET
 	                                , S.MUSTERIAD + ' ' + S.MUSTERISOYAD AS MUSTERI
 	                                , S.MUSTERIILCE +'/' + S.MUSTERIIL AS ILILCE
 	                                , S.MUSTERIADRES AS ADRES

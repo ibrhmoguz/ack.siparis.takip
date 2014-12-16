@@ -40,7 +40,6 @@
                             <asp:BoundField DataField="SEMT" HeaderText="SEMT" />
                             <asp:BoundField DataField="MONTAJEKIBI" HeaderText="MONTAJ EKİBİ" />
                             <asp:BoundField DataField="ACIKLAMA" HeaderText="AÇIKLAMA" ItemStyle-Font-Size="10px" />
-                            <asp:BoundField DataField="KAPICINSI" HeaderText="KAPI CİNSİ" />
                         </Columns>
                     </asp:GridView>
                 </td>

@@ -159,6 +159,9 @@
                     <telerik:RadButton ID="btnSorgula" runat="server" Text="Sorgula" OnClick="btnSorgula_Click">
                         <Icon PrimaryIconCssClass="rbSearch" />
                     </telerik:RadButton>
+                    <telerik:RadButton ID="btnTemizle" runat="server" Text="Temizle" OnClick="btnTemizle_Click">
+                        <Icon PrimaryIconCssClass="rbRefresh" />
+                    </telerik:RadButton>
                 </td>
             </tr>
         </table>
