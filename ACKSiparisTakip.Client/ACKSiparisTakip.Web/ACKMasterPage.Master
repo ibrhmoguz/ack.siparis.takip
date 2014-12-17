@@ -88,7 +88,12 @@
                 </telerik:RibbonBarGroup>
                 <telerik:RibbonBarGroup Text="Form Öğelerini Güncelleme">
                     <Items>
-                        <telerik:RibbonBarButton ID="rbbFormOgeGuncelle" Size="Large" Text="DÜZENLE" ToolTip="Form öğelerini düzenlemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="FormOgeGuncelle" />
+                        <telerik:RibbonBarButton ID="rbbFormOgeGuncelle" Size="Large" Text="FORM ÖĞE DÜZENLE" ToolTip="Form öğelerini düzenlemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guncelle.png" CommandName="FormOgeGuncelle" />
+                    </Items>
+                </telerik:RibbonBarGroup>
+                <telerik:RibbonBarGroup Text="Günlük Montaj Kota Tanımlama">
+                    <Items>
+                        <telerik:RibbonBarButton ID="rbbMontajKota" Size="Large" Text="MONTAJ KOTA TANIMLA" ToolTip="Günlük montaj kotası belirlemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/montajKota.png" CommandName="MontajKotaDuzenle" />
                     </Items>
                 </telerik:RibbonBarGroup>
                 <telerik:RibbonBarGroup Text="">
@@ -104,7 +109,7 @@
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>
-             <telerik:RibbonBarTab Text="RAPORLAR">
+            <telerik:RibbonBarTab Text="RAPORLAR">
                 <telerik:RibbonBarGroup Text="Takip Formu">
                     <Items>
                         <telerik:RibbonBarButton ID="rbbGunlukIsTakipFormu" Size="Large" Text="GÜNLÜK İŞ TAKİP FORMU" ToolTip="Günlük iş takip formu için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/gunlukRapor.png" CommandName="GunlukIsTakipFormu" />

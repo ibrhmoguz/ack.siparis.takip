@@ -10,6 +10,7 @@ using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
 using ACKSiparisTakip.Web.Helper;
 using Telerik.Web.UI;
 using System.Globalization;
+using System.Configuration;
 
 namespace ACKSiparisTakip.Web
 {
@@ -288,6 +289,43 @@ namespace ACKSiparisTakip.Web
             if (!string.IsNullOrEmpty(txtFiyat.Text)) sozlesme.Fiyat = txtFiyat.Text;
 
             string seriAdi = this.KapiTip.ToString().ToUpper();
+
+            //Montaj kota kontrolu acik ise
+            if (Convert.ToBoolean(ConfigurationManager.AppSettings["MONTAJ_KOTA_KONTROLU"]))
+            {
+                MontajBS montajBS = new MontajBS();
+                int yapilanMontajSayisi = montajBS.GünlükMontajSayisiniGetir(rdpTeslimTarihi.SelectedDate.Value);
+                DataTable dt = montajBS.GünlükMontajKotaBilgisiGetir(rdpTeslimTarihi.SelectedDate.Value);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    bool montajKabul = Convert.ToBoolean(row["MONTAJKABUL"]);
+                    if (!montajKabul)
+                    {
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToString() + " tarihi için montaj alınamaz!");
+                        return;
+                    }
+                    else
+                    {
+                        int gunlukMontakKotaDegeri = Convert.ToInt32(row["MAXMONTAJSAYI"]);
+                        if (yapilanMontajSayisi >= gunlukMontakKotaDegeri)
+                        {
+                            MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToString("dd.MM.YYYY") + " tarihi için montaj kotası(" + gunlukMontakKotaDegeri.ToString() + ") değerine ulaşılmıştır.");
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    int kotaVarsayilanDegeri = Convert.ToInt32(ConfigurationManager.AppSettings["MONTAJ_KOTA_VARSAYILAN"]);
+                    if (yapilanMontajSayisi >= kotaVarsayilanDegeri)
+                    {
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToString("dd.MM.YYYY") + " tarihi için montaj kotası(" + kotaVarsayilanDegeri.ToString() + ") değerine ulaşılmıştır.");
+                        return;
+                    }
+                }
+            }
+
             string siparisNo = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);
 
             if (siparisNo != string.Empty)

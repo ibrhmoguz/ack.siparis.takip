@@ -98,5 +98,86 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             return dt;
 
         }
+
+        public DataTable MontajKotaListele()
+        {
+            IData data = GetDataObject();
+            DataTable dt = new DataTable();
+
+            string sqlKaydet = @"SELECT 
+                                     ROW_NUMBER() OVER(ORDER BY MONTAJTARIHI DESC) AS ID
+                                      , ID AS MONTAJKOTAID
+                                      ,CONVERT(VARCHAR(10), [MONTAJTARIHI],104) AS [MONTAJTARIHI]
+                                      ,[MAXMONTAJSAYI]
+                                      ,CASE WHEN MONTAJKABUL = 0 THEN 'KAPALI' ELSE 'AÇIK' END AS MONTAJKABUL
+                                  FROM [ACKAppDB].[dbo].[MONTAJKOTA]
+                                ORDER BY MONTAJTARIHI DESC, MAXMONTAJSAYI, MONTAJKABUL";
+            data.GetRecords(dt, sqlKaydet);
+            return dt;
+        }
+
+        public bool MontajKotaKaydet(DateTime dtMontaj, int montajKota, bool montajKabul)
+        {
+            DataTable dtKotaToplam = GünlükMontajKotaBilgisiGetir(dtMontaj);
+            if (dtKotaToplam.Rows.Count > 0)
+                return false;
+
+            IData data = GetDataObject();
+
+            data.AddSqlParameter("MONTAJTARIHI", dtMontaj, SqlDbType.DateTime, 50);
+            data.AddSqlParameter("MONTAJKOTA", montajKota, SqlDbType.Int, 50);
+            data.AddSqlParameter("MONTAJKABUL", montajKabul, SqlDbType.Bit, 50);
+
+            string sqlInsert = @"INSERT INTO [ACKAppDB].[dbo].[MONTAJKOTA]
+                                               ([MONTAJTARIHI]
+                                               ,[MAXMONTAJSAYI]
+                                               ,[MONTAJKABUL])
+                                         VALUES(@MONTAJTARIHI,@MONTAJKOTA,@MONTAJKABUL)";
+            data.ExecuteStatement(sqlInsert);
+
+            return true;
+        }
+
+        public int GünlükMontajSayisiniGetir(DateTime dt)
+        {
+            IData data = GetDataObject();
+            data.AddSqlParameter("TESLIMTARIH", dt, SqlDbType.DateTime, 50);
+
+            string sqlInsert = @"SELECT COUNT(*) AS SAYI
+                                  FROM [ACKAppDB].[dbo].[MONTAJ]
+                                  WHERE TESLIMTARIH = @TESLIMTARIH";
+
+            return Convert.ToInt32(data.ExecuteScalar(sqlInsert, CommandType.Text));
+        }
+
+        public DataTable GünlükMontajKotaBilgisiGetir(DateTime dtMontajTarihi)
+        {
+            IData data = GetDataObject();
+            DataTable dt = new DataTable();
+
+            data.AddSqlParameter("MONTAJTARIHI", dtMontajTarihi, SqlDbType.DateTime, 50);
+            string sqlInsert = @"SELECT 
+                                  [ID]
+                                  ,[MONTAJTARIHI]
+                                  ,[MAXMONTAJSAYI]
+                                  ,[MONTAJKABUL]
+                              FROM [ACKAppDB].[dbo].[MONTAJKOTA]
+                              WHERE [MONTAJTARIHI] = @MONTAJTARIHI";
+
+            data.GetRecords(dt, sqlInsert);
+            return dt;
+        }
+
+        public bool MontajKotaSil(string p)
+        {
+            IData data = GetDataObject();
+            data.AddSqlParameter("ID", p, SqlDbType.Int, 50);
+
+            string sqlInsert = @"DELETE FROM [ACKAppDB].[dbo].[MONTAJKOTA]
+                                 WHERE ID= @ID";
+
+            data.ExecuteStatement(sqlInsert);
+            return true;
+        }
     }
 }

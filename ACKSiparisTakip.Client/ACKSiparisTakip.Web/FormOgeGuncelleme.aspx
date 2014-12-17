@@ -14,7 +14,6 @@
     <div style="width: 100%">
         <br />
         <br />
-        <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th colspan="2" style="text-align: center; font-size: large;">FORM ÖĞELERİ<br />

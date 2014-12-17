@@ -88,6 +88,7 @@
     <Content Include="App_Themes\Theme\Raster\loading.gif" />
     <Content Include="App_Themes\Theme\Raster\lock.gif" />
     <Content Include="App_Themes\Theme\Raster\menuSeperator.gif" />
+    <Content Include="App_Themes\Theme\Raster\montajKota.png" />
     <Content Include="App_Themes\Theme\Raster\nova.png" />
     <Content Include="App_Themes\Theme\Raster\novaKapiOrta.png" />
     <Content Include="App_Themes\Theme\Raster\ok.gif" />
@@ -117,6 +118,7 @@
     <Content Include="Global.asax" />
     <Content Include="GunlukIsTakipFormu.aspx" />
     <Content Include="Hatalar.aspx" />
+    <Content Include="MontajKotaTanimla.aspx" />
     <Content Include="Script\jquery.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -185,6 +187,13 @@
     </Compile>
     <Compile Include="KullaniciTanimlama.aspx.designer.cs">
       <DependentUpon>KullaniciTanimlama.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MontajKotaTanimla.aspx.cs">
+      <DependentUpon>MontajKotaTanimla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MontajKotaTanimla.aspx.designer.cs">
+      <DependentUpon>MontajKotaTanimla.aspx</DependentUpon>
     </Compile>
     <Compile Include="PersonelTanimlama.aspx.cs">
       <DependentUpon>PersonelTanimlama.aspx</DependentUpon>
