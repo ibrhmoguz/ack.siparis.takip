@@ -29,10 +29,212 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(TacTipGetir(prms));
             ds.Tables.Add(PervazTipGetir(prms));
             ds.Tables.Add(ContaRenkGetir(prms));
-            ds.Tables.Add(BarelTipGetir(prms));
-            ds.Tables.Add(CekmeKolGetir(prms));
+            ds.Tables.Add(PanikBarGetir(prms));
+            ds.Tables.Add(MudahaleKolGetir(prms));
+            ds.Tables.Add(YanginKasaTipGetir(prms));
+            ds.Tables.Add(YanginKapiCinsGetir(prms));
+            ds.Tables.Add(MenteseTipGetir(prms));
+            ds.Tables.Add(HidrolikKapaticiGetir(prms));
+            ds.Tables.Add(CekmeKolTakmaSekliGetir(prms));
+            ds.Tables.Add(ZirhTipiGetir(prms));
+            ds.Tables.Add(ZirhRengiGetir(prms));
+            ds.Tables.Add(BolmeCamTipiGetir(prms));
+            ds.Tables.Add(FerforjeGetir(prms));
+            ds.Tables.Add(FerforjeRenkGetir(prms));          
             ds.Tables.Add(new PersonelBS().PersonelListesiGetir());
             return ds;
+        }
+
+        private DataTable FerforjeRenkGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "FERFORJERENK";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_FERFORJERENK WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable FerforjeGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "FERFORJE";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_FERFORJE WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable BolmeCamTipiGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "CAMTIP";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_CAMTIP WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable ZirhRengiGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "ZIRHRENK";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_ZIRHRENK WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable ZirhTipiGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "ZIRHTIP";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_ZIRHTIP WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable CekmeKolTakmaSekliGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "CEKMEKOLUTAKILMASEKLI";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_CEKMEKOLUTAKILMASEKLI WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable HidrolikKapaticiGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "HIDROLIKKAPATICI";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_HIDROLIKKAPATICI WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable MenteseTipGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "MENTESETIP";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_MENTESETIP WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable YanginKapiCinsGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "KAPICINSI";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_KAPICINSI WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable YanginKasaTipGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "KASATIP";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_KASATIP WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable PanikBarGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "PANIKBAR";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_PANIKBAR WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable MudahaleKolGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "MUDAHALEKOL";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_MUDAHALEKOL WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
         }
 
         private DataTable KapiModeliGetir(Dictionary<string, object> prms)

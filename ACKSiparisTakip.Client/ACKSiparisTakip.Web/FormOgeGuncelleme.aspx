@@ -48,6 +48,9 @@
                                 <telerik:GridCheckBoxColumn DataField="GUARD" HeaderText="GUARD"
                                     UniqueName="GUARD">
                                 </telerik:GridCheckBoxColumn>
+                                 <telerik:GridCheckBoxColumn DataField="YANGIN" HeaderText="YANGIN"
+                                    UniqueName="YANGIN">
+                                </telerik:GridCheckBoxColumn>
                                 <telerik:GridButtonColumn Text="Sil" CommandName="Delete" ButtonType="ImageButton" />
                             </Columns>
                             <EditFormSettings>
@@ -77,6 +80,7 @@
                                     <asp:ListItem>Nova</asp:ListItem>
                                     <asp:ListItem>Kroma</asp:ListItem>
                                     <asp:ListItem> Guard</asp:ListItem>
+                                    <asp:ListItem> Yangin</asp:ListItem>
                                 </asp:CheckBoxList>
                             </td>
                             <td>

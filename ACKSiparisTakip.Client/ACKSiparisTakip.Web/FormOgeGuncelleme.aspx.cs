@@ -161,7 +161,7 @@ namespace ACKSiparisTakip.Web
 
         protected void btnEkle_Click(object sender, EventArgs e)
         {
-            bool sonuc, nova, kroma, guard;
+            bool sonuc, nova, kroma, guard,yangin;
             string ad, tabloAdi;
 
             ad = string.Empty;
@@ -169,6 +169,7 @@ namespace ACKSiparisTakip.Web
             nova = false;
             kroma = false;
             guard = false;
+            yangin = false;
 
             tabloAdi = Session["TabloAdi"].ToString();
 
@@ -180,6 +181,8 @@ namespace ACKSiparisTakip.Web
                 kroma = true;
             if (cbxKapiTuru.Items[2].Selected)
                 guard = true;
+            if (cbxKapiTuru.Items[3].Selected)
+                yangin = true;
 
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("TABLOADI", tabloAdi);
@@ -187,6 +190,7 @@ namespace ACKSiparisTakip.Web
             prms.Add("NOVA", nova);
             prms.Add("KROMA", kroma);
             prms.Add("GUARD", guard);
+            prms.Add("YANGIN", yangin);
             sonuc = new YonetimKonsoluBS().OgeEkle(prms);
 
             if (sonuc)
