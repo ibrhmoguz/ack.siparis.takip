@@ -131,6 +131,7 @@
     <Content Include="SiparisFormGoruntule.aspx" />
     <Content Include="SiparisFormGuncelle.aspx" />
     <Content Include="SifreGuncelleme.aspx" />
+    <Content Include="SiparisFormYanginKayit.aspx" />
     <Content Include="SiparisSorgula.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -258,6 +259,13 @@
     </Compile>
     <Compile Include="SiparisFormGuncelle.aspx.designer.cs">
       <DependentUpon>SiparisFormGuncelle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiparisFormYanginKayit.aspx.cs">
+      <DependentUpon>SiparisFormYanginKayit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiparisFormYanginKayit.aspx.designer.cs">
+      <DependentUpon>SiparisFormYanginKayit.aspx</DependentUpon>
     </Compile>
     <Compile Include="SiparisSorgula.aspx.cs">
       <DependentUpon>SiparisSorgula.aspx</DependentUpon>

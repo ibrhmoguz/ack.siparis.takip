@@ -71,6 +71,7 @@ namespace ACKSiparisTakip.Web
                 siparisNo = Request.QueryString["SiparisNo"].ToString();
 
             string urlSiparisFormKayit = "SiparisFormKayit.aspx?KapiTipi=";
+            string urlSiparisFormYanginKayit = "SiparisFormYanginKayit.aspx?KapiTipi=";
             string urlSiparisFormGuncelle = "SiparisFormGuncelle.aspx?SiparisNo=" + siparisNo;
             string urlKullanici = "KullaniciTanimlama.aspx";
             string urlPersonel = "PersonelTanimlama.aspx";
@@ -92,6 +93,9 @@ namespace ACKSiparisTakip.Web
                     break;
                 case "SiparisEkleGuard":
                     NavigateUrl(urlSiparisFormKayit + KapiTipi.Guard.ToString());
+                    break;
+                case "SiparisEkleYangin":
+                    NavigateUrl(urlSiparisFormYanginKayit + KapiTipi.Yangin.ToString());
                     break;
                 case "KullaniciEkle":
                     NavigateUrl(urlKullanici);
