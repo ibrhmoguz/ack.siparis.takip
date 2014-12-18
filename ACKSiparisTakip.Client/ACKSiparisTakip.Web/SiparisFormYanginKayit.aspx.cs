@@ -81,6 +81,12 @@ namespace ACKSiparisTakip.Web
             DataTable dtTeslimSekli = ds.Tables["TESLIMSEKLI"];
             DataTable dtPersonel = ds.Tables["PERSONEL"];
             DataTable dtCekmeKol = ds.Tables["CEKMEKOL"];
+            DataTable dtYanginHidrolikKapatici = ds.Tables["HIDROLIKKAPATICI"];
+            DataTable dtYanginKapiCins = ds.Tables["KAPICINSI"];
+            DataTable dtYanginKasaTipi = ds.Tables["KASATIP"];
+            DataTable dtYanginKol = ds.Tables["MUDAHALEKOL"];
+            DataTable dtYanginMenteseTip = ds.Tables["MENTESETIP"];
+            DataTable dtYanginPanikBar = ds.Tables["PANIKBAR"];
 
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli); 
@@ -91,6 +97,12 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlTeslimSekli, dtTeslimSekli);
             DropDownBindEt(ddlOlcumAlan, dtPersonel);
             DropDownBindEt(ddlCekmeKolu, dtCekmeKol);
+            DropDownBindEt(ddlYanginHidrolikKapatici, dtKilitSistem);
+            DropDownBindEt(ddlYanginKapiCins, dtEsik);
+            DropDownBindEt(ddlYanginKasaTipi, dtMontajSekli);
+            DropDownBindEt(ddlYanginKol, dtTeslimSekli);
+            DropDownBindEt(ddlYanginMenteseTip, dtPersonel);
+            DropDownBindEt(ddlYanginPanikBar, dtCekmeKol);
 
             IlleriGetir();
         }

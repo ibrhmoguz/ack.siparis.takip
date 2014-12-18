@@ -30,8 +30,164 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(BarelTipGetir());
             ds.Tables.Add(CekmeKoluGetir());
             ds.Tables.Add(KapiSeriGetir());
+            ds.Tables.Add(PanikBarGetir());
+            ds.Tables.Add(MudahaleKolGetir());
+            ds.Tables.Add(YanginKasaTipGetir());
+            ds.Tables.Add(YanginKapiCinsGetir());
+            ds.Tables.Add(MenteseTipGetir());
+            ds.Tables.Add(HidrolikKapaticiGetir());
+            ds.Tables.Add(CekmeKolTakmaSekliGetir());
+            ds.Tables.Add(ZirhTipiGetir());
+            ds.Tables.Add(ZirhRengiGetir());
+            ds.Tables.Add(BolmeCamTipiGetir());
+            ds.Tables.Add(FerforjeGetir());
+            ds.Tables.Add(FerforjeRenkGetir()); 
 
             return ds;
+        }
+
+        private DataTable FerforjeRenkGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_FERFORJERENK";
+
+            string sqlText = @"SELECT * FROM REF_FERFORJERENK";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable BolmeCamTipiGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_CAMTIP";
+
+            string sqlText = @"SELECT * FROM REF_CAMTIP";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable FerforjeGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_FERFORJE";
+
+            string sqlText = @"SELECT * FROM REF_FERFORJE";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable ZirhRengiGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_ZIRHRENK";
+
+            string sqlText = @"SELECT * FROM REF_ZIRHRENK";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable ZirhTipiGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_ZIRHTIP";
+
+            string sqlText = @"SELECT * FROM REF_ZIRHTIP";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable CekmeKolTakmaSekliGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_CEKMEKOLUTAKILMASEKLI";
+
+            string sqlText = @"SELECT * FROM REF_CEKMEKOLUTAKILMASEKLI";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable HidrolikKapaticiGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_HIDROLIKKAPATICI";
+
+            string sqlText = @"SELECT * FROM REF_HIDROLIKKAPATICI";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable MenteseTipGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_MENTESETIP";
+
+            string sqlText = @"SELECT * FROM REF_MENTESETIP";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable YanginKapiCinsGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_KAPICINSI";
+
+            string sqlText = @"SELECT * FROM REF_KAPICINSI";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable YanginKasaTipGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_KASATIP";
+
+            string sqlText = @"SELECT * FROM REF_KASATIP";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable MudahaleKolGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_MUDAHALEKOL";
+
+            string sqlText = @"SELECT * FROM REF_MUDAHALEKOL";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable PanikBarGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_PANIKBAR";
+
+            string sqlText = @"SELECT * FROM REF_PANIKBAR";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
         }
 
         private DataTable KapiRenkGetir()
