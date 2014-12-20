@@ -97,6 +97,7 @@
     <Content Include="App_Themes\Theme\Raster\sorgulama.png" />
     <Content Include="App_Themes\Theme\Raster\user.gif" />
     <Content Include="App_Themes\Theme\Raster\user.png" />
+    <Content Include="App_Themes\Theme\Raster\yangin.png" />
     <Content Include="App_Themes\Theme\StyleSheet.css" />
     <Content Include="App_Themes\Theme\Template\f.jpg" />
     <Content Include="App_Themes\Theme\Template\h.jpg" />

@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigBS.cs" />
     <Compile Include="DataTypes\KapiTipi.cs" />
     <Compile Include="DataTypes\SiparisTipi.cs" />
     <Compile Include="RaporBS.cs" />

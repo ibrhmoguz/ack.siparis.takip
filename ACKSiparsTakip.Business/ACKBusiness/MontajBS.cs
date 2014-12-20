@@ -141,7 +141,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         public int GünlükMontajSayisiniGetir(DateTime dt)
         {
             IData data = GetDataObject();
-            data.AddSqlParameter("TESLIMTARIH", dt, SqlDbType.DateTime, 50);
+            data.AddSqlParameter("TESLIMTARIH", dt.ToShortDateString(), SqlDbType.DateTime, 50);
 
             string sqlInsert = @"SELECT COUNT(*) AS SAYI
                                   FROM [ACKAppDB].[dbo].[MONTAJ]
@@ -155,7 +155,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             IData data = GetDataObject();
             DataTable dt = new DataTable();
 
-            data.AddSqlParameter("MONTAJTARIHI", dtMontajTarihi, SqlDbType.DateTime, 50);
+            data.AddSqlParameter("MONTAJTARIHI", dtMontajTarihi.ToShortDateString(), SqlDbType.DateTime, 50);
             string sqlInsert = @"SELECT 
                                   [ID]
                                   ,[MONTAJTARIHI]

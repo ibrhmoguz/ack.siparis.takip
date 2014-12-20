@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ACKSiparisTakip.Business.ACKBusiness;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -18,7 +20,12 @@ namespace ACKSiparisTakip.Web
 
         protected void Session_Start(object sender, EventArgs e)
         {
+            DataTable dt = new ConfigBS().ConfigBilgileriniGetir();
 
+            foreach (DataRow row in dt.Rows)
+            {
+                Session[row["ConfigName"].ToString()] = row["ConfigValue"].ToString();
+            }
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
