@@ -33,8 +33,7 @@ v1.1
 					   ([AD]
 					   ,[VALUE])
 				 VALUES
-					   (<YANGIN, varchar(50),>
-					   ,<Y, varchar(50),>)
+					   ('YANGIN','Y')
 			GO
 
 -- KAPI MODEL EKLENDÝ
@@ -43,8 +42,7 @@ v1.1
 						   ([KAPISERIID]
 						   ,[AD])
 					 VALUES
-						   (<4, int,>
-						   ,<DÜZ- RAL , varchar(50),>)
+						   (4,'DÜZ- RAL')
 				GO
 
 
