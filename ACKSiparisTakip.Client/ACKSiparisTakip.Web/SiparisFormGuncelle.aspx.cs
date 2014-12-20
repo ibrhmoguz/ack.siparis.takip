@@ -388,6 +388,7 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriIl.DataTextField = "ILAD";
                 ddlMusteriIl.DataValueField = "ILKOD";
                 ddlMusteriIl.DataBind();
+                ddlMusteriIl.Items.Insert(0, new RadComboBoxItem("Seçiniz", "Seçiniz"));
             }
             else
             {
@@ -409,6 +410,7 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriIlce.DataTextField = "ILCEAD";
                 ddlMusteriIlce.DataValueField = "ILCEKOD";
                 ddlMusteriIlce.DataBind();
+                ddlMusteriIlce.Items.Insert(0, new RadComboBoxItem("Seçiniz", "Seçiniz"));
             }
             else
             {
@@ -427,6 +429,7 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriIlce.DataTextField = "ILCEAD";
                 ddlMusteriIlce.DataValueField = "ILCEKOD";
                 ddlMusteriIlce.DataBind();
+                ddlMusteriIlce.Items.Insert(0, new RadComboBoxItem("Seçiniz", "Seçiniz"));
             }
             else
             {
@@ -448,6 +451,7 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriSemt.DataTextField = "SEMTAD";
                 ddlMusteriSemt.DataValueField = "SEMTKOD";
                 ddlMusteriSemt.DataBind();
+                ddlMusteriSemt.Items.Insert(0, new RadComboBoxItem("Seçiniz", "Seçiniz"));
             }
             else
             {
@@ -466,6 +470,7 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriSemt.DataTextField = "SEMTAD";
                 ddlMusteriSemt.DataValueField = "SEMTKOD";
                 ddlMusteriSemt.DataBind();
+                ddlMusteriSemt.Items.Insert(0, new RadComboBoxItem("Seçiniz", "Seçiniz"));
             }
             else
             {
@@ -583,6 +588,47 @@ namespace ACKSiparisTakip.Web
                 return true;
             else
                 return false;
+        }
+
+        protected void btnTemizle_Click(object sender, EventArgs e)
+        {
+            FormElemanIcerikTemizle(this.Page.Form.Controls);
+            txtSiparisNo.Text = this.SiparisNo;
+        }
+
+        private void FormElemanIcerikTemizle(ControlCollection cc)
+        {
+            foreach (Control c in cc)
+            {
+                if (c is RadTextBox)
+                    ((RadTextBox)c).Text = string.Empty;
+                if (c is RadNumericTextBox)
+                    ((RadNumericTextBox)c).Text = string.Empty;
+                if (c is RadDropDownList)
+                {
+                    RadDropDownList rdl = (RadDropDownList)c;
+                    if (rdl.Items.Count > 0)
+                        rdl.SelectedIndex = 0;
+                }
+                if (c is RadDateTimePicker)
+                {
+                    ((RadDateTimePicker)c).SelectedDate = null;
+                }
+                if (c is RadDatePicker)
+                {
+                    ((RadDatePicker)c).SelectedDate = null;
+                }
+                if (c is RadComboBox)
+                {
+                    RadComboBox rcb = ((RadComboBox)c);
+                    if (rcb.Items.Count > 0)
+                        rcb.SelectedIndex = 0;
+                }
+                if (c is RadMaskedTextBox)
+                    ((RadMaskedTextBox)c).Text = string.Empty;
+
+                FormElemanIcerikTemizle(c.Controls);
+            }
         }
     }
 }

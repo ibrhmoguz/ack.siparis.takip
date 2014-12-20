@@ -302,7 +302,7 @@ namespace ACKSiparisTakip.Web
                     bool montajKabul = Convert.ToBoolean(row["MONTAJKABUL"]);
                     if (!montajKabul)
                     {
-                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToString() + " tarihi için montaj alınamaz!");
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString() + " tarihi için montaj alınamaz!");
                         return;
                     }
                     else
@@ -310,7 +310,7 @@ namespace ACKSiparisTakip.Web
                         int gunlukMontakKotaDegeri = Convert.ToInt32(row["MAXMONTAJSAYI"]);
                         if (yapilanMontajSayisi >= gunlukMontakKotaDegeri)
                         {
-                            MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToString("dd.MM.YYYY") + " tarihi için montaj kotası(" + gunlukMontakKotaDegeri.ToString() + ") değerine ulaşılmıştır.");
+                            MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString() + " tarihi için montaj kotası (" + gunlukMontakKotaDegeri.ToString() + ") değerine ulaşılmıştır.");
                             return;
                         }
                     }
@@ -320,7 +320,7 @@ namespace ACKSiparisTakip.Web
                     int kotaVarsayilanDegeri = Convert.ToInt32(ConfigurationManager.AppSettings["MONTAJ_KOTA_VARSAYILAN"]);
                     if (yapilanMontajSayisi >= kotaVarsayilanDegeri)
                     {
-                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToString("dd.MM.YYYY") + " tarihi için montaj kotası(" + kotaVarsayilanDegeri.ToString() + ") değerine ulaşılmıştır.");
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString()+ " tarihi için montaj kotası(" + kotaVarsayilanDegeri.ToString() + ") değerine ulaşılmıştır.");
                         return;
                     }
                 }

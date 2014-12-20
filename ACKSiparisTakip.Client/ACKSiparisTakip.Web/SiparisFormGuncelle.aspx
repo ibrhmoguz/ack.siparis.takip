@@ -84,6 +84,7 @@
                 <td>
                     <telerik:RadDropDownList ID="ddlSiparisDurumu" runat="server">
                         <Items>
+                            <telerik:DropDownListItem Text="Seçiniz" Value="Seçiniz" />
                             <telerik:DropDownListItem Text="BEKLEYEN" Value="BEKLEYEN" />
                             <telerik:DropDownListItem Text="İMALATTA" Value="İMALATTA" />
                             <telerik:DropDownListItem Text="TAMAMLANDI" Value="TAMAMLANDI" />
@@ -414,19 +415,19 @@
                         <tr>
                             <th>Adresi : </th>
                             <td>
-                                <telerik:RadTextBox ID="txtMusteriAdres" runat="server" TextMode="MultiLine" Height="50px" Width="300px" Enabled="False" RenderMode="Lightweight"></telerik:RadTextBox>
+                                <telerik:RadTextBox ID="txtMusteriAdres" runat="server" TextMode="MultiLine" Height="50px" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
                             </td>
                         </tr>
                         <tr>
                             <th>Cep Tel : </th>
                             <td>
-                                <telerik:RadTextBox ID="txtMusteriCepTel" runat="server" Enabled="False" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                                <telerik:RadTextBox ID="txtMusteriCepTel" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
                             </td>
                         </tr>
                         <tr>
                             <th>Fiyat : </th>
                             <td>
-                                 <telerik:RadNumericTextBox ID="txtFiyat" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency">
+                                <telerik:RadNumericTextBox ID="txtFiyat" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency">
                                 </telerik:RadNumericTextBox>
                             </td>
                         </tr>
@@ -521,6 +522,9 @@
                 <td colspan="4" style="text-align: center">
                     <telerik:RadButton ID="btnGuncelle" runat="server" Text="Güncelle" OnClick="btnGuncelle_Click">
                         <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                    </telerik:RadButton>
+                    <telerik:RadButton ID="btnTemizle" runat="server" Text="Temizle" OnClick="btnTemizle_Click">
+                        <Icon PrimaryIconCssClass="rbRefresh" />
                     </telerik:RadButton>
                 </td>
             </tr>
