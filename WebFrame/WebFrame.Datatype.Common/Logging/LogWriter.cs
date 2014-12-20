@@ -200,11 +200,14 @@ namespace WebFrame.DataType.Common.Logging
                     _connection.Open();
                     _command.ExecuteNonQuery();
 
+                    /*
                     if (!EventLog.SourceExists(enumName))
                         EventLog.CreateEventSource(enumName, enumName);
+                     * */
                 }
                 catch
                 {
+                    /*
                     //veritabanına yazdırılamazsa eventloga yazdır
                     #region Eventlog Hazırlıkları
 
@@ -247,6 +250,7 @@ namespace WebFrame.DataType.Common.Logging
                     eventLogListener.EventLog.WriteEntry(sb.ToString(), eventType, 20000);
                     eventLogListener.Flush();
                     eventLogListener.Close();
+                     * */
                 }
                 finally
                 {
@@ -257,7 +261,7 @@ namespace WebFrame.DataType.Common.Logging
 
                 #endregion
             }
-            else
+            /*else
             {
                 sb.Append("Proje Adı :");
                 sb.Append(enumName);
@@ -297,7 +301,7 @@ namespace WebFrame.DataType.Common.Logging
                 eventLogListener.EventLog.WriteEntry(sb.ToString(), eventType, 20000);
                 eventLogListener.Flush();
                 eventLogListener.Close();
-            }
+            }*/
         }
 
         private void LogToSqlServer()

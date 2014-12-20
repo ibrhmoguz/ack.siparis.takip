@@ -16,12 +16,12 @@
                         <th>EXCEPTION</th>
                         <th>PAGEURL</th>
                         <th>METHODNAME</th>
-                        <th>MESSAGE</th>
+                        <%-- <th>MESSAGE</th>
                         <th>PCNAME</th>
                         <th>USERAUTHORITY</th>
-                        <th>EXTENDEDPROPERTIES</th>
+                        <th>EXTENDEDPROPERTIES</th>--%>
                         <th>USERNAME</th>
-                        <th style="width: 6%; text-align: center">DATE</th>
+                        <th>DATE</th>
                     </tr>
             </HeaderTemplate>
             <ItemTemplate>
@@ -31,10 +31,10 @@
                     <td><%# DataBinder.Eval(Container.DataItem, "EXCEPTION") %></td>
                     <td><%# DataBinder.Eval(Container.DataItem, "PAGEURL") %></td>
                     <td><%# DataBinder.Eval(Container.DataItem, "METHODNAME") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "MESSAGE") %></td>
+                    <%-- <td><%# DataBinder.Eval(Container.DataItem, "MESSAGE") %></td>
                     <td><%# DataBinder.Eval(Container.DataItem, "PCNAME") %></td>
                     <td><%# DataBinder.Eval(Container.DataItem, "USERAUTHORITY") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "EXTENDEDPROPERTIES") %></td>
+                    <td><%# DataBinder.Eval(Container.DataItem, "EXTENDEDPROPERTIES") %></td>--%>
                     <td><%# DataBinder.Eval(Container.DataItem, "USERNAME") %></td>
                     <td><%# DataBinder.Eval(Container.DataItem, "DATE") %></td>
                 </tr>
