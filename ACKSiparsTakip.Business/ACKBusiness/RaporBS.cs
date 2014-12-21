@@ -54,5 +54,50 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
             return dt;
         }
+
+        public DataTable KapiTipineGoreSatilanAdet(string il, string ilce, string yil)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            string sqlText = @"DECLARE @Period AS DATE;
+                                SET @Period = CAST('11.01.' + @Yil AS DATE);
+                                SELECT @Period;
+                                WITH KAPI_FILITRELE AS 
+                                (
+	                                SELECT
+		                                 KS.AD AS KapiTipi
+		                                 , S.ADET
+		                                 ,  CAST(S.SIPARISTARIH AS DATE) AS SIPARISTARIH
+	                                FROM dbo.SIPARIS AS S
+		                                INNER JOIN dbo.REF_KAPISERI AS KS ON SUBSTRING(S.SIPARISNO, 1, 1) = KS.VALUE 
+	                                WHERE (@Il IS NULL OR MUSTERIIL = @Il) AND
+		                                  (@Ilce IS NULL OR MUSTERIILCE = @Ilce) AND
+		                                  (@Yil IS NULL OR DATEPART(YEAR,SIPARISTARIH) = @Yil)
+                                )
+
+                                SELECT
+	                                KapiTipi
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= @Period AND SIPARISTARIH < DATEADD(MONTH,1,@Period) AND KapiTipi=KF.KapiTipi),0) AS '1'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,1,@Period) AND SIPARISTARIH < DATEADD(MONTH,2,@Period) AND KapiTipi=KF.KapiTipi),0) AS '2'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,2,@Period) AND SIPARISTARIH < DATEADD(MONTH,3,@Period) AND KapiTipi=KF.KapiTipi),0) AS '3'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,3,@Period) AND SIPARISTARIH < DATEADD(MONTH,4,@Period) AND KapiTipi=KF.KapiTipi),0) AS '4'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,4,@Period) AND SIPARISTARIH < DATEADD(MONTH,5,@Period) AND KapiTipi=KF.KapiTipi),0) AS '5'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,5,@Period) AND SIPARISTARIH < DATEADD(MONTH,6,@Period) AND KapiTipi=KF.KapiTipi),0) AS '6'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,6,@Period) AND SIPARISTARIH < DATEADD(MONTH,7,@Period) AND KapiTipi=KF.KapiTipi),0) AS '7'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,7,@Period) AND SIPARISTARIH < DATEADD(MONTH,8,@Period) AND KapiTipi=KF.KapiTipi),0) AS '8'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,8,@Period) AND SIPARISTARIH < DATEADD(MONTH,9,@Period) AND KapiTipi=KF.KapiTipi),0) AS '9'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,9,@Period) AND SIPARISTARIH < DATEADD(MONTH,10,@Period) AND KapiTipi=KF.KapiTipi),0) AS '10'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,10,@Period) AND SIPARISTARIH < DATEADD(MONTH,11,@Period) AND KapiTipi=KF.KapiTipi),0) AS '11'
+	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,11,@Period) AND SIPARISTARIH < DATEADD(MONTH,12,@Period) AND KapiTipi=KF.KapiTipi),0) AS '12'
+                                FROM KAPI_FILITRELE AS KF
+                                GROUP BY KapiTipi";
+
+            data.AddSqlParameter("Il", il, SqlDbType.Date, 50);
+            data.AddSqlParameter("Ilce", ilce, SqlDbType.Date, 50);
+            data.AddSqlParameter("Yil", yil, SqlDbType.Date, 50);
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
     }
 }
