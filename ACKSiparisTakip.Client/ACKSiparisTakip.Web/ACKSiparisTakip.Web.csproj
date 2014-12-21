@@ -92,9 +92,11 @@
     <Content Include="App_Themes\Theme\Raster\nova.png" />
     <Content Include="App_Themes\Theme\Raster\novaKapiOrta.png" />
     <Content Include="App_Themes\Theme\Raster\ok.gif" />
+    <Content Include="App_Themes\Theme\Raster\OlcumBilgileri.JPG" />
     <Content Include="App_Themes\Theme\Raster\personelEkle.png" />
     <Content Include="App_Themes\Theme\Raster\print.jpg" />
     <Content Include="App_Themes\Theme\Raster\sorgulama.png" />
+    <Content Include="App_Themes\Theme\Raster\update.PNG" />
     <Content Include="App_Themes\Theme\Raster\user.gif" />
     <Content Include="App_Themes\Theme\Raster\user.png" />
     <Content Include="App_Themes\Theme\Raster\yangin.png" />

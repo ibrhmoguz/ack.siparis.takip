@@ -59,7 +59,7 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <th style="width: 15%">Ölçü Tarihi ve Saati :   </th>
+                <th style="width: 15%">Ölçü Tarihi:   </th>
                 <td style="width: 35%">
                     <asp:Label ID="lblOlcuTarihSaat" runat="server"></asp:Label>
                 </td>
@@ -444,7 +444,7 @@
                         <Icon PrimaryIconCssClass="rbOk" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır" OnClick="btnYazdir_Click">
+                    <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır">
                         <Icon PrimaryIconCssClass="rbPrint" PrimaryIconLeft="4" PrimaryIconTop="3" />
                     </telerik:RadButton>
                 </td>

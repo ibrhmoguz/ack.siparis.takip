@@ -388,15 +388,16 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("NOVA", prms["NOVA"], SqlDbType.Bit, 1);
                 data.AddSqlParameter("KROMA", prms["KROMA"], SqlDbType.Bit, 1);
                 data.AddSqlParameter("GUARD", prms["GUARD"], SqlDbType.Bit, 1);
+                data.AddSqlParameter("YANGIN", prms["YANGIN"], SqlDbType.Bit, 1);
 
-                string sqlKaydet = @"INSERT INTO " + prms["TABLOADI"].ToString() + " (AD, NOVA, KROMA, GUARD) VALUES ( @AD, @NOVA, @KROMA, @GUARD)";
+                string sqlKaydet = @"INSERT INTO " + prms["TABLOADI"].ToString() + " (AD, NOVA, KROMA, GUARD,YANGIN) VALUES ( @AD, @NOVA, @KROMA, @GUARD, @YANGIN)";
                 data.ExecuteStatement(sqlKaydet);
 
                 return true;
             }
             catch (Exception exc)
             {
-                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "KullaniciKaydet", "", null);
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "OgeEkle", "", null);
                 return false;
             }
         }
@@ -418,7 +419,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
             catch (Exception exc)
             {
-                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "KullaniciKaydet", "", null);
+                new LogWriter().Write(AppModules.YonetimKonsolu, System.Diagnostics.EventLogEntryType.Error, exc, "ServerSide", "KapiModelEkle", "", null);
                 return false;
             }
         }

@@ -17,7 +17,7 @@ namespace ACKSiparisTakip.Web.Print
 {
     public partial class Print : System.Web.UI.Page
     {
-        
+
         public string SiparisNo
         {
             get
@@ -52,7 +52,7 @@ namespace ACKSiparisTakip.Web.Print
             {
                 FormBilgileriniGetir();
                 KapiTurAyarla();
-                
+
             }
         }
 
@@ -69,6 +69,8 @@ namespace ACKSiparisTakip.Web.Print
             else if (this.SiparisNo[0] == 'G')
             {
                 lblKapiTur.Text = "GUARD";
+                trGuard1.Visible = true;
+                trGuard2.Visible = true;
             }
         }
 
@@ -126,7 +128,7 @@ namespace ACKSiparisTakip.Web.Print
             lblTaktak.Text = (row["TAKTAK"] != DBNull.Value) ? row["TAKTAK"].ToString() : String.Empty;
             lblMontajdaTakilacaklar.Text = (row["MONTAJDATAKILACAK"] != DBNull.Value) ? row["MONTAJDATAKILACAK"].ToString() : String.Empty;
             lblOlcumBilgileri.Text = (row["OLCUMBILGI"] != DBNull.Value) ? row["OLCUMBILGI"].ToString() : String.Empty;
-            lblOlcuTarihSaat.Text = (row["OLCUMTARIH"] != DBNull.Value) ? row["OLCUMTARIH"].ToString() : String.Empty;
+            lblOlcuTarihSaat.Text = (row["OLCUMTARIH"] != DBNull.Value) ? Convert.ToDateTime(row["OLCUMTARIH"].ToString()).ToShortDateString() : String.Empty;
             lblOlcumAlan.Text = (row["OLCUMALANKISI"] != DBNull.Value) ? row["OLCUMALANKISI"].ToString() : String.Empty;
             lblMontajSekli.Text = (row["MONTAJSEKLI"] != DBNull.Value) ? row["MONTAJSEKLI"].ToString() : String.Empty;
             lblTeslimSekli.Text = (row["TESLIMSEKLI"] != DBNull.Value) ? row["TESLIMSEKLI"].ToString() : String.Empty;
@@ -135,7 +137,7 @@ namespace ACKSiparisTakip.Web.Print
             lblFiyat.Text = (row["FIYAT"] != DBNull.Value) ? row["FIYAT"].ToString() : String.Empty;
             lblVergiDairesi.Text = (row["VERGIDAIRESI"] != DBNull.Value) ? row["VERGIDAIRESI"].ToString() : String.Empty;
             lblVergiNumarasi.Text = (row["VERGINUMARASI"] != DBNull.Value) ? row["VERGINUMARASI"].ToString() : String.Empty;
-            lblTeslimTarihi.Text = (row["TESLIMTARIH"] != DBNull.Value) ? row["TESLIMTARIH"].ToString() : String.Empty;
+            lblTeslimTarihi.Text = (row["TESLIMTARIH"] != DBNull.Value) ? Convert.ToDateTime(row["TESLIMTARIH"].ToString()).ToShortDateString() : String.Empty;
             lblNakitPesin.Text = (row["NAKITPESIN"] != DBNull.Value) ? row["NAKITPESIN"].ToString() : String.Empty;
             lblNakitKalan.Text = (row["NAKITKALAN"] != DBNull.Value) ? row["NAKITKALAN"].ToString() : String.Empty;
             lblNakitOdemeNotu.Text = (row["NAKITODEMENOTU"] != DBNull.Value) ? row["NAKITODEMENOTU"].ToString() : String.Empty;

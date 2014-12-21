@@ -55,7 +55,7 @@
         <br />
         <table class="boldTablo" style="width: 100%">
             <tr>
-                <td style="width: 15%; font-weight: bold">Ölçü Tarihi ve Saati :   </td>
+                <td style="width: 15%; font-weight: bold">Ölçü Tarihi :   </td>
                 <td style="width: 30%">
                     <asp:Label ID="lblOlcuTarihSaat" runat="server"></asp:Label>
                 </td>
