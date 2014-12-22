@@ -320,7 +320,7 @@ namespace ACKSiparisTakip.Web
                     int kotaVarsayilanDegeri = Convert.ToInt32(Session["MONTAJ_KOTA_VARSAYILAN"]);
                     if (yapilanMontajSayisi >= kotaVarsayilanDegeri)
                     {
-                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString()+ " tarihi için montaj kotası(" + kotaVarsayilanDegeri.ToString() + ") değerine ulaşılmıştır.");
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString()+ " tarihi için montaj kotası (" + kotaVarsayilanDegeri.ToString() + ") değerine ulaşılmıştır.");
                         return;
                     }
                 }

@@ -173,7 +173,8 @@ namespace ACKSiparisTakip.Web
             olcum.MontajSekli = (rowSiparis["MONTAJSEKLI"] != DBNull.Value) ? rowSiparis["MONTAJSEKLI"].ToString() : String.Empty;
             olcum.OlcumAlanKisi = (rowSiparis["OLCUMALANKISI"] != DBNull.Value) ? rowSiparis["OLCUMALANKISI"].ToString() : String.Empty;
             olcum.OlcumBilgi = (rowSiparis["OLCUMBILGI"] != DBNull.Value) ? rowSiparis["OLCUMBILGI"].ToString() : String.Empty;
-            olcum.OlcumTarih = (rowSiparis["OLCUMTARIH"] != DBNull.Value) ? Convert.ToDateTime(rowSiparis["OLCUMTARIH"].ToString()) : DateTime.MinValue;
+            if (rowSiparis["OLCUMTARIH"] != DBNull.Value)
+                olcum.OlcumTarih = Convert.ToDateTime(rowSiparis["OLCUMTARIH"].ToString());
             olcum.TeslimSekli = (rowSiparis["TESLIMSEKLI"] != DBNull.Value) ? rowSiparis["TESLIMSEKLI"].ToString() : String.Empty;
 
             sozlesme.KalanOdeme = (rowSiparis["KALANODEME"] != DBNull.Value) ? rowSiparis["KALANODEME"].ToString() : String.Empty;
@@ -294,6 +295,7 @@ namespace ACKSiparisTakip.Web
             else
                 dp.SelectedIndex = 0;
         }
+
         private void DropDownSelectedIndexAyarla(RadComboBox dp, string selectedValue)
         {
             dp.ClearSelection();
@@ -561,6 +563,42 @@ namespace ACKSiparisTakip.Web
             sozlesme.VergiDairesi = string.IsNullOrWhiteSpace(txtVergiDairesi.Text) ? null : txtVergiDairesi.Text;
             sozlesme.VergiNumarası = string.IsNullOrWhiteSpace(txtVergiNumarasi.Text) ? null : txtVergiNumarasi.Text;
             sozlesme.Fiyat = string.IsNullOrWhiteSpace(txtFiyat.Text) ? null : txtFiyat.Text;
+
+            //Montaj kota kontrolu acik ise
+            if (Convert.ToBoolean(Session["MONTAJ_KOTA_KONTROLU"]))
+            {
+                MontajBS montajBS = new MontajBS();
+                int yapilanMontajSayisi = montajBS.GünlükMontajSayisiniGetir(rdpTeslimTarihi.SelectedDate.Value);
+                DataTable dt = montajBS.GünlükMontajKotaBilgisiGetir(rdpTeslimTarihi.SelectedDate.Value);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    bool montajKabul = Convert.ToBoolean(row["MONTAJKABUL"]);
+                    if (!montajKabul)
+                    {
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString() + " tarihi için montaj alınamaz!");
+                        return;
+                    }
+                    else
+                    {
+                        int gunlukMontakKotaDegeri = Convert.ToInt32(row["MAXMONTAJSAYI"]);
+                        if (yapilanMontajSayisi >= gunlukMontakKotaDegeri)
+                        {
+                            MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString() + " tarihi için montaj kotası (" + gunlukMontakKotaDegeri.ToString() + ") değerine ulaşılmıştır.");
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    int kotaVarsayilanDegeri = Convert.ToInt32(Session["MONTAJ_KOTA_VARSAYILAN"]);
+                    if (yapilanMontajSayisi >= kotaVarsayilanDegeri)
+                    {
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString() + " tarihi için montaj kotası (" + kotaVarsayilanDegeri.ToString() + ") değerine ulaşılmıştır.");
+                        return;
+                    }
+                }
+            }
 
             string seriAdi = this.KapiTip.ToString().ToUpper();
             bool state = new SiparisIslemleriBS().SiparisGuncelle(musteri, siparis, olcum, sozlesme);
