@@ -97,12 +97,12 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlTeslimSekli, dtTeslimSekli);
             DropDownBindEt(ddlOlcumAlan, dtPersonel);
             DropDownBindEt(ddlCekmeKolu, dtCekmeKol);
-            DropDownBindEt(ddlYanginHidrolikKapatici, dtKilitSistem);
-            DropDownBindEt(ddlYanginKapiCins, dtEsik);
-            DropDownBindEt(ddlYanginKasaTipi, dtMontajSekli);
-            DropDownBindEt(ddlYanginKol, dtTeslimSekli);
-            DropDownBindEt(ddlYanginMenteseTip, dtPersonel);
-            DropDownBindEt(ddlYanginPanikBar, dtCekmeKol);
+            DropDownBindEt(ddlYanginHidrolikKapatici, dtYanginHidrolikKapatici);
+            DropDownBindEt(ddlYanginKapiCins, dtYanginKapiCins);
+            DropDownBindEt(ddlYanginKasaTipi, dtYanginKasaTipi);
+            DropDownBindEt(ddlYanginKol, dtYanginKol);
+            DropDownBindEt(ddlYanginMenteseTip, dtYanginMenteseTip);
+            DropDownBindEt(ddlYanginPanikBar, dtYanginPanikBar);
 
             IlleriGetir();
         }
