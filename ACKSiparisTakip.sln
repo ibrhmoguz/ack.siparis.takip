@@ -29,12 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrame.Utils.HashManagerG
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebFrame.DLL", "WebFrame.DLL", "{00A0908D-68EC-4AD6-88E9-6C8D7EEF303E}"
 	ProjectSection(SolutionItems) = preProject
-		..\Users\CNU424C479\Desktop\NLog.dll = ..\Users\CNU424C479\Desktop\NLog.dll
+		WebFrame\DLL\NLog.dll = WebFrame\DLL\NLog.dll
 		WebFrame\DLL\NLog.xml = WebFrame\DLL\NLog.xml
-		..\Users\CNU424C479\Desktop\NLog.xml = ..\Users\CNU424C479\Desktop\NLog.xml
-		..\Users\CNU424C479\Desktop\Oracle.DataAccess.dll = ..\Users\CNU424C479\Desktop\Oracle.DataAccess.dll
-		..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.Design.dll = ..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.Design.dll
-		..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.UI.Skins.dll = ..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.UI.Skins.dll
+		WebFrame\DLL\Oracle.DataAccess.dll = WebFrame\DLL\Oracle.DataAccess.dll
+		WebFrame\DLL\Telerik.Web.UI.dll = WebFrame\DLL\Telerik.Web.UI.dll
+		WebFrame\DLL\Telerik.Web.UI.Skins.dll = WebFrame\DLL\Telerik.Web.UI.Skins.dll
 	EndProjectSection
 EndProject
 Global
