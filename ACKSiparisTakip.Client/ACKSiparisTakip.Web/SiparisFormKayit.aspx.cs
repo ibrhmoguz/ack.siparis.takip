@@ -291,7 +291,7 @@ namespace ACKSiparisTakip.Web
             string seriAdi = this.KapiTip.ToString().ToUpper();
 
             //Montaj kota kontrolu acik ise
-            if (Convert.ToBoolean(Session["MONTAJ_KOTA_KONTROLU"]))
+            if (Session["MONTAJ_KOTA_KONTROLU"].ToString() == "1")
             {
                 MontajBS montajBS = new MontajBS();
                 int yapilanMontajSayisi = montajBS.GünlükMontajSayisiniGetir(rdpTeslimTarihi.SelectedDate.Value);
@@ -320,7 +320,7 @@ namespace ACKSiparisTakip.Web
                     int kotaVarsayilanDegeri = Convert.ToInt32(Session["MONTAJ_KOTA_VARSAYILAN"]);
                     if (yapilanMontajSayisi >= kotaVarsayilanDegeri)
                     {
-                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString()+ " tarihi için montaj kotası (" + kotaVarsayilanDegeri.ToString() + ") değerine ulaşılmıştır.");
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString() + " tarihi için montaj kotası (" + kotaVarsayilanDegeri.ToString() + ") değerine ulaşılmıştır.");
                         return;
                     }
                 }

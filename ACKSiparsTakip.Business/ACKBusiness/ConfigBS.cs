@@ -23,5 +23,19 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
             return dt;
         }
+
+        public bool ConfigDegerleriniKaydet(bool montajKotaKontrolu, string montajKotaVarsayilan)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            string sqlText = @"TRUNCATE TABLE dbo.CONFIG
+                               INSERT INTO dbo.CONFIG VALUES('MONTAJ_KOTA_KONTROLU',@MontajKotaKontrol)
+                               INSERT INTO dbo.CONFIG VALUES('MONTAJ_KOTA_VARSAYILAN',@MontajKotaVarsayilan)";
+
+            data.AddSqlParameter("MontajKotaKontrol", montajKotaKontrolu, SqlDbType.Bit, 50);
+            data.AddSqlParameter("MontajKotaVarsayilan", montajKotaVarsayilan, SqlDbType.Int, 50);
+            data.ExecuteStatement(sqlText);
+            return true;
+        }
     }
 }

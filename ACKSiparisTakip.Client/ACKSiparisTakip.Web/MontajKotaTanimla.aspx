@@ -52,7 +52,7 @@
             <asp:BoundField DataField="ID" HeaderText="ID" />
             <asp:BoundField DataField="MONTAJTARIHI" HeaderText="MONTAJ TARİHİ" />
             <asp:BoundField DataField="MAXMONTAJSAYI" HeaderText="MONTAJ KOTASI" />
-            <asp:BoundField DataField="MONTAJKABUL" HeaderText="TEL" ItemStyle-Font-Size="12px" />
+            <asp:BoundField DataField="MONTAJKABUL" HeaderText="DURUM" ItemStyle-Font-Size="12px" />
             <asp:CommandField HeaderText="SİL" DeleteText="Sil" DeleteImageUrl="~/App_Themes/Theme/Raster/clear.png" ShowDeleteButton="true" ButtonType="Image" />
         </Columns>
     </asp:GridView>

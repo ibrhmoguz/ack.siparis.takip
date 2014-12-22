@@ -51,7 +51,8 @@ namespace ACKSiparisTakip.Web
                      url.Contains("PersonelTanimlama") ||
                      url.Contains("Hatalar") ||
                      url.Contains("FormOgeGuncelleme") ||
-                     url.Contains("MontajKotaTanimla"))
+                     url.Contains("MontajKotaTanimla") ||
+                     url.Contains("UygulamaAyarlari"))
             {
                 RadRibbonBarMenu.SelectedTabIndex = 2;
             }
@@ -84,6 +85,7 @@ namespace ACKSiparisTakip.Web
             string urlHatalar = "Hatalar.aspx";
             string urlGunlukIsTakipFormu = "GunlukIsTakipFormu.aspx";
             string urlMontajKotaDuzenle = "MontajKotaTanimla.aspx";
+            string urlUygulamaAyarlari = "UygulamaAyarlari.aspx";
 
             switch (e.CommandName)
             {
@@ -128,6 +130,9 @@ namespace ACKSiparisTakip.Web
                     break;
                 case "MontajKotaDuzenle":
                     NavigateUrl(urlMontajKotaDuzenle);
+                    break;
+                case "UygulamaAyar":
+                    NavigateUrl(urlUygulamaAyarlari);
                     break;
                 default:
                     break;

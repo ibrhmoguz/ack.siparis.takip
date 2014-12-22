@@ -96,6 +96,11 @@
                         <telerik:RibbonBarButton ID="rbbMontajKota" Size="Large" Text="MONTAJ KOTA TANIMLA" ToolTip="Günlük montaj kotası belirlemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/montajKota.png" CommandName="MontajKotaDuzenle" />
                     </Items>
                 </telerik:RibbonBarGroup>
+                <telerik:RibbonBarGroup Text="Uygulama Ayarları">
+                    <Items>
+                        <telerik:RibbonBarButton ID="rbbUygulamaAyar" Size="Large" Text="UYGULAMA AYARLARI" ToolTip="Uygulama ayarlarını belirlemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/Settings.png" CommandName="UygulamaAyar" />
+                    </Items>
+                </telerik:RibbonBarGroup>
                 <telerik:RibbonBarGroup Text="">
                     <Items>
                         <telerik:RibbonBarButton ID="rbbHatalar" Size="Large" Text="HATA LOG" ToolTip="Uygulamada alınan hataları görmek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/hataLog.png" CommandName="HataListesi" />

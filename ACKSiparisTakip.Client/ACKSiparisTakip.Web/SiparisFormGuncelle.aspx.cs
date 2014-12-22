@@ -565,7 +565,7 @@ namespace ACKSiparisTakip.Web
             sozlesme.Fiyat = string.IsNullOrWhiteSpace(txtFiyat.Text) ? null : txtFiyat.Text;
 
             //Montaj kota kontrolu acik ise
-            if (Convert.ToBoolean(Session["MONTAJ_KOTA_KONTROLU"]))
+            if (Session["MONTAJ_KOTA_KONTROLU"].ToString() == "1")
             {
                 MontajBS montajBS = new MontajBS();
                 int yapilanMontajSayisi = montajBS.GünlükMontajSayisiniGetir(rdpTeslimTarihi.SelectedDate.Value);
