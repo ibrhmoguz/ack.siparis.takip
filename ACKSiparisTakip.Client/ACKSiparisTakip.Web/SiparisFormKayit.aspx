@@ -331,7 +331,10 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <th colspan="2">ÖLÇÜM ve MONTAJ</th>
+                <td rowspan="7" colspan="2" style="width: 30%">
+                    <telerik:RadBinaryImage ID="RadBinaryImage1" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu1.png" />
+                </td>
+                <th colspan="2" style="text-align:center">ÖLÇÜM ve MONTAJ</th>
             </tr>
             <tr>
                 <th style="width: 15%">Ölçüm Bilgileri : </th>
@@ -366,9 +369,38 @@
                 </td>
             </tr>
             <tr>
+                <th style="width: 15%">Üretim Notları: : </th>
                 <td>
-                    <%--<telerik:RadBinaryImage ID="rbiKapiResmi" runat="server" ImageUrl="~/App_Themes/Theme/Raster/guardKapiOrta.PNG" />--%>
+                    <telerik:RadTextBox ID="txtUretimNot" runat="server" Width="400px" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
+            </tr>
+            <tr>
+                <td rowspan="3">
+                    <telerik:RadBinaryImage ID="RadBinaryImage2" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu2.png" />
+                </td>
+                <td rowspan="3">Dış kasanın altı,iç pervazın altından ....... mm kısa/uzun
+                </td>
+                <th>Standart Ölçü: </th>
+                <td>
+                    <telerik:RadTextBox ID="txtStandartOlcu" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+
+            </tr>
+            <tr>
+                <th>En: </th>
+                <td>
+                    <telerik:RadTextBox ID="RadTextBox1" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+
+            </tr>
+            <tr>
+
+                <th>Boy: </th>
+                <td>
+                    <telerik:RadTextBox ID="RadTextBox2" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+
+
             </tr>
         </table>
         <br />
