@@ -32,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebFrame.DLL", "WebFrame.DL
 		WebFrame\DLL\NLog.dll = WebFrame\DLL\NLog.dll
 		WebFrame\DLL\NLog.xml = WebFrame\DLL\NLog.xml
 		WebFrame\DLL\Oracle.DataAccess.dll = WebFrame\DLL\Oracle.DataAccess.dll
+		WebFrame\DLL\Telerik.Web.Design.dll = WebFrame\DLL\Telerik.Web.Design.dll
 		WebFrame\DLL\Telerik.Web.UI.dll = WebFrame\DLL\Telerik.Web.UI.dll
 		WebFrame\DLL\Telerik.Web.UI.Skins.dll = WebFrame\DLL\Telerik.Web.UI.Skins.dll
 	EndProjectSection

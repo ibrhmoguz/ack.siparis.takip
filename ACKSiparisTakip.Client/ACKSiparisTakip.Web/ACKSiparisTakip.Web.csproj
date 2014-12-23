@@ -57,14 +57,13 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Telerik.Web.Design, Version=2013.2.717.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.Design.dll</HintPath>
+      <HintPath>..\..\WebFrame\DLL\Telerik.Web.Design.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Web.UI, Version=2013.2.717.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\CNU424C479\Desktop\Telerik.Web.UI.dll</HintPath>
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\..\WebFrame\DLL\Telerik.Web.UI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Web.UI.Skins">
-      <HintPath>..\..\..\..\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q2 2013\Bin45\Telerik.Web.UI.Skins.dll</HintPath>
+      <HintPath>..\..\WebFrame\DLL\Telerik.Web.UI.Skins.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -92,7 +91,6 @@
     <Content Include="App_Themes\Theme\Raster\nova.png" />
     <Content Include="App_Themes\Theme\Raster\novaKapiOrta.png" />
     <Content Include="App_Themes\Theme\Raster\ok.gif" />
-    <Content Include="App_Themes\Theme\Raster\OlcumBilgileri.JPG" />
     <Content Include="App_Themes\Theme\Raster\personelEkle.png" />
     <Content Include="App_Themes\Theme\Raster\print.jpg" />
     <Content Include="App_Themes\Theme\Raster\Settings.png" />
@@ -106,15 +104,6 @@
     <Content Include="App_Themes\Theme\Template\h.jpg" />
     <Content Include="App_Themes\Theme\Template\m.jpg" />
     <Content Include="App_Themes\Theme\Template\Template.css" />
-    <Content Include="bin\ACKSiparisTakip.Business.ACKBusiness.dll" />
-    <Content Include="bin\ACKSiparisTakip.Business.ACKBusiness.pdb" />
-    <Content Include="bin\ACKSiparisTakip.Web.dll" />
-    <Content Include="bin\ACKSiparisTakip.Web.pdb" />
-    <Content Include="bin\Telerik.Web.UI.dll" />
-    <Content Include="bin\WebFrame.DataAccess.dll" />
-    <Content Include="bin\WebFrame.DataAccess.pdb" />
-    <Content Include="bin\WebFrame.DataType.Common.dll" />
-    <Content Include="bin\WebFrame.DataType.Common.pdb" />
     <Content Include="DBScripts\AppDBScripts.sql" />
     <Content Include="DBScripts\VersiyonBilgisi.txt" />
     <Content Include="deneme.aspx" />
@@ -298,7 +287,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ACKMasterPage.Master" />
-    <None Include="bin\ACKSiparisTakip.Web.dll.config" />
     <Content Include="Print\PrinterFriendly.Master" />
     <None Include="Properties\PublishProfiles\ACK.pubxml" />
     <None Include="Web.Debug.config">
@@ -324,6 +312,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
+    <Folder Include="bin\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
