@@ -91,12 +91,8 @@
     <Content Include="App_Themes\Theme\Raster\nova.png" />
     <Content Include="App_Themes\Theme\Raster\novaKapiOrta.png" />
     <Content Include="App_Themes\Theme\Raster\ok.gif" />
-<<<<<<< HEAD
-=======
     <Content Include="App_Themes\Theme\Raster\olcu1.png" />
     <Content Include="App_Themes\Theme\Raster\olcu2.png" />
-    <Content Include="App_Themes\Theme\Raster\OlcumBilgileri.JPG" />
->>>>>>> origin/master
     <Content Include="App_Themes\Theme\Raster\personelEkle.png" />
     <Content Include="App_Themes\Theme\Raster\print.jpg" />
     <Content Include="App_Themes\Theme\Raster\Settings.png" />
