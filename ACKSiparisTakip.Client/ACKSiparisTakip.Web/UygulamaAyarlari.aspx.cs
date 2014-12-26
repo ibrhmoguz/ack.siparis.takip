@@ -55,10 +55,15 @@ namespace ACKSiparisTakip.Web
                     return;
                 }
                 varsayilan = txtMontajKotaVarsayilan.Text;
+
+                Session["MONTAJ_KOTA_KONTROLU"] = "1";
+                Session["MONTAJ_KOTA_VARSAYILAN"] = varsayilan;
             }
             else
             {
                 varsayilan = "0";
+                Session["MONTAJ_KOTA_KONTROLU"] = "0";
+                Session["MONTAJ_KOTA_VARSAYILAN"] = "0";
             }
 
             bool islemDurumu = new ConfigBS().ConfigDegerleriniKaydet(chcBoxMontajKotaKontrolu.Checked, varsayilan);

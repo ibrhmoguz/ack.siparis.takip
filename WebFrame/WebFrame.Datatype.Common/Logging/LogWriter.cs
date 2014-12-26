@@ -37,13 +37,13 @@ namespace WebFrame.DataType.Common.Logging
         public LogWriter()
         {
 
-            eventLogListener = new EventLogTraceListener("Application")
-                                 {
-                                     TraceOutputOptions =
-                                         TraceOptions.Callstack | TraceOptions.DateTime |
-                                         TraceOptions.LogicalOperationStack | TraceOptions.ProcessId |
-                                         TraceOptions.ThreadId | TraceOptions.Timestamp
-                                 };
+            //eventLogListener = new EventLogTraceListener("Application")
+            //                     {
+            //                         TraceOutputOptions =
+            //                             TraceOptions.Callstack | TraceOptions.DateTime |
+            //                             TraceOptions.LogicalOperationStack | TraceOptions.ProcessId |
+            //                             TraceOptions.ThreadId | TraceOptions.Timestamp
+            //                     };
 
             //LogToOracle();
             this.ConnectionStringName = "ACKconnectionString";
@@ -52,15 +52,15 @@ namespace WebFrame.DataType.Common.Logging
         public LogWriter(string ConnectionStringName)
         {
 
-            eventLogListener = new EventLogTraceListener("Application")
-            {
-                TraceOutputOptions =
-                    TraceOptions.Callstack | TraceOptions.DateTime |
-                    TraceOptions.LogicalOperationStack | TraceOptions.ProcessId |
-                    TraceOptions.ThreadId | TraceOptions.Timestamp
-            };
+            //eventLogListener = new EventLogTraceListener("Application")
+            //{
+            //    TraceOutputOptions =
+            //        TraceOptions.Callstack | TraceOptions.DateTime |
+            //        TraceOptions.LogicalOperationStack | TraceOptions.ProcessId |
+            //        TraceOptions.ThreadId | TraceOptions.Timestamp
+            //};
             this.ConnectionStringName = ConnectionStringName;
-            LogToOracle();
+            //LogToOracle();
         }
 
         /// <summary>
@@ -69,13 +69,13 @@ namespace WebFrame.DataType.Common.Logging
         public LogWriter(DataProvider provider)
         {
 
-            eventLogListener = new EventLogTraceListener("Application")
-            {
-                TraceOutputOptions =
-                    TraceOptions.Callstack | TraceOptions.DateTime |
-                    TraceOptions.LogicalOperationStack | TraceOptions.ProcessId |
-                    TraceOptions.ThreadId | TraceOptions.Timestamp
-            };
+            //eventLogListener = new EventLogTraceListener("Application")
+            //{
+            //    TraceOutputOptions =
+            //        TraceOptions.Callstack | TraceOptions.DateTime |
+            //        TraceOptions.LogicalOperationStack | TraceOptions.ProcessId |
+            //        TraceOptions.ThreadId | TraceOptions.Timestamp
+            //};
 
 
             switch (provider)
@@ -90,8 +90,6 @@ namespace WebFrame.DataType.Common.Logging
             }
 
             database = provider;
-
-
         }
 
         /// <summary>
