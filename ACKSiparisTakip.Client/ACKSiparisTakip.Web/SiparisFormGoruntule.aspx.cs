@@ -7,7 +7,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 using System.IO;
-using System.Data;
 using ACKSiparisTakip.Business.ACKBusiness;
 using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
 using ACKSiparisTakip.Web.Helper;

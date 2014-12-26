@@ -41,9 +41,46 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(ZirhRengiGetir());
             ds.Tables.Add(BolmeCamTipiGetir());
             ds.Tables.Add(FerforjeGetir());
-            ds.Tables.Add(FerforjeRenkGetir()); 
+            ds.Tables.Add(FerforjeRenkGetir());
+            ds.Tables.Add(AplikeRenkGetir());
+            ds.Tables.Add(PervazRenkGetir());
+            ds.Tables.Add(MetalRenkGetir());
+             
 
             return ds;
+        }
+        private DataTable AplikeRenkGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_APLIKE";
+
+            string sqlText = @"SELECT * FROM REF_APLIKE";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+        private DataTable PervazRenkGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_PERVAZRENK";
+
+            string sqlText = @"SELECT * FROM REF_PERVAZRENK";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+        private DataTable MetalRenkGetir()
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+            dt.TableName = "REF_METALRENK";
+
+            string sqlText = @"SELECT * FROM REF_METALRENK";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
         }
 
         private DataTable FerforjeRenkGetir()

@@ -40,9 +40,77 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(ZirhRengiGetir(prms));
             ds.Tables.Add(BolmeCamTipiGetir(prms));
             ds.Tables.Add(FerforjeGetir(prms));
-            ds.Tables.Add(FerforjeRenkGetir(prms));          
+            ds.Tables.Add(FerforjeRenkGetir(prms));
+            ds.Tables.Add(AplikeRenkGetir(prms));
+            ds.Tables.Add(PervazRenkGetir(prms));
+            ds.Tables.Add(MetalRenkGetir(prms)); 
+            ds.Tables.Add(CekmeKoluGetir(prms));
+            ds.Tables.Add(BarelTipGetir(prms)); 
             ds.Tables.Add(new PersonelBS().PersonelListesiGetir());
             return ds;
+        }
+
+      
+        private DataTable CekmeKoluGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "CEKMEKOL";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_CEKMEKOLU WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+
+        private DataTable AplikeRenkGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "APLIKERENK";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_APLIKE WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+        private DataTable PervazRenkGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "PERVAZRENK";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_PERVAZRENK WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
+        }
+        private DataTable MetalRenkGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "METALRENK";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_METALRENK WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
         }
 
         private DataTable FerforjeRenkGetir(Dictionary<string, object> prms)
@@ -623,6 +691,29 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("CEKKALAN", siparis.CekKalan, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("CEKODEMENOTU", siparis.CekOdemeNot, SqlDbType.VarChar, 500);
                 data.AddSqlParameter("SIPARISNOT", siparis.Not, SqlDbType.VarChar, 500);
+                //
+                data.AddSqlParameter("ICPERVAZRENK", siparis.IcPervazRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISPERVAZRENK", siparis.DisPervazRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("APLIKERENK", siparis.AplikeRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KANAT", siparis.Kanat, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KASACITARENK", siparis.KasaCitaRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ZIRHTIP", siparis.ZirhTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ZIRHRENK", siparis.ZirhRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CEKMEKOLTAKILMASEKLI", siparis.CekmeKolTakilmaSekli, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CEKMEKOLRENK", siparis.CekmeKolRenk, SqlDbType.Date, 50);
+                data.AddSqlParameter("BOLMEKAYITSAYI", siparis.BolmeKayitSayi, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CAMTIP", siparis.CamTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("FERFORJE", siparis.Ferforje, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("FERFORJERENK", siparis.FerforjeRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("METALRENK", siparis.MetalRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KASAKAPLAMA", siparis.KasaKaplama, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("YANGINKAPICINS", siparis.YanginKapiCins, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MUDAHALEKOL", siparis.MudahaleKol, SqlDbType.Date, 50);
+                data.AddSqlParameter("PANIKBAR", siparis.PanikBar, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MENTESE", siparis.Mentese, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KASATIP", siparis.KasaTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("HIDROLIKKAPATICI", siparis.HidrolikKapatici, SqlDbType.VarChar, 50);
+                //
 
                 string sqlKaydet = @"INSERT INTO [ACKAppDB].[dbo].[SIPARIS]
                                    ([SIPARISNO]
@@ -673,16 +764,37 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    ,[VERGINUMARASI]
                                    ,[DURUM]
                                    ,[ADET]
-                                    ,NAKITPESIN
-                                    ,NAKITKALAN
-                                    ,NAKITODEMENOTU
-                                    ,KKARTPESIN
-                                    ,KKARTKALAN
-                                    ,KKARTODEMENOTU
-                                    ,CEKPESIN
-                                    ,CEKKALAN
-                                    ,CEKODEMENOTU
-                                    ,SIPARISNOT)
+                                   ,[NAKITPESIN]
+                                   ,[NAKITKALAN]
+                                   ,[NAKITODEMENOTU]
+                                   ,[KKARTPESIN]
+                                   ,[KKARTKALAN]
+                                   ,[KKARTODEMENOTU]
+                                   ,[CEKPESIN]
+                                   ,[CEKKALAN]
+                                   ,[CEKODEMENOTU]
+                                   ,[SIPARISNOT]
+                                  ,[ICPERVAZRENK]
+                                  ,[DISPERVAZRENK]
+                                  ,[APLIKERENK]
+                                  ,[KANAT]
+                                  ,[KASACITARENK]
+                                  ,[ZIRHTIP]
+                                  ,[ZIRHRENK]
+                                  ,[CEKMEKOLTAKILMASEKLI]
+                                  ,[CEKMEKOLRENK]
+                                  ,[BOLMEKAYITSAYI]
+                                  ,[CAMTIP]
+                                  ,[FERFORJE]
+                                  ,[FERFORJERENK]
+                                  ,[YANGINKAPICINS]
+                                  ,[MUDAHALEKOL]
+                                  ,[PANIKBAR]
+                                  ,[MENTESE]
+                                  ,[KASATIP]
+                                  ,[HIDROLIKKAPATICI]
+                                  ,[METALRENK]
+                                  ,[KASAKAPLAMA])
                              VALUES
                                    (@SIPARISNO,
                                    @SIPARISTARIH,
@@ -732,16 +844,37 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                    @VERGINUMARASI,
                                    @DURUM,
                                    @ADET
-                                    ,@NAKITPESIN
-                                    ,@NAKITKALAN
-                                    ,@NAKITODEMENOTU
-                                    ,@KKARTPESIN
-                                    ,@KKARTKALAN
-                                    ,@KKARTODEMENOTU
-                                    ,@CEKPESIN
-                                    ,@CEKKALAN
-                                    ,@CEKODEMENOTU
-                                    ,@SIPARISNOT)";
+                                  ,@NAKITPESIN
+                                  ,@NAKITKALAN
+                                  ,@NAKITODEMENOTU
+                                  ,@KKARTPESIN
+                                  ,@KKARTKALAN
+                                  ,@KKARTODEMENOTU
+                                  ,@CEKPESIN
+                                  ,@CEKKALAN
+                                  ,@CEKODEMENOTU
+                                  ,@SIPARISNOT
+                                  ,@ICPERVAZRENK
+                                  ,@DISPERVAZRENK
+                                  ,@APLIKERENK
+                                  ,@KANAT
+                                  ,@KASACITARENK
+                                  ,@ZIRHTIP
+                                  ,@ZIRHRENK
+                                  ,@CEKMEKOLTAKILMASEKLI
+                                  ,@CEKMEKOLRENK
+                                  ,@BOLMEKAYITSAYI
+                                  ,@CAMTIP
+                                  ,@FERFORJE
+                                  ,@FERFORJERENK
+                                  ,@YANGINKAPICINS
+                                  ,@MUDAHALEKOL
+                                  ,@PANIKBAR
+                                  ,@MENTESE
+                                  ,@KASATIP
+                                  ,@HIDROLIKKAPATICI
+                                  ,@METALRENK
+                                  ,@KASAKAPLAMA)";
                 data.ExecuteStatement(sqlKaydet);
 
                 //MONTAJ BILGISI KAYDET

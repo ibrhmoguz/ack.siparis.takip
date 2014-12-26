@@ -46,21 +46,42 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string Esik { get; set; }
         public string AluminyumRenk { get; set; }
         public string AksesuarRenk { get; set; }
+        public string IcPervazRenk { get; set; }
+        public string DisPervazRenk { get; set; }
+        public string AplikeRenk { get; set; }
+        public string Kanat { get; set; }
+        public string KasaCitaRenk { get; set; }
         public string ContaRenk { get; set; }
+        public string ZirhTip { get; set; }
+        public string ZirhRenk { get; set; }
         public string TacTip { get; set; }
         public string PervazTip { get; set; }
         public string CekmeKolu { get; set; }
+        public string CekmeKolTakilmaSekli { get; set; }
+        public string CekmeKolRenk { get; set; }
         public string KapiNo { get; set; }
         public string BarelTip { get; set; }
         public string Baba { get; set; }
         public string Durbun { get; set; }
         public string Taktak { get; set; }
         public string KapiTipi { get; set; }
+        public string YanginKapiCins { get; set; }
         public string Durum { get; set; }
         public string KayıtYapanKamera { get; set; }
         public string KayıtYapmayanKamera { get; set; }
         public string Alarm { get; set; }
         public string OtomatikKilit { get; set; }
+        public string BolmeKayitSayi { get; set; }
+        public string CamTip { get; set; }
+        public string Ferforje { get; set; }
+        public string FerforjeRenk { get; set; }
+        public string MudahaleKol { get; set; }
+        public string PanikBar { get; set; }
+        public string Mentese { get; set; }
+        public string KasaTip { get; set; }
+        public string HidrolikKapatici { get; set; }
+        public string MetalRenk { get; set; }
+        public string KasaKaplama { get; set; }
         public string FirmaAdi { get; set; }
         public string SiparisAdedi { get; set; }
         public double? NakitPesin { get; set; }
@@ -114,6 +135,28 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
             this.CekKalan = null;
             this.CekOdemeNot = null;
             this.Not = null;
+            this.IcPervazRenk = null;
+            this.DisPervazRenk = null;
+            this.AplikeRenk = null;
+            this.Kanat = null;
+            this.KasaCitaRenk = null;
+            this.ZirhTip = null;
+            this.ZirhRenk = null;
+            this.CekmeKolTakilmaSekli = null;
+            this.CekmeKolRenk = null;
+            this.BolmeKayitSayi = null;
+            this.CamTip = null;
+            this.Ferforje = null;
+            this.FerforjeRenk = null;
+            this.YanginKapiCins = null;
+            this.MudahaleKol = null;
+            this.PanikBar = null;
+            this.Mentese = null;
+            this.KasaTip = null;
+            this.HidrolikKapatici = null;
+            this.MetalRenk = null;
+            this.KasaKaplama = null;
+
         }
     }
 
