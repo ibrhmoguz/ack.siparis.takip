@@ -118,6 +118,17 @@
                 <telerik:RibbonBarGroup Text="Takip Formu">
                     <Items>
                         <telerik:RibbonBarButton ID="rbbGunlukIsTakipFormu" Size="Large" Text="GÜNLÜK İŞ TAKİP FORMU" ToolTip="Günlük iş takip formu için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/gunlukRapor.png" CommandName="GunlukIsTakipFormu" />
+
+                    </Items>
+                </telerik:RibbonBarGroup>
+                <telerik:RibbonBarGroup Text="Kapı Tipine Göre Satış Raporu">
+                    <Items>
+                        <telerik:RibbonBarButton ID="rbbKapiTipineGoreSatilanAdet" Size="Large" Text="KAPI TİPİNE GÖRE SATIŞ RAPORU" ToolTip="Kapı tipine göre satılan adet raporu için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/gunlukRapor.png" CommandName="KapiTipineGoreSatilanAdet" />
+                    </Items>
+                </telerik:RibbonBarGroup>
+                <telerik:RibbonBarGroup Text="İl İlçe Bazlı Satış Raporu">
+                    <Items>
+                        <telerik:RibbonBarButton ID="rbbIlIlceyeGoreSatilanAdet" Size="Large" Text="İL İLÇEYE GÖRE SATIŞ RAPORU" ToolTip="İl İlçeye göre satılan adet raporu için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/gunlukRapor.png" CommandName="IlIlceyeGoreSatilanAdet" />
                     </Items>
                 </telerik:RibbonBarGroup>
             </telerik:RibbonBarTab>

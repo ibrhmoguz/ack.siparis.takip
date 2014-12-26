@@ -113,6 +113,8 @@
     <Content Include="Global.asax" />
     <Content Include="GunlukIsTakipFormu.aspx" />
     <Content Include="Hatalar.aspx" />
+    <Content Include="IlIlceyeGoreSatilanAdet.aspx" />
+    <Content Include="KapiTipineGoreSatilanAdet.aspx" />
     <Content Include="MontajKotaTanimla.aspx" />
     <Content Include="Script\jquery.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -170,12 +172,26 @@
     <Compile Include="Helper\JavascriptHelper.cs" />
     <Compile Include="Helper\MessageBox.cs" />
     <Compile Include="Helper\PopupPageHelper.cs" />
+    <Compile Include="IlIlceyeGoreSatilanAdet.aspx.cs">
+      <DependentUpon>IlIlceyeGoreSatilanAdet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IlIlceyeGoreSatilanAdet.aspx.designer.cs">
+      <DependentUpon>IlIlceyeGoreSatilanAdet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="IsTakvimi.aspx.cs">
       <DependentUpon>IsTakvimi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="IsTakvimi.aspx.designer.cs">
       <DependentUpon>IsTakvimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KapiTipineGoreSatilanAdet.aspx.cs">
+      <DependentUpon>KapiTipineGoreSatilanAdet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KapiTipineGoreSatilanAdet.aspx.designer.cs">
+      <DependentUpon>KapiTipineGoreSatilanAdet.aspx</DependentUpon>
     </Compile>
     <Compile Include="KullaniciTanimlama.aspx.cs">
       <DependentUpon>KullaniciTanimlama.aspx</DependentUpon>

@@ -59,9 +59,9 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <th style="width: 15%">Ölçü Tarihi ve Saati :   </th>
+                <th style="width: 15%">Ölçü Tarihi :   </th>
                 <td style="width: 35%">
-                    <telerik:RadDateTimePicker ID="rdtOlcuTarihSaat" runat="server" Width="200px"></telerik:RadDateTimePicker>
+                    <telerik:RadDatePicker ID="rdtOlcuTarihSaat" runat="server"></telerik:RadDatePicker>
                 </td>
                 <th style="width: 10%">Sipariş Tarihi :  </th>
                 <td>
@@ -75,7 +75,7 @@
                 </td>
                 <th>Sipariş No : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtSiparisNo" runat="server" Enabled="False" Text="Sistem Tarafından Verilir" RenderMode="Lightweight"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtSiparisNo" runat="server" Enabled="False" Text="Sistem Tarafından Verilir" RenderMode="Lightweight" Width="165"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -182,11 +182,11 @@
                 <th>Kasa Kaplama :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlKasaKaplama" runat="server" RenderMode="Lightweight">
-                    <Items>
+                        <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
                             <telerik:DropDownListItem runat="server" Text="Var" />
                             <telerik:DropDownListItem runat="server" Text="Yok" />
-                     </Items>
+                        </Items>
                     </telerik:RadDropDownList>
                 </td>
                 <th>Zırh Tipi</th>
@@ -219,7 +219,7 @@
                 </td>
                 <th>Bölme Kayıt Sayısı :</th>
                 <td>
-                    <telerik:RadTextBox ID="txtBolmeKayitSayisi" runat="server" RenderMode="Lightweight" ></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtBolmeKayitSayisi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
 
             </tr>
@@ -341,11 +341,11 @@
                     </telerik:RadDropDownList>
                 </td>
             </tr>
-             <tr>
+            <tr>
                 <th>Çekme Kolu Rengi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlCekmeKoluRengi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
-                 </td>
+                </td>
                 <th>Baba :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlBaba" runat="server" SelectedText="Seçiniz" RenderMode="Lightweight">
@@ -355,8 +355,8 @@
                             <telerik:DropDownListItem runat="server" Text="Yok" />
                         </Items>
                     </telerik:RadDropDownList>
-                 </td>
-                 <th>Taktak :</th>
+                </td>
+                <th>Taktak :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlTaktak" runat="server" RenderMode="Lightweight">
                         <Items>
@@ -365,7 +365,7 @@
                             <telerik:DropDownListItem runat="server" Text="Yok" />
                         </Items>
                     </telerik:RadDropDownList>
-                 </td>
+                </td>
             </tr>
             <tr>
                 <%-- <th>Kapı No :</th>
@@ -394,7 +394,7 @@
                 </td>
                 <th></th>
                 <td></td>
-            </tr>          
+            </tr>
             <tr>
                 <th>Montajda Takılacaklar</th>
                 <td colspan="5">

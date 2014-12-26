@@ -100,8 +100,8 @@ namespace ACKSiparisTakip.Web
             DataTable dtFerforjeRenk = ds.Tables["FERFORJERENK"];
             DataTable dtKanatRenk = ds.Tables["ALUMINYUMRENK"];
 
-            
-            
+
+
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlIcKapiRengi, dtKapiRenk);
@@ -131,7 +131,7 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlCamTipi, dtCamTipi);
             DropDownBindEt(ddlFerforje, dtFerforje);
             DropDownBindEt(ddlFerforjeRenk, dtFerforjeRenk);
-           
+
             Kontrol();
             IlleriGetir();
         }
@@ -149,7 +149,7 @@ namespace ACKSiparisTakip.Web
         {
             if (this.KapiTip.ToString() == "Guard")
             {
-                
+
                 trGuard.Visible = true;
             }
         }
@@ -233,6 +233,12 @@ namespace ACKSiparisTakip.Web
 
         protected void btnKaydet_Click(object sender, EventArgs e)
         {
+            if (rdpTeslimTarihi.SelectedDate == null)
+            {
+                MessageBox.Uyari(this.Page, "Teslim tarihi girmelisiniz!");
+                return;
+            }
+
             Musteri musteri = new Musteri();
             Siparis siparis = new Siparis();
             Olcum olcum = new Olcum();
@@ -279,9 +285,9 @@ namespace ACKSiparisTakip.Web
             if (DropDownCheck(ddlFerforje)) siparis.Ferforje = ddlFerforje.SelectedText;
             if (DropDownCheck(ddlMetalRenk)) siparis.MetalRenk = ddlMetalRenk.SelectedText;
             if (DropDownCheck(ddlKasaKaplama)) siparis.KasaKaplama = ddlKasaKaplama.SelectedText;
-            
+
             //
-            siparis.SiparisTarih = DateTime.Now;
+            siparis.SiparisTarih = rdtOlcuSiparisTarih.SelectedDate == null ? DateTime.Now : rdtOlcuSiparisTarih.SelectedDate.Value;
             if (!string.IsNullOrWhiteSpace(txtNot.Text)) siparis.Not = txtNot.Text;
             if (DropDownCheck(ddlTaktak)) siparis.Taktak = ddlTaktak.SelectedText;
             siparis.KapiTipi = this.KapiTip.ToString();

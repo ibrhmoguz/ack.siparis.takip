@@ -76,7 +76,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                 )
 
                                 SELECT
-	                                KapiTipi
+	                                KapiTipi AS [KAPI TİPİ]
 	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= @Period AND SIPARISTARIH < DATEADD(MONTH,1,@Period) AND KapiTipi=KF.KapiTipi),0) AS '1'
 	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,1,@Period) AND SIPARISTARIH < DATEADD(MONTH,2,@Period) AND KapiTipi=KF.KapiTipi),0) AS '2'
 	                                , ISNULL((SELECT SUM(CAST(ISNULL(ADET,'0') AS INT)) FROM KAPI_FILITRELE WHERE SIPARISTARIH >= DATEADD(MONTH,2,@Period) AND SIPARISTARIH < DATEADD(MONTH,3,@Period) AND KapiTipi=KF.KapiTipi),0) AS '3'
