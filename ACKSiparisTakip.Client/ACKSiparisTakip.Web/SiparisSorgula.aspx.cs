@@ -313,7 +313,7 @@ namespace ACKSiparisTakip.Web
             SemtleriGetir(e.Value);
         }
 
-        protected void IlleriGetir()
+        private void IlleriGetir()
         {
             DataTable dt = new SiparisIslemleriBS().IlleriGetir();
             if (dt.Rows.Count > 0)
@@ -333,7 +333,7 @@ namespace ACKSiparisTakip.Web
             ddlMusteriSemt.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
         }
 
-        protected void IlceleriGetir(string ilKod)
+        private void IlceleriGetir(string ilKod)
         {
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("ILKOD", ilKod);
@@ -358,7 +358,7 @@ namespace ACKSiparisTakip.Web
             ddlMusteriSemt.SelectedIndex = 0;
         }
 
-        protected void SemtleriGetir(string ilceKod)
+        private void SemtleriGetir(string ilceKod)
         {
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("ILCEKOD", ilceKod);
@@ -394,7 +394,7 @@ namespace ACKSiparisTakip.Web
             if (link != null)
             {
                 DataRowView view = (DataRowView)e.Row.DataItem;
-                link.NavigateUrl = "~/SiparisFormGoruntule.aspx?SiparisNo=" + view.Row.ItemArray[1].ToString(); ;
+                link.NavigateUrl = "~/SiparisFormGoruntule.aspx?SiparisNo=" + view.Row.ItemArray[1].ToString();
             }
         }
         private void KapiSeriDoldur()

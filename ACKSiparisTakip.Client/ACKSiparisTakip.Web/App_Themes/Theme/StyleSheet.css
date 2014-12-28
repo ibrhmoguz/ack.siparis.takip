@@ -67,6 +67,19 @@ table.AnaTablo th
 table.AnaTablo td
 {padding-left: 5px; text-align:left}
 
+table.AnaTabloRapor
+{ width:100%; border: 1px solid #61BBEF;background-color: #F0F4F8; vertical-align: top;font-family: Segoe UI;font-size: 9pt;font-weight: normal;}
+
+table.AnaTabloRapor th
+
+{background-color: #e5f1fb;text-align: center;font-weight: bold;padding-left: 5px;}
+
+table.AnaTabloRapor th.thIlkKolon
+{background-color: #e5f1fb;text-align: left;font-weight: bold;padding-left: 5px;}
+
+table.AnaTabloRapor td
+{padding-left: 5px; text-align:center}
+
 /*CSS Standartları bu şekilde olacak FORMATLAMA YAPMAYINIZ!!!*/
 td.tdTabStripAktif{filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f7fbfe, endColorstr=#68b3f4, gradientType=0);}
 td.tdTabStripPasif{filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dfdfdf, endColorstr=#ababab, gradientType=0);}
