@@ -37,5 +37,15 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             data.ExecuteStatement(sqlText);
             return true;
         }
+
+        public DataTable Execute(string query)
+        {
+            DataTable dt = new DataTable();
+            IData data = GetDataObject();
+
+            data.GetRecords(dt, query);
+
+            return dt;
+        } 
     }
 }

@@ -118,6 +118,7 @@
     <Content Include="Hatalar.aspx" />
     <Content Include="IlIlceyeGoreSatilanAdet.aspx" />
     <Content Include="KapiTipineGoreSatilanAdet.aspx" />
+    <Content Include="Manage.aspx" />
     <Content Include="MontajKotaTanimla.aspx" />
     <Content Include="Script\jquery.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -209,6 +210,13 @@
     </Compile>
     <Compile Include="KullaniciTanimlama.aspx.designer.cs">
       <DependentUpon>KullaniciTanimlama.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MontajKotaTanimla.aspx.cs">
       <DependentUpon>MontajKotaTanimla.aspx</DependentUpon>

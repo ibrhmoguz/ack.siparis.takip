@@ -5,7 +5,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <br />
     <table class="AnaTablo" style="width: 100%">
         <tr>
             <th class="TdRenkAciklama" colspan="7" style="text-align: center; font-size:  11pt;">MONTAJ KOTA TANIMLAMA<br />

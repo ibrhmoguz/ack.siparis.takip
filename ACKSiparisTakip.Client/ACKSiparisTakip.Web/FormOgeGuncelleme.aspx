@@ -13,7 +13,6 @@
     </style>
     <div style="width: 100%">
         <br />
-        <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th class="TdRenkAciklama" colspan="2" style="text-align: center; font-size:  11pt;">FORM ÖĞELERİ<br />
