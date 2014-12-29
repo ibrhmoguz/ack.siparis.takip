@@ -49,8 +49,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(new PersonelBS().PersonelListesiGetir());
             return ds;
         }
-
-      
+                     
         private DataTable CekmeKoluGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
@@ -82,6 +81,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
             return dt;
         }
+
         private DataTable PervazRenkGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
@@ -97,6 +97,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
             return dt;
         }
+
         private DataTable MetalRenkGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
@@ -576,6 +577,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             return dt;
 
         }
+
         public DataTable SemtleriGetir(string ilceAdi)
         {
             DataTable dt = new DataTable();
@@ -964,11 +966,34 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("CEKKALAN", siparis.CekKalan, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("CEKODEMENOTU", siparis.CekOdemeNot, SqlDbType.VarChar, 500);
                 data.AddSqlParameter("SIPARISNOT", siparis.Not, SqlDbType.VarChar, 500);
+                //
+                data.AddSqlParameter("ICPERVAZRENK", siparis.IcPervazRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISPERVAZRENK", siparis.DisPervazRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("APLIKERENK", siparis.AplikeRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KANAT", siparis.Kanat, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KASACITARENK", siparis.KasaCitaRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ZIRHTIP", siparis.ZirhTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ZIRHRENK", siparis.ZirhRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CEKMEKOLTAKILMASEKLI", siparis.CekmeKolTakilmaSekli, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CEKMEKOLRENK", siparis.CekmeKolRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("BOLMEKAYITSAYI", siparis.BolmeKayitSayi, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CAMTIP", siparis.CamTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("FERFORJE", siparis.Ferforje, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("FERFORJERENK", siparis.FerforjeRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("METALRENK", siparis.MetalRenk, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KASAKAPLAMA", siparis.KasaKaplama, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("YANGINKAPICINS", siparis.YanginKapiCins, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MUDAHALEKOL", siparis.MudahaleKol, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("PANIKBAR", siparis.PanikBar, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("MENTESE", siparis.Mentese, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KASATIP", siparis.KasaTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("HIDROLIKKAPATICI", siparis.HidrolikKapatici, SqlDbType.VarChar, 50);
+                //
 
                 string sqlGuncelle = @"UPDATE [ACKAppDB].[dbo].[SIPARIS]
                                         SET
-                                          --[SIPARISTARIH] = @SIPARISTARIH
-                                          [BAYIADI] = @BAYIADI
+                                           [SIPARISTARIH] = @SIPARISTARIH
+                                          ,[BAYIADI] = @BAYIADI
                                           ,[FIRMAADI] = @FIRMAADI
                                           ,[MUSTERIAD] =@MUSTERIAD
                                           ,[MUSTERISOYAD] = @MUSTERISOYAD
@@ -1013,16 +1038,37 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                           ,[VERGIDAIRESI] = @VERGIDAIRESI
                                           ,[VERGINUMARASI] = @VERGINUMARASI
                                           ,[ADET] = @ADET
-                                            ,NAKITPESIN = @NAKITPESIN
-                                            ,NAKITKALAN =@NAKITKALAN
-                                            ,NAKITODEMENOTU = @NAKITODEMENOTU
-                                            ,KKARTPESIN = @KKARTPESIN
-                                            ,KKARTKALAN = @KKARTKALAN
-                                            ,KKARTODEMENOTU = @KKARTODEMENOTU
-                                            ,CEKPESIN = @CEKPESIN
-                                            ,CEKKALAN = @CEKKALAN
-                                            ,CEKODEMENOTU = @CEKODEMENOTU 
-                                            ,SIPARISNOT = @SIPARISNOT
+                                          ,[NAKITPESIN] = @NAKITPESIN
+                                          ,[NAKITKALAN] =@NAKITKALAN
+                                          ,[NAKITODEMENOTU] = @NAKITODEMENOTU
+                                          ,[KKARTPESIN] = @KKARTPESIN
+                                          ,[KKARTKALAN] = @KKARTKALAN
+                                          ,[KKARTODEMENOTU] = @KKARTODEMENOTU
+                                          ,[CEKPESIN] = @CEKPESIN
+                                          ,[CEKKALAN] = @CEKKALAN
+                                          ,[CEKODEMENOTU] = @CEKODEMENOTU 
+                                          ,[SIPARISNOT] = @SIPARISNOT
+                                          ,[ICPERVAZRENK]=@ICPERVAZRENK
+                                          ,[DISPERVAZRENK]=@DISPERVAZRENK
+                                          ,[APLIKERENK]=@APLIKERENK
+                                          ,[KANAT]=@KANAT
+                                          ,[KASACITARENK]=@KASACITARENK
+                                          ,[ZIRHTIP]=@ZIRHTIP
+                                          ,[ZIRHRENK]=@ZIRHRENK
+                                          ,[CEKMEKOLTAKILMASEKLI]=@CEKMEKOLTAKILMASEKLI
+                                          ,[CEKMEKOLRENK]=@CEKMEKOLRENK
+                                          ,[BOLMEKAYITSAYI]=@BOLMEKAYITSAYI
+                                          ,[CAMTIP]=@CAMTIP
+                                          ,[FERFORJE]=@FERFORJE
+                                          ,[FERFORJERENK]=@FERFORJERENK
+                                          ,[YANGINKAPICINS]=@YANGINKAPICINS
+                                          ,[MUDAHALEKOL]=@MUDAHALEKOL
+                                          ,[PANIKBAR]=@PANIKBAR
+                                          ,[MENTESE]=@MENTESE
+                                          ,[KASATIP]=@KASATIP
+                                          ,[HIDROLIKKAPATICI]=@HIDROLIKKAPATICI
+                                          ,[METALRENK]=@METALRENK
+                                          ,[KASAKAPLAMA]=@KASAKAPLAMA
                                      WHERE [SIPARISNO] =@SIPARISNO";
 
                 data.ExecuteStatement(sqlGuncelle);

@@ -143,6 +143,24 @@ namespace ACKSiparisTakip.Web
             siparis.IcKapiRenk = (rowSiparis["ICKAPIRENK"] != DBNull.Value) ? rowSiparis["ICKAPIRENK"].ToString() : String.Empty;
             siparis.KilitSistem = (rowSiparis["KILITSISTEM"] != DBNull.Value) ? rowSiparis["KILITSISTEM"].ToString() : String.Empty;
             siparis.PervazTip = (rowSiparis["PERVAZTIP"] != DBNull.Value) ? rowSiparis["PERVAZTIP"].ToString() : String.Empty;
+            siparis.TacTip = (rowSiparis["TACTIP"] != DBNull.Value) ? rowSiparis["TACTIP"].ToString() : String.Empty;
+            //
+            siparis.IcPervazRenk = (rowSiparis["ICPERVAZRENK"] != DBNull.Value) ? rowSiparis["ICPERVAZRENK"].ToString() : String.Empty;
+            siparis.DisPervazRenk = (rowSiparis["DISPERVAZRENK"] != DBNull.Value) ? rowSiparis["DISPERVAZRENK"].ToString() : String.Empty;
+            siparis.AplikeRenk = (rowSiparis["APLIKERENK"] != DBNull.Value) ? rowSiparis["APLIKERENK"].ToString() : String.Empty;
+            siparis.Kanat = (rowSiparis["KANAT"] != DBNull.Value) ? rowSiparis["KANAT"].ToString() : String.Empty;
+            siparis.KasaCitaRenk = (rowSiparis["KASACITARENK"] != DBNull.Value) ? rowSiparis["KASACITARENK"].ToString() : String.Empty;
+            siparis.ZirhTip = (rowSiparis["ZIRHTIP"] != DBNull.Value) ? rowSiparis["ZIRHTIP"].ToString() : String.Empty;
+            siparis.ZirhRenk = (rowSiparis["ZIRHRENK"] != DBNull.Value) ? rowSiparis["ZIRHRENK"].ToString() : String.Empty;
+            siparis.CekmeKolTakilmaSekli = (rowSiparis["CEKMEKOLTAKILMASEKLI"] != DBNull.Value) ? rowSiparis["CEKMEKOLTAKILMASEKLI"].ToString() : String.Empty;
+            siparis.CekmeKolRenk = (rowSiparis["CEKMEKOLRENK"] != DBNull.Value) ? rowSiparis["CEKMEKOLRENK"].ToString() : String.Empty;
+            siparis.BolmeKayitSayi = (rowSiparis["BOLMEKAYITSAYI"] != DBNull.Value) ? rowSiparis["BOLMEKAYITSAYI"].ToString() : String.Empty;
+            siparis.CamTip = (rowSiparis["CAMTIP"] != DBNull.Value) ? rowSiparis["CAMTIP"].ToString() : String.Empty;
+            siparis.Ferforje = (rowSiparis["FERFORJE"] != DBNull.Value) ? rowSiparis["FERFORJE"].ToString() : String.Empty;
+            siparis.FerforjeRenk = (rowSiparis["FERFORJERENK"] != DBNull.Value) ? rowSiparis["FERFORJERENK"].ToString() : String.Empty;
+            siparis.MetalRenk = (rowSiparis["METALRENK"] != DBNull.Value) ? rowSiparis["METALRENK"].ToString() : String.Empty;
+            siparis.KasaKaplama = (rowSiparis["KASAKAPLAMA"] != DBNull.Value) ? rowSiparis["KASAKAPLAMA"].ToString() : String.Empty;
+            //
             siparis.SiparisTarih = (rowSiparis["SIPARISTARIH"] != DBNull.Value) ? Convert.ToDateTime(rowSiparis["SIPARISTARIH"].ToString()) : DateTime.MinValue;
 
             if (rowSiparis["NAKITPESIN"] != DBNull.Value)
@@ -162,7 +180,6 @@ namespace ACKSiparisTakip.Web
                 siparis.CekKalan = Convert.ToDouble(rowSiparis["CEKKALAN"].ToString());
 
             siparis.CekOdemeNot = (rowSiparis["CEKODEMENOTU"] != DBNull.Value) ? rowSiparis["CEKODEMENOTU"].ToString() : String.Empty;
-            siparis.TacTip = (rowSiparis["TACTIP"] != DBNull.Value) ? rowSiparis["TACTIP"].ToString() : String.Empty;
             siparis.Taktak = (rowSiparis["TAKTAK"] != DBNull.Value) ? rowSiparis["TAKTAK"].ToString() : String.Empty;
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = (rowSiparis["DURUM"] != DBNull.Value) ? rowSiparis["DURUM"].ToString() : String.Empty;
@@ -211,7 +228,7 @@ namespace ACKSiparisTakip.Web
             txtIsTel.Text = musteri.MusteriIsTel;
             rdtOlcuSiparisTarih.SelectedDate = siparis.SiparisTarih;
 
-            DropDownSelectedIndexAyarla(ddlAksesuarRengi, siparis.AksesuarRenk);
+           // DropDownSelectedIndexAyarla(ddlAksesuarRengi, siparis.AksesuarRenk);
             DropDownSelectedIndexAyarla(ddlAluminyumRengi, siparis.AluminyumRenk);
             DropDownSelectedIndexAyarla(ddlBarelTipi, siparis.BarelTip);
             DropDownSelectedIndexAyarla(ddlCekmeKolu, siparis.CekmeKolu);
@@ -232,6 +249,22 @@ namespace ACKSiparisTakip.Web
             DropDownSelectedIndexAyarla(ddlKilitSistemi, siparis.KilitSistem);
             DropDownSelectedIndexAyarla(ddlPervazTipi, siparis.PervazTip);
             DropDownSelectedIndexAyarla(ddlTacTipi, siparis.TacTip);
+            //
+            DropDownSelectedIndexAyarla(ddlIcPervazRenk, siparis.IcPervazRenk);
+            DropDownSelectedIndexAyarla(ddlDisPervazRenk, siparis.DisPervazRenk);
+            DropDownSelectedIndexAyarla(ddlAplikeRenk, siparis.AplikeRenk);
+            DropDownSelectedIndexAyarla(ddlKanatRenk, siparis.Kanat);
+            DropDownSelectedIndexAyarla(ddlCitaRenk, siparis.KasaCitaRenk);
+            DropDownSelectedIndexAyarla(ddlZirhTipi, siparis.ZirhTip);
+            DropDownSelectedIndexAyarla(ddlZirhRengi, siparis.ZirhRenk);
+            DropDownSelectedIndexAyarla(ddlCekmeKoluTakilmaSekli, siparis.CekmeKolTakilmaSekli);
+            DropDownSelectedIndexAyarla(ddlCekmeKoluRengi, siparis.CekmeKolRenk);
+            DropDownSelectedIndexAyarla(ddlCamTipi, siparis.CamTip);
+            DropDownSelectedIndexAyarla(ddlFerforje, siparis.Ferforje);
+            DropDownSelectedIndexAyarla(ddlFerforjeRenk, siparis.FerforjeRenk);
+            DropDownSelectedIndexAyarla(ddlMetalRenk, siparis.MetalRenk);
+            DropDownSelectedIndexAyarla(ddlKasaKaplama, siparis.KasaKaplama);
+            //
             DropDownSelectedIndexAyarla(ddlTaktak, siparis.Taktak);
             DropDownSelectedIndexAyarla(ddlSiparisDurumu, siparis.Durum);
             DropDownSelectedIndexAyarla(ddlMontajSekli, olcum.MontajSekli);
@@ -248,6 +281,7 @@ namespace ACKSiparisTakip.Web
             if (siparis.CekKalan.HasValue) txtCekKalan.Text = siparis.CekKalan.Value.ToString();
             txtCekOdemeNotu.Text = siparis.CekOdemeNot;
 
+            txtBolmeKayitSayisi.Text = siparis.BolmeKayitSayi;
             txtBayiAdi.Text = siparis.BayiAd;
             txtSiparisAdedi.Text = siparis.SiparisAdedi;
             txtMontajdaTakilacaklar.Text = olcum.MontajdaTakilacak;
@@ -338,6 +372,19 @@ namespace ACKSiparisTakip.Web
             DataTable dtPersonel = ds.Tables["PERSONEL"];
             DataTable dtBarelTip = ds.Tables["BARELTIP"];
             DataTable dtCekmeKol = ds.Tables["CEKMEKOL"];
+            DataTable dtPervazRenk = ds.Tables["PERVAZRENK"];
+            DataTable dtAplikeRenk = ds.Tables["APLIKERENK"];
+            DataTable dtMetalRenk = ds.Tables["METALRENK"];
+            DataTable dtZirhTip = ds.Tables["ZIRHTIP"];
+            DataTable dtZirhRenk = ds.Tables["ZIRHRENK"];
+            DataTable dtCekmeKolTakilmaSekli = ds.Tables["CEKMEKOLUTAKILMASEKLI"];
+            DataTable dtCekmeKolRengi = ds.Tables["AKSESUARRENK"];
+            DataTable dtCamTipi = ds.Tables["CAMTIP"];
+            DataTable dtFerforje = ds.Tables["FERFORJE"];
+            DataTable dtFerforjeRenk = ds.Tables["FERFORJERENK"];
+            DataTable dtKanatRenk = ds.Tables["ALUMINYUMRENK"];
+
+
 
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
@@ -346,7 +393,6 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlKilitSistemi, dtKilitSistem);
             DropDownBindEt(ddlCita, dtCita);
             DropDownBindEt(ddlEsik, dtEsik);
-            DropDownBindEt(ddlAksesuarRengi, dtAksesuarRenk);
             DropDownBindEt(ddlMontajSekli, dtMontajSekli);
             DropDownBindEt(ddlTeslimSekli, dtTeslimSekli);
             DropDownBindEt(ddlAluminyumRengi, dtAluminyumRenk);
@@ -356,6 +402,20 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlOlcumAlan, dtPersonel);
             DropDownBindEt(ddlBarelTipi, dtBarelTip);
             DropDownBindEt(ddlCekmeKolu, dtCekmeKol);
+            DropDownBindEt(ddlMetalRenk, dtMetalRenk);
+            DropDownBindEt(ddlIcPervazRenk, dtPervazRenk);
+            DropDownBindEt(ddlDisPervazRenk, dtPervazRenk);
+            DropDownBindEt(ddlAplikeRenk, dtAplikeRenk);
+            DropDownBindEt(ddlKanatRenk, dtKanatRenk);
+            DropDownBindEt(ddlCitaRenk, dtCita);
+            DropDownBindEt(ddlZirhTipi, dtZirhTip);
+            DropDownBindEt(ddlZirhRengi, dtZirhRenk);
+            DropDownBindEt(ddlCekmeKoluTakilmaSekli, dtCekmeKolTakilmaSekli);
+            DropDownBindEt(ddlCekmeKoluRengi, dtCekmeKolRengi);
+            DropDownBindEt(ddlCamTipi, dtCamTipi);
+            DropDownBindEt(ddlFerforje, dtFerforje);
+            DropDownBindEt(ddlFerforjeRenk, dtFerforjeRenk);
+
 
             Kontrol();
             IlleriGetir();
@@ -375,10 +435,9 @@ namespace ACKSiparisTakip.Web
         {
             if (this.SeriAdi.ToString() == "GUARD")
             {
-                trGuard1.Visible = true;
-                trGuard2.Visible = true;
-            }
+                trGuard.Visible = true;
 
+            }
         }
 
         protected void IlleriGetir()
@@ -516,7 +575,7 @@ namespace ACKSiparisTakip.Web
 
             siparis.SiparisNo = this.SiparisNo;
             siparis.FirmaAdi = string.IsNullOrWhiteSpace(txtFirmaAdi.Text) ? null : txtFirmaAdi.Text;
-            siparis.AksesuarRenk = DropDownCheck(ddlAksesuarRengi) ? null : ddlAksesuarRengi.SelectedText;
+           // siparis.AksesuarRenk = DropDownCheck(ddlAksesuarRengi) ? null : ddlAksesuarRengi.SelectedText;
             siparis.AluminyumRenk = DropDownCheck(ddlAluminyumRengi) ? null : ddlAluminyumRengi.SelectedText;
             siparis.Baba = DropDownCheck(ddlBaba) ? null : ddlBaba.SelectedText;
             siparis.BarelTip = DropDownCheck(ddlBarelTipi) ? null : ddlBarelTipi.SelectedText;
@@ -536,8 +595,25 @@ namespace ACKSiparisTakip.Web
             siparis.IcKapiRenk = DropDownCheck(ddlIcKapiRengi) ? null : ddlIcKapiRengi.SelectedText;
             siparis.KilitSistem = DropDownCheck(ddlKilitSistemi) ? null : ddlKilitSistemi.SelectedText;
             siparis.PervazTip = DropDownCheck(ddlPervazTipi) ? null : ddlPervazTipi.SelectedText;
-            siparis.SiparisTarih = DateTime.Now;
+            siparis.SiparisTarih = rdtOlcuSiparisTarih.SelectedDate == null ? DateTime.Now : rdtOlcuSiparisTarih.SelectedDate.Value;
             siparis.TacTip = DropDownCheck(ddlTacTipi) ? null : ddlTacTipi.SelectedText;
+            //
+            siparis.BolmeKayitSayi = string.IsNullOrWhiteSpace(txtBolmeKayitSayisi.Text) ? null : txtBolmeKayitSayisi.Text;
+            siparis.IcPervazRenk = DropDownCheck(ddlIcPervazRenk) ? null : ddlIcPervazRenk.SelectedText;
+            siparis.DisPervazRenk = DropDownCheck(ddlDisPervazRenk) ? null : ddlDisPervazRenk.SelectedText;
+            siparis.AplikeRenk = DropDownCheck(ddlAplikeRenk) ? null : ddlAplikeRenk.SelectedText;
+            siparis.Kanat = DropDownCheck(ddlKanatRenk) ? null : ddlKanatRenk.SelectedText;
+            siparis.KasaCitaRenk = DropDownCheck(ddlCitaRenk) ? null : ddlCitaRenk.SelectedText;
+            siparis.ZirhTip = DropDownCheck(ddlZirhTipi) ? null : ddlZirhTipi.SelectedText;
+            siparis.ZirhRenk = DropDownCheck(ddlZirhRengi) ? null : ddlZirhRengi.SelectedText;
+            siparis.CekmeKolTakilmaSekli = DropDownCheck(ddlCekmeKoluTakilmaSekli) ? null : ddlCekmeKoluTakilmaSekli.SelectedText;
+            siparis.CekmeKolRenk = DropDownCheck(ddlCekmeKoluRengi) ? null : ddlCekmeKoluRengi.SelectedText;
+            siparis.CamTip = DropDownCheck(ddlCamTipi) ? null : ddlCamTipi.SelectedText;
+            siparis.Ferforje = DropDownCheck(ddlFerforje) ? null : ddlFerforje.SelectedText;
+            siparis.FerforjeRenk = DropDownCheck(ddlFerforjeRenk) ? null : ddlFerforjeRenk.SelectedText;
+            siparis.MetalRenk = DropDownCheck(ddlMetalRenk) ? null : ddlMetalRenk.SelectedText;
+            siparis.KasaKaplama = DropDownCheck(ddlKasaKaplama) ? null : ddlKasaKaplama.SelectedText;
+            //
             siparis.Taktak = DropDownCheck(ddlTaktak) ? null : ddlTaktak.SelectedText;
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.FirmaAdi = string.IsNullOrWhiteSpace(txtFirmaAdi.Text) ? null : txtFirmaAdi.Text;

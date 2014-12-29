@@ -283,6 +283,7 @@ namespace ACKSiparisTakip.Web
             if (!string.IsNullOrWhiteSpace(txtBolmeKayitSayisi.Text)) siparis.BolmeKayitSayi = txtBolmeKayitSayisi.Text;
             if (DropDownCheck(ddlCamTipi)) siparis.CamTip = ddlCamTipi.SelectedText;
             if (DropDownCheck(ddlFerforje)) siparis.Ferforje = ddlFerforje.SelectedText;
+            if (DropDownCheck(ddlFerforjeRenk)) siparis.FerforjeRenk = ddlFerforjeRenk.SelectedText;
             if (DropDownCheck(ddlMetalRenk)) siparis.MetalRenk = ddlMetalRenk.SelectedText;
             if (DropDownCheck(ddlKasaKaplama)) siparis.KasaKaplama = ddlKasaKaplama.SelectedText;
 

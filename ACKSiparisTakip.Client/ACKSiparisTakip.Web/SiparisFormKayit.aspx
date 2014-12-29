@@ -226,7 +226,7 @@
             <tr>
                 <th>İç Pervaz Rengi :</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlIcPervazRenk" runat="server" RenderMode="Lightweight" Height="22px"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlIcPervazRenk" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Kanat Rengi:</th>
                 <td>
