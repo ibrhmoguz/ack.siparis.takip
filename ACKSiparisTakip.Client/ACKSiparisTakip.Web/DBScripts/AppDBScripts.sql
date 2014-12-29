@@ -1,6 +1,6 @@
 USE [ACKAppDB]
 GO
-/****** Object:  Table [dbo].[MONTAJ]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[MONTAJ]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -34,8 +34,9 @@ INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DUR
 INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DURUM]) VALUES (24, N'G-2', CAST(0x0000A40400000000 AS DateTime), NULL, N'A')
 INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DURUM]) VALUES (25, N'N-14', CAST(0x0000A40400000000 AS DateTime), NULL, N'A')
 INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DURUM]) VALUES (26, N'N-15', CAST(0x0000A40400000000 AS DateTime), NULL, N'A')
+INSERT [dbo].[MONTAJ] ([ID], [SIPARISNO], [TESLIMTARIH], [PERSONELLISTEID], [DURUM]) VALUES (29, N'N-17', CAST(0x0000A40E00000000 AS DateTime), NULL, N'A')
 SET IDENTITY_INSERT [dbo].[MONTAJ] OFF
-/****** Object:  Table [dbo].[KULLANICIBILGI]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[KULLANICIBILGI]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -57,7 +58,7 @@ INSERT [dbo].[KULLANICIBILGI] ([KULLANICIADI], [SIFRE], [YETKI]) VALUES (N'nejla
 INSERT [dbo].[KULLANICIBILGI] ([KULLANICIADI], [SIFRE], [YETKI]) VALUES (N'ibo', N'12345', N'Kullanici')
 INSERT [dbo].[KULLANICIBILGI] ([KULLANICIADI], [SIFRE], [YETKI]) VALUES (N'nej', N'12345', N'Yönetici')
 INSERT [dbo].[KULLANICIBILGI] ([KULLANICIADI], [SIFRE], [YETKI]) VALUES (N'kurtulus', N'12345', N'Kullanici')
-/****** Object:  Table [dbo].[ILCELER]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[ILCELER]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1051,7 +1052,7 @@ INSERT [dbo].[ILCELER] ([ILCEKOD], [ILKOD], [ILCEAD]) VALUES (N'955', N'81', N'G
 INSERT [dbo].[ILCELER] ([ILCEKOD], [ILKOD], [ILCEAD]) VALUES (N'956', N'81', N'GÜMÜÞOVA')
 INSERT [dbo].[ILCELER] ([ILCEKOD], [ILKOD], [ILCEAD]) VALUES (N'957', N'81', N'KAYNAÞLI')
 INSERT [dbo].[ILCELER] ([ILCEKOD], [ILKOD], [ILCEAD]) VALUES (N'958', N'81', N'YIÐILCA')
-/****** Object:  Table [dbo].[HATA]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[HATA]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1797,8 +1798,522 @@ INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGE
    at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql, CommandType commandType) in c:\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 215
    at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql) in c:\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 187
    at ACKSiparisTakip.Business.ACKBusiness.SiparisIslemleriBS.SiparisKaydet(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme) in c:\ACKSiparisTakip\ACKSiparsTakip.Business\ACKBusiness\SiparisIslemleriBS.cs:line 878 Source: .Net SqlClient Data Provider', N'ServerSide', N'SiparisKaydet', N'', N'', N'', N'', N'', NULL, CAST(0x0000A40D0117CF2C AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1056, 0, 1, N'Message: A potentially dangerous Request.Form value was detected from the client (ctl00_ContentPlaceHolder1_txtUretimNot_ClientState="...ionText":"<sd<sdfc","valueAsSt..."). StackTrace:    at System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   at System.Web.HttpRequest.<>c__DisplayClass5.<ValidateHttpValueCollection>b__3(String key, String value)
+   at System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   at System.Web.HttpValueCollection.Get(String name)
+   at Telerik.Web.UI.RadWebControl.LoadPostData(String postDataKey, NameValueCollection postCollection)
+   at Telerik.Web.UI.RadInputControl.LoadPostData(String postDataKey, NameValueCollection postCollection)
+   at Telerik.Web.UI.RadWebControl.System.Web.UI.IPostBackDataHandler.LoadPostData(String postDataKey, NameValueCollection postCollection)
+   at System.Web.UI.Page.ProcessPostData(NameValueCollection postData, Boolean fBeforeLoad)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.siparisformkayit_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_thcljl2f.3.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40D017F3F48 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1057, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.siparisformkayit_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_thcljl2f.3.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.siparisformkayit_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_thcljl2f.3.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40D017FA146 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1058, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_01cbfj2n.0.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_01cbfj2n.0.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40F0004FC63 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1059, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_01cbfj2n.0.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_01cbfj2n.0.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40F00056C3F AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1060, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_ywzreos1.5.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_ywzreos1.5.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40F000857BE AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1061, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_v1dqb10z.5.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_v1dqb10z.5.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40F0008E3EE AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1062, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\root\d7e34744\13ad272a\App_Web_hi4eq0bi.6.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\root\d7e34744\13ad272a\App_Web_hi4eq0bi.6.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40F000AADC2 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1063, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_naw0r1cg.1.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_naw0r1cg.1.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40F00192AEF AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1064, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_s0zoz05j.3.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_s0zoz05j.3.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40F001E45A7 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1065, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_jc1gjsce.5.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_jc1gjsce.5.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40F00256312 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1066, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_aj0yxxb4.6.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_aj0yxxb4.6.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A40F0026A726 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1067, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\root\d7e34744\13ad272a\App_Web_t30tgjln.6.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\root\d7e34744\13ad272a\App_Web_t30tgjln.6.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A41000D204CC AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1068, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\root\d7e34744\13ad272a\App_Web_4aogynmw.4.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: A field or property with the name ''Yuzde'' was not found on the selected data source. StackTrace:    at System.Web.UI.WebControls.BoundField.TryGetSimplePropertyValue(Object dataItem, Object& data)
+   at System.Web.UI.WebControls.BoundField.GetValue(Control controlContainer)
+   at System.Web.UI.WebControls.BoundField.OnDataBindField(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnDataBinding(EventArgs e)
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBind()
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBind()
+   at System.Web.UI.WebControls.GridView.CreateRow(Int32 rowIndex, Int32 dataSourceIndex, DataControlRowType rowType, DataControlRowState rowState, Boolean dataBind, Object dataItem, DataControlField[] fields, TableRowCollection rows, PagedDataSource pagedDataSource)
+   at System.Web.UI.WebControls.GridView.CreateChildControls(IEnumerable dataSource, Boolean dataBinding)
+   at System.Web.UI.WebControls.CompositeDataBoundControl.PerformDataBinding(IEnumerable data)
+   at System.Web.UI.WebControls.GridView.PerformDataBinding(IEnumerable data)
+   at System.Web.UI.WebControls.DataBoundControl.OnDataSourceViewSelectCallback(IEnumerable data)
+   at System.Web.UI.DataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   at System.Web.UI.WebControls.DataBoundControl.PerformSelect()
+   at System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   at System.Web.UI.WebControls.GridView.DataBind()
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.GridDoldur(GridView gv, DataTable dt) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 125
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.btnSorgula_Click(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 115
+   at Telerik.Web.UI.RadButton.OnClick(ButtonClickEventArgs e)
+   at Telerik.Web.UI.RadButton.RaisePostBackEvent(String eventArgument)
+   at Telerik.Web.UI.RadButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A41000D38584 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1069, 0, 1, N'Message: Type ''System.Web.UI.WebControls.Repeater'' does not have a public property named ''CssClass''. StackTrace:    at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   at System.Web.UI.TemplateParser.ParseInternal()
+   at System.Web.UI.TemplateParser.Parse()
+   at System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.UI.PageHandlerFactory.GetHandler(HttpContext context, String requestType, String virtualPath, String path)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Type ''System.Web.UI.WebControls.Repeater'' does not have a public property named ''CssClass''. StackTrace:    at System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding) Source: System.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A41000D4BA3B AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1070, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.kapitipinegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\root\d7e34744\13ad272a\App_Web_yi15rnxq.0.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Incorrect syntax near the keyword ''AS''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''.
+Incorrect syntax near '',''. StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at WebFrame.DataAccess.SqlData.GetRecords(DataTable dt, String ssql, CommandType commandType) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 495
+   at WebFrame.DataAccess.SqlData.GetRecords(DataTable dt, String ssql) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 415
+   at ACKSiparisTakip.Business.ACKBusiness.RaporBS.KapiTipineGoreSatilanAdet(String il, String ilce, String yil) in c:\GitHub\ACKSiparisTakip\ACKSiparsTakip.Business\ACKBusiness\RaporBS.cs:line 99
+   at ACKSiparisTakip.Web.KapiTipineGoreSatilanAdet.Sorgula() in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\KapiTipineGoreSatilanAdet.aspx.cs:line 114
+   at ACKSiparisTakip.Web.KapiTipineGoreSatilanAdet.btnSorgula_Click(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\KapiTipineGoreSatilanAdet.aspx.cs:line 101
+   at Telerik.Web.UI.RadButton.OnClick(ButtonClickEventArgs e)
+   at Telerik.Web.UI.RadButton.RaisePostBackEvent(String eventArgument)
+   at Telerik.Web.UI.RadButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: .Net SqlClient Data Provider', N'', N'', N'', N'', N'', N'', N'', N'nej', CAST(0x0000A41000D74922 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1071, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_ariqksh0.3.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Column ''Yuzde(%)3'' does not belong to table Table1. StackTrace:    at System.Data.DataRow.GetDataColumn(String columnName)
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.YuzdeDegerleriHesapla(DataTable dt) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 144
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.btnSorgula_Click(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 109
+   at Telerik.Web.UI.RadButton.OnClick(ButtonClickEventArgs e)
+   at Telerik.Web.UI.RadButton.RaisePostBackEvent(String eventArgument)
+   at Telerik.Web.UI.RadButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: System.Data', N'', N'', N'', N'', N'', N'', N'', N'nej', CAST(0x0000A41000DD0DC3 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1072, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_ariqksh0.3.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Column ''Yuzde(%)3'' does not belong to table Table1. StackTrace:    at System.Data.DataRow.GetDataColumn(String columnName)
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.YuzdeDegerleriHesapla(DataTable dt) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 144
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.btnSorgula_Click(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 109
+   at Telerik.Web.UI.RadButton.OnClick(ButtonClickEventArgs e)
+   at Telerik.Web.UI.RadButton.RaisePostBackEvent(String eventArgument)
+   at Telerik.Web.UI.RadButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: System.Data', N'', N'', N'', N'', N'', N'', N'', N'nej', CAST(0x0000A41000DD3981 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1073, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.login_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_en1gwpvb.1.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: There is no row at position 0. StackTrace:    at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at ACKSiparisTakip.Web.Login.LB_Login_Click(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\Login.aspx.cs:line 27
+   at System.Web.UI.WebControls.LinkButton.OnClick(EventArgs e)
+   at System.Web.UI.WebControls.LinkButton.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.WebControls.LinkButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: System.Data', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A41000DF1E6B AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1074, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_adozvlef.9.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Column ''Yuzde(%)3'' does not belong to table Table1. StackTrace:    at System.Data.DataRow.GetDataColumn(String columnName)
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.YuzdeDegerleriHesapla(DataTable dt) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 144
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.btnSorgula_Click(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 109
+   at Telerik.Web.UI.RadButton.OnClick(ButtonClickEventArgs e)
+   at Telerik.Web.UI.RadButton.RaisePostBackEvent(String eventArgument)
+   at Telerik.Web.UI.RadButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: System.Data', N'', N'', N'', N'', N'', N'', N'', N'nejibo', CAST(0x0000A41000E12968 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1075, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.ililceyegoresatilanadet_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_zkt2opir.10.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Column ''Yuzde(%)3'' does not belong to table Table1. StackTrace:    at System.Data.DataRow.GetDataColumn(String columnName)
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.YuzdeDegerleriHesapla(DataTable dt) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 144
+   at ACKSiparisTakip.Web.IlIlceyeGoreSatilanAdet.btnSorgula_Click(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\IlIlceyeGoreSatilanAdet.aspx.cs:line 109
+   at Telerik.Web.UI.RadButton.OnClick(ButtonClickEventArgs e)
+   at Telerik.Web.UI.RadButton.RaisePostBackEvent(String eventArgument)
+   at Telerik.Web.UI.RadButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: System.Data', N'', N'', N'', N'', N'', N'', N'', N'nejibo', CAST(0x0000A41000E1A762 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1076, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.print_print_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_ixza5foi.0.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Object reference not set to an instance of an object. StackTrace:    at ACKSiparisTakip.Web.Print.Print.FormBilgileriniGetir() in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\Print\Print.aspx.cs:line 155
+   at ACKSiparisTakip.Web.Print.Print.Page_Load(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\Print\Print.aspx.cs:line 51
+   at System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: ACKSiparisTakip.Web', N'', N'', N'', N'', N'', N'', N'', N'', CAST(0x0000A410012F77D3 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1077, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.print_print_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_ixza5foi.0.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Object reference not set to an instance of an object. StackTrace:    at ACKSiparisTakip.Web.Print.Print.FormBilgileriniGetir() in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\Print\Print.aspx.cs:line 155
+   at ACKSiparisTakip.Web.Print.Print.Page_Load(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\Print\Print.aspx.cs:line 51
+   at System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: ACKSiparisTakip.Web', N'', N'', N'', N'', N'', N'', N'', N'nejibo', CAST(0x0000A410012F9BD9 AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1078, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.manage_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_yawn3ir0.1.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Invalid object name ''dbo.Siparis''. StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at WebFrame.DataAccess.SqlData.GetRecords(DataTable dt, String ssql, CommandType commandType) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 495
+   at WebFrame.DataAccess.SqlData.GetRecords(DataTable dt, String ssql) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 415
+   at ACKSiparisTakip.Business.ACKBusiness.ConfigBS.Execute(String query) in c:\GitHub\ACKSiparisTakip\ACKSiparsTakip.Business\ACKBusiness\ConfigBS.cs:line 46
+   at ACKSiparisTakip.Web.Manage.btnExecute_Click(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\Manage.aspx.cs:line 35
+   at Telerik.Web.UI.RadButton.OnClick(ButtonClickEventArgs e)
+   at Telerik.Web.UI.RadButton.RaisePostBackEvent(String eventArgument)
+   at Telerik.Web.UI.RadButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: .Net SqlClient Data Provider', N'', N'', N'', N'', N'', N'', N'', N'nejibo', CAST(0x0000A4100131B18F AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1079, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.manage_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_yawn3ir0.1.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Operand data type varchar is invalid for sum operator. StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at WebFrame.DataAccess.SqlData.GetRecords(DataTable dt, String ssql, CommandType commandType) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 495
+   at WebFrame.DataAccess.SqlData.GetRecords(DataTable dt, String ssql) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 415
+   at ACKSiparisTakip.Business.ACKBusiness.ConfigBS.Execute(String query) in c:\GitHub\ACKSiparisTakip\ACKSiparsTakip.Business\ACKBusiness\ConfigBS.cs:line 46
+   at ACKSiparisTakip.Web.Manage.btnExecute_Click(Object sender, EventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\Manage.aspx.cs:line 35
+   at Telerik.Web.UI.RadButton.OnClick(ButtonClickEventArgs e)
+   at Telerik.Web.UI.RadButton.RaisePostBackEvent(String eventArgument)
+   at Telerik.Web.UI.RadButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: .Net SqlClient Data Provider', N'', N'', N'', N'', N'', N'', N'', N'nejibo', CAST(0x0000A4100132253B AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1080, 0, 1, N'Message: Exception of type ''System.Web.HttpUnhandledException'' was thrown. StackTrace:    at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.formogeguncelleme_aspx.ProcessRequest(HttpContext context) in c:\Users\ibrhmoguz\AppData\Local\Temp\Temporary ASP.NET Files\vs\d7e34744\13ad272a\App_Web_bayhjxau.5.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) Source: System.WebInner Exception Message: Object reference not set to an instance of an object. StackTrace:    at ACKSiparisTakip.Web.FormOgeGuncelleme.GridDoldur(String tabloAdi) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\FormOgeGuncelleme.aspx.cs:line 103
+   at ACKSiparisTakip.Web.FormOgeGuncelleme.ddlOge_SelectedIndexChanged(Object sender, DropDownListEventArgs e) in c:\GitHub\ACKSiparisTakip\ACKSiparisTakip.Client\ACKSiparisTakip.Web\FormOgeGuncelleme.aspx.cs:line 62
+   at Telerik.Web.UI.RadDropDownList.RaiseEvent(Object eventKey, DropDownListEventArgs e)
+   at Telerik.Web.UI.RadDropDownList.RaisePostBackEvent(String eventArgument)
+   at Telerik.Web.UI.RadDropDownList.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) Source: ACKSiparisTakip.Web', N'', N'', N'', N'', N'', N'', N'', N'nejibo', CAST(0x0000A4100161E77D AS DateTime))
+INSERT [dbo].[HATA] ([ID], [MODULEID], [EVENTLOGENTRYTYPEID], [EXCEPTION], [PAGEURL], [METHODNAME], [MESSAGE], [USERIDENTITY], [PCNAME], [USERAUTHORITY], [EXTENDEDPROPERTIES], [USERNAME], [DATE]) VALUES (1081, 3, 1, N'Message: Invalid column name ''NOVA''.
+Invalid column name ''KROMA''.
+Invalid column name ''GUARD''.
+Invalid column name ''YANGIN''. StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql, CommandType commandType) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 215
+   at WebFrame.DataAccess.SqlData.ExecuteStatement(String ssql) in c:\GitHub\ACKSiparisTakip\WebFrame\WebFrame.DataAccess\SqlData.cs:line 187
+   at ACKSiparisTakip.Business.ACKBusiness.YonetimKonsoluBS.OgeEkle(Dictionary`2 prms) in c:\GitHub\ACKSiparisTakip\ACKSiparsTakip.Business\ACKBusiness\YonetimKonsoluBS.cs:line 251 Source: .Net SqlClient Data Provider', N'ServerSide', N'OgeEkle', N'', N'', N'', N'', N'', NULL, CAST(0x0000A4100165701D AS DateTime))
 SET IDENTITY_INSERT [dbo].[HATA] OFF
-/****** Object:  Table [dbo].[CONFIG]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[CONFIG]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1820,7 +2335,7 @@ SET IDENTITY_INSERT [dbo].[CONFIG] ON
 INSERT [dbo].[CONFIG] ([ID], [ConfigName], [ConfigValue]) VALUES (1, N'MONTAJ_KOTA_KONTROLU', N'1')
 INSERT [dbo].[CONFIG] ([ID], [ConfigName], [ConfigValue]) VALUES (2, N'MONTAJ_KOTA_VARSAYILAN', N'13')
 SET IDENTITY_INSERT [dbo].[CONFIG] OFF
-/****** Object:  Table [dbo].[SIPARISNOSAYAC]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[SIPARISNOSAYAC]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1838,11 +2353,11 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Nova', 16)
-INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Nova', 16)
+INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Nova', 17)
+INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Nova', 17)
 INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Kroma', 5)
 INSERT [dbo].[SIPARISNOSAYAC] ([YIL], [KAPITUR], [SIRANO]) VALUES (2014, N'Guard', 3)
-/****** Object:  Table [dbo].[SIPARIS]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[SIPARIS]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1939,11 +2454,11 @@ GO
 SET ANSI_PADDING OFF
 GO
 SET IDENTITY_INSERT [dbo].[SIPARIS] ON
-INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (1, N'N-9', CAST(0x0000A3A500282300 AS DateTime), N'zxczxc', N'rtyrtyrty', N'sdfsdfsdfsd', N'asdasdasd', N'ANKARA', N'PURSAKLAR', NULL, NULL, NULL, NULL, N'801', NULL, NULL, NULL, N'H-Eloksal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'Var', NULL, N'Var', NULL, NULL, CAST(0x58390B00 AS Date), N'IBRAHIM OGUZ', N'Betonlu', N'Montajli', NULL, NULL, N'2500', N'124234123', NULL, N'TAMAMLANDI', N'Var', NULL, N'Var', N'Var', N'ALTINOVA', N'ererter', 23, CAST(1000.00 AS Numeric(10, 2)), CAST(500.00 AS Numeric(10, 2)), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (1, N'N-9', CAST(0x0000A3A500282300 AS DateTime), N'asdf asdf asdf asdfasdf asdf f', N'rtyrtyrty', N'sdfsdfsdfsd', N'asdasdasd', N'ANKARA', N'PURSAKLAR', NULL, NULL, NULL, NULL, N'801', NULL, NULL, NULL, N'H-Eloksal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'Var', NULL, N'Var', NULL, NULL, CAST(0x58390B00 AS Date), N'IBRAHIM OGUZ', N'Betonlu', N'Montajli', NULL, NULL, N'2500', N'124234123', NULL, N'TAMAMLANDI', N'Var', NULL, N'Var', N'Var', N'ALTINOVA', N'ererter', 23, CAST(1000.00 AS Numeric(10, 2)), CAST(500.00 AS Numeric(10, 2)), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (2, N'K-3', CAST(0x0000A3F200BE2463 AS DateTime), N'Bayi 1', N'Mustafa', N'TAS', N'Batikent', N'ANKARA', N'ALTINDAÐ', NULL, N'2222222222', N'3333333333', N'601', N'601', N'Karaagaç', N'Porte Ceviz', N'Kale 14''lü', N'H-Eloksal', N'Harmankaya', NULL, N'Pirinç', NULL, NULL, NULL, NULL, NULL, NULL, N'Var', NULL, N'Yok', N'srgsdfgsdfg', N'safsdfasdfasdf', CAST(0xF8380B00 AS Date), N'ALI USTA', N'Vidali', N'Montajli', NULL, NULL, N'3000', N'KEÇIÖREN', N'123123123', N'BEKLEYEN', NULL, NULL, NULL, N'Var', NULL, NULL, 1, CAST(500.00 AS Numeric(10, 2)), NULL, NULL, CAST(750.00 AS Numeric(10, 2)), CAST(1750.00 AS Numeric(10, 2)), N'5 taksit', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
-INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (3, N'N-10', CAST(0x0000A3AC00D8643B AS DateTime), N'Bayi 3', N'Ahmet', N'AYDIN', N'Batikent', N'ANKARA', N'YENÝMAHALLE', N'1111111111', N'2222222222', N'3333333333', NULL, NULL, N'Karaagaç', N'Karaagaç', N'Kale 14''lü', N'H-Eloksal', N'Harmankaya', NULL, N'Saten', NULL, NULL, NULL, NULL, NULL, NULL, N'Var', NULL, N'Var', N'werwerwe', N'dgdrtdtgdf', CAST(0xF6380B00 AS Date), NULL, N'Vidali', N'Montajli', NULL, NULL, N'3000', N'asdasd', N'45641231', N'ÝMALATTA', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(500.00 AS Numeric(10, 2)), NULL, NULL, CAST(1000.00 AS Numeric(10, 2)), N'2 taksit', CAST(1500.00 AS Numeric(10, 2)), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (3, N'N-10', CAST(0x0000A3AC00D8643B AS DateTime), N'Bayi 3', N'Ahmet', N'AYDIN', N'Batikent', N'ANKARA', N'YENÝMAHALLE', N'1111111111', N'2222222222', N'3333333333', NULL, NULL, N'Karaagaç', N'Karaagaç', N'Kale 14''lü', N'H-Eloksal', N'Harmankaya', NULL, N'Saten', NULL, NULL, NULL, NULL, NULL, NULL, N'Var', NULL, N'Var', N'werwerwe', N'dgdrtdtgdf', CAST(0xF6380B00 AS Date), NULL, N'Vidali', N'Montajli', NULL, NULL, N'3000', N'asdasd', N'45641231', N'ÝMALATTA', NULL, NULL, NULL, NULL, N'DEMETEVLER', NULL, 1, NULL, CAST(500.00 AS Numeric(10, 2)), NULL, NULL, CAST(1000.00 AS Numeric(10, 2)), N'2 taksit', CAST(1500.00 AS Numeric(10, 2)), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (4, N'N-11', CAST(0x0000A3FB018A1175 AS DateTime), NULL, N'asds', NULL, N'asdasfasd', N'DIYARBAKIR', N'KAYAPINAR', NULL, NULL, NULL, NULL, N'801', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, CAST(0x5E390B00 AS Date), NULL, N'Betonlu', N'Montajli', NULL, NULL, NULL, NULL, NULL, N'BEKLEYEN', NULL, NULL, NULL, NULL, NULL, N'aack', 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
-INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (5, N'N-12', CAST(0x0000A3FE017009EC AS DateTime), N'ABC Bayi', N'Mehmt', N'Demir', N'1234. Cd 34. Sk. No:5', N'ANKARA', N'YENÝMAHALLE', NULL, NULL, NULL, N'801', N'801', N'Amerikan Ceviz', N'Karaagaç', N'Kale 14''lü', N'H-Eloksal', N'Carmen Red', NULL, N'Saten', NULL, NULL, NULL, NULL, NULL, NULL, N'Var', N'Var', N'Var', NULL, NULL, CAST(0x59390B00 AS Date), NULL, N'Betonlu', N'Montajli', NULL, NULL, N'3500', N'12345678', N'1234567', N'BEKLEYEN', NULL, NULL, NULL, NULL, NULL, N'WER', 1, CAST(1000.00 AS Numeric(10, 2)), CAST(500.00 AS Numeric(10, 2)), N'20.12.2014 de verecek', NULL, CAST(2000.00 AS Numeric(10, 2)), N'4 taksit - 01.01.2015 ilk taksit', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (5, N'N-12', CAST(0x0000A3FE017009EC AS DateTime), N'ABC Bayi', N'Mehmt', N'Demir', N'1234. Cd 34. Sk. No:5', N'ANKARA', N'YENÝMAHALLE', NULL, NULL, NULL, N'801', N'801', N'Amerikan Ceviz', N'Karaagaç', N'Kale 14''lü', N'H-Eloksal', N'Carmen Red', NULL, N'Saten', NULL, NULL, NULL, NULL, NULL, NULL, N'Var', N'Var', N'Var', NULL, NULL, CAST(0x59390B00 AS Date), NULL, N'Betonlu', N'Montajli', NULL, NULL, N'3500', N'12345678', N'1234567', N'BEKLEYEN', NULL, NULL, NULL, NULL, N'SANAYÝ', N'WER', 1, CAST(1000.00 AS Numeric(10, 2)), CAST(500.00 AS Numeric(10, 2)), N'20.12.2014 de verecek', NULL, CAST(2000.00 AS Numeric(10, 2)), N'4 taksit - 01.01.2015 ilk taksit', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (6, N'K-4', CAST(0x0000A4000042AAFD AS DateTime), N'wertwertwert', N'sdfgsdfg', N'dfghdfg', N'sdfasd asdfas dasdfasd', N'ANKARA', N'KEÇÝÖREN', NULL, NULL, NULL, N'604', N'602', NULL, N'Soke Ceviz', N'Kale 6''li', N'H-Eloksal', NULL, NULL, N'Pirinç', NULL, NULL, NULL, NULL, NULL, NULL, N'Yok', NULL, N'Var', NULL, NULL, CAST(0x51390B00 AS Date), NULL, N'Vidali', N'Sevk', NULL, NULL, N'3500', NULL, NULL, N'BEKLEYEN', NULL, NULL, NULL, NULL, NULL, N'asdfasdfasdf', 1, NULL, CAST(2500.00 AS Numeric(10, 2)), N'5 Taksit', CAST(1000.00 AS Numeric(10, 2)), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (7, N'G-1', CAST(0x0000A40000CA34FB AS DateTime), N'zxc', N'qwe dfg', N'rrtrtrtrrttr', N'dfg dfgd fg dfg d', N'ANKARA', N'ETÝMESGUT', NULL, NULL, NULL, NULL, N'102', NULL, N'Karaagaç', NULL, NULL, N'Harmankaya', N'GRI', NULL, N'SIYAH', N'T2', NULL, NULL, NULL, NULL, N'Yok', NULL, N'Var', N'asdf asdfasdfsdfsdf', N'sdfsdf', CAST(0x5B390B00 AS Date), NULL, N'Vidali', N'Montajli', NULL, NULL, N'7500', NULL, NULL, N'BEKLEYEN', NULL, NULL, NULL, N'Var', NULL, N'dfg hjk ', 1, CAST(3500.00 AS Numeric(10, 2)), NULL, NULL, NULL, CAST(2500.00 AS Numeric(10, 2)), N'4 tkst', CAST(1000.00 AS Numeric(10, 2)), CAST(1500.00 AS Numeric(10, 2)), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (8, N'N-13', CAST(0x0000A405017F0995 AS DateTime), N'asd', N'asdas', NULL, N'sdfsdfsdfsdf', N'ANKARA', N'POLATLI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, CAST(0x52390B00 AS Date), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'BEKLEYEN', NULL, NULL, NULL, NULL, NULL, N'wer', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
@@ -1953,8 +2468,9 @@ INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD
 INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (12, N'N-15', CAST(0x0000A4050182A763 AS DateTime), NULL, NULL, NULL, N'sdfsdfsdfs', N'ANKARA', N'YENÝMAHALLE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'BEKLEYEN', NULL, NULL, NULL, NULL, N'DEMETEVLER', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (13, N'N-16', CAST(0x0000A4070168234C AS DateTime), NULL, NULL, NULL, N'sadfasdfasdf', N'ANKARA', N'BALA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'BEKLEYEN', NULL, NULL, NULL, NULL, N'KARAALÝ', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (14, N'G-3', CAST(0x0000A4070168F5E5 AS DateTime), NULL, NULL, NULL, N'dfssdfgsdf', N'ANKARA', N'KEÇÝÖREN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'BEKLEYEN', NULL, NULL, NULL, NULL, N'SANATORYUM', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[SIPARIS] ([ID], [SIPARISNO], [SIPARISTARIH], [BAYIADI], [MUSTERIAD], [MUSTERISOYAD], [MUSTERIADRES], [MUSTERIIL], [MUSTERIILCE], [MUSTERIEVTEL], [MUSTERIISTEL], [MUSTERICEPTEL], [ICKAPIMODEL], [DISKAPIMODEL], [DISKAPIRENK], [ICKAPIRENK], [KILITSISTEM], [CITA], [ESIK], [ALUMINYUMRENK], [AKSESUARRENK], [CONTARENK], [TACTIP], [PERVAZTIP], [CEKMEKOLU], [KAPINO], [BARELTIP], [BABA], [DURBUN], [TAKTAK], [MONTAJDATAKILACAK], [OLCUMBILGI], [OLCUMTARIH], [OLCUMALANKISI], [MONTAJSEKLI], [TESLIMSEKLI], [PESINAT], [KALANODEME], [FIYAT], [VERGIDAIRESI], [VERGINUMARASI], [DURUM], [KAYITSIZKAMERA], [KAYITYAPANKAMERA], [ALARM], [OTOKILIT], [MUSTERISEMT], [FIRMAADI], [ADET], [NAKITPESIN], [NAKITKALAN], [NAKITODEMENOTU], [KKARTPESIN], [KKARTKALAN], [KKARTODEMENOTU], [CEKPESIN], [CEKKALAN], [CEKODEMENOTU], [SIPARISNOT], [ICPERVAZRENK], [DISPERVAZRENK], [APLIKERENK], [KANAT], [KASACITARENK], [ZIRHTIP], [ZIRHRENK], [CEKMEKOLTAKILMASEKLI], [CEKMEKOLRENK], [BOLMEKAYITSAYI], [CAMTIP], [FERFORJE], [FERFORJERENK], [YANGINKAPICINS], [MUDAHALEKOL], [PANIKBAR], [MENTESE], [KASATIP], [HIDROLIKKAPATICI], [METALRENK], [KASAKAPLAMA]) VALUES (15, N'N-17', CAST(0x0000A40D0180CA70 AS DateTime), NULL, NULL, NULL, N'asdfasdfas', N'ANKARA', N'YENÝMAHALLE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, CAST(0x60390B00 AS Date), NULL, NULL, NULL, NULL, NULL, N'3000', NULL, NULL, N'BEKLEYEN', NULL, NULL, NULL, NULL, N'SANAYÝ', NULL, 1, NULL, NULL, NULL, CAST(1000.00 AS Numeric(10, 2)), CAST(2000.00 AS Numeric(10, 2)), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 SET IDENTITY_INSERT [dbo].[SIPARIS] OFF
-/****** Object:  Table [dbo].[SEMTLER]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[SEMTLER]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6177,7 +6693,7 @@ INSERT [dbo].[SEMTLER] ([SEMTKOD], [ILKOD], [ILCEKOD], [SEMTAD]) VALUES (N'4121'
 INSERT [dbo].[SEMTLER] ([SEMTKOD], [ILKOD], [ILCEKOD], [SEMTAD]) VALUES (N'4122', N'81', N'957', N'KÖYLER')
 INSERT [dbo].[SEMTLER] ([SEMTKOD], [ILKOD], [ILCEKOD], [SEMTAD]) VALUES (N'4123', N'81', N'958', N'YIÐILCA')
 INSERT [dbo].[SEMTLER] ([SEMTKOD], [ILKOD], [ILCEKOD], [SEMTAD]) VALUES (N'4124', N'81', N'958', N'KÖYLER')
-/****** Object:  Table [dbo].[REF_ZIRHTIP]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_ZIRHTIP]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6207,7 +6723,7 @@ INSERT [dbo].[REF_ZIRHTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALU
 INSERT [dbo].[REF_ZIRHTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'Mottura', 1, 1, 0, 0)
 INSERT [dbo].[REF_ZIRHTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'Ýtalyan', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_ZIRHTIP] OFF
-/****** Object:  Table [dbo].[REF_ZIRHRENK]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_ZIRHRENK]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6237,7 +6753,7 @@ INSERT [dbo].[REF_ZIRHRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VAL
 INSERT [dbo].[REF_ZIRHRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (5, N'Krom', 1, 1, 0, 0)
 INSERT [dbo].[REF_ZIRHRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (6, N'Pirinç', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_ZIRHRENK] OFF
-/****** Object:  Table [dbo].[REF_TESLIMSEKLI]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_TESLIMSEKLI]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6266,7 +6782,7 @@ SET IDENTITY_INSERT [dbo].[REF_TESLIMSEKLI] ON
 INSERT [dbo].[REF_TESLIMSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (1, N'Montajli', 1, 1, 1, 0)
 INSERT [dbo].[REF_TESLIMSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'Sevk', 1, 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_TESLIMSEKLI] OFF
-/****** Object:  Table [dbo].[REF_TACTIP]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_TACTIP]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6296,7 +6812,7 @@ INSERT [dbo].[REF_TACTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUE
 INSERT [dbo].[REF_TACTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'T2', 0, 0, 1, 0)
 INSERT [dbo].[REF_TACTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'T3', 0, 0, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_TACTIP] OFF
-/****** Object:  Table [dbo].[REF_TABLOLAR]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_TABLOLAR]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6347,8 +6863,9 @@ INSERT [dbo].[REF_TABLOLAR] ([ID], [AD], [TABLO]) VALUES (27, N'FERFORJE RENGÝ',
 INSERT [dbo].[REF_TABLOLAR] ([ID], [AD], [TABLO]) VALUES (28, N'APLÝKE RENGÝ', N'REF_APLIKE')
 INSERT [dbo].[REF_TABLOLAR] ([ID], [AD], [TABLO]) VALUES (29, N'PERVAZ RENGÝ', N'REF_PERVAZRENK')
 INSERT [dbo].[REF_TABLOLAR] ([ID], [AD], [TABLO]) VALUES (30, N'METAL RENGÝ', N'REF_METALRENK')
+INSERT [dbo].[REF_TABLOLAR] ([ID], [AD], [TABLO]) VALUES (31, N'CUMBA', N'REF_CUMBA')
 SET IDENTITY_INSERT [dbo].[REF_TABLOLAR] OFF
-/****** Object:  Table [dbo].[REF_SEMTLER]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_SEMTLER]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10572,7 +11089,7 @@ INSERT [dbo].[REF_SEMTLER] ([SEMTKOD], [SEMTAD], [ILCEKOD], [ILCEAD], [ILKOD]) V
 INSERT [dbo].[REF_SEMTLER] ([SEMTKOD], [SEMTAD], [ILCEKOD], [ILCEAD], [ILKOD]) VALUES (N'4122', N'KÖYLER', N'957', N'KAYNAÞLI', N'81')
 INSERT [dbo].[REF_SEMTLER] ([SEMTKOD], [SEMTAD], [ILCEKOD], [ILCEAD], [ILKOD]) VALUES (N'4123', N'YIÐILCA', N'958', N'YIÐILCA', N'81')
 INSERT [dbo].[REF_SEMTLER] ([SEMTKOD], [SEMTAD], [ILCEKOD], [ILCEAD], [ILKOD]) VALUES (N'4124', N'KÖYLER', N'958', N'YIÐILCA', N'81')
-/****** Object:  Table [dbo].[REF_PERVAZTIP]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_PERVAZTIP]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10602,7 +11119,7 @@ INSERT [dbo].[REF_PERVAZTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VA
 INSERT [dbo].[REF_PERVAZTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'P2', 0, 0, 1, 0)
 INSERT [dbo].[REF_PERVAZTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'P3', 0, 0, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_PERVAZTIP] OFF
-/****** Object:  Table [dbo].[REF_PERVAZRENK]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_PERVAZRENK]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10631,7 +11148,7 @@ SET IDENTITY_INSERT [dbo].[REF_PERVAZRENK] ON
 INSERT [dbo].[REF_PERVAZRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (1, N'SÝYAH', 1, 1, 1, 0)
 INSERT [dbo].[REF_PERVAZRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'BEYAZ', 1, 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_PERVAZRENK] OFF
-/****** Object:  Table [dbo].[REF_PANIKBAR]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_PANIKBAR]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10662,7 +11179,7 @@ INSERT [dbo].[REF_PANIKBAR] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VAL
 INSERT [dbo].[REF_PANIKBAR] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (6, N'Briton 379 (Gömme)', 0, 0, 0, 1)
 INSERT [dbo].[REF_PANIKBAR] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (7, N'Kale', 0, 0, 0, 1)
 SET IDENTITY_INSERT [dbo].[REF_PANIKBAR] OFF
-/****** Object:  Table [dbo].[REF_MUDAHALEKOL]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_MUDAHALEKOL]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10690,7 +11207,7 @@ GO
 SET IDENTITY_INSERT [dbo].[REF_MUDAHALEKOL] ON
 INSERT [dbo].[REF_MUDAHALEKOL] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (1, N'müdahale', 0, 0, 0, 1)
 SET IDENTITY_INSERT [dbo].[REF_MUDAHALEKOL] OFF
-/****** Object:  Table [dbo].[REF_MONTAJSEKLI]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_MONTAJSEKLI]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10720,7 +11237,7 @@ INSERT [dbo].[REF_MONTAJSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) 
 INSERT [dbo].[REF_MONTAJSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'Vidali', 1, 1, 1, 0)
 INSERT [dbo].[REF_MONTAJSEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'Köpüklü', 1, 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_MONTAJSEKLI] OFF
-/****** Object:  Table [dbo].[REF_METALRENK]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_METALRENK]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10749,7 +11266,7 @@ SET IDENTITY_INSERT [dbo].[REF_METALRENK] ON
 INSERT [dbo].[REF_METALRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (1, N'SÝYAH', 1, 1, 0, 0)
 INSERT [dbo].[REF_METALRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'BEYAZ', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_METALRENK] OFF
-/****** Object:  Table [dbo].[REF_MENTESETIP]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_MENTESETIP]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10774,7 +11291,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[REF_KILITSISTEM]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_KILITSISTEM]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10808,7 +11325,7 @@ INSERT [dbo].[REF_KILITSISTEM] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) 
 INSERT [dbo].[REF_KILITSISTEM] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (7, N'Moturra 21''li', 1, 1, 1, 0)
 INSERT [dbo].[REF_KILITSISTEM] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (8, N'Moturra 24''lü', 1, 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_KILITSISTEM] OFF
-/****** Object:  Table [dbo].[REF_KASATIP]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_KASATIP]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10833,7 +11350,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[REF_KAPISERI]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_KAPISERI]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10861,7 +11378,7 @@ INSERT [dbo].[REF_KAPISERI] ([ID], [AD], [VALUE]) VALUES (2, N'KROMA', N'K')
 INSERT [dbo].[REF_KAPISERI] ([ID], [AD], [VALUE]) VALUES (3, N'NOVA', N'N')
 INSERT [dbo].[REF_KAPISERI] ([ID], [AD], [VALUE]) VALUES (4, N'YANGIN', N'Y')
 SET IDENTITY_INSERT [dbo].[REF_KAPISERI] OFF
-/****** Object:  Table [dbo].[REF_KAPIRENK]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_KAPIRENK]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10896,7 +11413,7 @@ INSERT [dbo].[REF_KAPIRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VAL
 INSERT [dbo].[REF_KAPIRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (7, N'Venge', 1, 1, 1, 0)
 INSERT [dbo].[REF_KAPIRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (9, N'Kenya Silver', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_KAPIRENK] OFF
-/****** Object:  Table [dbo].[REF_KAPIMODEL]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_KAPIMODEL]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10939,7 +11456,7 @@ INSERT [dbo].[REF_KAPIMODEL] ([ID], [KAPISERIID], [AD]) VALUES (28, 1, N'105')
 INSERT [dbo].[REF_KAPIMODEL] ([ID], [KAPISERIID], [AD]) VALUES (29, 3, N'801')
 INSERT [dbo].[REF_KAPIMODEL] ([ID], [KAPISERIID], [AD]) VALUES (30, 4, N'DÜZ- RAL')
 SET IDENTITY_INSERT [dbo].[REF_KAPIMODEL] OFF
-/****** Object:  Table [dbo].[REF_KAPICINSI]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_KAPICINSI]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10969,7 +11486,7 @@ INSERT [dbo].[REF_KAPICINSI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VA
 INSERT [dbo].[REF_KAPICINSI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'ÞAFT KAPAÐI', 0, 0, 0, 1)
 INSERT [dbo].[REF_KAPICINSI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (4, N'SAC KAPI', 0, 0, 0, 1)
 SET IDENTITY_INSERT [dbo].[REF_KAPICINSI] OFF
-/****** Object:  Table [dbo].[REF_ILLER]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_ILLER]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11071,7 +11588,7 @@ INSERT [dbo].[REF_ILLER] ([ILKOD], [ILAD]) VALUES (N'8', N'ARTVIN')
 INSERT [dbo].[REF_ILLER] ([ILKOD], [ILAD]) VALUES (N'80', N'OSMANIYE')
 INSERT [dbo].[REF_ILLER] ([ILKOD], [ILAD]) VALUES (N'81', N'DÜZCE')
 INSERT [dbo].[REF_ILLER] ([ILKOD], [ILAD]) VALUES (N'9', N'AYDIN')
-/****** Object:  Table [dbo].[REF_ILCELER]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_ILCELER]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12066,7 +12583,7 @@ INSERT [dbo].[REF_ILCELER] ([ILCEKOD], [ILCEAD], [ILKOD], [ILAD]) VALUES (N'955'
 INSERT [dbo].[REF_ILCELER] ([ILCEKOD], [ILCEAD], [ILKOD], [ILAD]) VALUES (N'956', N'GÜMÜÞOVA', N'81', N'DÜZCE')
 INSERT [dbo].[REF_ILCELER] ([ILCEKOD], [ILCEAD], [ILKOD], [ILAD]) VALUES (N'957', N'KAYNAÞLI', N'81', N'DÜZCE')
 INSERT [dbo].[REF_ILCELER] ([ILCEKOD], [ILCEAD], [ILKOD], [ILAD]) VALUES (N'958', N'YIÐILCA', N'81', N'DÜZCE')
-/****** Object:  Table [dbo].[REF_HIDROLIKKAPATICI]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_HIDROLIKKAPATICI]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12096,7 +12613,7 @@ INSERT [dbo].[REF_HIDROLIKKAPATICI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANG
 INSERT [dbo].[REF_HIDROLIKKAPATICI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'Ito', 0, 0, 0, 1)
 INSERT [dbo].[REF_HIDROLIKKAPATICI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'Briton', 0, 0, 0, 1)
 SET IDENTITY_INSERT [dbo].[REF_HIDROLIKKAPATICI] OFF
-/****** Object:  Table [dbo].[REF_FERFORJERENK]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_FERFORJERENK]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12125,7 +12642,7 @@ SET IDENTITY_INSERT [dbo].[REF_FERFORJERENK] ON
 INSERT [dbo].[REF_FERFORJERENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (1, N'MAVÝ', 1, 1, 1, 0)
 INSERT [dbo].[REF_FERFORJERENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'SARI', 1, 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_FERFORJERENK] OFF
-/****** Object:  Table [dbo].[REF_FERFORJE]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_FERFORJE]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12156,7 +12673,7 @@ INSERT [dbo].[REF_FERFORJE] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VAL
 INSERT [dbo].[REF_FERFORJE] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'Tip3', 1, 1, 0, 1)
 INSERT [dbo].[REF_FERFORJE] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (4, N'Tip4', 1, 1, 0, 1)
 SET IDENTITY_INSERT [dbo].[REF_FERFORJE] OFF
-/****** Object:  Table [dbo].[REF_ESIK]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_ESIK]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12187,7 +12704,37 @@ INSERT [dbo].[REF_ESIK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES 
 INSERT [dbo].[REF_ESIK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'Siyah', 1, 1, 1, 0)
 INSERT [dbo].[REF_ESIK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (4, N'Yok', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_ESIK] OFF
-/****** Object:  Table [dbo].[REF_CONTARENK]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_CUMBA]    Script Date: 12/29/2014 21:51:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[REF_CUMBA]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[REF_CUMBA](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[AD] [varchar](50) NOT NULL,
+	[NOVA] [bit] NOT NULL,
+	[KROMA] [bit] NOT NULL,
+	[GUARD] [bit] NOT NULL,
+	[YANGIN] [bit] NOT NULL,
+ CONSTRAINT [PK_REF_CUMBA] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[REF_CUMBA] ON
+INSERT [dbo].[REF_CUMBA] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (1, N'Cumba1', 0, 0, 0, 1)
+INSERT [dbo].[REF_CUMBA] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'Cumba2', 0, 0, 0, 0)
+INSERT [dbo].[REF_CUMBA] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'Cumba3', 0, 0, 0, 1)
+SET IDENTITY_INSERT [dbo].[REF_CUMBA] OFF
+/****** Object:  Table [dbo].[REF_CONTARENK]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12216,7 +12763,7 @@ SET IDENTITY_INSERT [dbo].[REF_CONTARENK] ON
 INSERT [dbo].[REF_CONTARENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'SÝYAH', 1, 1, 1, 0)
 INSERT [dbo].[REF_CONTARENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (4, N'GRÝ', 1, 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_CONTARENK] OFF
-/****** Object:  Table [dbo].[REF_CITA]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_CITA]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12249,7 +12796,7 @@ INSERT [dbo].[REF_CITA] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES 
 INSERT [dbo].[REF_CITA] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (6, N'Kalin Alüminyum', 1, 1, 0, 0)
 INSERT [dbo].[REF_CITA] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (7, N'Ince Pirinç', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_CITA] OFF
-/****** Object:  Table [dbo].[REF_CEKMEKOLUTAKILMASEKLI]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_CEKMEKOLUTAKILMASEKLI]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12280,7 +12827,7 @@ INSERT [dbo].[REF_CEKMEKOLUTAKILMASEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD], 
 INSERT [dbo].[REF_CEKMEKOLUTAKILMASEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'Eðik', 1, 1, 0, 0)
 INSERT [dbo].[REF_CEKMEKOLUTAKILMASEKLI] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (4, N'Montajda', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_CEKMEKOLUTAKILMASEKLI] OFF
-/****** Object:  Table [dbo].[REF_CEKMEKOLU]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_CEKMEKOLU]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12318,7 +12865,7 @@ INSERT [dbo].[REF_CEKMEKOLU] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VA
 INSERT [dbo].[REF_CEKMEKOLU] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (10, N'70cm’lik Kare Kol', 1, 0, 1, 0)
 INSERT [dbo].[REF_CEKMEKOLU] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (11, N'100cm’lik Dik Kol', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_CEKMEKOLU] OFF
-/****** Object:  Table [dbo].[REF_CAMTIP]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_CAMTIP]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12349,7 +12896,7 @@ INSERT [dbo].[REF_CAMTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUE
 INSERT [dbo].[REF_CAMTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'TEMPERLÝ', 1, 1, 1, 0)
 INSERT [dbo].[REF_CAMTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (4, N'LAMÝNE', 1, 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_CAMTIP] OFF
-/****** Object:  Table [dbo].[REF_BARELTIP]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_BARELTIP]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12380,7 +12927,7 @@ INSERT [dbo].[REF_BARELTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VAL
 INSERT [dbo].[REF_BARELTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'Multilock Barel', 1, 0, 1, 0)
 INSERT [dbo].[REF_BARELTIP] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (4, N'Mottura Barel', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_BARELTIP] OFF
-/****** Object:  Table [dbo].[REF_APLIKE]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_APLIKE]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12409,7 +12956,7 @@ SET IDENTITY_INSERT [dbo].[REF_APLIKE] ON
 INSERT [dbo].[REF_APLIKE] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (1, N'KIRMIZI', 1, 1, 0, 0)
 INSERT [dbo].[REF_APLIKE] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'YEÞÝL', 1, 1, 0, 0)
 SET IDENTITY_INSERT [dbo].[REF_APLIKE] OFF
-/****** Object:  Table [dbo].[REF_ALUMINYUMRENK]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_ALUMINYUMRENK]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12438,7 +12985,7 @@ SET IDENTITY_INSERT [dbo].[REF_ALUMINYUMRENK] ON
 INSERT [dbo].[REF_ALUMINYUMRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (3, N'SÝYAH', 1, 1, 1, 0)
 INSERT [dbo].[REF_ALUMINYUMRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (4, N'BEYAZ', 1, 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_ALUMINYUMRENK] OFF
-/****** Object:  Table [dbo].[REF_AKSESUARRENK]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[REF_AKSESUARRENK]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12467,7 +13014,7 @@ SET IDENTITY_INSERT [dbo].[REF_AKSESUARRENK] ON
 INSERT [dbo].[REF_AKSESUARRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (1, N'Saten', 1, 1, 1, 0)
 INSERT [dbo].[REF_AKSESUARRENK] ([ID], [AD], [NOVA], [KROMA], [GUARD], [YANGIN]) VALUES (2, N'Pirinç', 1, 1, 1, 0)
 SET IDENTITY_INSERT [dbo].[REF_AKSESUARRENK] OFF
-/****** Object:  Table [dbo].[PERSONELBILGI]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[PERSONELBILGI]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12498,7 +13045,7 @@ INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (8, N'HATICE          
 INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (9, N'SARE                                              ', N'GÜNER                                                                                               ')
 INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (10, N'Ahmet                                             ', N'Usta                                                                                                ')
 SET IDENTITY_INSERT [dbo].[PERSONELBILGI] OFF
-/****** Object:  Table [dbo].[MONTAJKOTA]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[MONTAJKOTA]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12525,7 +13072,7 @@ INSERT [dbo].[MONTAJKOTA] ([ID], [MONTAJTARIHI], [MAXMONTAJSAYI], [MONTAJKABUL])
 INSERT [dbo].[MONTAJKOTA] ([ID], [MONTAJTARIHI], [MAXMONTAJSAYI], [MONTAJKABUL]) VALUES (6, CAST(0x0000A40700000000 AS DateTime), 3, 0)
 INSERT [dbo].[MONTAJKOTA] ([ID], [MONTAJTARIHI], [MAXMONTAJSAYI], [MONTAJKABUL]) VALUES (7, CAST(0x0000A40D00000000 AS DateTime), 1, 1)
 SET IDENTITY_INSERT [dbo].[MONTAJKOTA] OFF
-/****** Object:  Table [dbo].[MONTAJ_PERSONEL]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Table [dbo].[MONTAJ_PERSONEL]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12559,7 +13106,7 @@ INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (22, 4, 1
 INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (23, 21, 7)
 INSERT [dbo].[MONTAJ_PERSONEL] ([ID], [MONTAJID], [PERSONELID]) VALUES (24, 21, 10)
 SET IDENTITY_INSERT [dbo].[MONTAJ_PERSONEL] OFF
-/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_LISTESI]    Script Date: 12/26/2014 22:42:35 ******/
+/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_LISTESI]    Script Date: 12/29/2014 21:51:53 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12589,7 +13136,7 @@ END
 ' 
 END
 GO
-/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_ID_LISTESI]    Script Date: 12/26/2014 22:42:35 ******/
+/****** Object:  UserDefinedFunction [dbo].[MONTAJ_EKIP_ID_LISTESI]    Script Date: 12/29/2014 21:51:53 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12618,7 +13165,7 @@ END
 ' 
 END
 GO
-/****** Object:  Default [DF_MONTAJKOTA_MONTAJKABUL]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Default [DF_MONTAJKOTA_MONTAJKABUL]    Script Date: 12/29/2014 21:51:49 ******/
 IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF_MONTAJKOTA_MONTAJKABUL]') AND parent_object_id = OBJECT_ID(N'[dbo].[MONTAJKOTA]'))
 Begin
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_MONTAJKOTA_MONTAJKABUL]') AND type = 'D')
@@ -12629,10 +13176,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_AKSES__YANGI__47DBAE45]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_AKSES__YANGI__47DBAE45]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_AKSESUARRENK]'))
+/****** Object:  Default [DF__REF_AKSES__YANGI__4D94879B]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_AKSES__YANGI__4D94879B]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_AKSESUARRENK]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_AKSES__YANGI__47DBAE45]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_AKSES__YANGI__4D94879B]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_AKSESUARRENK] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12640,10 +13187,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_ALUMI__YANGI__48CFD27E]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_ALUMI__YANGI__48CFD27E]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_ALUMINYUMRENK]'))
+/****** Object:  Default [DF__REF_ALUMI__YANGI__4E88ABD4]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_ALUMI__YANGI__4E88ABD4]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_ALUMINYUMRENK]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_ALUMI__YANGI__48CFD27E]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_ALUMI__YANGI__4E88ABD4]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_ALUMINYUMRENK] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12651,10 +13198,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_BAREL__YANGI__49C3F6B7]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_BAREL__YANGI__49C3F6B7]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_BARELTIP]'))
+/****** Object:  Default [DF__REF_BAREL__YANGI__4F7CD00D]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_BAREL__YANGI__4F7CD00D]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_BARELTIP]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_BAREL__YANGI__49C3F6B7]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_BAREL__YANGI__4F7CD00D]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_BARELTIP] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12662,10 +13209,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_CEKME__YANGI__4AB81AF0]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_CEKME__YANGI__4AB81AF0]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_CEKMEKOLU]'))
+/****** Object:  Default [DF__REF_CEKME__YANGI__5070F446]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_CEKME__YANGI__5070F446]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_CEKMEKOLU]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_CEKME__YANGI__4AB81AF0]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_CEKME__YANGI__5070F446]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_CEKMEKOLU] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12673,10 +13220,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_CITA__YANGIN__4BAC3F29]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_CITA__YANGIN__4BAC3F29]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_CITA]'))
+/****** Object:  Default [DF__REF_CITA__YANGIN__5165187F]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_CITA__YANGIN__5165187F]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_CITA]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_CITA__YANGIN__4BAC3F29]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_CITA__YANGIN__5165187F]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_CITA] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12684,10 +13231,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_CONTA__YANGI__4CA06362]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_CONTA__YANGI__4CA06362]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_CONTARENK]'))
+/****** Object:  Default [DF__REF_CONTA__YANGI__52593CB8]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_CONTA__YANGI__52593CB8]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_CONTARENK]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_CONTA__YANGI__4CA06362]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_CONTA__YANGI__52593CB8]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_CONTARENK] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12695,10 +13242,21 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_ESIK__YANGIN__4D94879B]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_ESIK__YANGIN__4D94879B]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_ESIK]'))
+/****** Object:  Default [DF__REF_CUMBA__YANGI__60A75C0F]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_CUMBA__YANGI__60A75C0F]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_CUMBA]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_ESIK__YANGIN__4D94879B]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_CUMBA__YANGI__60A75C0F]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[REF_CUMBA] ADD  DEFAULT ((0)) FOR [YANGIN]
+END
+
+
+End
+GO
+/****** Object:  Default [DF__REF_ESIK__YANGIN__534D60F1]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_ESIK__YANGIN__534D60F1]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_ESIK]'))
+Begin
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_ESIK__YANGIN__534D60F1]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_ESIK] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12706,10 +13264,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_KAPIR__YANGI__4E88ABD4]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_KAPIR__YANGI__4E88ABD4]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_KAPIRENK]'))
+/****** Object:  Default [DF__REF_KAPIR__YANGI__5441852A]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_KAPIR__YANGI__5441852A]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_KAPIRENK]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_KAPIR__YANGI__4E88ABD4]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_KAPIR__YANGI__5441852A]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_KAPIRENK] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12717,10 +13275,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_KILIT__YANGI__4F7CD00D]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_KILIT__YANGI__4F7CD00D]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_KILITSISTEM]'))
+/****** Object:  Default [DF__REF_KILIT__YANGI__5535A963]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_KILIT__YANGI__5535A963]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_KILITSISTEM]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_KILIT__YANGI__4F7CD00D]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_KILIT__YANGI__5535A963]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_KILITSISTEM] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12728,10 +13286,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_MONTA__YANGI__5070F446]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_MONTA__YANGI__5070F446]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_MONTAJSEKLI]'))
+/****** Object:  Default [DF__REF_MONTA__YANGI__5629CD9C]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_MONTA__YANGI__5629CD9C]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_MONTAJSEKLI]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_MONTA__YANGI__5070F446]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_MONTA__YANGI__5629CD9C]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_MONTAJSEKLI] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12739,10 +13297,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_PERVA__YANGI__5165187F]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_PERVA__YANGI__5165187F]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_PERVAZTIP]'))
+/****** Object:  Default [DF__REF_PERVA__YANGI__571DF1D5]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_PERVA__YANGI__571DF1D5]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_PERVAZTIP]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_PERVA__YANGI__5165187F]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_PERVA__YANGI__571DF1D5]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_PERVAZTIP] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12750,10 +13308,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_TACTI__YANGI__52593CB8]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_TACTI__YANGI__52593CB8]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_TACTIP]'))
+/****** Object:  Default [DF__REF_TACTI__YANGI__5812160E]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_TACTI__YANGI__5812160E]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_TACTIP]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_TACTI__YANGI__52593CB8]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_TACTI__YANGI__5812160E]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_TACTIP] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12761,10 +13319,10 @@ END
 
 End
 GO
-/****** Object:  Default [DF__REF_TESLI__YANGI__534D60F1]    Script Date: 12/26/2014 22:42:34 ******/
-IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_TESLI__YANGI__534D60F1]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_TESLIMSEKLI]'))
+/****** Object:  Default [DF__REF_TESLI__YANGI__59063A47]    Script Date: 12/29/2014 21:51:49 ******/
+IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF__REF_TESLI__YANGI__59063A47]') AND parent_object_id = OBJECT_ID(N'[dbo].[REF_TESLIMSEKLI]'))
 Begin
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_TESLI__YANGI__534D60F1]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__REF_TESLI__YANGI__59063A47]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[REF_TESLIMSEKLI] ADD  DEFAULT ((0)) FOR [YANGIN]
 END
@@ -12772,7 +13330,7 @@ END
 
 End
 GO
-/****** Object:  Default [DF_SIPARIS_ADET]    Script Date: 12/26/2014 22:42:34 ******/
+/****** Object:  Default [DF_SIPARIS_ADET]    Script Date: 12/29/2014 21:51:49 ******/
 IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[dbo].[DF_SIPARIS_ADET]') AND parent_object_id = OBJECT_ID(N'[dbo].[SIPARIS]'))
 Begin
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_SIPARIS_ADET]') AND type = 'D')
