@@ -19,7 +19,6 @@
                 </td>
             </tr>
             <tr>
-
                 <td style="font-size: smaller; text-align: left; vertical-align: middle">
                     <b>Adres: </b>Alınteri Bulvarı No:212 Ostim/ANKARA
                 </td>

@@ -101,7 +101,6 @@ namespace ACKSiparisTakip.Web
             DataTable dtKanatRenk = ds.Tables["ALUMINYUMRENK"];
 
 
-
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlIcKapiRengi, dtKapiRenk);
@@ -147,10 +146,17 @@ namespace ACKSiparisTakip.Web
 
         private void Kontrol()
         {
-            if (this.KapiTip.ToString() == "Guard")
+            switch (this.KapiTip.ToString())
             {
-
-                trGuard.Visible = true;
+                case "Guard":
+                    trGuard.Visible = true;
+                    break;
+                case "Nova":
+                    lblStandartOlcu.Text = "930 x 2010";
+                    break;
+                case "Kroma":
+                    lblStandartOlcu.Text = "940 x 2000";
+                    break;
             }
         }
 

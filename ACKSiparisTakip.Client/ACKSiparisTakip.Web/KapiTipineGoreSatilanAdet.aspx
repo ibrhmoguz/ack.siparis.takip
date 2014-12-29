@@ -5,12 +5,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <br />
     <table class="AnaTablo" style="width: 100%">
         <tr>
-            <td style="font-size: large; text-align: center">
-                <b>KAPI TİPİNE GÖRE SATILAN ADET</b>
-            </td>
+            <th class="TdRenkAciklama" colspan="2" style="text-align: center; font-size: 11pt;">KAPI TİPİNE GÖRE SATILAN ADET<br />
+            </th>
         </tr>
         <tr>
             <td>

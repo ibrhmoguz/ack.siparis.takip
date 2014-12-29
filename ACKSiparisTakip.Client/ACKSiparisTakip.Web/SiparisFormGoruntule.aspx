@@ -384,24 +384,19 @@
                 <td>
                     <asp:Label ID="lblStandartOlcu" runat="server" ></asp:Label>
                 </td>
-
             </tr>
-            <tr>
+           <%-- <tr>
                 <th>En: </th>
                 <td>
                     <asp:Label ID="RadTextBox1" runat="server" ></asp:Label>
                 </td>
-
             </tr>
             <tr>
-
                 <th>Boy: </th>
                 <td>
                     <asp:Label ID="RadTextBox2" runat="server" ></asp:Label>
                 </td>
-
-
-            </tr>
+            </tr>--%>
         </table>
         <br />
         <table class="AnaTablo" style="width: 100%">

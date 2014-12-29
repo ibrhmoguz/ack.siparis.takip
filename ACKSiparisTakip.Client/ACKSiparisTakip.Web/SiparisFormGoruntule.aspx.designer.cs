@@ -562,24 +562,6 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblStandartOlcu;
         
         /// <summary>
-        /// RadTextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RadTextBox1;
-        
-        /// <summary>
-        /// RadTextBox2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RadTextBox2;
-        
-        /// <summary>
         /// lblNot control.
         /// </summary>
         /// <remarks>

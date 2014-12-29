@@ -455,7 +455,7 @@
                 <td>
                     <telerik:RadDatePicker ID="rdpTeslimTarihi" runat="server" RenderMode="Lightweight"></telerik:RadDatePicker>
                 </td>
-            </tr>           
+            </tr>
             <tr>
                 <td rowspan="3">
                     <telerik:RadBinaryImage ID="RadBinaryImage2" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu2.png" />
@@ -464,11 +464,11 @@
                 </td>
                 <th>Standart Ölçü: </th>
                 <td>
-                    <telerik:RadTextBox ID="txtStandartOlcu" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                    <asp:Label ID="lblStandartOlcu" runat="server"></asp:Label>
                 </td>
 
             </tr>
-            <tr>
+            <%-- <tr>
                 <th>En: </th>
                 <td>
                     <telerik:RadTextBox ID="RadTextBox1" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
@@ -483,7 +483,7 @@
                 </td>
 
 
-            </tr>
+            </tr>--%>
         </table>
         <br />
         <table class="AnaTablo" style="width: 100%">

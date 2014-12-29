@@ -228,7 +228,7 @@ namespace ACKSiparisTakip.Web
             txtIsTel.Text = musteri.MusteriIsTel;
             rdtOlcuSiparisTarih.SelectedDate = siparis.SiparisTarih;
 
-           // DropDownSelectedIndexAyarla(ddlAksesuarRengi, siparis.AksesuarRenk);
+            // DropDownSelectedIndexAyarla(ddlAksesuarRengi, siparis.AksesuarRenk);
             DropDownSelectedIndexAyarla(ddlAluminyumRengi, siparis.AluminyumRenk);
             DropDownSelectedIndexAyarla(ddlBarelTipi, siparis.BarelTip);
             DropDownSelectedIndexAyarla(ddlCekmeKolu, siparis.CekmeKolu);
@@ -433,10 +433,17 @@ namespace ACKSiparisTakip.Web
 
         private void Kontrol()
         {
-            if (this.SeriAdi.ToString() == "GUARD")
+            switch (this.KapiTip.ToString())
             {
-                trGuard.Visible = true;
-
+                case "Guard":
+                    trGuard.Visible = true;
+                    break;
+                case "Nova":
+                    lblStandartOlcu.Text = "930 x 2010";
+                    break;
+                case "Kroma":
+                    lblStandartOlcu.Text = "940 x 2000";
+                    break;
             }
         }
 
@@ -575,7 +582,7 @@ namespace ACKSiparisTakip.Web
 
             siparis.SiparisNo = this.SiparisNo;
             siparis.FirmaAdi = string.IsNullOrWhiteSpace(txtFirmaAdi.Text) ? null : txtFirmaAdi.Text;
-           // siparis.AksesuarRenk = DropDownCheck(ddlAksesuarRengi) ? null : ddlAksesuarRengi.SelectedText;
+            // siparis.AksesuarRenk = DropDownCheck(ddlAksesuarRengi) ? null : ddlAksesuarRengi.SelectedText;
             siparis.AluminyumRenk = DropDownCheck(ddlAluminyumRengi) ? null : ddlAluminyumRengi.SelectedText;
             siparis.Baba = DropDownCheck(ddlBaba) ? null : ddlBaba.SelectedText;
             siparis.BarelTip = DropDownCheck(ddlBarelTipi) ? null : ddlBarelTipi.SelectedText;

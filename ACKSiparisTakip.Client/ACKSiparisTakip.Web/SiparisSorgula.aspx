@@ -9,9 +9,8 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <td style="font-size: large; text-align: center">
-                    <b>SİPARİŞ SORGULAMA</b>
-                </td>
+                <th class="TdRenkAciklama" colspan="2" style="text-align: center; font-size: 11pt;">SİPARİŞ SORGULAMA<br />
+                </th>
             </tr>
             <tr>
                 <td>

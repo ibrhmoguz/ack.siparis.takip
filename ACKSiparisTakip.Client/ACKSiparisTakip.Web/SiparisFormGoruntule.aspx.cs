@@ -112,21 +112,21 @@ namespace ACKSiparisTakip.Web
             lblContaRengi.Text = (row["CONTARENK"] != DBNull.Value) ? row["CONTARENK"].ToString() : String.Empty;
             lblTacTipi.Text = (row["TACTIP"] != DBNull.Value) ? row["TACTIP"].ToString() : String.Empty;
             //
-           lblIcPervazRenk.Text = (row["ICPERVAZRENK"] != DBNull.Value) ? row["ICPERVAZRENK"].ToString() : String.Empty;
-           lblDisPervazRenk.Text = (row["DISPERVAZRENK"] != DBNull.Value) ? row["DISPERVAZRENK"].ToString() : String.Empty;
-           lblAplikeRenk.Text = (row["APLIKERENK"] != DBNull.Value) ? row["APLIKERENK"].ToString() : String.Empty;
-           lblKanatRenk.Text = (row["KANAT"] != DBNull.Value) ? row["KANAT"].ToString() : String.Empty;
-           lblCitaRenk.Text = (row["KASACITARENK"] != DBNull.Value) ? row["KASACITARENK"].ToString() : String.Empty;
-           lblZirhTipi.Text = (row["ZIRHTIP"] != DBNull.Value) ? row["ZIRHTIP"].ToString() : String.Empty;
-           lblZirhRengi.Text = (row["ZIRHRENK"] != DBNull.Value) ? row["ZIRHRENK"].ToString() : String.Empty;
-           lblCekmeKoluTakilmaSekli.Text = (row["CEKMEKOLTAKILMASEKLI"] != DBNull.Value) ? row["CEKMEKOLTAKILMASEKLI"].ToString() : String.Empty;
-           lblCekmeKoluRengi.Text = (row["CEKMEKOLRENK"] != DBNull.Value) ? row["CEKMEKOLRENK"].ToString() : String.Empty;
-           lblBolmeKayitSayisi.Text = (row["BOLMEKAYITSAYI"] != DBNull.Value) ? row["BOLMEKAYITSAYI"].ToString() : String.Empty;
-           lblCamTipi.Text = (row["CAMTIP"] != DBNull.Value) ? row["CAMTIP"].ToString() : String.Empty;
-           lblFerforje.Text = (row["FERFORJE"] != DBNull.Value) ? row["FERFORJE"].ToString() : String.Empty;
-           lblFerforjeRenk.Text = (row["FERFORJERENK"] != DBNull.Value) ? row["FERFORJERENK"].ToString() : String.Empty;
-           lblMetalRenk.Text = (row["METALRENK"] != DBNull.Value) ? row["METALRENK"].ToString() : String.Empty;
-           lblKasaKaplama.Text = (row["KASAKAPLAMA"] != DBNull.Value) ? row["KASAKAPLAMA"].ToString() : String.Empty;
+            lblIcPervazRenk.Text = (row["ICPERVAZRENK"] != DBNull.Value) ? row["ICPERVAZRENK"].ToString() : String.Empty;
+            lblDisPervazRenk.Text = (row["DISPERVAZRENK"] != DBNull.Value) ? row["DISPERVAZRENK"].ToString() : String.Empty;
+            lblAplikeRenk.Text = (row["APLIKERENK"] != DBNull.Value) ? row["APLIKERENK"].ToString() : String.Empty;
+            lblKanatRenk.Text = (row["KANAT"] != DBNull.Value) ? row["KANAT"].ToString() : String.Empty;
+            lblCitaRenk.Text = (row["KASACITARENK"] != DBNull.Value) ? row["KASACITARENK"].ToString() : String.Empty;
+            lblZirhTipi.Text = (row["ZIRHTIP"] != DBNull.Value) ? row["ZIRHTIP"].ToString() : String.Empty;
+            lblZirhRengi.Text = (row["ZIRHRENK"] != DBNull.Value) ? row["ZIRHRENK"].ToString() : String.Empty;
+            lblCekmeKoluTakilmaSekli.Text = (row["CEKMEKOLTAKILMASEKLI"] != DBNull.Value) ? row["CEKMEKOLTAKILMASEKLI"].ToString() : String.Empty;
+            lblCekmeKoluRengi.Text = (row["CEKMEKOLRENK"] != DBNull.Value) ? row["CEKMEKOLRENK"].ToString() : String.Empty;
+            lblBolmeKayitSayisi.Text = (row["BOLMEKAYITSAYI"] != DBNull.Value) ? row["BOLMEKAYITSAYI"].ToString() : String.Empty;
+            lblCamTipi.Text = (row["CAMTIP"] != DBNull.Value) ? row["CAMTIP"].ToString() : String.Empty;
+            lblFerforje.Text = (row["FERFORJE"] != DBNull.Value) ? row["FERFORJE"].ToString() : String.Empty;
+            lblFerforjeRenk.Text = (row["FERFORJERENK"] != DBNull.Value) ? row["FERFORJERENK"].ToString() : String.Empty;
+            lblMetalRenk.Text = (row["METALRENK"] != DBNull.Value) ? row["METALRENK"].ToString() : String.Empty;
+            lblKasaKaplama.Text = (row["KASAKAPLAMA"] != DBNull.Value) ? row["KASAKAPLAMA"].ToString() : String.Empty;
             //
             lblPervazTipi.Text = (row["PERVAZTIP"] != DBNull.Value) ? row["PERVAZTIP"].ToString() : String.Empty;
             lblCekmeKolu.Text = (row["CEKMEKOLU"] != DBNull.Value) ? row["CEKMEKOLU"].ToString() : String.Empty;
@@ -187,10 +187,12 @@ namespace ACKSiparisTakip.Web
             if (this.SiparisNo[0] == 'N')
             {
                 lblKapiTur.Text = "NOVA";
+                lblStandartOlcu.Text = "930 x 2010";
             }
             else if (this.SiparisNo[0] == 'K')
             {
                 lblKapiTur.Text = "KROMA";
+                lblStandartOlcu.Text = "940 x 2000";
             }
             else if (this.SiparisNo[0] == 'G')
             {

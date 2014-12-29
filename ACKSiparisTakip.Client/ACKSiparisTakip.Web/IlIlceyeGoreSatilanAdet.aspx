@@ -7,9 +7,8 @@
     <br />
     <table class="AnaTablo" style="width: 100%">
         <tr>
-            <td style="font-size: large; text-align: center">
-                <b>İL/İLÇEYE GÖRE SATILAN ADET</b>
-            </td>
+            <th class="TdRenkAciklama" colspan="2" style="text-align: center; font-size: 11pt;">İL/İLÇEYE GÖRE SATILAN ADET<br />
+            </th>
         </tr>
         <tr>
             <td>
