@@ -8,7 +8,7 @@
     <br />
     <table class="AnaTablo" style="width: 100%">
         <tr>
-            <th colspan="5" style="text-align: center; font-size: large;">UYGULAMA AYARLARI<br />
+            <th class="TdRenkAciklama" colspan="5" style="text-align: center; font-size:  11pt;">UYGULAMA AYARLARI<br />
             </th>
         </tr>
         <tr>

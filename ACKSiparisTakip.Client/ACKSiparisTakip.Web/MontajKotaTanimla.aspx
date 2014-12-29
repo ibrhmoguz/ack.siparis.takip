@@ -8,7 +8,7 @@
     <br />
     <table class="AnaTablo" style="width: 100%">
         <tr>
-            <th colspan="7" style="text-align: center; font-size: large;">MONTAJ KOTA TANIMLAMA<br />
+            <th class="TdRenkAciklama" colspan="7" style="text-align: center; font-size:  11pt;">MONTAJ KOTA TANIMLAMA<br />
             </th>
         </tr>
         <tr>

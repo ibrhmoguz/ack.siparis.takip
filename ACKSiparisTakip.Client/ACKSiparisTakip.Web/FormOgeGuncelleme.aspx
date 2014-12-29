@@ -16,8 +16,11 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <th colspan="2" style="text-align: center; font-size: large;">FORM ÖĞELERİ<br />
+                <th class="TdRenkAciklama" colspan="2" style="text-align: center; font-size:  11pt;">FORM ÖĞELERİ<br />
                 </th>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
             </tr>
             <tr>
                 <th style="width: 20%">Düzenlemek istediğiniz öğeyi seçiniz : </th>
@@ -47,7 +50,7 @@
                                 <telerik:GridCheckBoxColumn DataField="GUARD" HeaderText="GUARD"
                                     UniqueName="GUARD">
                                 </telerik:GridCheckBoxColumn>
-                                 <telerik:GridCheckBoxColumn DataField="YANGIN" HeaderText="YANGIN"
+                                <telerik:GridCheckBoxColumn DataField="YANGIN" HeaderText="YANGIN"
                                     UniqueName="YANGIN">
                                 </telerik:GridCheckBoxColumn>
                                 <telerik:GridButtonColumn Text="Sil" CommandName="Delete" ButtonType="ImageButton" />
