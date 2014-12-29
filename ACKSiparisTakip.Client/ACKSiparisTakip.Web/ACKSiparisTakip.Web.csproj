@@ -93,7 +93,9 @@
     <Content Include="App_Themes\Theme\Raster\ok.gif" />
     <Content Include="App_Themes\Theme\Raster\olcu1.png" />
     <Content Include="App_Themes\Theme\Raster\olcu2.png" />
+    <Content Include="App_Themes\Theme\Raster\olcu3.png" />
     <Content Include="App_Themes\Theme\Raster\personelEkle.png" />
+    <Content Include="App_Themes\Theme\Raster\porte.png" />
     <Content Include="App_Themes\Theme\Raster\print.jpg" />
     <Content Include="App_Themes\Theme\Raster\report1.gif" />
     <Content Include="App_Themes\Theme\Raster\report2.png" />
@@ -134,6 +136,7 @@
     <Content Include="SiparisFormGoruntule.aspx" />
     <Content Include="SiparisFormGuncelle.aspx" />
     <Content Include="SifreGuncelleme.aspx" />
+    <Content Include="SiparisFormYanginGoruntule.aspx" />
     <Content Include="SiparisFormYanginKayit.aspx" />
     <Content Include="SiparisSorgula.aspx" />
     <Content Include="UygulamaAyarlari.aspx" />
@@ -298,6 +301,13 @@
     </Compile>
     <Compile Include="SiparisFormGuncelle.aspx.designer.cs">
       <DependentUpon>SiparisFormGuncelle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiparisFormYanginGoruntule.aspx.cs">
+      <DependentUpon>SiparisFormYanginGoruntule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiparisFormYanginGoruntule.aspx.designer.cs">
+      <DependentUpon>SiparisFormYanginGoruntule.aspx</DependentUpon>
     </Compile>
     <Compile Include="SiparisFormYanginKayit.aspx.cs">
       <DependentUpon>SiparisFormYanginKayit.aspx</DependentUpon>

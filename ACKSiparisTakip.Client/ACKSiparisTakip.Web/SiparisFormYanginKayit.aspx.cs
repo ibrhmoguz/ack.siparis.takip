@@ -30,6 +30,8 @@ namespace ACKSiparisTakip.Web
                         return KapiTipi.Kroma;
                     else if (tip == KapiTipi.Guard.ToString())
                         return KapiTipi.Guard;
+                    else if (tip == KapiTipi.Porte.ToString())
+                        return KapiTipi.Porte;
                     else
                         return KapiTipi.Yangin;
                 }
@@ -48,6 +50,21 @@ namespace ACKSiparisTakip.Web
                 CurrencyAyarla();
             }
         }
+        private void Kontrol()
+        {
+            switch (this.KapiTip.ToString())
+            {
+                case "Yangin":
+                    trYangin1.Visible = true;
+                    trYangin2.Visible = true;
+                    break;
+                case "Porte":
+                    trPorte1.Visible = true;
+                    trPorte2.Visible = true;
+                    break;
+        
+            }
+        }
 
         private void CurrencyAyarla()
         {
@@ -64,6 +81,7 @@ namespace ACKSiparisTakip.Web
         {
             string seriId = ((int)this.KapiTip).ToString();
             string seriAdi = "YANGIN";
+                    
        
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("ID", seriId);
@@ -87,6 +105,9 @@ namespace ACKSiparisTakip.Web
             DataTable dtYanginKol = ds.Tables["MUDAHALEKOL"];
             DataTable dtYanginMenteseTip = ds.Tables["MENTESETIP"];
             DataTable dtYanginPanikBar = ds.Tables["PANIKBAR"];
+            DataTable dtBarelTip = ds.Tables["BARELTIP"];
+            DataTable dtCumba = ds.Tables["CUMBA"];
+
 
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli); 
@@ -103,8 +124,12 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlYanginKol, dtYanginKol);
             DropDownBindEt(ddlYanginMenteseTip, dtYanginMenteseTip);
             DropDownBindEt(ddlYanginPanikBar, dtYanginPanikBar);
+            DropDownBindEt(ddlCumba, dtCumba);
+            DropDownBindEt(ddlBarelTipi, dtBarelTip);
 
+         
             IlleriGetir();
+            Kontrol();
         }
 
         private void DropDownBindEt(Telerik.Web.UI.RadDropDownList ddl, DataTable dt)
@@ -216,8 +241,20 @@ namespace ACKSiparisTakip.Web
             if (DropDownCheck(ddlEsik)) siparis.Esik = ddlEsik.SelectedText;
             if (DropDownCheck(ddlIcKapiModeli)) siparis.IcKapiModel = ddlIcKapiModeli.SelectedText;
             if (DropDownCheck(ddlKilitSistemi)) siparis.KilitSistem = ddlKilitSistemi.SelectedText;
-            siparis.SiparisTarih = DateTime.Now;
+            siparis.SiparisTarih = rdtOlcuSiparisTarih.SelectedDate == null ? DateTime.Now : rdtOlcuSiparisTarih.SelectedDate.Value;
             if (!string.IsNullOrWhiteSpace(txtNot.Text)) siparis.Not = txtNot.Text;
+            //
+            if (DropDownCheck(ddlYanginPanikBar)) siparis.PanikBar = ddlYanginPanikBar.SelectedText;
+            if (DropDownCheck(ddlYanginKol)) siparis.MudahaleKol = ddlYanginKol.SelectedText;
+            if (DropDownCheck(ddlYanginMenteseTip)) siparis.Mentese = ddlYanginMenteseTip.SelectedText;
+            if (DropDownCheck(ddlYanginHidrolikKapatici)) siparis.HidrolikKapatici = ddlYanginHidrolikKapatici.SelectedText;
+            if (DropDownCheck(ddlCumba)) siparis.Cumba = ddlCumba.SelectedText;
+            if (DropDownCheck(ddlBarelTipi)) siparis.BarelTip = ddlBarelTipi.SelectedText;
+            if (DropDownCheck(ddlDurbun)) siparis.Durbun = ddlDurbun.SelectedText;
+            if (DropDownCheck(ddlTaktak)) siparis.Taktak = ddlTaktak.SelectedText;
+            if (DropDownCheck(ddlYanginMetalRengi)) siparis.MetalRenk = ddlYanginMetalRengi.SelectedText;
+           
+            //
            
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = "BEKLEYEN";
@@ -267,7 +304,7 @@ namespace ACKSiparisTakip.Web
             if (siparisNo != string.Empty)
             {
                 MessageBox.Basari(this, "Sipariş eklendi.");
-                Response.Redirect("~/SiparisFormGoruntule.aspx?SayfaModu=Kayit" + "&" + "SiparisNo=" + siparisNo + "&SeriAdi=" + seriAdi);
+                Response.Redirect("~/SiparisFormYanginGoruntule.aspx?SayfaModu=Kayit" + "&" + "SiparisNo=" + siparisNo + "&SeriAdi=" + seriAdi);
             }
             else
                 MessageBox.Hata(this, "Sipariş eklenemedi.");

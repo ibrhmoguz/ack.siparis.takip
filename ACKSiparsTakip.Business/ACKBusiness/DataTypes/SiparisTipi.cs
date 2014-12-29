@@ -94,6 +94,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public double? CekKalan { get; set; }
         public string CekOdemeNot { get; set; }
         public string Not { get; set; }
+        public string Cumba { get; set; }
 
         public Siparis()
         {
@@ -156,6 +157,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
             this.HidrolikKapatici = null;
             this.MetalRenk = null;
             this.KasaKaplama = null;
+            this.Cumba = null;
 
         }
     }

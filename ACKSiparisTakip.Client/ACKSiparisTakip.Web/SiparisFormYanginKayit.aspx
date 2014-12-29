@@ -198,7 +198,7 @@
                     <telerik:RadDropDownList ID="ddlCekmeKolu" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
-            <tr>
+            <tr id="trYangin1" runat="server" visible="false">
                 <th>Panik Bar :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlYanginPanikBar" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
@@ -208,7 +208,7 @@
                     <telerik:RadDropDownList ID="ddlYanginKol" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
-            <tr>
+            <tr id="trYangin2" runat="server" visible="false">
                 <th>Menteşe Tipi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlYanginMenteseTip" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
@@ -218,16 +218,50 @@
                     <telerik:RadDropDownList ID="ddlYanginHidrolikKapatici" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
+             <tr id="trPorte1" runat="server" visible="false">
+                <th>Cumba :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlCumba" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                </td>
+                <th>Dürbün :</th>
+                <td>
+                   <telerik:RadDropDownList ID="ddlDurbun" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+            </tr>
+            <tr id="trPorte2" runat="server" visible="false">
+                <th>Barel :</th>
+                <td>
+                     <telerik:RadDropDownList ID="ddlBarelTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                </td>
+                <th>Taktak :</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlTaktak" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
+                            <telerik:DropDownListItem runat="server" Text="Var" />
+                            <telerik:DropDownListItem runat="server" Text="Yok" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
+            </tr>
                         
         </table>
         <br />
-        <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <th colspan="2">ÖLÇÜM ve MONTAJ</th>
+                <td rowspan="6" colspan="2" style="width: 20%">
+                    <telerik:RadBinaryImage ID="RadBinaryImage1" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu3.png" />
+                </td>
+                <th colspan="2" style="text-align: center">ÖLÇÜM ve MONTAJ</th>
             </tr>
             <tr>
-                <th style="width: 15%">Ölçüm Bilgileri : </th>
+                <th style="width: 8%">Üretim Notları: </th>
                 <td>
                     <telerik:RadTextBox ID="txtOlcumBilgileri" runat="server" Width="400px" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
@@ -258,11 +292,8 @@
                     <telerik:RadDatePicker ID="rdpTeslimTarihi" runat="server" RenderMode="Lightweight"></telerik:RadDatePicker>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <%--<telerik:RadBinaryImage ID="rbiKapiResmi" runat="server" ImageUrl="~/App_Themes/Theme/Raster/guardKapiOrta.PNG" />--%>
-                </td>
-            </tr>
+
+             
         </table>
         <br />
         <table class="AnaTablo" style="width: 100%">

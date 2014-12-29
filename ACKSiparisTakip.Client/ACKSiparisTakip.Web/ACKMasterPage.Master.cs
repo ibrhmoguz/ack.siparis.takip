@@ -103,6 +103,9 @@ namespace ACKSiparisTakip.Web
                 case "SiparisEkleGuard":
                     NavigateUrl(urlSiparisFormKayit + KapiTipi.Guard.ToString());
                     break;
+                case "SiparisEklePorte":
+                    NavigateUrl(urlSiparisFormYanginKayit + KapiTipi.Porte.ToString());
+                    break;
                 case "SiparisEkleYangin":
                     NavigateUrl(urlSiparisFormYanginKayit + KapiTipi.Yangin.ToString());
                     break;

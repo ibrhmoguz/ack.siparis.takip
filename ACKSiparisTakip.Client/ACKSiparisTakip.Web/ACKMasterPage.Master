@@ -62,6 +62,7 @@
                         <telerik:RibbonBarButton ID="rbbSiparisEkleNova" Size="Large" Text="NOVA" ToolTip="Nova sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/nova.png" CommandName="SiparisEkleNova" />
                         <telerik:RibbonBarButton ID="rbbSiparisEkleKroma" Size="Large" Text="KROMA" ToolTip="Kroma sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/kroma.png" CommandName="SiparisEkleKroma" />
                         <telerik:RibbonBarButton ID="rbbSiparisEkleGuard" Size="Large" Text="GUARD" ToolTip="Guard sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guard.png" CommandName="SiparisEkleGuard" />
+                         <telerik:RibbonBarButton ID="rbbSiparisEklePorte" Size="Large" Text="PORTE" ToolTip="Porte sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/porte.png" CommandName="SiparisEklePorte" />
                         <telerik:RibbonBarButton ID="rbbSiparisEkleYangin" Size="Large" Text="YANGIN" ToolTip="Yangın sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/yangin.png" CommandName="SiparisEkleYangin" />
                     </Items>
                 </telerik:RibbonBarGroup>
@@ -118,7 +119,6 @@
                 <telerik:RibbonBarGroup Text="Takip Formu">
                     <Items>
                         <telerik:RibbonBarButton ID="rbbGunlukIsTakipFormu" Size="Large" Text="GÜNLÜK İŞ TAKİP FORMU" ToolTip="Günlük iş takip formu için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/gunlukRapor.png" CommandName="GunlukIsTakipFormu" />
-
                     </Items>
                 </telerik:RibbonBarGroup>
                 <telerik:RibbonBarGroup Text="Kapı Tipine Göre Satış Raporu">
