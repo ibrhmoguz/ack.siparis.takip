@@ -9,7 +9,7 @@
     <table class="AnaTablo" style="width: 100%">
         <tr>
             <td style="font-size: large; text-align: center">
-                <b>İL/İLÇE SATILAN KAPI ADETİ</b>
+                <b>İL/İLÇEYE GÖRE SATILAN ADET</b>
             </td>
         </tr>
         <tr>
@@ -59,13 +59,13 @@
                                     <asp:BoundField DataField="11" HeaderText="11" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="12" HeaderText="12" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="Yillik" HeaderText="Yıllık" ItemStyle-Width="6%" />
-                                    <asp:BoundField DataField="Yuzde" HeaderText="%" />
+                                    <asp:BoundField DataField="Yuzde(%)" HeaderText="%" />
                                 </Columns>
                             </asp:GridView>
                             <br />
                             <asp:GridView ID="grdRaporIlce" runat="server" AutoGenerateColumns="false" AllowPaging="false" PageSize="30"
                                 Width="100%" CssClass="AnaTabloRapor" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2"
-                                EmptyDataText="İlçe bulunamamıştır!" EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
+                                EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
                                 EmptyDataRowStyle-CssClass="TdRenkAciklama">
                                 <Columns>
                                     <asp:BoundField DataField="IlIlce" HeaderText="İLÇE" ItemStyle-Width="15%" ItemStyle-CssClass="thIlkKolon" />
@@ -82,13 +82,13 @@
                                     <asp:BoundField DataField="11" HeaderText="11" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="12" HeaderText="12" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="Yillik" HeaderText="Yıllık" ItemStyle-Width="6%" />
-                                    <asp:BoundField DataField="Yuzde" HeaderText="%" />
+                                    <asp:BoundField DataField="Yuzde(%)" HeaderText="%" />
                                 </Columns>
                             </asp:GridView>
                             <br />
                             <asp:GridView ID="grdRaporSemt" runat="server" AutoGenerateColumns="false" AllowPaging="false" PageSize="30"
                                 Width="100%" CssClass="AnaTabloRapor" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2"
-                                EmptyDataText="Semt bulunamamıştır!" EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
+                                EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
                                 EmptyDataRowStyle-CssClass="TdRenkAciklama">
                                 <Columns>
                                     <asp:BoundField DataField="Semt" HeaderText="SEMT" ItemStyle-Width="15%" ItemStyle-CssClass="thIlkKolon" />
@@ -105,7 +105,7 @@
                                     <asp:BoundField DataField="11" HeaderText="11" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="12" HeaderText="12" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="Yillik" HeaderText="Yıllık" ItemStyle-Width="6%" />
-                                    <asp:BoundField DataField="Yuzde" HeaderText="%" />
+                                    <asp:BoundField DataField="Yuzde(%)" HeaderText="%" />
                                 </Columns>
                             </asp:GridView>
                         </td>

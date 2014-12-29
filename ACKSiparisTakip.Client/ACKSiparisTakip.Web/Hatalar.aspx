@@ -7,40 +7,18 @@
         <br />
         Hata Sayısı:
         <asp:Label ID="lblhataSayisi" runat="server"></asp:Label>
-        <asp:Repeater ID="RepeaterHataListesi" runat="server">
-            <HeaderTemplate>
-                <table class="AnaTablo" style="width: 100%">
-                    <tr>
-                        <th>MODUL</th>
-                        <th>LOGTYPE</th>
-                        <th>EXCEPTION</th>
-                        <th>PAGEURL</th>
-                        <th>METHODNAME</th>
-                        <%-- <th>MESSAGE</th>
-                        <th>PCNAME</th>
-                        <th>USERAUTHORITY</th>
-                        <th>EXTENDEDPROPERTIES</th>--%>
-                        <th>USERNAME</th>
-                        <th>DATE</th>
-                    </tr>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <tr>
-                    <td><%# DataBinder.Eval(Container.DataItem, "MODUL") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "LOGTYPE") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "EXCEPTION") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "PAGEURL") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "METHODNAME") %></td>
-                    <%-- <td><%# DataBinder.Eval(Container.DataItem, "MESSAGE") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "PCNAME") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "USERAUTHORITY") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "EXTENDEDPROPERTIES") %></td>--%>
-                    <td><%# DataBinder.Eval(Container.DataItem, "USERNAME") %></td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "DATE") %></td>
-                </tr>
-            </ItemTemplate>
-            <FooterTemplate></table></FooterTemplate>
-        </asp:Repeater>
+
+        <asp:GridView ID="grdHatalar" runat="server" AutoGenerateColumns="false" AllowPaging="false" PageSize="30"
+            Width="100%" CssClass="AnaTablo" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2"
+            EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
+            EmptyDataRowStyle-CssClass="TdRenkAciklama">
+            <Columns>
+                <asp:BoundField DataField="EXCEPTION" HeaderText="Hata" />
+                <asp:BoundField DataField="METHODNAME" HeaderText="Metod" />
+                <asp:BoundField DataField="USERNAME" HeaderText="Kullanici" />
+                <asp:BoundField DataField="DATE" HeaderText="Tarih" />
+            </Columns>
+        </asp:GridView>
 
         <br />
     </div>

@@ -154,7 +154,7 @@ namespace WebFrame.DataType.Common.Logging
             var eventName = Enum.GetName(typeof(EventLogEntryType), eventType);
             var parsedException = "Message: " + ex.Message + " StackTrace: " + ex.StackTrace + " Source: " + ex.Source;
             if (ex.InnerException != null)
-                parsedException += "Inner Exception Message: " + ex.Message + " StackTrace: " + ex.StackTrace + " Source: " + ex.Source;
+                parsedException += "Inner Exception Message: " + ex.InnerException.Message + " StackTrace: " + ex.InnerException.StackTrace + " Source: " + ex.InnerException.Source;
             var yetkiler = ParseYetkiler(kullaniciYetkileri);
             var properties = ParseProperties(extendedProperties);
             StringBuilder sb = new StringBuilder();

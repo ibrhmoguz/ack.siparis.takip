@@ -9,7 +9,7 @@
     <table class="AnaTablo" style="width: 100%">
         <tr>
             <td style="font-size: large; text-align: center">
-                <b>İL/İLÇE SATILAN KAPI ADETİ</b>
+                <b>KAPI TİPİNE GÖRE SATILAN ADET</b>
             </td>
         </tr>
         <tr>

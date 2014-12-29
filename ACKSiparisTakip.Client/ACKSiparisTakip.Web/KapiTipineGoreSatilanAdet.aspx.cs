@@ -3,6 +3,7 @@ using ACKSiparisTakip.Web.Helper;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -97,6 +98,11 @@ namespace ACKSiparisTakip.Web
 
         protected void btnSorgula_Click(object sender, EventArgs e)
         {
+            Sorgula();
+        }
+
+        private void Sorgula()
+        {
             string il = null;
             string ilce = null;
 
@@ -106,6 +112,8 @@ namespace ACKSiparisTakip.Web
                 ilce = ddlMusteriIlce.SelectedText;
 
             DataTable dt = new RaporBS().KapiTipineGoreSatilanAdet(il, ilce, ddlYil.SelectedValue);
+            dt = YuzdeDegerleriHesapla(dt);
+
             if (dt.Rows.Count > 0)
             {
                 grdRapor.DataSource = dt;
@@ -116,6 +124,32 @@ namespace ACKSiparisTakip.Web
                 grdRapor.DataSource = null;
                 grdRapor.DataBind();
             }
+        }
+
+        private DataTable YuzdeDegerleriHesapla(DataTable dt)
+        {
+            decimal toplamAdet = Convert.ToDecimal(dt.AsEnumerable().Sum(a => Convert.ToInt32(a.Field<string>("Yillik"))).ToString());
+            decimal yuzde;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["Yillik"] != DBNull.Value)
+                {
+                    yuzde = Convert.ToDecimal((Convert.ToDecimal(row["Yillik"].ToString()) / toplamAdet));
+                    row["Yuzde(%)"] = (yuzde * 100).ToString("0.00", CultureInfo.InvariantCulture);
+                }
+            }
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    if (dt.Rows[i][j] != DBNull.Value && dt.Rows[i][j].ToString() == "0")
+                        dt.Rows[i][j] = string.Empty;
+                }
+            }
+
+            return dt;
         }
     }
 }

@@ -32,13 +32,13 @@ namespace ACKSiparisTakip.Web
 
             if (dt.Rows.Count > 0)
             {
-                RepeaterHataListesi.DataSource = dt;
+                grdHatalar.DataSource = dt;
                 lblhataSayisi.Text = dt.Rows.Count.ToString();
             }
             else
-                RepeaterHataListesi.DataSource = null;
+                grdHatalar.DataSource = null;
 
-            RepeaterHataListesi.DataBind();
+            grdHatalar.DataBind();
         }
     }
 }

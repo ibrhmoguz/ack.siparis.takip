@@ -40,8 +40,12 @@ namespace ACKSiparisTakip.Web
 
         protected void Application_Error(object sender, EventArgs e)
         {
+            string user = string.Empty;
             Exception exc = this.Server.GetLastError();
-            new LogWriter().Write(AppModules.ACKSiparisTakip, System.Diagnostics.EventLogEntryType.Error, exc, "", "", "", "");
+            if (Session["user"] != null)
+                user = Session["user"].ToString();
+            new LogWriter().Write(AppModules.ACKSiparisTakip, System.Diagnostics.EventLogEntryType.Error, exc, "", "", "", user);
+            Response.Redirect("Hata.aspx");
         }
 
         protected void Session_End(object sender, EventArgs e)

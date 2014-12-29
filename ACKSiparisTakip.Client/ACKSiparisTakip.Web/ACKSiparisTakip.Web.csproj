@@ -95,6 +95,8 @@
     <Content Include="App_Themes\Theme\Raster\olcu2.png" />
     <Content Include="App_Themes\Theme\Raster\personelEkle.png" />
     <Content Include="App_Themes\Theme\Raster\print.jpg" />
+    <Content Include="App_Themes\Theme\Raster\report1.gif" />
+    <Content Include="App_Themes\Theme\Raster\report2.png" />
     <Content Include="App_Themes\Theme\Raster\Settings.png" />
     <Content Include="App_Themes\Theme\Raster\sorgulama.png" />
     <Content Include="App_Themes\Theme\Raster\update.PNG" />
@@ -112,6 +114,7 @@
     <Content Include="FormOgeGuncelleme.aspx" />
     <Content Include="Global.asax" />
     <Content Include="GunlukIsTakipFormu.aspx" />
+    <Content Include="Hata.aspx" />
     <Content Include="Hatalar.aspx" />
     <Content Include="IlIlceyeGoreSatilanAdet.aspx" />
     <Content Include="KapiTipineGoreSatilanAdet.aspx" />
@@ -154,6 +157,13 @@
     </Compile>
     <Compile Include="GunlukIsTakipFormu.aspx.designer.cs">
       <DependentUpon>GunlukIsTakipFormu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hata.aspx.cs">
+      <DependentUpon>Hata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hata.aspx.designer.cs">
+      <DependentUpon>Hata.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hatalar.aspx.cs">
       <DependentUpon>Hatalar.aspx</DependentUpon>
