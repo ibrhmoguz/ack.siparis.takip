@@ -109,15 +109,31 @@ namespace ACKSiparisTakip.Web
             lblCita.Text = (row["CITA"] != DBNull.Value) ? row["CITA"].ToString() : String.Empty;
             lblEsik.Text = (row["ESIK"] != DBNull.Value) ? row["ESIK"].ToString() : String.Empty;
             lblAluminyumRengi.Text = (row["ALUMINYUMRENK"] != DBNull.Value) ? row["ALUMINYUMRENK"].ToString() : String.Empty;
-            lblAksesuarRengi.Text = (row["AKSESUARRENK"] != DBNull.Value) ? row["AKSESUARRENK"].ToString() : String.Empty;
             lblContaRengi.Text = (row["CONTARENK"] != DBNull.Value) ? row["CONTARENK"].ToString() : String.Empty;
             lblTacTipi.Text = (row["TACTIP"] != DBNull.Value) ? row["TACTIP"].ToString() : String.Empty;
+            //
+           lblIcPervazRenk.Text = (row["ICPERVAZRENK"] != DBNull.Value) ? row["ICPERVAZRENK"].ToString() : String.Empty;
+           lblDisPervazRenk.Text = (row["DISPERVAZRENK"] != DBNull.Value) ? row["DISPERVAZRENK"].ToString() : String.Empty;
+           lblAplikeRenk.Text = (row["APLIKERENK"] != DBNull.Value) ? row["APLIKERENK"].ToString() : String.Empty;
+           lblKanatRenk.Text = (row["KANAT"] != DBNull.Value) ? row["KANAT"].ToString() : String.Empty;
+           lblCitaRenk.Text = (row["KASACITARENK"] != DBNull.Value) ? row["KASACITARENK"].ToString() : String.Empty;
+           lblZirhTipi.Text = (row["ZIRHTIP"] != DBNull.Value) ? row["ZIRHTIP"].ToString() : String.Empty;
+           lblZirhRengi.Text = (row["ZIRHRENK"] != DBNull.Value) ? row["ZIRHRENK"].ToString() : String.Empty;
+           lblCekmeKoluTakilmaSekli.Text = (row["CEKMEKOLTAKILMASEKLI"] != DBNull.Value) ? row["CEKMEKOLTAKILMASEKLI"].ToString() : String.Empty;
+           lblCekmeKoluRengi.Text = (row["CEKMEKOLRENK"] != DBNull.Value) ? row["CEKMEKOLRENK"].ToString() : String.Empty;
+           lblBolmeKayitSayisi.Text = (row["BOLMEKAYITSAYI"] != DBNull.Value) ? row["BOLMEKAYITSAYI"].ToString() : String.Empty;
+           lblCamTipi.Text = (row["CAMTIP"] != DBNull.Value) ? row["CAMTIP"].ToString() : String.Empty;
+           lblFerforje.Text = (row["FERFORJE"] != DBNull.Value) ? row["FERFORJE"].ToString() : String.Empty;
+           lblFerforjeRenk.Text = (row["FERFORJERENK"] != DBNull.Value) ? row["FERFORJERENK"].ToString() : String.Empty;
+           lblMetalRenk.Text = (row["METALRENK"] != DBNull.Value) ? row["METALRENK"].ToString() : String.Empty;
+           lblKasaKaplama.Text = (row["KASAKAPLAMA"] != DBNull.Value) ? row["KASAKAPLAMA"].ToString() : String.Empty;
+            //
             lblPervazTipi.Text = (row["PERVAZTIP"] != DBNull.Value) ? row["PERVAZTIP"].ToString() : String.Empty;
             lblCekmeKolu.Text = (row["CEKMEKOLU"] != DBNull.Value) ? row["CEKMEKOLU"].ToString() : String.Empty;
             lblKayitsizKam.Text = (row["KAYITSIZKAMERA"] != DBNull.Value) ? row["KAYITSIZKAMERA"].ToString() : String.Empty; ;
             lblKayitYapanKam.Text = (row["KAYITYAPANKAMERA"] != DBNull.Value) ? row["KAYITYAPANKAMERA"].ToString() : String.Empty; ;
             lblAlarm.Text = (row["ALARM"] != DBNull.Value) ? row["ALARM"].ToString() : String.Empty; ;
-            lblOtoKilit.Text = (row["OTOKILIT"] != DBNull.Value) ? row["OTOKILIT"].ToString() : String.Empty;
+            lblOtomatikKilit.Text = (row["OTOKILIT"] != DBNull.Value) ? row["OTOKILIT"].ToString() : String.Empty;
             lblBarelTipi.Text = (row["BARELTIP"] != DBNull.Value) ? row["BARELTIP"].ToString() : String.Empty;
             lblBaba.Text = (row["BABA"] != DBNull.Value) ? row["BABA"].ToString() : String.Empty;
             lblDurbun.Text = (row["DURBUN"] != DBNull.Value) ? row["DURBUN"].ToString() : String.Empty;
@@ -179,8 +195,7 @@ namespace ACKSiparisTakip.Web
             else if (this.SiparisNo[0] == 'G')
             {
                 lblKapiTur.Text = "GUARD";
-                trGuard1.Visible = true;
-                trGuard2.Visible = true;
+                trGuard.Visible = true;
             }
         }
     }

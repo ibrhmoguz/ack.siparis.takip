@@ -307,7 +307,7 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <th colspan="4">AKSESUARLAR</th>
+                <th colspan="6">AKSESUARLAR</th>
             </tr>
             <tr>
                 <th style="width: 15%">Çekme Kol Tipi :</th>
@@ -419,13 +419,13 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <td rowspan="7" colspan="2" style="width: 30%">
+                <td rowspan="6" colspan="2" style="width: 30%">
                     <telerik:RadBinaryImage ID="RadBinaryImage1" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu1.png" />
                 </td>
                 <th colspan="2" style="text-align: center">ÖLÇÜM ve MONTAJ</th>
             </tr>
             <tr>
-                <th style="width: 15%">Ölçüm Bilgileri : </th>
+                <th style="width: 15%">Üretim Notları : </th>
                 <td>
                     <telerik:RadTextBox ID="txtOlcumBilgileri" runat="server" Width="400px" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
@@ -455,13 +455,7 @@
                 <td>
                     <telerik:RadDatePicker ID="rdpTeslimTarihi" runat="server" RenderMode="Lightweight"></telerik:RadDatePicker>
                 </td>
-            </tr>
-            <tr>
-                <th style="width: 15%">Üretim Notları: : </th>
-                <td>
-                    <telerik:RadTextBox ID="txtUretimNot" runat="server" Width="400px" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
-            </tr>
+            </tr>           
             <tr>
                 <td rowspan="3">
                     <telerik:RadBinaryImage ID="RadBinaryImage2" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu2.png" />
