@@ -45,341 +45,161 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(AplikeRenkGetir());
             ds.Tables.Add(PervazRenkGetir());
             ds.Tables.Add(MetalRenkGetir());
-             
+            ds.Tables.Add(CumbaGetir());
 
             return ds;
         }
-        private DataTable AplikeRenkGetir()
+
+        private DataTable TabloGetir(string tabloAdi)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
-            dt.TableName = "REF_APLIKE";
-
-            string sqlText = @"SELECT * FROM REF_APLIKE";
+            dt.TableName = tabloAdi;
+            string sqlText = @"SELECT * FROM " + tabloAdi;
             data.GetRecords(dt, sqlText);
-
             return dt;
+        }
+
+        private DataTable CumbaGetir()
+        {
+            return TabloGetir("REF_CUMBA");
+        }
+
+        private DataTable AplikeRenkGetir()
+        {
+            return TabloGetir("REF_APLIKE");
         }
         private DataTable PervazRenkGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_PERVAZRENK";
-
-            string sqlText = @"SELECT * FROM REF_PERVAZRENK";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_PERVAZRENK");
         }
         private DataTable MetalRenkGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_METALRENK";
-
-            string sqlText = @"SELECT * FROM REF_METALRENK";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_METALRENK");
         }
 
         private DataTable FerforjeRenkGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_FERFORJERENK";
-
-            string sqlText = @"SELECT * FROM REF_FERFORJERENK";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_FERFORJERENK");
         }
 
         private DataTable BolmeCamTipiGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_CAMTIP";
-
-            string sqlText = @"SELECT * FROM REF_CAMTIP";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_CAMTIP");
         }
 
         private DataTable FerforjeGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_FERFORJE";
-
-            string sqlText = @"SELECT * FROM REF_FERFORJE";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_FERFORJE");
         }
 
         private DataTable ZirhRengiGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_ZIRHRENK";
-
-            string sqlText = @"SELECT * FROM REF_ZIRHRENK";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_ZIRHRENK");
         }
 
         private DataTable ZirhTipiGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_ZIRHTIP";
-
-            string sqlText = @"SELECT * FROM REF_ZIRHTIP";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_ZIRHTIP");
         }
 
         private DataTable CekmeKolTakmaSekliGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_CEKMEKOLUTAKILMASEKLI";
-
-            string sqlText = @"SELECT * FROM REF_CEKMEKOLUTAKILMASEKLI";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_CEKMEKOLUTAKILMASEKLI");
         }
 
         private DataTable HidrolikKapaticiGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_HIDROLIKKAPATICI";
-
-            string sqlText = @"SELECT * FROM REF_HIDROLIKKAPATICI";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_HIDROLIKKAPATICI");
         }
 
         private DataTable MenteseTipGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_MENTESETIP";
-
-            string sqlText = @"SELECT * FROM REF_MENTESETIP";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_MENTESETIP");
         }
 
         private DataTable YanginKapiCinsGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_KAPICINSI";
-
-            string sqlText = @"SELECT * FROM REF_KAPICINSI";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_KAPICINSI");
         }
 
         private DataTable YanginKasaTipGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_KASATIP";
-
-            string sqlText = @"SELECT * FROM REF_KASATIP";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_KASATIP");
         }
 
         private DataTable MudahaleKolGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_MUDAHALEKOL";
-
-            string sqlText = @"SELECT * FROM REF_MUDAHALEKOL";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_MUDAHALEKOL");
         }
 
         private DataTable PanikBarGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_PANIKBAR";
-
-            string sqlText = @"SELECT * FROM REF_PANIKBAR";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_PANIKBAR");
         }
 
         private DataTable KapiRenkGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_KAPIRENK";
-
-            string sqlText = @"SELECT * FROM REF_KAPIRENK";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_KAPIRENK");
         }
 
         private DataTable KilitSistemiGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_KILITSISTEM";
-
-            string sqlText = @"SELECT * FROM REF_KILITSISTEM";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_KILITSISTEM");
         }
 
         private DataTable CitaGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_CITA";
-
-            string sqlText = @"SELECT * FROM REF_CITA";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_CITA");
         }
 
         private DataTable BarelTipGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_BARELTIP";
-
-            string sqlText = @"SELECT * FROM REF_BARELTIP";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_BARELTIP");
         }
         private DataTable CekmeKoluGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_CEKMEKOLU";
-
-            string sqlText = @"SELECT * FROM REF_CEKMEKOLU";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_CEKMEKOLU");
         }
 
         private DataTable EsikGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_ESIK";
-
-            string sqlText = @"SELECT * FROM REF_ESIK";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_ESIK");
         }
 
         private DataTable AksesuarRenkGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_AKSESUARRENK";
-
-            string sqlText = @"SELECT * FROM REF_AKSESUARRENK";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_AKSESUARRENK");
         }
 
         private DataTable AluminyumRenkGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_ALUMINYUMRENK";
-
-            string sqlText = @"SELECT * FROM REF_ALUMINYUMRENK";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_ALUMINYUMRENK");
         }
 
         private DataTable ContaRenkGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_CONTARENK";
-
-            string sqlText = @"SELECT * FROM REF_CONTARENK";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_CONTARENK");
         }
 
         private DataTable TacTipiGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_TACTIP";
-
-            string sqlText = @"SELECT * FROM REF_TACTIP";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_TACTIP");
         }
 
         private DataTable PervazTipiGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_PERVAZTIP";
-
-            string sqlText = @"SELECT * FROM REF_PERVAZTIP";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_PERVAZTIP");
         }
 
         private DataTable MontajSekliGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_MONTAJSEKLI";
-
-            string sqlText = @"SELECT * FROM REF_MONTAJSEKLI";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_MONTAJSEKLI");
         }
 
         private DataTable TeslimSekliGetir()
         {
-            DataTable dt = new DataTable();
-            IData data = GetDataObject();
-            dt.TableName = "REF_TESLIMSEKLI";
-
-            string sqlText = @"SELECT * FROM REF_TESLIMSEKLI";
-            data.GetRecords(dt, sqlText);
-
-            return dt;
+            return TabloGetir("REF_TESLIMSEKLI");
         }
 
         public DataTable TabloAdlariGetir()

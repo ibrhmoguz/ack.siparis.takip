@@ -47,7 +47,24 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(CekmeKoluGetir(prms));
             ds.Tables.Add(BarelTipGetir(prms)); 
             ds.Tables.Add(new PersonelBS().PersonelListesiGetir());
+            ds.Tables.Add(CumbaGetir(prms)); 
             return ds;
+        }
+
+        private DataTable CumbaGetir(Dictionary<string, object> prms)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "CUMBA";
+            IData data = GetDataObject();
+            string durum = "1";
+
+            data.AddSqlParameter("KAPISERI", prms["KAPISERI"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("DURUM", durum, SqlDbType.VarChar, 50);
+
+            string sqlText = @"SELECT ID,AD FROM REF_CUMBA WHERE " + prms["KAPISERI"].ToString() + "=@DURUM";
+            data.GetRecords(dt, sqlText);
+
+            return dt;
         }
                      
         private DataTable CekmeKoluGetir(Dictionary<string, object> prms)

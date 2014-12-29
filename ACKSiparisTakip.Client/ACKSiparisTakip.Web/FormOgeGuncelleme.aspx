@@ -15,7 +15,7 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <th class="TdRenkAciklama" colspan="2" style="text-align: center; font-size:  11pt;">FORM ÖĞELERİ<br />
+                <th class="TdRenkAciklama" colspan="2" style="text-align: center; font-size: 11pt;">FORM ÖĞELERİ<br />
                 </th>
             </tr>
             <tr>
@@ -29,9 +29,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-
                     <telerik:RadGrid ID="rgOgeler1" runat="server" AllowPaging="True" OnItemCommand="rgOgeler1_ItemCommand" OnPageIndexChanged="rgOgeler1_PageIndexChanged">
-
                         <MasterTableView AutoGenerateColumns="False" DataKeyNames="ID">
                             <Columns>
                                 <telerik:GridBoundColumn DataField="ID" HeaderText="ID" SortExpression="ID"
@@ -80,8 +78,8 @@
                                 <asp:CheckBoxList ID="cbxKapiTuru" runat="server" AutoPostBack="True" RepeatDirection="Horizontal">
                                     <asp:ListItem>Nova</asp:ListItem>
                                     <asp:ListItem>Kroma</asp:ListItem>
-                                    <asp:ListItem> Guard</asp:ListItem>
-                                    <asp:ListItem> Yangin</asp:ListItem>
+                                    <asp:ListItem>Guard</asp:ListItem>
+                                    <asp:ListItem>Yangin/Porte</asp:ListItem>
                                 </asp:CheckBoxList>
                             </td>
                             <td>
