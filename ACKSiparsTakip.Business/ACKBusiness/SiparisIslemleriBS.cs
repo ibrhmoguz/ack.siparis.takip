@@ -700,7 +700,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("ZIRHTIP", siparis.ZirhTip, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ZIRHRENK", siparis.ZirhRenk, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("CEKMEKOLTAKILMASEKLI", siparis.CekmeKolTakilmaSekli, SqlDbType.VarChar, 50);
-                data.AddSqlParameter("CEKMEKOLRENK", siparis.CekmeKolRenk, SqlDbType.Date, 50);
+                data.AddSqlParameter("CEKMEKOLRENK", siparis.CekmeKolRenk, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("BOLMEKAYITSAYI", siparis.BolmeKayitSayi, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("CAMTIP", siparis.CamTip, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("FERFORJE", siparis.Ferforje, SqlDbType.VarChar, 50);
@@ -708,7 +708,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("METALRENK", siparis.MetalRenk, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("KASAKAPLAMA", siparis.KasaKaplama, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("YANGINKAPICINS", siparis.YanginKapiCins, SqlDbType.VarChar, 50);
-                data.AddSqlParameter("MUDAHALEKOL", siparis.MudahaleKol, SqlDbType.Date, 50);
+                data.AddSqlParameter("MUDAHALEKOL", siparis.MudahaleKol, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("PANIKBAR", siparis.PanikBar, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MENTESE", siparis.Mentese, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("KASATIP", siparis.KasaTip, SqlDbType.VarChar, 50);
