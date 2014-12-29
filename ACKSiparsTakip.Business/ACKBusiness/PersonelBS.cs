@@ -13,6 +13,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
     {
         public DataTable PersonelListesiGetir()
         {
+            return pPersonelListesiGetir();
+        }
+
+        private DataTable pPersonelListesiGetir()
+        {
             DataTable dt = new DataTable();
             dt.TableName = "PERSONEL";
             IData data = GetDataObject();
@@ -24,6 +29,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public DataTable PersonelListesiGetirGenel()
         {
+            return pPersonelListesiGetirGenel();
+        }
+
+        private DataTable pPersonelListesiGetirGenel()
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
@@ -33,6 +43,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public bool PersonelTanimla(Dictionary<string, object> prms)
+        {
+            return pPersonelTanimla(prms);
+        }
+
+        private bool pPersonelTanimla(Dictionary<string, object> prms)
         {
             try
             {
@@ -54,6 +69,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public bool PersonelSil(Dictionary<string, object> prms)
+        {
+            return pPersonelSil(prms);
+        }
+
+        private bool pPersonelSil(Dictionary<string, object> prms)
         {
             try
             {

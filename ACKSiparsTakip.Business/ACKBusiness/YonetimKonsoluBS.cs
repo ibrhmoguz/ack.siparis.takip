@@ -13,6 +13,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
     {
         public DataSet RefTablolariGetir()
         {
+            return pRefTablolariGetir();
+        }
+
+        private DataSet pRefTablolariGetir()
+        {
             DataSet ds = new DataSet();
 
             ds.Tables.Add(KapiRenkGetir());
@@ -204,6 +209,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public DataTable TabloAdlariGetir()
         {
+            return pTabloAdlariGetir();
+        }
+
+        private DataTable pTabloAdlariGetir()
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
@@ -214,6 +224,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public bool OgeSil(Dictionary<string, object> prms)
+        {
+            return pOgeSil(prms);
+        }
+
+        private bool pOgeSil(Dictionary<string, object> prms)
         {
             try
             {
@@ -235,6 +250,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public bool OgeEkle(Dictionary<string, object> prms)
+        {
+            return pOgeEkle(prms);
+        }
+
+        private bool pOgeEkle(Dictionary<string, object> prms)
         {
             try
             {
@@ -261,6 +281,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public bool KapiModelEkle(Dictionary<string, object> prms)
         {
+            return pKapiModelEkle(prms);
+        }
+
+        private bool pKapiModelEkle(Dictionary<string, object> prms)
+        {
             try
             {
                 IData data = GetDataObject();
@@ -283,6 +308,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public DataTable KapiSeriGetir()
         {
+            return pKapiSeriGetir();
+        }
+
+        private DataTable pKapiSeriGetir()
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
             dt.TableName = "REF_KAPISERI";
@@ -294,6 +324,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public DataTable KapiModelGetir(Dictionary<string, object> prms)
+        {
+            return pKapiModelGetir(prms);
+        }
+
+        private DataTable pKapiModelGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
@@ -308,6 +343,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public DataTable TumKapiModelGetir()
         {
+            return pTumKapiModelGetir();
+        }
+
+        private DataTable pTumKapiModelGetir()
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
             dt.TableName = "REF_TUMKAPIMODELLERI";
@@ -319,6 +359,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public DataTable HatalariGetir()
+        {
+            return pHatalariGetir();
+        }
+
+        private DataTable pHatalariGetir()
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();

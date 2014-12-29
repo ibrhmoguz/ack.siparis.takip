@@ -15,6 +15,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
     {
         public DataSet RefTanimlariniGetir(Dictionary<string, object> prms)
         {
+            return pRefTanimlariniGetir(prms);
+        }
+
+        private DataSet pRefTanimlariniGetir(Dictionary<string, object> prms)
+        {
             DataSet ds = new DataSet();
 
             ds.Tables.Add(KapiModeliGetir(prms));
@@ -43,11 +48,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             ds.Tables.Add(FerforjeRenkGetir(prms));
             ds.Tables.Add(AplikeRenkGetir(prms));
             ds.Tables.Add(PervazRenkGetir(prms));
-            ds.Tables.Add(MetalRenkGetir(prms)); 
+            ds.Tables.Add(MetalRenkGetir(prms));
             ds.Tables.Add(CekmeKoluGetir(prms));
-            ds.Tables.Add(BarelTipGetir(prms)); 
+            ds.Tables.Add(BarelTipGetir(prms));
             ds.Tables.Add(new PersonelBS().PersonelListesiGetir());
-            ds.Tables.Add(CumbaGetir(prms)); 
+            ds.Tables.Add(CumbaGetir(prms));
             return ds;
         }
 
@@ -547,16 +552,27 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public DataTable IlleriGetir()
         {
+            return pIlleriGetir();
+
+        }
+
+        private DataTable pIlleriGetir()
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
             string sqlText = @"SELECT ILKOD,ILAD FROM REF_ILLER ORDER BY 2";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
 
         public DataTable IlceleriGetir(Dictionary<string, object> prms)
+        {
+            return pIlceleriGetir(prms);
+
+        }
+
+        private DataTable pIlceleriGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
@@ -566,10 +582,15 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlText = @"SELECT * FROM REF_ILCELER WHERE ILKOD=@ILKOD ORDER BY ILCEAD";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
 
         public DataTable IlceleriGetir(string ilAdi)
+        {
+            return pIlceleriGetir(ilAdi);
+
+        }
+
+        private DataTable pIlceleriGetir(string ilAdi)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
@@ -579,10 +600,15 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlText = @"SELECT * FROM REF_ILCELER WHERE ILAD=@ILAD ORDER BY ILCEAD";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
 
         public DataTable SemtleriGetir(Dictionary<string, object> prms)
+        {
+            return pSemtleriGetir(prms);
+
+        }
+
+        private DataTable pSemtleriGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
@@ -592,10 +618,15 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlText = @"SELECT * FROM REF_SEMTLER WHERE ILCEKOD=@ILCEKOD ORDER BY SEMTAD";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
 
         public DataTable SemtleriGetir(string ilceAdi)
+        {
+            return pSemtleriGetir(ilceAdi);
+
+        }
+
+        private DataTable pSemtleriGetir(string ilceAdi)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
@@ -605,10 +636,14 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlText = @"SELECT * FROM REF_SEMTLER WHERE ILCEAD=@ILCEAD ORDER BY SEMTAD";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
 
         public string SiparisKaydet(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
+        {
+            return pSiparisKaydet(musteri, siparis, olcum, sozlesme);
+        }
+
+        private string pSiparisKaydet(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
         {
             IData data = GetDataObject();
 
@@ -919,6 +954,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public bool SiparisGuncelle(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
         {
+            return pSiparisGuncelle(musteri, siparis, olcum, sozlesme);
+        }
+
+        private bool pSiparisGuncelle(Musteri musteri, Siparis siparis, Olcum olcum, Sozlesme sozlesme)
+        {
             IData data = GetDataObject();
 
             try
@@ -1114,6 +1154,12 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public DataTable SiparisBilgileriniGetir(Dictionary<string, object> prms)
         {
+            return pSiparisBilgileriniGetir(prms);
+
+        }
+
+        private DataTable pSiparisBilgileriniGetir(Dictionary<string, object> prms)
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
@@ -1126,10 +1172,14 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                WHERE SIPARISNO=@SIPARISNO";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
 
         public DataTable SiparisSorgula(Dictionary<string, object> prms)
+        {
+            return pSiparisSorgula(prms);
+        }
+
+        private DataTable pSiparisSorgula(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();

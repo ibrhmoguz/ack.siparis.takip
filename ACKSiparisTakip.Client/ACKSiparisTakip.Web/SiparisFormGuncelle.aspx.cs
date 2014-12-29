@@ -651,8 +651,8 @@ namespace ACKSiparisTakip.Web
             if (Session["MONTAJ_KOTA_KONTROLU"].ToString() == "1")
             {
                 MontajBS montajBS = new MontajBS();
-                int yapilanMontajSayisi = montajBS.GünlükMontajSayisiniGetir(rdpTeslimTarihi.SelectedDate.Value);
-                DataTable dt = montajBS.GünlükMontajKotaBilgisiGetir(rdpTeslimTarihi.SelectedDate.Value);
+                int yapilanMontajSayisi = montajBS.GunlukMontajSayisiniGetir(rdpTeslimTarihi.SelectedDate.Value);
+                DataTable dt = montajBS.GunlukMontajKotaBilgisiGetir(rdpTeslimTarihi.SelectedDate.Value);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];

@@ -14,6 +14,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
     {
         public DataTable MontajlariListele(DateTime dtBaslangic, DateTime dtBitis)
         {
+            return pMontajlariListele(dtBaslangic, dtBitis);
+        }
+
+        private DataTable pMontajlariListele(DateTime dtBaslangic, DateTime dtBitis)
+        {
             IData data = GetDataObject();
             DataTable dt = new DataTable();
 
@@ -41,6 +46,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public bool MontajGuncelle(string montajID, DateTime teslimTarihi, List<string> personelListesi, string montajDurumu)
+        {
+            return pMontajGuncelle(montajID, teslimTarihi, personelListesi, montajDurumu);
+        }
+
+        private bool pMontajGuncelle(string montajID, DateTime teslimTarihi, List<string> personelListesi, string montajDurumu)
         {
             IData data = GetDataObject();
 
@@ -88,6 +98,12 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public DataTable MontajBilgisiGetir(string siparisNo)
         {
+            return pMontajBilgisiGetir(siparisNo);
+
+        }
+
+        private DataTable pMontajBilgisiGetir(string siparisNo)
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
@@ -96,10 +112,14 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlText = @"SELECT * FROM MONTAJ WHERE SIPARISNO=@SIPARISNO";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
 
         public DataTable MontajKotaListele()
+        {
+            return pMontajKotaListele();
+        }
+
+        private DataTable pMontajKotaListele()
         {
             IData data = GetDataObject();
             DataTable dt = new DataTable();
@@ -118,7 +138,12 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public bool MontajKotaKaydet(DateTime dtMontaj, int montajKota, bool montajKabul)
         {
-            DataTable dtKotaToplam = GünlükMontajKotaBilgisiGetir(dtMontaj);
+            return pMontajKotaKaydet(dtMontaj, montajKota, montajKabul);
+        }
+
+        private bool pMontajKotaKaydet(DateTime dtMontaj, int montajKota, bool montajKabul)
+        {
+            DataTable dtKotaToplam = GunlukMontajKotaBilgisiGetir(dtMontaj);
             if (dtKotaToplam.Rows.Count > 0)
                 return false;
 
@@ -138,7 +163,12 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             return true;
         }
 
-        public int GünlükMontajSayisiniGetir(DateTime dt)
+        public int GunlukMontajSayisiniGetir(DateTime dt)
+        {
+            return pGunlukMontajSayisiniGetir(dt);
+        }
+
+        private int pGunlukMontajSayisiniGetir(DateTime dt)
         {
             IData data = GetDataObject();
             data.AddSqlParameter("TESLIMTARIH", dt.ToShortDateString(), SqlDbType.DateTime, 50);
@@ -150,7 +180,12 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             return Convert.ToInt32(data.ExecuteScalar(sqlInsert, CommandType.Text));
         }
 
-        public DataTable GünlükMontajKotaBilgisiGetir(DateTime dtMontajTarihi)
+        public DataTable GunlukMontajKotaBilgisiGetir(DateTime dtMontajTarihi)
+        {
+            return pGunlukMontajKotaBilgisiGetir(dtMontajTarihi);
+        }
+
+        private DataTable pGunlukMontajKotaBilgisiGetir(DateTime dtMontajTarihi)
         {
             IData data = GetDataObject();
             DataTable dt = new DataTable();
@@ -169,6 +204,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public bool MontajKotaSil(string p)
+        {
+            return pMontajKotaSil(p);
+        }
+
+        private bool pMontajKotaSil(string p)
         {
             IData data = GetDataObject();
             data.AddSqlParameter("ID", p, SqlDbType.Int, 50);

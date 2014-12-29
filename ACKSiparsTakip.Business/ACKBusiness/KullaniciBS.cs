@@ -13,6 +13,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
     {
         public DataTable KullaniciBilgisiGetir(Dictionary<string, object> prms)
         {
+            return pKullaniciBilgisiGetir(prms);
+        }
+
+        private DataTable pKullaniciBilgisiGetir(Dictionary<string, object> prms)
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
             string sqlText = @"SELECT * FROM KULLANICIBILGI WHERE KULLANICIADI=@KULLANICIADI and SIFRE=@SIFRE";
@@ -26,15 +31,25 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public DataTable KullanicilariGetir()
         {
+            return pKullanicilariGetir();
+
+        }
+
+        private DataTable pKullanicilariGetir()
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
             string sqlText = @"SELECT KULLANICIADI, YETKI FROM KULLANICIBILGI ORDER BY 1";
             data.GetRecords(dt, sqlText);
             return dt;
-
         }
         public bool KullaniciTanimla(Dictionary<string, object> prms)
+        {
+            return pKullaniciTanimla(prms);
+        }
+
+        private bool pKullaniciTanimla(Dictionary<string, object> prms)
         {
             try
             {
@@ -58,6 +73,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public bool KullaniciSil(Dictionary<string, object> prms)
         {
+            return pKullaniciSil(prms);
+        }
+
+        private bool pKullaniciSil(Dictionary<string, object> prms)
+        {
             try
             {
                 IData data = GetDataObject();
@@ -77,6 +97,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
         public DataTable KullaniciSifreBilgisiGetir(Dictionary<string, object> prms)
         {
+            return pKullaniciSifreBilgisiGetir(prms);
+        }
+
+        private DataTable pKullaniciSifreBilgisiGetir(Dictionary<string, object> prms)
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
@@ -86,10 +111,14 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             data.GetRecords(dt, sqlText);
 
             return dt;
-
         }
 
         public bool KullaniciSifreGuncelle(Dictionary<string, object> prms)
+        {
+            return pKullaniciSifreGuncelle(prms);
+        }
+
+        private bool pKullaniciSifreGuncelle(Dictionary<string, object> prms)
         {
             try
             {

@@ -13,6 +13,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
     {
         public DataTable GunlukIsTakipFormuListele(DateTime raporTarihi)
         {
+            return pGunlukIsTakipFormuListele(raporTarihi);
+        }
+
+        private DataTable pGunlukIsTakipFormuListele(DateTime raporTarihi)
+        {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
             string sqlText = @"SELECT
@@ -56,6 +61,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public DataTable KapiTipineGoreSatilanAdet(string il, string ilce, string yil)
+        {
+            return pKapiTipineGoreSatilanAdet(il, ilce, yil);
+        }
+
+        private DataTable pKapiTipineGoreSatilanAdet(string il, string ilce, string yil)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
@@ -102,6 +112,11 @@ namespace ACKSiparisTakip.Business.ACKBusiness
         }
 
         public DataSet IlIlceyeGoreSatilanAdet(string il, string ilce, string yil)
+        {
+            return pIlIlceyeGoreSatilanAdet(il, ilce, yil);
+        }
+
+        private DataSet pIlIlceyeGoreSatilanAdet(string il, string ilce, string yil)
         {
             DataSet ds = new DataSet();
             if (string.IsNullOrEmpty(il))
