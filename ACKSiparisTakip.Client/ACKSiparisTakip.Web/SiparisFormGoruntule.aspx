@@ -40,21 +40,17 @@
                 <td style="font-size: smaller; text-align: left">
                     <b>Faks : </b>(0 312) 354 61 81
                 </td>
-
             </tr>
             <tr>
                 <td style="font-size: smaller; text-align: left">
                     <b>Web : </b>www.ankaracelikkapi.com.tr
                 </td>
-
             </tr>
             <tr>
                 <td style="font-size: smaller; text-align: left">
                     <b>e-posta : </b>ankara@celikkapi.net
                 </td>
-
             </tr>
-
         </table>
         <br />
         <table class="AnaTablo" style="width: 100%">
@@ -144,7 +140,6 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-
                 <th style="width: 15%">Dış Kapı Modeli :</th>
                 <td style="width: 18%">
                     <asp:Label ID="lblDisKapiModeli" runat="server"></asp:Label>
@@ -535,8 +530,6 @@
                 </td>
             </tr>
         </table>
-        <br />
-
     </div>
 </asp:Content>
 

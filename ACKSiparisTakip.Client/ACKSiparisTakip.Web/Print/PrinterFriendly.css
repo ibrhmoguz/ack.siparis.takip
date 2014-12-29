@@ -60,15 +60,15 @@ ol          { list-style-type: decimal; }
 /* Tablolar
 -------------------------------------------------------------- */
 
-table.normalTablo, table.normalTablo td { /*margin-bottom: 1.4em;*/ border-collapse:collapse; border:1px solid gray;}
-table.normalTablo th   		{ font-weight: bold; background: #C3D9FF; }
+table.normalTablo, table.normalTablo td { font-size:8pt; border-collapse:collapse; margin-bottom: 0.5em; border:1px solid gray;}
+table.normalTablo th   		{ font-weight: bold; background: #e5f1fb; }
 table.normalTablo th,td		{ padding: 5px 5px 5px 5px; vertical-align:top; }
 table.normalTablo tr.AlternatifTabloSatiri td  { background: #E5ECF9; }
 table.normalTablo tfoot		{ font-style: italic; }
 table.normalTablo caption	{ background: #eee; }
 
-table.boldTablo, table.boldTablo td { font-size:9pt; font-weight:normal; margin-bottom: 1.4em; border-collapse:collapse; border:1px solid gray;}
-table.boldTablo th   		{ font-weight: bold; background: #C3D9FF; }
+table.boldTablo, table.boldTablo td { font-size:8pt; font-weight:normal; margin-bottom: 0.5em; border-collapse:collapse; border:1px solid gray;}
+table.boldTablo th   		{ font-weight: bold; background: #e5f1fb; }
 table.boldTablo th,td		{ padding: 0px 0px 0px 0px; }
 table.boldTablo tr.AlternatifTabloSatiri td  { background: #E5ECF9; }
 table.boldTablo tfoot		{ font-style: italic; }

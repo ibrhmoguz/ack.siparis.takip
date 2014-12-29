@@ -45,7 +45,7 @@ namespace ACKSiparisTakip.Web
             if (Session["user"] != null)
                 user = Session["user"].ToString();
             new LogWriter().Write(AppModules.ACKSiparisTakip, System.Diagnostics.EventLogEntryType.Error, exc, "", "", "", user);
-            Response.Redirect("Hata.aspx");
+            Response.Redirect("~/Hata.aspx");
         }
 
         protected void Session_End(object sender, EventArgs e)
