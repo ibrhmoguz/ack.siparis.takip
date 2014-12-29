@@ -261,7 +261,7 @@
                 <th colspan="2" style="text-align: center">ÖLÇÜM ve MONTAJ</th>
             </tr>
             <tr>
-                <th style="width: 8%">Üretim Notları: </th>
+                <th style="width: 10%">Üretim Notları: </th>
                 <td>
                     <telerik:RadTextBox ID="txtOlcumBilgileri" runat="server" Width="400px" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>

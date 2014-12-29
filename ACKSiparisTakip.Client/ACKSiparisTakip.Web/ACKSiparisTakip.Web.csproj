@@ -111,6 +111,7 @@
     <Content Include="App_Themes\Theme\Template\m.jpg" />
     <Content Include="App_Themes\Theme\Template\Template.css" />
     <Content Include="DBScripts\AppDBScripts.sql" />
+    <Content Include="DBScripts\AppUserDBScript.sql" />
     <Content Include="DBScripts\VersiyonBilgisi.txt" />
     <Content Include="deneme.aspx" />
     <Content Include="FormOgeGuncelleme.aspx" />
