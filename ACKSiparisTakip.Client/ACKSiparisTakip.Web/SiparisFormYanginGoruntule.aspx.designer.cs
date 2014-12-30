@@ -274,13 +274,13 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblYanginMenteseTip;
         
         /// <summary>
-        /// ddlYanginHidrolikKapatici control.
+        /// lblYanginHidrolikKapatici control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ddlYanginHidrolikKapatici;
+        protected global::System.Web.UI.WebControls.Label lblYanginHidrolikKapatici;
         
         /// <summary>
         /// trPorte1 control.

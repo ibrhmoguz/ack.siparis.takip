@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ACKMasterPage.Master" AutoEventWireup="true" CodeBehind="SiparisFormYanginKayit.aspx.cs" Inherits="ACKSiparisTakip.Web.SiparisFormYanginKayit" %>
+
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,8 +13,9 @@
                     <telerik:RadBinaryImage ID="imgLogo" runat="server" ImageUrl="~/App_Themes/Theme/Raster/ackLogo.PNG" />
                 </td>
                 <td colspan="2" rowspan="6" style="width: 45%; font-size: x-large; text-align: center;">
-
-                    <b>SİPARİŞ FORMU</b>
+                    <b>
+                        <asp:Label ID="lblKapiTur" runat="server"></asp:Label>
+                        SİPARİŞ FORMU</b>
                 </td>
                 <td style="width: 30%; text-align: left">
                     <b>ANKARA ÇELİK KAPI SAN. TİC. LTD. ŞTİ. </b>
@@ -32,7 +34,7 @@
 
             </tr>
             <tr>
-               
+
                 <td style="font-size: xx-small; text-align: left">
                     <b>Faks : </b>(0 312) 354 61 81
                 </td>
@@ -160,18 +162,18 @@
                 <td style="width: 35%">
                     <telerik:RadDropDownList ID="ddlDisKapiModeli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
-                <th>Kapı Cinsi :</th>
+                <th style="width: 10%">Kapı Cinsi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlYanginKapiCins" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
-                
+
             </tr>
             <tr>
                 <th style="width: 10%">İç Kapı Modeli :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlIcKapiModeli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
-               
+
                 <th>Kasa Tipi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlYanginKasaTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
@@ -186,15 +188,15 @@
                 <td>
                     <telerik:RadDropDownList ID="ddlEsik" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
-                
+
             </tr>
             <tr>
                 <th>Kilit Sistemi :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlKilitSistemi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
-                <th >Çekme Kolu :</th>
-                <td >
+                <th>Çekme Kolu :</th>
+                <td>
                     <telerik:RadDropDownList ID="ddlCekmeKolu" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
@@ -218,14 +220,14 @@
                     <telerik:RadDropDownList ID="ddlYanginHidrolikKapatici" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
             </tr>
-             <tr id="trPorte1" runat="server" visible="false">
+            <tr id="trPorte1" runat="server" visible="false">
                 <th>Cumba :</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlCumba" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Dürbün :</th>
                 <td>
-                   <telerik:RadDropDownList ID="ddlDurbun" runat="server" RenderMode="Lightweight">
+                    <telerik:RadDropDownList ID="ddlDurbun" runat="server" RenderMode="Lightweight">
                         <Items>
                             <telerik:DropDownListItem runat="server" Selected="True" Text="Seçiniz" />
                             <telerik:DropDownListItem runat="server" Text="Var" />
@@ -237,7 +239,7 @@
             <tr id="trPorte2" runat="server" visible="false">
                 <th>Barel :</th>
                 <td>
-                     <telerik:RadDropDownList ID="ddlBarelTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                    <telerik:RadDropDownList ID="ddlBarelTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
                 <th>Taktak :</th>
                 <td>
@@ -250,7 +252,7 @@
                     </telerik:RadDropDownList>
                 </td>
             </tr>
-                        
+
         </table>
         <br />
         <table class="AnaTablo" style="width: 100%">
@@ -293,7 +295,7 @@
                 </td>
             </tr>
 
-             
+
         </table>
         <br />
         <table class="AnaTablo" style="width: 100%">

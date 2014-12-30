@@ -149,7 +149,7 @@
                 <td style="width: 35%">
                     <asp:Label ID="lblDisKapiModeli" runat="server"></asp:Label>
                 </td>
-                <th>Kapı Cinsi :</th>
+                <th style="width: 10%">Kapı Cinsi :</th>
                 <td>
                     <asp:Label ID="lblYanginKapiCins" runat="server"></asp:Label>
                 </td>
@@ -204,7 +204,7 @@
                 </td>
                 <th>Hidrolik Kapatıcı :</th>
                 <td>
-                    <asp:Label ID="ddlYanginHidrolikKapatici" runat="server"></asp:Label>
+                    <asp:Label ID="lblYanginHidrolikKapatici" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr id="trPorte1" runat="server" visible="false">

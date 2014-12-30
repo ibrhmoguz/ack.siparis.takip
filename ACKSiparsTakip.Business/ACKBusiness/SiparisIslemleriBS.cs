@@ -766,6 +766,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("PANIKBAR", siparis.PanikBar, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MENTESE", siparis.Mentese, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("KASATIP", siparis.KasaTip, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CUMBA", siparis.Cumba, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("HIDROLIKKAPATICI", siparis.HidrolikKapatici, SqlDbType.VarChar, 50);
                 //
 
@@ -848,7 +849,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                   ,[KASATIP]
                                   ,[HIDROLIKKAPATICI]
                                   ,[METALRENK]
-                                  ,[KASAKAPLAMA])
+                                  ,[KASAKAPLAMA]
+                                  ,[CUMBA])
                              VALUES
                                    (@SIPARISNO,
                                    @SIPARISTARIH,
@@ -928,7 +930,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                   ,@KASATIP
                                   ,@HIDROLIKKAPATICI
                                   ,@METALRENK
-                                  ,@KASAKAPLAMA)";
+                                  ,@KASAKAPLAMA
+                                  ,@CUMBA)";
                 data.ExecuteStatement(sqlKaydet);
 
                 //MONTAJ BILGISI KAYDET
@@ -1045,6 +1048,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("MENTESE", siparis.Mentese, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("KASATIP", siparis.KasaTip, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("HIDROLIKKAPATICI", siparis.HidrolikKapatici, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CUMBA", siparis.Cumba, SqlDbType.VarChar, 50);
                 //
 
                 string sqlGuncelle = @"UPDATE [ACKAppDB].[dbo].[SIPARIS]
@@ -1126,6 +1130,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                           ,[HIDROLIKKAPATICI]=@HIDROLIKKAPATICI
                                           ,[METALRENK]=@METALRENK
                                           ,[KASAKAPLAMA]=@KASAKAPLAMA
+                                          ,[CUMBA]=@CUMBA
                                      WHERE [SIPARISNO] =@SIPARISNO";
 
                 data.ExecuteStatement(sqlGuncelle);

@@ -108,7 +108,13 @@ namespace ACKSiparisTakip.Web
             //
            
             //
-           
+            lblYanginPanikBar.Text = (row["PANIKBAR"] != DBNull.Value) ? row["PANIKBAR"].ToString() : String.Empty;
+            lblYanginKol.Text = (row["MUDAHALEKOL"] != DBNull.Value) ? row["MUDAHALEKOL"].ToString() : String.Empty;
+            lblYanginMenteseTip.Text = (row["MENTESE"] != DBNull.Value) ? row["MENTESE"].ToString() : String.Empty;
+            lblYanginHidrolikKapatici.Text = (row["HIDROLIKKAPATICI"] != DBNull.Value) ? row["HIDROLIKKAPATICI"].ToString() : String.Empty;
+            lblCumba.Text = (row["CUMBA"] != DBNull.Value) ? row["CUMBA"].ToString() : String.Empty;
+            lblYanginMetalRengi.Text = (row["METALRENK"] != DBNull.Value) ? row["METALRENK"].ToString() : String.Empty;
+
             lblCekmeKolu.Text = (row["CEKMEKOLU"] != DBNull.Value) ? row["CEKMEKOLU"].ToString() : String.Empty;
             lblBarelTipi.Text = (row["BARELTIP"] != DBNull.Value) ? row["BARELTIP"].ToString() : String.Empty;
             lblDurbun.Text = (row["DURBUN"] != DBNull.Value) ? row["DURBUN"].ToString() : String.Empty;

@@ -394,7 +394,15 @@ namespace ACKSiparisTakip.Web
             if (link != null)
             {
                 DataRowView view = (DataRowView)e.Row.DataItem;
-                link.NavigateUrl = "~/SiparisFormGoruntule.aspx?SiparisNo=" + view.Row.ItemArray[1].ToString();
+                string url = string.Empty;
+                string kapiCinsi = view.Row.ItemArray[1].ToString();
+
+                if (kapiCinsi[0] == 'Y' || kapiCinsi[0] == 'P')
+                    url = "~/SiparisFormYanginGoruntule.aspx";
+                else
+                    url = "~/SiparisFormGoruntule.aspx";
+
+                link.NavigateUrl = url + "?SiparisNo=" + view.Row.ItemArray[1].ToString();
             }
         }
         private void KapiSeriDoldur()

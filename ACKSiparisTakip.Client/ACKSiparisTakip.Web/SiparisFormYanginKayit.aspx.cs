@@ -62,7 +62,6 @@ namespace ACKSiparisTakip.Web
                     trPorte1.Visible = true;
                     trPorte2.Visible = true;
                     break;
-        
             }
         }
 
@@ -80,9 +79,10 @@ namespace ACKSiparisTakip.Web
         private void FormDoldur()
         {
             string seriId = ((int)this.KapiTip).ToString();
+            if (this.KapiTip == KapiTipi.Porte)
+                lblKapiTur.Text = "PORTE";
             string seriAdi = "YANGIN";
-                    
-       
+
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("ID", seriId);
             prms.Add("KAPISERI", seriAdi);
@@ -107,10 +107,11 @@ namespace ACKSiparisTakip.Web
             DataTable dtYanginPanikBar = ds.Tables["PANIKBAR"];
             DataTable dtBarelTip = ds.Tables["BARELTIP"];
             DataTable dtCumba = ds.Tables["CUMBA"];
+            DataTable dtMetalRenk = ds.Tables["METALRENK"];
 
 
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
-            DropDownBindEt(ddlDisKapiModeli, dtKapiModeli); 
+            DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlYanginMetalRengi, dtKapiRenk);
             DropDownBindEt(ddlKilitSistemi, dtKilitSistem);
             DropDownBindEt(ddlEsik, dtEsik);
@@ -126,8 +127,14 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlYanginPanikBar, dtYanginPanikBar);
             DropDownBindEt(ddlCumba, dtCumba);
             DropDownBindEt(ddlBarelTipi, dtBarelTip);
+            DropDownBindEt(ddlMontajSekli, dtMontajSekli);
+            DropDownBindEt(ddlTeslimSekli, dtTeslimSekli); 
+            DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
+            DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
+            DropDownBindEt(ddlKilitSistemi, dtKilitSistem);
+            DropDownBindEt(ddlYanginMetalRengi, dtMetalRenk);
+            DropDownBindEt(ddlBarelTipi, dtBarelTip);
 
-         
             IlleriGetir();
             Kontrol();
         }
@@ -141,7 +148,7 @@ namespace ACKSiparisTakip.Web
             ddl.Items.Insert(0, new Telerik.Web.UI.DropDownListItem("Seçiniz", "0"));
         }
 
-        
+
         protected void IlleriGetir()
         {
             DataTable dt = new SiparisIslemleriBS().IlleriGetir();
@@ -253,13 +260,13 @@ namespace ACKSiparisTakip.Web
             if (DropDownCheck(ddlDurbun)) siparis.Durbun = ddlDurbun.SelectedText;
             if (DropDownCheck(ddlTaktak)) siparis.Taktak = ddlTaktak.SelectedText;
             if (DropDownCheck(ddlYanginMetalRengi)) siparis.MetalRenk = ddlYanginMetalRengi.SelectedText;
-           
+
             //
-           
+
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = "BEKLEYEN";
             if (!string.IsNullOrEmpty(txtFirmaAdi.Text)) siparis.FirmaAdi = txtFirmaAdi.Text;
-           
+
             siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
             if (!string.IsNullOrWhiteSpace(txtNakitPesin.Text)) siparis.NakitPesin = Convert.ToDouble(txtNakitPesin.Text);
             if (!string.IsNullOrWhiteSpace(txtNakitKalan.Text)) siparis.NakitKalan = Convert.ToDouble(txtNakitKalan.Text);
@@ -285,7 +292,7 @@ namespace ACKSiparisTakip.Web
                 siparis.CekKalan = null;
             siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
 
-            
+
             if (DropDownCheck(ddlMontajSekli)) olcum.MontajSekli = ddlMontajSekli.SelectedText;
             if (DropDownCheck(ddlOlcumAlan)) olcum.OlcumAlanKisi = ddlOlcumAlan.SelectedText;
             if (!string.IsNullOrEmpty(txtOlcumBilgileri.Text)) olcum.OlcumBilgi = txtOlcumBilgileri.Text;

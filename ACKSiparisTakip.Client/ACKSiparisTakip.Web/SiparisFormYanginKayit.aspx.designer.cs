@@ -31,6 +31,15 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadBinaryImage imgLogo;
         
         /// <summary>
+        /// lblKapiTur control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKapiTur;
+        
+        /// <summary>
         /// rdtOlcuTarihSaat control.
         /// </summary>
         /// <remarks>
