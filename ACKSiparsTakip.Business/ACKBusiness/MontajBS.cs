@@ -68,6 +68,14 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                       WHERE ID=@ID";
                 data.ExecuteStatement(sqlUpdate);
 
+                string siparisDurumu = montajDurumu == "A" ? "İMALATTA" : "TAMAMLANDI";
+                data.AddSqlParameter("ID", montajID, SqlDbType.Int, 50);
+                data.AddSqlParameter("DURUM", siparisDurumu, SqlDbType.VarChar, 50);
+                sqlUpdate = @"UPDATE SIPARIS 
+                              SET DURUM=@DURUM 
+                              WHERE SIPARISNO=(SELECT SIPARISNO FROM MONTAJ WHERE ID=@ID)";
+                data.ExecuteStatement(sqlUpdate);
+
                 if (personelListesi.Count > 0)
                 {
                     //Montaj personelini sil

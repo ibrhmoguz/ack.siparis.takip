@@ -84,28 +84,33 @@ namespace ACKSiparisTakip.Web
 
         protected void RadCalendarIsTakvimi_SelectionChanged(object sender, SelectedDatesEventArgs e)
         {
+            IsleriTakvimeYukle(e.SelectedDates[0].Date);
+        }
+
+        private void IsleriTakvimeYukle(DateTime dtSelectedDate)
+        {
             DateTime dtBaslangic = new DateTime();
             DateTime dtBitis = new DateTime();
 
             if (RadSchedulerIsTakvimi.SelectedView == SchedulerViewType.DayView)
             {
-                dtBaslangic = e.SelectedDates[0].Date;
+                dtBaslangic = dtSelectedDate;
                 dtBitis = dtBaslangic;
             }
             else if (RadSchedulerIsTakvimi.SelectedView == SchedulerViewType.WeekView)
             {
-                dtBaslangic = HaftaBaslangicGunu(e.SelectedDates[0].Date);
+                dtBaslangic = HaftaBaslangicGunu(dtSelectedDate);
                 dtBitis = HaftaBitisGunu(dtBaslangic);
             }
             else if (RadSchedulerIsTakvimi.SelectedView == SchedulerViewType.MonthView || RadSchedulerIsTakvimi.SelectedView == SchedulerViewType.TimelineView)
             {
-                DateTime dtTemp = e.SelectedDates[0].Date;
+                DateTime dtTemp = dtSelectedDate;
                 dtBaslangic = new DateTime(dtTemp.Year, dtTemp.Month, 1);
                 dtBitis = dtBaslangic.AddMonths(1).AddDays(-1);
             }
 
             MontajlariListele(dtBaslangic, dtBitis);
-            RadSchedulerIsTakvimi.SelectedDate = e.SelectedDates[0].Date;
+            RadSchedulerIsTakvimi.SelectedDate = dtSelectedDate;
             RadSchedulerIsTakvimi.Rebind();
             IsleriTakvimeYukle();
         }
@@ -212,8 +217,7 @@ namespace ACKSiparisTakip.Web
                 {
                     MessageBox.Basari(this, "Montaj bilgisi güncellendi.");
                     RadSchedulerIsTakvimi.Rebind();
-                    HaftaMontajlariniYukle();
-                    IsleriTakvimeYukle();
+                    IsleriTakvimeYukle(RadCalendarIsTakvimi.SelectedDate);
                 }
                 else
                 {
