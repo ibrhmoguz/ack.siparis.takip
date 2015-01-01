@@ -29,12 +29,6 @@ namespace ACKSiparisTakip.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["yetki"].ToString() == "Kullanici")
-            {
-                MessageBox.Hata(this, "Bu sayfaya erişim yetkiniz yoktur!");
-                return;
-            }
-
             if (!Page.IsPostBack)
             {
                 rdtTarih.SelectedDate = DateTime.Now;
@@ -63,6 +57,8 @@ namespace ACKSiparisTakip.Web
                 grdSiparisler.DataBind();
                 btnYazdir.Visible = false;
             }
+
+            this.SorguSonucListesi = dt;
             string tarih = rdtTarih.SelectedDate.Value.ToShortDateString();
             PopupPageHelper.OpenPopUp(btnYazdir, "Print/GunlukIsTakip.aspx?Tarih=" + tarih, "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
         }
@@ -72,11 +68,6 @@ namespace ACKSiparisTakip.Web
             grdSiparisler.PageIndex = e.NewPageIndex;
             grdSiparisler.DataSource = this.SorguSonucListesi;
             grdSiparisler.DataBind();
-        }
-
-        protected void btnYazdir_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

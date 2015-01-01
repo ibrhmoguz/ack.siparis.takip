@@ -33,6 +33,9 @@
                             <telerik:RadButton ID="btnSorgula" runat="server" Text="Sorgula" OnClick="btnSorgula_Click">
                                 <Icon PrimaryIconCssClass="rbSearch" />
                             </telerik:RadButton>
+                            <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır" Visible="false">
+                                <Icon PrimaryIconCssClass="rbPrint" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                            </telerik:RadButton>
                         </td>
                     </tr>
                     <tr>
@@ -40,7 +43,7 @@
                             <br />
                             <asp:GridView ID="grdRapor" runat="server" AutoGenerateColumns="true" AllowPaging="false" PageSize="30"
                                 Width="100%" CssClass="AnaTablo" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2"
-                                EmptyDataText="İl bulunamamıştır!" EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
+                                EmptyDataText="Satış bulunamamıştır!" EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
                                 EmptyDataRowStyle-CssClass="TdRenkAciklama">
                             </asp:GridView>
                         </td>

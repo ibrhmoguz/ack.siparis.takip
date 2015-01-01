@@ -15,14 +15,23 @@ namespace ACKSiparisTakip.Web
     {
         private static string ANKARA_IL_KODU = "6";
 
+        private DataSet SorguSonucListesi
+        {
+            get
+            {
+                if (Session["IlIlceyeGoreSatilanAdet"] != null)
+                    return Session["IlIlceyeGoreSatilanAdet"] as DataSet;
+                else
+                    return null;
+            }
+            set
+            {
+                Session["IlIlceyeGoreSatilanAdet"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["yetki"].ToString() == "Kullanici")
-            {
-                MessageBox.Hata(this, "Bu sayfaya erişim yetkiniz yoktur!");
-                return;
-            }
-
             if (!Page.IsPostBack)
             {
                 VarsayilanDegerleriYukle();
@@ -115,6 +124,10 @@ namespace ACKSiparisTakip.Web
             GridDoldur(grdRaporIl, dt1);
             GridDoldur(grdRaporIlce, dt2);
             GridDoldur(grdRaporSemt, dt3);
+
+            this.SorguSonucListesi = ds;
+            PopupPageHelper.OpenPopUp(btnYazdir, "Print/IlIlceyeGoreSatilanAdet.aspx", "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
+            btnYazdir.Visible = true;
         }
 
         private void GridDoldur(GridView gv, DataTable dt)

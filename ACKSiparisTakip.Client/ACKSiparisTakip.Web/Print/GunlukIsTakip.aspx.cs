@@ -57,7 +57,7 @@ namespace ACKSiparisTakip.Web.Print
         }
         private void RaporOlustur()
         {
-            DataTable dt = new RaporBS().GunlukIsTakipFormuListele(DateTime.Parse(this.Tarih));
+            DataTable dt = this.SorguSonucListesi;
 
             if (dt.Rows.Count > 0)
             {

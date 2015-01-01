@@ -15,14 +15,23 @@ namespace ACKSiparisTakip.Web
     {
         private static string ANKARA_IL_KODU = "6";
 
+        private DataTable SorguSonucListesi
+        {
+            get
+            {
+                if (Session["KapiTipineGoreSatilanAdet"] != null)
+                    return Session["KapiTipineGoreSatilanAdet"] as DataTable;
+                else
+                    return null;
+            }
+            set
+            {
+                Session["KapiTipineGoreSatilanAdet"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["yetki"].ToString() == "Kullanici")
-            {
-                MessageBox.Hata(this, "Bu sayfaya erişim yetkiniz yoktur!");
-                return;
-            }
-
             if (!Page.IsPostBack)
             {
                 VarsayilanDegerleriYukle();
@@ -118,12 +127,17 @@ namespace ACKSiparisTakip.Web
             {
                 grdRapor.DataSource = dt;
                 grdRapor.DataBind();
+                btnYazdir.Visible = true;
             }
             else
             {
                 grdRapor.DataSource = null;
                 grdRapor.DataBind();
+                btnYazdir.Visible = false;
             }
+
+            this.SorguSonucListesi = dt;
+            PopupPageHelper.OpenPopUp(btnYazdir, "Print/KapiTipineGoreSatilanAdet.aspx", "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
         }
 
         private DataTable YuzdeDegerleriHesapla(DataTable dt)

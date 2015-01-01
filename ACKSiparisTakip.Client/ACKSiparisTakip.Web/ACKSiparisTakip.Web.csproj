@@ -123,6 +123,9 @@
     <Content Include="KapiTipineGoreSatilanAdet.aspx" />
     <Content Include="Manage.aspx" />
     <Content Include="MontajKotaTanimla.aspx" />
+    <Content Include="Print\IlIlceyeGoreSatilanAdet.aspx" />
+    <Content Include="Print\KapiTipineGoreSatilanAdet.aspx" />
+    <Content Include="Print\PrintYangin.aspx" />
     <Content Include="Script\jquery.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -138,6 +141,7 @@
     <Content Include="SiparisFormGuncelle.aspx" />
     <Content Include="SifreGuncelleme.aspx" />
     <Content Include="SiparisFormYanginGoruntule.aspx" />
+    <Content Include="SiparisFormYanginGuncelle.aspx" />
     <Content Include="SiparisFormYanginKayit.aspx" />
     <Content Include="SiparisSorgula.aspx" />
     <Content Include="UygulamaAyarlari.aspx" />
@@ -243,6 +247,27 @@
     <Compile Include="Print\GunlukIsTakip.aspx.designer.cs">
       <DependentUpon>GunlukIsTakip.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Print\IlIlceyeGoreSatilanAdet.aspx.cs">
+      <DependentUpon>IlIlceyeGoreSatilanAdet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print\IlIlceyeGoreSatilanAdet.aspx.designer.cs">
+      <DependentUpon>IlIlceyeGoreSatilanAdet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Print\KapiTipineGoreSatilanAdet.aspx.cs">
+      <DependentUpon>KapiTipineGoreSatilanAdet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print\KapiTipineGoreSatilanAdet.aspx.designer.cs">
+      <DependentUpon>KapiTipineGoreSatilanAdet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PrintYangin.aspx.cs">
+      <DependentUpon>PrintYangin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print\PrintYangin.aspx.designer.cs">
+      <DependentUpon>PrintYangin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Print\Print.aspx.cs">
       <DependentUpon>Print.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -309,6 +334,13 @@
     </Compile>
     <Compile Include="SiparisFormYanginGoruntule.aspx.designer.cs">
       <DependentUpon>SiparisFormYanginGoruntule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiparisFormYanginGuncelle.aspx.cs">
+      <DependentUpon>SiparisFormYanginGuncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiparisFormYanginGuncelle.aspx.designer.cs">
+      <DependentUpon>SiparisFormYanginGuncelle.aspx</DependentUpon>
     </Compile>
     <Compile Include="SiparisFormYanginKayit.aspx.cs">
       <DependentUpon>SiparisFormYanginKayit.aspx</DependentUpon>

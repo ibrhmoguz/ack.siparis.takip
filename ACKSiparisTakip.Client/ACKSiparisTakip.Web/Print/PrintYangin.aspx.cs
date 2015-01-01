@@ -11,10 +11,12 @@ using ACKSiparisTakip.Business.ACKBusiness;
 using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
 using ACKSiparisTakip.Web.Helper;
 using Telerik.Web.UI;
-namespace ACKSiparisTakip.Web
+
+namespace ACKSiparisTakip.Web.Print
 {
-    public partial class SiparisFormYanginGoruntule : ACKBasePage
+    public partial class PrintYangin : System.Web.UI.Page
     {
+
         public string SiparisNo
         {
             get
@@ -37,25 +39,37 @@ namespace ACKSiparisTakip.Web
                     return Request.QueryString["SeriAdi"].ToString();
                 }
                 else
-                    return lblKapiTur.Text;
+                    return String.Empty;
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["yetki"].ToString() == "Kullanici")
-            {
-                MessageBox.Hata(this, "Bu sayfaya erişim yetkiniz yoktur!");
-                return;
-            }
-
             if (!Page.IsPostBack)
             {
                 FormBilgileriniGetir();
-                PopupPageHelper.OpenPopUp(btnYazdir, "Print/PrintYangin.aspx?SiparisNo=" + this.SiparisNo, "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
             }
         }
-        
+
+        private void KapiTurAyarla()
+        {
+            if (String.IsNullOrEmpty(this.SiparisNo))
+                return;
+
+            if (this.SiparisNo[0] == 'Y')
+            {
+                trYangin1.Visible = true;
+                trYangin2.Visible = true;
+                lblKapiTur.Text = "YANGIN";
+            }
+            else if (this.SiparisNo[0] == 'P')
+            {
+                trPorte1.Visible = true;
+                trPorte2.Visible = true;
+                lblKapiTur.Text = "PORTE";
+            }
+        }
+
         private void FormBilgileriniGetir()
         {
             lblSiparisNo.Text = this.SiparisNo;
@@ -89,18 +103,7 @@ namespace ACKSiparisTakip.Web
             lblDisKapiModeli.Text = (row["DISKAPIMODEL"] != DBNull.Value) ? row["DISKAPIMODEL"].ToString() : String.Empty;
             lblKilitSistemi.Text = (row["KILITSISTEM"] != DBNull.Value) ? row["KILITSISTEM"].ToString() : String.Empty;
             lblEsik.Text = (row["ESIK"] != DBNull.Value) ? row["ESIK"].ToString() : String.Empty;
-            lblYanginPanikBar.Text = (row["PANIKBAR"] != DBNull.Value) ? row["PANIKBAR"].ToString() : String.Empty;
-            lblYanginKol.Text = (row["MUDAHALEKOL"] != DBNull.Value) ? row["MUDAHALEKOL"].ToString() : String.Empty;
-            lblYanginMenteseTip.Text = (row["MENTESE"] != DBNull.Value) ? row["MENTESE"].ToString() : String.Empty;
-            lblYanginHidrolikKapatici.Text = (row["HIDROLIKKAPATICI"] != DBNull.Value) ? row["HIDROLIKKAPATICI"].ToString() : String.Empty;
-            lblCumba.Text = (row["CUMBA"] != DBNull.Value) ? row["CUMBA"].ToString() : String.Empty;
-            lblYanginMetalRengi.Text = (row["METALRENK"] != DBNull.Value) ? row["METALRENK"].ToString() : String.Empty;
             lblCekmeKolu.Text = (row["CEKMEKOLU"] != DBNull.Value) ? row["CEKMEKOLU"].ToString() : String.Empty;
-            lblBarelTipi.Text = (row["BARELTIP"] != DBNull.Value) ? row["BARELTIP"].ToString() : String.Empty;
-            lblDurbun.Text = (row["DURBUN"] != DBNull.Value) ? row["DURBUN"].ToString() : String.Empty;
-            lblTaktak.Text = (row["TAKTAK"] != DBNull.Value) ? row["TAKTAK"].ToString() : String.Empty;
-            lblYanginKapiCins.Text = (row["YANGINKAPICINS"] != DBNull.Value) ? row["YANGINKAPICINS"].ToString() : String.Empty;
-            lblYanginKasaTipi.Text = (row["KASATIP"] != DBNull.Value) ? row["KASATIP"].ToString() : String.Empty;
             lblOlcumBilgileri.Text = (row["OLCUMBILGI"] != DBNull.Value) ? row["OLCUMBILGI"].ToString() : String.Empty;
             lblOlcuTarihSaat.Text = (row["OLCUMTARIH"] != DBNull.Value) ? Convert.ToDateTime(row["OLCUMTARIH"].ToString()).ToShortDateString() : String.Empty;
             lblOlcumAlan.Text = (row["OLCUMALANKISI"] != DBNull.Value) ? row["OLCUMALANKISI"].ToString() : String.Empty;
@@ -112,7 +115,7 @@ namespace ACKSiparisTakip.Web
             lblVergiDairesi.Text = (row["VERGIDAIRESI"] != DBNull.Value) ? row["VERGIDAIRESI"].ToString() : String.Empty;
             lblVergiNumarasi.Text = (row["VERGINUMARASI"] != DBNull.Value) ? row["VERGINUMARASI"].ToString() : String.Empty;
             lblTeslimTarihi.Text = (row["TESLIMTARIH"] != DBNull.Value) ? Convert.ToDateTime(row["TESLIMTARIH"].ToString()).ToShortDateString() : String.Empty;
-            lblSiparisDurum.Text = (row["DURUM"] != DBNull.Value) ? row["DURUM"].ToString() : String.Empty;
+            //lblSiparisDurum.Text = (row["DURUM"] != DBNull.Value) ? row["DURUM"].ToString() : String.Empty;
             lblSiparisAdedi.Text = (row["ADET"] != DBNull.Value) ? row["ADET"].ToString() : String.Empty;
             lblNakitPesin.Text = (row["NAKITPESIN"] != DBNull.Value) ? row["NAKITPESIN"].ToString() : String.Empty;
             lblNakitKalan.Text = (row["NAKITKALAN"] != DBNull.Value) ? row["NAKITKALAN"].ToString() : String.Empty;
@@ -124,7 +127,16 @@ namespace ACKSiparisTakip.Web
             lblCekKalan.Text = (row["CEKKALAN"] != DBNull.Value) ? row["CEKKALAN"].ToString() : String.Empty;
             lblCekOdemeNotu.Text = (row["CEKODEMENOTU"] != DBNull.Value) ? row["CEKODEMENOTU"].ToString() : String.Empty;
             lblNot.Text = (row["SIPARISNOT"] != DBNull.Value) ? row["SIPARISNOT"].ToString() : String.Empty;
-            
+            lblYanginPanikBar.Text = (row["PANIKBAR"] != DBNull.Value) ? row["PANIKBAR"].ToString() : String.Empty;
+            lblYanginKol.Text = (row["MUDAHALEKOL"] != DBNull.Value) ? row["MUDAHALEKOL"].ToString() : String.Empty;
+            lblYanginMenteseTip.Text = (row["MENTESE"] != DBNull.Value) ? row["MENTESE"].ToString() : String.Empty;
+            lblYanginHidrolikKapatici.Text = (row["HIDROLIKKAPATICI"] != DBNull.Value) ? row["HIDROLIKKAPATICI"].ToString() : String.Empty;
+            lblCumba.Text = (row["CUMBA"] != DBNull.Value) ? row["CUMBA"].ToString() : String.Empty;
+            lblYanginMetalRengi.Text = (row["METALRENK"] != DBNull.Value) ? row["METALRENK"].ToString() : String.Empty;
+            lblYanginKapiCins.Text = (row["YANGINKAPICINS"] != DBNull.Value) ? row["YANGINKAPICINS"].ToString() : String.Empty;
+            lblYanginKasaTipi.Text = (row["KASATIP"] != DBNull.Value) ? row["KASATIP"].ToString() : String.Empty;
+            lblKapiTur.Text = lblYanginKapiCins.Text == string.Empty ? this.SeriAdi : lblYanginKapiCins.Text;
+
             int siparisAdedi;
             if (Int32.TryParse(lblSiparisAdedi.Text, out siparisAdedi))
             {
@@ -133,33 +145,9 @@ namespace ACKSiparisTakip.Web
                     lblSiparisNo.Text = this.SiparisNo + ".1 / " + this.SiparisNo + "." + siparisAdedi;
                 }
             }
+
             KapiTurAyarla();
             lblKapiTur.Text = lblYanginKapiCins.Text == string.Empty ? this.SeriAdi : lblYanginKapiCins.Text;
-        }
-
-        protected void btnGuncelle_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/SiparisFormYanginGuncelle.aspx?SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi);
-        }
-   
-        private void KapiTurAyarla()
-        {
-            if (String.IsNullOrEmpty(this.SiparisNo))
-                return;
-
-            if (this.SiparisNo[0] == 'Y')
-            {
-                trYangin1.Visible = true;
-                trYangin2.Visible = true;
-                lblKapiTur.Text = "YANGIN";
-            }
-            else if (this.SiparisNo[0] == 'P')
-            {
-                trPorte1.Visible = true;
-                trPorte2.Visible = true;
-                lblKapiTur.Text = "PORTE";
-            }
-           
         }
     }
 }

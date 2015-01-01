@@ -385,7 +385,7 @@ namespace ACKSiparisTakip.Web
             if (siparisNo != string.Empty)
             {
                 MessageBox.Basari(this, "Sipariş eklendi.");
-                Response.Redirect("~/SiparisFormGoruntule.aspx?SayfaModu=Kayit" + "&" + "SiparisNo=" + siparisNo + "&SeriAdi=" + seriAdi);
+                Response.Redirect("~/SiparisFormGoruntule.aspx?SiparisNo=" + siparisNo + "&SeriAdi=" + seriAdi);
             }
             else
                 MessageBox.Hata(this, "Sipariş eklenemedi.");

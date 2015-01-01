@@ -16,19 +16,6 @@ namespace ACKSiparisTakip.Web
 {
     public partial class SiparisFormGoruntule : ACKBasePage
     {
-        public string SayfaModu
-        {
-            get
-            {
-                if (!String.IsNullOrEmpty(Request.QueryString["SayfaModu"]))
-                {
-                    return Request.QueryString["SayfaModu"].ToString();
-                }
-                else
-                    return String.Empty;
-            }
-        }
-
         public string SiparisNo
         {
             get
@@ -170,7 +157,7 @@ namespace ACKSiparisTakip.Web
 
         protected void btnGuncelle_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/SiparisFormGuncelle.aspx?SayfaModu=Guncelle" + "&" + "SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi);
+            Response.Redirect("~/SiparisFormGuncelle.aspx?SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi);
         }
 
         private void KapiTurAyarla()

@@ -33,6 +33,9 @@
                             <telerik:RadButton ID="btnSorgula" runat="server" Text="Sorgula" OnClick="btnSorgula_Click">
                                 <Icon PrimaryIconCssClass="rbSearch" />
                             </telerik:RadButton>
+                            <telerik:RadButton ID="btnYazdir" runat="server" Text="Yazdır" Visible="false">
+                                <Icon PrimaryIconCssClass="rbPrint" PrimaryIconLeft="4" PrimaryIconTop="3" />
+                            </telerik:RadButton>
                         </td>
                     </tr>
                     <tr>

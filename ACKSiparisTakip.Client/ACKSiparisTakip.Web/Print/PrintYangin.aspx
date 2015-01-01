@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Print/PrinterFriendly.Master" AutoEventWireup="true" CodeBehind="Print.aspx.cs" Inherits="ACKSiparisTakip.Web.Print.Print" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Print/PrinterFriendly.Master" AutoEventWireup="true" CodeBehind="PrintYangin.aspx.cs" Inherits="ACKSiparisTakip.Web.Print.PrintYangin" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
@@ -70,7 +70,7 @@
                 <asp:Label ID="lblSiparisNo" runat="server"></asp:Label>
             </td>
         </tr>
-        <%--<tr>
+        <%-- <tr>
             <td>Sipariş Durumu : </td>
             <td>
                 <asp:Label ID="lblSiparisDurum" runat="server"></asp:Label>
@@ -135,183 +135,89 @@
             <td style="width: 18%">
                 <asp:Label ID="lblDisKapiModeli" runat="server"></asp:Label>
             </td>
-            <td style="width: 12%">Metal Rengi :</td>
+            <td style="width: 12%">Kapı Cinsi:</td>
             <td style="width: 18%">
-                <asp:Label ID="lblMetalRenk" runat="server"></asp:Label>
+                <asp:Label ID="lblYanginKapiCins" runat="server"></asp:Label>
             </td>
-            <td style="width: 12%">Kilit Sistemi :</td>
-            <td>
-                <asp:Label ID="lblKilitSistemi" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>Dış Kapı Rengi :</td>
-            <td>
-                <asp:Label ID="lblDisKapiRengi" runat="server"></asp:Label>
-            </td>
-            <td>Kasa Kaplama :</td>
-            <td>
-                <asp:Label ID="lblKasaKaplama" runat="server"></asp:Label>
-            </td>
-            <td>Zırh Tipi</td>
-            <td>
-                <asp:Label ID="lblZirhTipi" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 10%">İç Kapı Modeli :</td>
+            <td style="width: 12%">İç Kapı Modeli :</td>
             <td>
                 <asp:Label ID="lblIcKapiModeli" runat="server"></asp:Label>
             </td>
-            <td>Motif Çıtası :</td>
-            <td>
-                <asp:Label ID="lblCita" runat="server"></asp:Label>
-            </td>
-            <td>Zırh Rengi :</td>
-            <td>
-                <asp:Label ID="lblZirhRengi" runat="server"></asp:Label>
-            </td>
         </tr>
         <tr>
-            <td>İç Kapı Rengi :</td>
+            <td>Kasa Tipi :</td>
             <td>
-                <asp:Label ID="lblIcKapiRengi" runat="server"></asp:Label>
+                <asp:Label ID="lblYanginKasaTipi" runat="server"></asp:Label>
             </td>
-            <td>Kasa Çıta Rengi :</td>
+            <td>Metal Rengi :</td>
             <td>
-                <asp:Label ID="lblCitaRenk" runat="server"></asp:Label>
-            </td>
-            <td>Bölme Kayıt Sayısı :</td>
-            <td>
-                <asp:Label ID="lblBolmeKayitSayisi" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>İç Pervaz Rengi :</td>
-            <td>
-                <asp:Label ID="lblIcPervazRenk" runat="server"></asp:Label>
-            </td>
-            <td>Kanat Rengi:</td>
-            <td>
-                <asp:Label ID="lblKanatRenk" runat="server"></asp:Label>
-            </td>
-            <td>Cam Tipi :</td>
-            <td>
-                <asp:Label ID="lblCamTipi" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>Dış Pervaz Rengi :</td>
-            <td>
-                <asp:Label ID="lblDisPervazRenk" runat="server"></asp:Label>
-            </td>
-            <td>Conta Rengi :</td>
-            <td>
-                <asp:Label ID="lblContaRengi" runat="server"></asp:Label>
-            </td>
-            <td>Ferforje :</td>
-            <td>
-                <asp:Label ID="lblFerforje" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>Aplike Rengi :</td>
-            <td>
-                <asp:Label ID="lblAplikeRenk" runat="server"></asp:Label>
+                <asp:Label ID="lblYanginMetalRengi" runat="server"></asp:Label>
             </td>
             <td>Eşik :</td>
             <td>
                 <asp:Label ID="lblEsik" runat="server"></asp:Label>
             </td>
-            <td>Ferforje Rengi :</td>
-            <td>
-                <asp:Label ID="lblFerforjeRenk" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr runat="server" id="trGuard" visible="false">
-            <td>Taç Tipi :</td>
-            <td>
-                <asp:Label ID="lblTacTipi" runat="server"></asp:Label>
-            </td>
-            <td>Pervaz Tipi :</td>
-            <td>
-                <asp:Label ID="lblPervazTipi" runat="server"></asp:Label>
-            </td>
-            <td>Aluminyum Rengi :</td>
-            <td>
-                <asp:Label ID="lblAluminyumRengi" runat="server"></asp:Label>
-            </td>
-        </tr>
-    </table>
-    <table class="boldTablo" style="width: 100%">
-        <tr>
-            <th colspan="6">AKSESUARLAR</th>
         </tr>
         <tr>
-            <td style="width: 16%">Çekme Kol Tipi :</td>
-            <td style="width: 18%">
+            <td style="width: 10%">Kilit Sistemi :</td>
+            <td>
+                <asp:Label ID="lblKilitSistemi" runat="server"></asp:Label>
+            </td>
+            <td>Çekme Kolu :</td>
+            <td>
                 <asp:Label ID="lblCekmeKolu" runat="server"></asp:Label>
             </td>
-            <td style="width: 15%">Barel Tipi :</td>
-            <td style="width: 18%">
-                <asp:Label ID="lblBarelTipi" runat="server"></asp:Label>
-            </td>
-            <td style="width: 16%">Desi Uzaktan Kumandalı Alarm :</td>
-            <td>
-                <asp:Label ID="lblAlarm" runat="server"></asp:Label>
-            </td>
+            <td colspan="2"></td>
         </tr>
-        <tr>
-            <td>Çekme Kolu Takılma Şekli :</td>
+        <tr id="trYangin1" runat="server" visible="false">
+            <td>Panik Bar :</td>
             <td>
-                <asp:Label ID="lblCekmeKoluTakilmaSekli" runat="server"></asp:Label>
+                <asp:Label ID="lblYanginPanikBar" runat="server"></asp:Label>
             </td>
-            <td>Kayıt Yapmayan Kamera :</td>
+            <td>Kol ve Dış Müdahale Kolu :</td>
             <td>
-                <asp:Label ID="lblKayitsizKam" runat="server"></asp:Label>
+                <asp:Label ID="lblYanginKol" runat="server"></asp:Label>
             </td>
-            <td>Kayıt Fonksiyonlu Kamera :</td>
-            <td>
-                <asp:Label ID="lblKayitYapanKam" runat="server"></asp:Label>
-            </td>
+            <td colspan="2"></td>
         </tr>
-        <tr>
-            <td>Çekme Kolu Rengi :</td>
+        <tr id="trYangin2" runat="server" visible="false">
+            <td>Menteşe Tipi :</td>
             <td>
-                <asp:Label ID="lblCekmeKoluRengi" runat="server"></asp:Label>
+                <asp:Label ID="lblYanginMenteseTip" runat="server"></asp:Label>
             </td>
-            <td>Baba :</td>
+            <td>Hidrolik Kapatıcı :</td>
             <td>
-                <asp:Label ID="lblBaba" runat="server"></asp:Label>
+                <asp:Label ID="lblYanginHidrolikKapatici" runat="server"></asp:Label>
             </td>
-            <td>Taktak :</td>
-            <td>
-                <asp:Label ID="lblTaktak" runat="server"></asp:Label>
-            </td>
+            <td colspan="2"></td>
         </tr>
-        <tr>
-            <td>Otomatik Kilit Karşılığı :</td>
+        <tr id="trPorte1" runat="server" visible="false">
+            <td>Cumba :</td>
             <td>
-                <asp:Label ID="lblOtomatikKilit" runat="server"></asp:Label>
+                <asp:Label ID="lblCumba" runat="server"></asp:Label>
             </td>
             <td>Dürbün :</td>
             <td>
-                <asp:Label ID="lblDurbun" runat="server"></asp:Label>
+                <asp:Label ID="Label1" runat="server"> </asp:Label>
             </td>
-            <td></td>
-            <td></td>
+            <td colspan="2"></td>
         </tr>
-        <tr>
-            <td>Montajda Takılacaklar</td>
-            <td colspan="5">
-                <asp:Label ID="lblMontajdaTakilacaklar" runat="server" ></asp:Label>
+        <tr id="trPorte2" runat="server" visible="false">
+            <td>Barel :</td>
+            <td>
+                <asp:Label ID="Label2" runat="server"></asp:Label>
             </td>
+            <td>Taktak :</td>
+            <td>
+                <asp:Label ID="Label3" runat="server"></asp:Label>
+            </td>
+            <td colspan="2"></td>
         </tr>
     </table>
     <table class="boldTablo" style="width: 100%;">
         <tr>
             <td rowspan="6" colspan="2" style="width: 30%">
-                <telerik:RadBinaryImage ID="RadBinaryImage1" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu1.png" Width="350" Height="130" />
+                <telerik:RadBinaryImage ID="RadBinaryImage1" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu3.png" Width="350" Height="250" />
             </td>
             <th colspan="2" style="text-align: center">ÖLÇÜM ve MONTAJ</th>
         </tr>
@@ -326,14 +232,12 @@
             <td>
                 <asp:Label ID="lblOlcumAlan" runat="server"></asp:Label>
             </td>
-
         </tr>
         <tr>
             <td>Montaj Şekli </td>
             <td>
                 <asp:Label ID="lblMontajSekli" runat="server"></asp:Label>
             </td>
-
         </tr>
         <tr>
             <td>Teslim Şekli </td>
@@ -476,6 +380,8 @@
         </tr>
         <tr>
             <td colspan="6">
+                <br />
+                <br />
                 <br />
                 <br />
                 <br />

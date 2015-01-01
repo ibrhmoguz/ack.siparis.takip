@@ -1026,7 +1026,6 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("CEKKALAN", siparis.CekKalan, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("CEKODEMENOTU", siparis.CekOdemeNot, SqlDbType.VarChar, 500);
                 data.AddSqlParameter("SIPARISNOT", siparis.Not, SqlDbType.VarChar, 500);
-                //
                 data.AddSqlParameter("ICPERVAZRENK", siparis.IcPervazRenk, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DISPERVAZRENK", siparis.DisPervazRenk, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("APLIKERENK", siparis.AplikeRenk, SqlDbType.VarChar, 50);

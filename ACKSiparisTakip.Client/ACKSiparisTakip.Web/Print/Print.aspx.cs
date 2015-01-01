@@ -115,7 +115,6 @@ namespace ACKSiparisTakip.Web.Print
             lblAluminyumRengi.Text = (row["ALUMINYUMRENK"] != DBNull.Value) ? row["ALUMINYUMRENK"].ToString() : String.Empty;
             lblContaRengi.Text = (row["CONTARENK"] != DBNull.Value) ? row["CONTARENK"].ToString() : String.Empty;
             lblTacTipi.Text = (row["TACTIP"] != DBNull.Value) ? row["TACTIP"].ToString() : String.Empty;
-            //
             lblIcPervazRenk.Text = (row["ICPERVAZRENK"] != DBNull.Value) ? row["ICPERVAZRENK"].ToString() : String.Empty;
             lblDisPervazRenk.Text = (row["DISPERVAZRENK"] != DBNull.Value) ? row["DISPERVAZRENK"].ToString() : String.Empty;
             lblAplikeRenk.Text = (row["APLIKERENK"] != DBNull.Value) ? row["APLIKERENK"].ToString() : String.Empty;
@@ -131,7 +130,6 @@ namespace ACKSiparisTakip.Web.Print
             lblFerforjeRenk.Text = (row["FERFORJERENK"] != DBNull.Value) ? row["FERFORJERENK"].ToString() : String.Empty;
             lblMetalRenk.Text = (row["METALRENK"] != DBNull.Value) ? row["METALRENK"].ToString() : String.Empty;
             lblKasaKaplama.Text = (row["KASAKAPLAMA"] != DBNull.Value) ? row["KASAKAPLAMA"].ToString() : String.Empty;
-            //
             lblPervazTipi.Text = (row["PERVAZTIP"] != DBNull.Value) ? row["PERVAZTIP"].ToString() : String.Empty;
             lblCekmeKolu.Text = (row["CEKMEKOLU"] != DBNull.Value) ? row["CEKMEKOLU"].ToString() : String.Empty;
             lblKayitsizKam.Text = (row["KAYITSIZKAMERA"] != DBNull.Value) ? row["KAYITSIZKAMERA"].ToString() : String.Empty; ;
@@ -154,9 +152,8 @@ namespace ACKSiparisTakip.Web.Print
             lblVergiDairesi.Text = (row["VERGIDAIRESI"] != DBNull.Value) ? row["VERGIDAIRESI"].ToString() : String.Empty;
             lblVergiNumarasi.Text = (row["VERGINUMARASI"] != DBNull.Value) ? row["VERGINUMARASI"].ToString() : String.Empty;
             lblTeslimTarihi.Text = (row["TESLIMTARIH"] != DBNull.Value) ? Convert.ToDateTime(row["TESLIMTARIH"].ToString()).ToShortDateString() : String.Empty;
-            lblSiparisDurum.Text = (row["DURUM"] != DBNull.Value) ? row["DURUM"].ToString() : String.Empty;
+            //lblSiparisDurum.Text = (row["DURUM"] != DBNull.Value) ? row["DURUM"].ToString() : String.Empty;
             lblSiparisAdedi.Text = (row["ADET"] != DBNull.Value) ? row["ADET"].ToString() : String.Empty;
-
             lblNakitPesin.Text = (row["NAKITPESIN"] != DBNull.Value) ? row["NAKITPESIN"].ToString() : String.Empty;
             lblNakitKalan.Text = (row["NAKITKALAN"] != DBNull.Value) ? row["NAKITKALAN"].ToString() : String.Empty;
             lblNakitOdemeNotu.Text = (row["NAKITODEMENOTU"] != DBNull.Value) ? row["NAKITODEMENOTU"].ToString() : String.Empty;

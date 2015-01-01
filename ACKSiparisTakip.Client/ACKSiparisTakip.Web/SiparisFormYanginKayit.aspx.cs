@@ -128,7 +128,7 @@ namespace ACKSiparisTakip.Web
             DropDownBindEt(ddlCumba, dtCumba);
             DropDownBindEt(ddlBarelTipi, dtBarelTip);
             DropDownBindEt(ddlMontajSekli, dtMontajSekli);
-            DropDownBindEt(ddlTeslimSekli, dtTeslimSekli); 
+            DropDownBindEt(ddlTeslimSekli, dtTeslimSekli);
             DropDownBindEt(ddlIcKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlDisKapiModeli, dtKapiModeli);
             DropDownBindEt(ddlKilitSistemi, dtKilitSistem);
@@ -260,7 +260,7 @@ namespace ACKSiparisTakip.Web
             if (DropDownCheck(ddlDurbun)) siparis.Durbun = ddlDurbun.SelectedText;
             if (DropDownCheck(ddlTaktak)) siparis.Taktak = ddlTaktak.SelectedText;
             if (DropDownCheck(ddlYanginMetalRengi)) siparis.MetalRenk = ddlYanginMetalRengi.SelectedText;
-
+            if (DropDownCheck(ddlYanginKapiCins)) siparis.YanginKapiCins = ddlYanginKapiCins.SelectedText;
             //
 
             siparis.KapiTipi = this.KapiTip.ToString();
@@ -305,13 +305,48 @@ namespace ACKSiparisTakip.Web
             if (!string.IsNullOrEmpty(txtVergiNumarasi.Text)) sozlesme.VergiNumarası = txtVergiNumarasi.Text;
             if (!string.IsNullOrEmpty(txtFiyat.Text)) sozlesme.Fiyat = txtFiyat.Text;
 
-            string seriAdi = this.KapiTip.ToString().ToUpper();
+            //Montaj kota kontrolu acik ise
+            if (Session["MONTAJ_KOTA_KONTROLU"].ToString() == "1")
+            {
+                MontajBS montajBS = new MontajBS();
+                int yapilanMontajSayisi = montajBS.GunlukMontajSayisiniGetir(rdpTeslimTarihi.SelectedDate.Value);
+                DataTable dt = montajBS.GunlukMontajKotaBilgisiGetir(rdpTeslimTarihi.SelectedDate.Value);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    bool montajKabul = Convert.ToBoolean(row["MONTAJKABUL"]);
+                    if (!montajKabul)
+                    {
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString() + " tarihi için montaj alınamaz!");
+                        return;
+                    }
+                    else
+                    {
+                        int gunlukMontakKotaDegeri = Convert.ToInt32(row["MAXMONTAJSAYI"]);
+                        if (yapilanMontajSayisi >= gunlukMontakKotaDegeri)
+                        {
+                            MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString() + " tarihi için montaj kotası (" + gunlukMontakKotaDegeri.ToString() + ") değerine ulaşılmıştır.");
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    int kotaVarsayilanDegeri = Convert.ToInt32(Session["MONTAJ_KOTA_VARSAYILAN"]);
+                    if (yapilanMontajSayisi >= kotaVarsayilanDegeri)
+                    {
+                        MessageBox.Uyari(this.Page, rdpTeslimTarihi.SelectedDate.Value.Date.ToShortDateString() + " tarihi için montaj kotası (" + kotaVarsayilanDegeri.ToString() + ") değerine ulaşılmıştır.");
+                        return;
+                    }
+                }
+            }
+
             string siparisNo = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);
 
             if (siparisNo != string.Empty)
             {
                 MessageBox.Basari(this, "Sipariş eklendi.");
-                Response.Redirect("~/SiparisFormYanginGoruntule.aspx?SayfaModu=Kayit" + "&" + "SiparisNo=" + siparisNo + "&SeriAdi=" + seriAdi);
+                Response.Redirect("~/SiparisFormYanginGoruntule.aspx?SiparisNo=" + siparisNo + "&SeriAdi=" + this.KapiTip.ToString().ToUpper());
             }
             else
                 MessageBox.Hata(this, "Sipariş eklenemedi.");

@@ -422,7 +422,6 @@ namespace ACKSiparisTakip.Web
                 ddlKapiSeri.DataSource = null;
                 ddlKapiSeri.DataBind();
             }
-
         }
 
         protected void btnTemizle_Click(object sender, EventArgs e)
