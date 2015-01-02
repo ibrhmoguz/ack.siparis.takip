@@ -145,7 +145,6 @@ namespace ACKSiparisTakip.Web
                 }
             }
             KapiTurAyarla();
-            lblKapiTur.Text = lblYanginKapiCins.Text == string.Empty ? this.SeriAdi : lblYanginKapiCins.Text;
         }
 
         protected void btnGuncelle_Click(object sender, EventArgs e)
@@ -163,6 +162,7 @@ namespace ACKSiparisTakip.Web
                 trYangin1.Visible = true;
                 trYangin2.Visible = true;
                 lblKapiTur.Text = "YANGIN";
+                lblKapiTur.Text = lblYanginKapiCins.Text == string.Empty ? this.SeriAdi : lblYanginKapiCins.Text;
             }
             else if (this.SiparisNo[0] == 'P')
             {

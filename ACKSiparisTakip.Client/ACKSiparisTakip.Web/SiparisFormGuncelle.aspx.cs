@@ -295,6 +295,17 @@ namespace ACKSiparisTakip.Web
             txtVergiNumarasi.Text = sozlesme.VergiNumarası;
             txtFiyat.Text = sozlesme.Fiyat;
 
+            txtIcKasaGenisligi.Text = olcum.IcKasaGenislik;
+            txtIcKasaYuksekligi.Text = olcum.IcKasaYukseklik;
+            txtDisKasaIcPervazFarki.Text = olcum.DisKasaIcPervazFark;
+            txtDuvarKalinligi.Text = olcum.DuvarKalinlik;
+            txtDisSolPervaz.Text = olcum.DisSolPervaz;
+            txtDisUstPervaz.Text = olcum.DisUstPervaz;
+            txtDisSagPervaz.Text = olcum.DisSagPervaz;
+            txtIcSolPervaz.Text = olcum.IcSolPervaz;
+            txtIcUstPervaz.Text = olcum.IcUstPervaz;
+            txtIcSagPervaz.Text = olcum.IcSagPervaz;
+
         }
 
         private void KapiTurAyarla()
