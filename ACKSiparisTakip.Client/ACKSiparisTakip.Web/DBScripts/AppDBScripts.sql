@@ -1100,7 +1100,7 @@ SET ANSI_PADDING OFF
 GO
 SET IDENTITY_INSERT [dbo].[CONFIG] ON
 INSERT [dbo].[CONFIG] ([ID], [ConfigName], [ConfigValue]) VALUES (1, N'MONTAJ_KOTA_KONTROLU', N'1')
-INSERT [dbo].[CONFIG] ([ID], [ConfigName], [ConfigValue]) VALUES (2, N'MONTAJ_KOTA_VARSAYILAN', N'13')
+INSERT [dbo].[CONFIG] ([ID], [ConfigName], [ConfigValue]) VALUES (2, N'MONTAJ_KOTA_VARSAYILAN', N'12')
 SET IDENTITY_INSERT [dbo].[CONFIG] OFF
 /****** Object:  Table [dbo].[SIPARISNOSAYAC]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
@@ -11805,13 +11805,9 @@ GO
 SET ANSI_PADDING OFF
 GO
 SET IDENTITY_INSERT [dbo].[PERSONELBILGI] ON
-INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (4, N'IBRAHIM                                           ', N'OGUZ                                                                                                ')
-INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (5, N'NEJLA                                             ', N'GÜNER                                                                                               ')
-INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (6, N'DERIN                                             ', N'GEÇMEZ                                                                                              ')
-INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (7, N'ALI                                               ', N'USTA                                                                                                ')
-INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (8, N'HATICE                                            ', N'OGUZ                                                                                                ')
-INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (9, N'SARE                                              ', N'GÜNER                                                                                               ')
-INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (10, N'Ahmet                                             ', N'Usta                                                                                                ')
+INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (4, N'IBRAHIM', N'OGUZ')
+INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (7, N'ALI', N'USTA')
+INSERT [dbo].[PERSONELBILGI] ([ID], [AD], [SOYAD]) VALUES (10, N'Ahmet', N'Usta')
 SET IDENTITY_INSERT [dbo].[PERSONELBILGI] OFF
 /****** Object:  Table [dbo].[MONTAJKOTA]    Script Date: 12/29/2014 21:51:49 ******/
 SET ANSI_NULLS ON
