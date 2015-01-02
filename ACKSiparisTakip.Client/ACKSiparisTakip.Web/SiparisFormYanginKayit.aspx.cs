@@ -298,6 +298,16 @@ namespace ACKSiparisTakip.Web
             if (!string.IsNullOrEmpty(txtOlcumBilgileri.Text)) olcum.OlcumBilgi = txtOlcumBilgileri.Text;
             if (rdtOlcuTarihSaat.SelectedDate != null) olcum.OlcumTarih = rdtOlcuTarihSaat.SelectedDate.Value;
             if (DropDownCheck(ddlTeslimSekli)) olcum.TeslimSekli = ddlTeslimSekli.SelectedText;
+            if (!string.IsNullOrEmpty(txtIcKasaGenisligi.Text)) olcum.IcKasaGenislik = txtIcKasaGenisligi.Text;
+            if (!string.IsNullOrEmpty(txtIcKasaYuksekligi.Text)) olcum.IcKasaYukseklik = txtIcKasaYuksekligi.Text;
+            if (!string.IsNullOrEmpty(txtDisKasaIcPervazFarki.Text)) olcum.DisKasaIcPervazFark = txtDisKasaIcPervazFarki.Text;
+            if (!string.IsNullOrEmpty(txtDuvarKalinligi.Text)) olcum.DuvarKalinlik = txtDuvarKalinligi.Text;
+            if (!string.IsNullOrEmpty(txtDisSolPervaz.Text)) olcum.DisSolPervaz = txtDisSolPervaz.Text;
+            if (!string.IsNullOrEmpty(txtDisUstPervaz.Text)) olcum.DisUstPervaz = txtDisUstPervaz.Text;
+            if (!string.IsNullOrEmpty(txtDisSagPervaz.Text)) olcum.DisSagPervaz = txtDisSagPervaz.Text;
+            if (!string.IsNullOrEmpty(txtIcSolPervaz.Text)) olcum.IcSolPervaz = txtIcSolPervaz.Text;
+            if (!string.IsNullOrEmpty(txtIcUstPervaz.Text)) olcum.IcUstPervaz = txtIcUstPervaz.Text;
+            if (!string.IsNullOrEmpty(txtIcSagPervaz.Text)) olcum.IcSagPervaz = txtIcSagPervaz.Text;
 
             sozlesme.MontajDurum = "A";
             if (rdpTeslimTarihi.SelectedDate != null) sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;

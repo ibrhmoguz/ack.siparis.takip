@@ -158,7 +158,6 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
             this.MetalRenk = null;
             this.KasaKaplama = null;
             this.Cumba = null;
-
         }
     }
 
@@ -170,6 +169,16 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string OlcumAlanKisi { get; set; }
         public string MontajSekli { get; set; }
         public string TeslimSekli { get; set; }
+        public string IcKasaGenislik { get; set; }
+        public string IcKasaYukseklik { get; set; }
+        public string DisKasaIcPervazFark { get; set; }
+        public string DuvarKalinlik { get; set; }
+        public string DisSolPervaz { get; set; }
+        public string DisUstPervaz { get; set; }
+        public string DisSagPervaz { get; set; }
+        public string IcSolPervaz { get; set; }
+        public string IcUstPervaz { get; set; }
+        public string IcSagPervaz { get; set; }
 
         public Olcum()
         {
@@ -178,6 +187,16 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
             this.OlcumAlanKisi = null;
             this.MontajSekli = null;
             this.TeslimSekli = null;
+            this.IcKasaGenislik = null;
+            this.IcKasaYukseklik = null;
+            this.DisKasaIcPervazFark = null;
+            this.DuvarKalinlik = null;
+            this.DisSolPervaz = null;
+            this.DisUstPervaz = null;
+            this.DisSagPervaz = null;
+            this.IcSolPervaz = null;
+            this.IcUstPervaz = null;
+            this.IcSagPervaz = null;
         }
     }
 

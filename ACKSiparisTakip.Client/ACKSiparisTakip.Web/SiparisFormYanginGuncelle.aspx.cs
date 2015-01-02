@@ -175,6 +175,17 @@ namespace ACKSiparisTakip.Web
                 olcum.OlcumTarih = Convert.ToDateTime(rowSiparis["OLCUMTARIH"].ToString());
             olcum.TeslimSekli = (rowSiparis["TESLIMSEKLI"] != DBNull.Value) ? rowSiparis["TESLIMSEKLI"].ToString() : String.Empty;
 
+            olcum.IcKasaGenislik = (rowSiparis["ICKASAGENISLIK"] != DBNull.Value) ? rowSiparis["ICKASAGENISLIK"].ToString() : String.Empty;
+            olcum.IcKasaYukseklik = (rowSiparis["ICKASAYUKSEKLIK"] != DBNull.Value) ? rowSiparis["ICKASAYUKSEKLIK"].ToString() : String.Empty;
+            olcum.DisKasaIcPervazFark = (rowSiparis["DISKASAICPERVAZFARK"] != DBNull.Value) ? rowSiparis["DISKASAICPERVAZFARK"].ToString() : String.Empty;
+            olcum.DuvarKalinlik = (rowSiparis["DUVARKALINLIK"] != DBNull.Value) ? rowSiparis["DUVARKALINLIK"].ToString() : String.Empty;
+            olcum.DisSolPervaz = (rowSiparis["DISSOLPERVAZ"] != DBNull.Value) ? rowSiparis["DISSOLPERVAZ"].ToString() : String.Empty;
+            olcum.DisUstPervaz = (rowSiparis["DISUSTPERVAZ"] != DBNull.Value) ? rowSiparis["DISUSTPERVAZ"].ToString() : String.Empty;
+            olcum.DisSagPervaz = (rowSiparis["DISSAGPERVAZ"] != DBNull.Value) ? rowSiparis["DISSAGPERVAZ"].ToString() : String.Empty;
+            olcum.IcSolPervaz = (rowSiparis["ICSOLPERVAZ"] != DBNull.Value) ? rowSiparis["ICSOLPERVAZ"].ToString() : String.Empty;
+            olcum.IcUstPervaz = (rowSiparis["ICUSTPERVAZ"] != DBNull.Value) ? rowSiparis["ICUSTPERVAZ"].ToString() : String.Empty;
+            olcum.IcSagPervaz = (rowSiparis["ICSAGPERVAZ"] != DBNull.Value) ? rowSiparis["ICSAGPERVAZ"].ToString() : String.Empty;
+
             sozlesme.KalanOdeme = (rowSiparis["KALANODEME"] != DBNull.Value) ? rowSiparis["KALANODEME"].ToString() : String.Empty;
             sozlesme.MontajDurum = "A";
             sozlesme.MontajTeslimTarih = (rowMontaj["TESLIMTARIH"] != DBNull.Value) ? Convert.ToDateTime(rowMontaj["TESLIMTARIH"].ToString()) : DateTime.MinValue;
@@ -560,6 +571,16 @@ namespace ACKSiparisTakip.Web
             if (!string.IsNullOrEmpty(txtOlcumBilgileri.Text)) olcum.OlcumBilgi = txtOlcumBilgileri.Text;
             if (rdtOlcuTarihSaat.SelectedDate != null) olcum.OlcumTarih = rdtOlcuTarihSaat.SelectedDate.Value;
             if (DropDownCheck(ddlTeslimSekli)) olcum.TeslimSekli = ddlTeslimSekli.SelectedText;
+            if (!string.IsNullOrEmpty(txtIcKasaGenisligi.Text)) olcum.IcKasaGenislik = txtIcKasaGenisligi.Text;
+            if (!string.IsNullOrEmpty(txtIcKasaYuksekligi.Text)) olcum.IcKasaYukseklik = txtIcKasaYuksekligi.Text;
+            if (!string.IsNullOrEmpty(txtDisKasaIcPervazFarki.Text)) olcum.DisKasaIcPervazFark = txtDisKasaIcPervazFarki.Text;
+            if (!string.IsNullOrEmpty(txtDuvarKalinligi.Text)) olcum.DuvarKalinlik = txtDuvarKalinligi.Text;
+            if (!string.IsNullOrEmpty(txtDisSolPervaz.Text)) olcum.DisSolPervaz = txtDisSolPervaz.Text;
+            if (!string.IsNullOrEmpty(txtDisUstPervaz.Text)) olcum.DisUstPervaz = txtDisUstPervaz.Text;
+            if (!string.IsNullOrEmpty(txtDisSagPervaz.Text)) olcum.DisSagPervaz = txtDisSagPervaz.Text;
+            if (!string.IsNullOrEmpty(txtIcSolPervaz.Text)) olcum.IcSolPervaz = txtIcSolPervaz.Text;
+            if (!string.IsNullOrEmpty(txtIcUstPervaz.Text)) olcum.IcUstPervaz = txtIcUstPervaz.Text;
+            if (!string.IsNullOrEmpty(txtIcSagPervaz.Text)) olcum.IcSagPervaz = txtIcSagPervaz.Text;
 
             sozlesme.MontajDurum = "A";
             if (rdpTeslimTarihi.SelectedDate != null) sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;

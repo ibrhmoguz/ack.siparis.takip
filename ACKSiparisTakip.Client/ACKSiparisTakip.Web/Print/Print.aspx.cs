@@ -165,6 +165,17 @@ namespace ACKSiparisTakip.Web.Print
             lblCekOdemeNotu.Text = (row["CEKODEMENOTU"] != DBNull.Value) ? row["CEKODEMENOTU"].ToString() : String.Empty;
             lblNot.Text = (row["SIPARISNOT"] != DBNull.Value) ? row["SIPARISNOT"].ToString() : String.Empty;
 
+            lblIcKasaGenisligi.Text = (row["ICKASAGENISLIK"] != DBNull.Value) ? row["ICKASAGENISLIK"].ToString() : String.Empty;
+            lblIcKasaYuksekligi.Text = (row["ICKASAYUKSEKLIK"] != DBNull.Value) ? row["ICKASAYUKSEKLIK"].ToString() : String.Empty;
+            lblDisKasaIcPervazFarki.Text = (row["DISKASAICPERVAZFARK"] != DBNull.Value) ? row["DISKASAICPERVAZFARK"].ToString() : String.Empty;
+            lblDuvarKalinligi.Text = (row["DUVARKALINLIK"] != DBNull.Value) ? row["DUVARKALINLIK"].ToString() : String.Empty;
+            lblDisSolPervaz.Text = (row["DISSOLPERVAZ"] != DBNull.Value) ? row["DISSOLPERVAZ"].ToString() : String.Empty;
+            lblDisUstPervaz.Text = (row["DISUSTPERVAZ"] != DBNull.Value) ? row["DISUSTPERVAZ"].ToString() : String.Empty;
+            lblDisSagPervaz.Text = (row["DISSAGPERVAZ"] != DBNull.Value) ? row["DISSAGPERVAZ"].ToString() : String.Empty;
+            lblIcSolPervaz.Text = (row["ICSOLPERVAZ"] != DBNull.Value) ? row["ICSOLPERVAZ"].ToString() : String.Empty;
+            lblIcUstPervaz.Text = (row["ICUSTPERVAZ"] != DBNull.Value) ? row["ICUSTPERVAZ"].ToString() : String.Empty;
+            lblIcSagPervaz.Text = (row["ICSAGPERVAZ"] != DBNull.Value) ? row["ICSAGPERVAZ"].ToString() : String.Empty;
+
             int siparisAdedi;
             if (Int32.TryParse(lblSiparisAdedi.Text, out siparisAdedi))
             {

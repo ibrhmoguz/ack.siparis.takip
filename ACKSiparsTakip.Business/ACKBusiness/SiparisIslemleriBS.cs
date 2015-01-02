@@ -71,7 +71,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 
             return dt;
         }
-                     
+
         private DataTable CekmeKoluGetir(Dictionary<string, object> prms)
         {
             DataTable dt = new DataTable();
@@ -745,7 +745,6 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("CEKKALAN", siparis.CekKalan, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("CEKODEMENOTU", siparis.CekOdemeNot, SqlDbType.VarChar, 500);
                 data.AddSqlParameter("SIPARISNOT", siparis.Not, SqlDbType.VarChar, 500);
-                //
                 data.AddSqlParameter("ICPERVAZRENK", siparis.IcPervazRenk, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DISPERVAZRENK", siparis.DisPervazRenk, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("APLIKERENK", siparis.AplikeRenk, SqlDbType.VarChar, 50);
@@ -768,7 +767,18 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("KASATIP", siparis.KasaTip, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("CUMBA", siparis.Cumba, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("HIDROLIKKAPATICI", siparis.HidrolikKapatici, SqlDbType.VarChar, 50);
-                //
+
+                data.AddSqlParameter("ICKASAGENISLIK", olcum.IcKasaGenislik, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICKASAYUKSEKLIK", olcum.IcKasaYukseklik, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISKASAICPERVAZFARK", olcum.DisKasaIcPervazFark, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DUVARKALINLIK", olcum.DuvarKalinlik, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISSOLPERVAZ", olcum.DisSolPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISUSTPERVAZ", olcum.DisUstPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISSAGPERVAZ", olcum.DisSagPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICSOLPERVAZ", olcum.IcSolPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICUSTPERVAZ", olcum.IcUstPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICSAGPERVAZ", olcum.IcSagPervaz, SqlDbType.VarChar, 50);
+
 
                 string sqlKaydet = @"INSERT INTO [ACKAppDB].[dbo].[SIPARIS]
                                    ([SIPARISNO]
@@ -850,7 +860,17 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                   ,[HIDROLIKKAPATICI]
                                   ,[METALRENK]
                                   ,[KASAKAPLAMA]
-                                  ,[CUMBA])
+                                  ,[CUMBA]
+                                  ,ICKASAGENISLIK
+                                  ,ICKASAYUKSEKLIK
+                                  ,DISKASAICPERVAZFARK
+                                  ,DUVARKALINLIK
+                                  ,DISSOLPERVAZ
+                                  ,DISUSTPERVAZ
+                                  ,DISSAGPERVAZ
+                                  ,ICSOLPERVAZ
+                                  ,ICUSTPERVAZ
+                                  ,ICSAGPERVAZ)
                              VALUES
                                    (@SIPARISNO,
                                    @SIPARISTARIH,
@@ -931,7 +951,17 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                   ,@HIDROLIKKAPATICI
                                   ,@METALRENK
                                   ,@KASAKAPLAMA
-                                  ,@CUMBA)";
+                                  ,@CUMBA
+                                  ,@ICKASAGENISLIK
+                                  ,@ICKASAYUKSEKLIK
+                                  ,@DISKASAICPERVAZFARK
+                                  ,@DUVARKALINLIK
+                                  ,@DISSOLPERVAZ
+                                  ,@DISUSTPERVAZ
+                                  ,@DISSAGPERVAZ
+                                  ,@ICSOLPERVAZ
+                                  ,@ICUSTPERVAZ
+                                  ,@ICSAGPERVAZ)";
                 data.ExecuteStatement(sqlKaydet);
 
                 //MONTAJ BILGISI KAYDET
@@ -1048,6 +1078,16 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("KASATIP", siparis.KasaTip, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("HIDROLIKKAPATICI", siparis.HidrolikKapatici, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("CUMBA", siparis.Cumba, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICKASAGENISLIK", olcum.IcKasaGenislik, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICKASAYUKSEKLIK", olcum.IcKasaYukseklik, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISKASAICPERVAZFARK", olcum.DisKasaIcPervazFark, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DUVARKALINLIK", olcum.DuvarKalinlik, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISSOLPERVAZ", olcum.DisSolPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISUSTPERVAZ", olcum.DisUstPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("DISSAGPERVAZ", olcum.DisSagPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICSOLPERVAZ", olcum.IcSolPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICUSTPERVAZ", olcum.IcUstPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ICSAGPERVAZ", olcum.IcSagPervaz, SqlDbType.VarChar, 50);
                 //
 
                 string sqlGuncelle = @"UPDATE [ACKAppDB].[dbo].[SIPARIS]
@@ -1130,6 +1170,16 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                           ,[METALRENK]=@METALRENK
                                           ,[KASAKAPLAMA]=@KASAKAPLAMA
                                           ,[CUMBA]=@CUMBA
+                                          ,ICKASAGENISLIK=@ICKASAGENISLIK
+                                          ,ICKASAYUKSEKLIK=@ICKASAYUKSEKLIK
+                                          ,DISKASAICPERVAZFARK=@DISKASAICPERVAZFARK
+                                          ,DUVARKALINLIK=@DUVARKALINLIK
+                                          ,DISSOLPERVAZ=@DISSOLPERVAZ
+                                          ,DISUSTPERVAZ=@DISUSTPERVAZ
+                                          ,DISSAGPERVAZ=@DISSAGPERVAZ
+                                          ,ICSOLPERVAZ=@ICSOLPERVAZ
+                                          ,ICUSTPERVAZ=@ICUSTPERVAZ
+                                          ,ICSAGPERVAZ=@ICSAGPERVAZ
                                      WHERE [SIPARISNO] =@SIPARISNO";
 
                 data.ExecuteStatement(sqlGuncelle);
