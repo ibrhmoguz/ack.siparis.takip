@@ -17,21 +17,22 @@ namespace ACKSiparisTakip.Web.Print
 {
     public partial class Print : System.Web.UI.Page
     {
-
-        public string SiparisNo
+        private DataTable SiparisBilgileri
         {
             get
             {
-                if (!String.IsNullOrEmpty(Request.QueryString["SiparisNo"]))
-                {
-                    return Request.QueryString["SiparisNo"].ToString();
-                }
+                if (Session["SiparisBilgileri"] != null)
+                    return Session["SiparisBilgileri"] as DataTable;
                 else
-                    return String.Empty;
+                    return null;
+            }
+            set
+            {
+                Session["SiparisBilgileri"] = value;
             }
         }
 
-        public string SeriAdi
+        private string SeriAdi
         {
             get
             {
@@ -49,16 +50,15 @@ namespace ACKSiparisTakip.Web.Print
             if (!Page.IsPostBack)
             {
                 FormBilgileriniGetir();
-                KapiTurAyarla();
             }
         }
 
-        private void KapiTurAyarla()
+        private void KapiTurAyarla(string siparisNo)
         {
-            if (String.IsNullOrEmpty(this.SiparisNo))
+            if (String.IsNullOrEmpty(siparisNo))
                 return;
 
-            switch (this.SiparisNo[0].ToString())
+            switch (siparisNo[0].ToString())
             {
                 case "N":
                     lblKapiTur.Text = "NOVA";
@@ -78,18 +78,16 @@ namespace ACKSiparisTakip.Web.Print
         private void FormBilgileriniGetir()
         {
             lblKapiTur.Text = this.SeriAdi;
-            lblSiparisNo.Text = this.SiparisNo;
             string adres, il, ilce, semt, ad, soyad;
 
-            Dictionary<string, object> prms = new Dictionary<string, object>();
-            prms.Add("SIPARISNO", this.SiparisNo);
-
-            DataTable dt = new SiparisIslemleriBS().SiparisBilgileriniGetir(prms);
+            DataTable dt = this.SiparisBilgileri;
             if (dt.Rows.Count == 0)
                 return;
 
             DataRow row = dt.Rows[0];
 
+            string siparisNo = (row["SIPARISNO"] != DBNull.Value) ? row["SIPARISNO"].ToString() : String.Empty;
+            lblSiparisNo.Text = siparisNo;
             adres = (row["MUSTERIADRES"] != DBNull.Value) ? row["MUSTERIADRES"].ToString() : String.Empty;
             il = (row["MUSTERIIL"] != DBNull.Value) ? row["MUSTERIIL"].ToString() : String.Empty;
             ilce = (row["MUSTERIILCE"] != DBNull.Value) ? row["MUSTERIILCE"].ToString() : String.Empty;
@@ -181,9 +179,11 @@ namespace ACKSiparisTakip.Web.Print
             {
                 if (siparisAdedi > 1)
                 {
-                    lblSiparisNo.Text = this.SiparisNo + ".1 / " + this.SiparisNo + "." + siparisAdedi;
+                    lblSiparisNo.Text = siparisNo + ".1 / " + siparisNo + "." + siparisAdedi;
                 }
             }
+
+            KapiTurAyarla(siparisNo);
         }
     }
 }

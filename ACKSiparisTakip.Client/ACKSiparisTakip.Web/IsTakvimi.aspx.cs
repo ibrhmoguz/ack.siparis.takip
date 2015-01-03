@@ -206,7 +206,7 @@ namespace ACKSiparisTakip.Web
                 CheckBox chcMontajDurumu = (CheckBox)e.Container.FindControl("chcBoxMontajDurumu");
 
                 string montajDurumu = chcMontajDurumu.Checked == true ? "K" : "A";
-                bool status = new MontajBS().MontajGuncelle(lblMontajID.Text, dtTeslimTarihi.SelectedDate.Value, personelListesi, montajDurumu);
+                bool status = new MontajBS().MontajGuncelle(lblMontajID.Text, dtTeslimTarihi.SelectedDate.Value, personelListesi, montajDurumu, Session["user"].ToString(), DateTime.Now);
                 if (status)
                 {
                     MessageBox.Basari(this, "Montaj bilgisi güncellendi.");

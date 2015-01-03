@@ -34,6 +34,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
 
     public class Siparis
     {
+        public string SiparisID { get; set; }
         public string SiparisNo { get; set; }
         public DateTime? SiparisTarih { get; set; }
         public string BayiAd { get; set; }
@@ -95,9 +96,15 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string CekOdemeNot { get; set; }
         public string Not { get; set; }
         public string Cumba { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime? CreatedTime { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedTime { get; set; }
+
 
         public Siparis()
         {
+            this.SiparisID = null;
             this.SiparisNo = null;
             this.SiparisTarih = null;
             this.BayiAd = null;

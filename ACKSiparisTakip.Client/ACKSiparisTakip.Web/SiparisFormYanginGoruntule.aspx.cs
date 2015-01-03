@@ -15,13 +15,28 @@ namespace ACKSiparisTakip.Web
 {
     public partial class SiparisFormYanginGoruntule : ACKBasePage
     {
-        public string SiparisNo
+        private DataTable SiparisBilgileri
         {
             get
             {
-                if (!String.IsNullOrEmpty(Request.QueryString["SiparisNo"]))
+                if (Session["SiparisBilgileri"] != null)
+                    return Session["SiparisBilgileri"] as DataTable;
+                else
+                    return null;
+            }
+            set
+            {
+                Session["SiparisBilgileri"] = value;
+            }
+        }
+
+        private string SiparisID
+        {
+            get
+            {
+                if (!String.IsNullOrEmpty(Request.QueryString["SiparisID"]))
                 {
-                    return Request.QueryString["SiparisNo"].ToString();
+                    return Request.QueryString["SiparisID"].ToString();
                 }
                 else
                     return String.Empty;
@@ -43,33 +58,29 @@ namespace ACKSiparisTakip.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["yetki"].ToString() == "Kullanici")
-            {
-                MessageBox.Hata(this, "Bu sayfaya erişim yetkiniz yoktur!");
-                return;
-            }
-
             if (!Page.IsPostBack)
             {
                 FormBilgileriniGetir();
-                PopupPageHelper.OpenPopUp(btnYazdir, "Print/PrintYangin.aspx?SiparisNo=" + this.SiparisNo, "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
+                PopupPageHelper.OpenPopUp(btnYazdir, "Print/PrintYangin.aspx?SeriAdi=" + this.SeriAdi, "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
             }
         }
         
         private void FormBilgileriniGetir()
         {
-            lblSiparisNo.Text = this.SiparisNo;
             string adres, il, ilce, semt, ad, soyad;
 
             Dictionary<string, object> prms = new Dictionary<string, object>();
-            prms.Add("SIPARISNO", this.SiparisNo);
+            prms.Add("ID", this.SiparisID);
 
             DataTable dt = new SiparisIslemleriBS().SiparisBilgileriniGetir(prms);
             if (dt.Rows.Count == 0)
                 return;
 
+            this.SiparisBilgileri = dt;
             DataRow row = dt.Rows[0];
 
+            string siparisNo = (row["SIPARISNO"] != DBNull.Value) ? row["SIPARISNO"].ToString() : String.Empty;
+            lblSiparisNo.Text = siparisNo;
             adres = (row["MUSTERIADRES"] != DBNull.Value) ? row["MUSTERIADRES"].ToString() : String.Empty;
             il = (row["MUSTERIIL"] != DBNull.Value) ? row["MUSTERIIL"].ToString() : String.Empty;
             ilce = (row["MUSTERIILCE"] != DBNull.Value) ? row["MUSTERIILCE"].ToString() : String.Empty;
@@ -141,30 +152,31 @@ namespace ACKSiparisTakip.Web
             {
                 if (siparisAdedi > 1)
                 {
-                    lblSiparisNo.Text = this.SiparisNo + ".1 / " + this.SiparisNo + "." + siparisAdedi;
+                    lblSiparisNo.Text = siparisNo + ".1 / " + siparisNo + "." + siparisAdedi;
                 }
             }
-            KapiTurAyarla();
+
+            KapiTurAyarla(siparisNo);
         }
 
         protected void btnGuncelle_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/SiparisFormYanginGuncelle.aspx?SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi);
+            Response.Redirect("~/SiparisFormYanginGuncelle.aspx?SiparisID=" + this.SiparisID + "&SeriAdi=" + this.SeriAdi);
         }
-   
-        private void KapiTurAyarla()
+
+        private void KapiTurAyarla(string siparisNo)
         {
-            if (String.IsNullOrEmpty(this.SiparisNo))
+            if (String.IsNullOrEmpty(siparisNo))
                 return;
 
-            if (this.SiparisNo[0] == 'Y')
+            if (siparisNo[0] == 'Y')
             {
                 trYangin1.Visible = true;
                 trYangin2.Visible = true;
                 lblKapiTur.Text = "YANGIN";
                 lblKapiTur.Text = lblYanginKapiCins.Text == string.Empty ? this.SeriAdi : lblYanginKapiCins.Text;
             }
-            else if (this.SiparisNo[0] == 'P')
+            else if (siparisNo[0] == 'P')
             {
                 trPorte1.Visible = true;
                 trPorte2.Visible = true;

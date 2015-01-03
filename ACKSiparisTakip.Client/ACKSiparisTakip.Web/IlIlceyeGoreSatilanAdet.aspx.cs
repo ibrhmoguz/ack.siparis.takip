@@ -132,7 +132,7 @@ namespace ACKSiparisTakip.Web
 
         private void GridDoldur(GridView gv, DataTable dt)
         {
-            if (dt.Rows.Count > 0)
+            if (dt != null && dt.Rows.Count > 0)
             {
                 gv.DataSource = dt;
                 gv.DataBind();

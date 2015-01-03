@@ -291,7 +291,9 @@ namespace ACKSiparisTakip.Web
             else
                 siparis.CekKalan = null;
             siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
-
+            
+            siparis.CreatedBy = Session["user"].ToString();
+            siparis.CreatedTime = DateTime.Now;
 
             if (DropDownCheck(ddlMontajSekli)) olcum.MontajSekli = ddlMontajSekli.SelectedText;
             if (DropDownCheck(ddlOlcumAlan)) olcum.OlcumAlanKisi = ddlOlcumAlan.SelectedText;
@@ -351,12 +353,12 @@ namespace ACKSiparisTakip.Web
                 }
             }
 
-            string siparisNo = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);
+            string siparisID = new SiparisIslemleriBS().SiparisKaydet(musteri, siparis, olcum, sozlesme);
 
-            if (siparisNo != string.Empty)
+            if (siparisID != string.Empty)
             {
                 MessageBox.Basari(this, "Sipariş eklendi.");
-                Response.Redirect("~/SiparisFormYanginGoruntule.aspx?SiparisNo=" + siparisNo + "&SeriAdi=" + this.KapiTip.ToString().ToUpper());
+                Response.Redirect("~/SiparisFormYanginGoruntule.aspx?SiparisID=" + siparisID + "&SeriAdi=" + this.KapiTip.ToString().ToUpper());
             }
             else
                 MessageBox.Hata(this, "Sipariş eklenemedi.");

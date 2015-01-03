@@ -40,13 +40,26 @@ namespace ACKSiparisTakip.Web
             }
         }
 
-        public string SiparisNo
+        private string SiparisID
         {
             get
             {
-                if (!String.IsNullOrEmpty(Request.QueryString["SiparisNo"]))
+                if (!String.IsNullOrEmpty(Request.QueryString["SiparisID"]))
                 {
-                    return Request.QueryString["SiparisNo"].ToString();
+                    return Request.QueryString["SiparisID"].ToString();
+                }
+                else
+                    return String.Empty;
+            }
+        }
+
+        public string SeriAdi
+        {
+            get
+            {
+                if (!String.IsNullOrEmpty(Request.QueryString["SeriAdi"]))
+                {
+                    return Request.QueryString["SeriAdi"].ToString();
                 }
                 else
                     return String.Empty;
@@ -67,10 +80,8 @@ namespace ACKSiparisTakip.Web
 
         private void FormBilgileriniGetir()
         {
-            txtSiparisNo.Text = this.SiparisNo;
-
             Dictionary<string, object> prms = new Dictionary<string, object>();
-            prms.Add("SIPARISNO", this.SiparisNo);
+            prms.Add("ID", this.SiparisID);
 
             DataTable dtSiparis = new SiparisIslemleriBS().SiparisBilgileriniGetir(prms);
             if (dtSiparis.Rows.Count == 0)
@@ -78,7 +89,7 @@ namespace ACKSiparisTakip.Web
 
             DataRow rowSiparis = dtSiparis.Rows[0];
 
-            DataTable dtMontaj = new MontajBS().MontajBilgisiGetir(this.SiparisNo);
+            DataTable dtMontaj = new MontajBS().MontajBilgisiGetir(this.SiparisID);
             if (dtMontaj.Rows.Count == 0)
                 return;
 
@@ -98,6 +109,8 @@ namespace ACKSiparisTakip.Web
             musteri.MusteriIlce = (rowSiparis["MUSTERIILCE"] != DBNull.Value) ? rowSiparis["MUSTERIILCE"].ToString() : String.Empty;
             musteri.MusteriIsTel = (rowSiparis["MUSTERIISTEL"] != DBNull.Value) ? rowSiparis["MUSTERIISTEL"].ToString() : String.Empty;
 
+            siparis.SiparisID = (rowSiparis["ID"] != DBNull.Value) ? rowSiparis["ID"].ToString() : String.Empty;
+            siparis.SiparisNo = (rowSiparis["SIPARISNO"] != DBNull.Value) ? rowSiparis["SIPARISNO"].ToString() : String.Empty;
             siparis.FirmaAdi = (rowSiparis["FIRMAADI"] != DBNull.Value) ? rowSiparis["FIRMAADI"].ToString() : String.Empty;
             siparis.AksesuarRenk = (rowSiparis["AKSESUARRENK"] != DBNull.Value) ? rowSiparis["AKSESUARRENK"].ToString() : String.Empty;
             siparis.AluminyumRenk = (rowSiparis["ALUMINYUMRENK"] != DBNull.Value) ? rowSiparis["ALUMINYUMRENK"].ToString() : String.Empty;
@@ -194,6 +207,7 @@ namespace ACKSiparisTakip.Web
             sozlesme.VergiNumarası = (rowSiparis["VERGINUMARASI"] != DBNull.Value) ? rowSiparis["VERGINUMARASI"].ToString() : String.Empty;
             sozlesme.Fiyat = (rowSiparis["FIYAT"] != DBNull.Value) ? rowSiparis["FIYAT"].ToString() : String.Empty;
 
+            lblKapiTur.Text = this.SeriAdi;
             txtAd.Text = musteri.MusteriAd;
             txtSoyad.Text = musteri.MusteriSoyad;
             txtAdres.Text = musteri.MusteriAdres;
@@ -547,7 +561,7 @@ namespace ACKSiparisTakip.Web
             if (DropDownCheck(ddlYanginMetalRengi)) siparis.MetalRenk = ddlYanginMetalRengi.SelectedText;
             if (DropDownCheck(ddlYanginKapiCins)) siparis.YanginKapiCins = ddlYanginKapiCins.SelectedText;
 
-            siparis.SiparisNo = this.SiparisNo;
+            siparis.SiparisID = this.SiparisID;
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = "BEKLEYEN";
             if (!string.IsNullOrEmpty(txtFirmaAdi.Text)) siparis.FirmaAdi = txtFirmaAdi.Text;
@@ -576,6 +590,8 @@ namespace ACKSiparisTakip.Web
             else
                 siparis.CekKalan = null;
             siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
+            siparis.UpdatedBy = Session["user"].ToString();
+            siparis.UpdatedTime = DateTime.Now;
 
             if (DropDownCheck(ddlMontajSekli)) olcum.MontajSekli = ddlMontajSekli.SelectedText;
             if (DropDownCheck(ddlOlcumAlan)) olcum.OlcumAlanKisi = ddlOlcumAlan.SelectedText;
@@ -640,7 +656,7 @@ namespace ACKSiparisTakip.Web
             if (state)
             {
                 MessageBox.Basari(this, "Sipariş güncellendi.");
-                Response.Redirect("~/SiparisFormYanginGoruntule.aspx?SiparisNo=" + SiparisNo + "&SeriAdi=" + this.KapiTip.ToString().ToUpper());
+                Response.Redirect("~/SiparisFormYanginGoruntule.aspx?SiparisID=" + this.SiparisID + "&SeriAdi=" + this.SeriAdi);
             }
             else
                 MessageBox.Hata(this, "Sipariş güncellenemedi.");
@@ -684,14 +700,13 @@ namespace ACKSiparisTakip.Web
         protected void btnTemizle_Click(object sender, EventArgs e)
         {
             FormElemanIcerikTemizle(this.Page.Form.Controls);
-            txtSiparisNo.Text = this.SiparisNo;
         }
 
         private void FormElemanIcerikTemizle(ControlCollection cc)
         {
             foreach (Control c in cc)
             {
-                if (c is RadTextBox)
+                if (c is RadTextBox && c.ID != "txtSiparisNo")
                     ((RadTextBox)c).Text = string.Empty;
                 if (c is RadNumericTextBox)
                     ((RadNumericTextBox)c).Text = string.Empty;

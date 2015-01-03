@@ -767,7 +767,6 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("KASATIP", siparis.KasaTip, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("CUMBA", siparis.Cumba, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("HIDROLIKKAPATICI", siparis.HidrolikKapatici, SqlDbType.VarChar, 50);
-
                 data.AddSqlParameter("ICKASAGENISLIK", olcum.IcKasaGenislik, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ICKASAYUKSEKLIK", olcum.IcKasaYukseklik, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DISKASAICPERVAZFARK", olcum.DisKasaIcPervazFark, SqlDbType.VarChar, 50);
@@ -778,6 +777,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("ICSOLPERVAZ", olcum.IcSolPervaz, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ICUSTPERVAZ", olcum.IcUstPervaz, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ICSAGPERVAZ", olcum.IcSagPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CREATEDBY", siparis.CreatedBy, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CREATEDTIME", siparis.CreatedTime, SqlDbType.DateTime, 50);
 
 
                 string sqlKaydet = @"INSERT INTO [ACKAppDB].[dbo].[SIPARIS]
@@ -870,7 +871,9 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                   ,DISSAGPERVAZ
                                   ,ICSOLPERVAZ
                                   ,ICUSTPERVAZ
-                                  ,ICSAGPERVAZ)
+                                  ,ICSAGPERVAZ
+                                  ,CREATEDBY
+                                  ,CREATEDTIME)
                              VALUES
                                    (@SIPARISNO,
                                    @SIPARISTARIH,
@@ -961,21 +964,29 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                   ,@DISSAGPERVAZ
                                   ,@ICSOLPERVAZ
                                   ,@ICUSTPERVAZ
-                                  ,@ICSAGPERVAZ)";
-                data.ExecuteStatement(sqlKaydet);
+                                  ,@ICSAGPERVAZ
+                                  ,@CREATEDBY
+                                  ,@CREATEDTIME)
+
+                SELECT SCOPE_IDENTITY();";
+                int siparisID = data.ExecuteStatement(sqlKaydet);
 
                 //MONTAJ BILGISI KAYDET
 
                 data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("TESLIMTARIH", sozlesme.MontajTeslimTarih, SqlDbType.DateTime, 50);
                 data.AddSqlParameter("DURUM", sozlesme.MontajDurum, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CREATEDBY", siparis.CreatedBy, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("CREATEDTIME", siparis.CreatedTime, SqlDbType.DateTime, 50);
+                data.AddSqlParameter("SIPARISID", siparisID, SqlDbType.Int, 50);
 
-                string sqlKaydetMontaj = @"INSERT INTO [ACKAppDB].[dbo].[MONTAJ] (SIPARISNO,TESLIMTARIH,DURUM) VALUES (@SIPARISNO, @TESLIMTARIH,@DURUM)";
+                string sqlKaydetMontaj = @"INSERT INTO [ACKAppDB].[dbo].[MONTAJ] (SIPARISNO,TESLIMTARIH,DURUM,CREATEDBY,CREATEDTIME,SIPARISID) 
+                                           VALUES (@SIPARISNO, @TESLIMTARIH, @DURUM, @CREATEDBY, @CREATEDTIME,@SIPARISID)";
                 data.ExecuteStatement(sqlKaydetMontaj);
 
 
                 data.CommitTransaction();
-                return siparis.SiparisNo;
+                return siparisID.ToString();
             }
             catch (Exception exc)
             {
@@ -999,7 +1010,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.BeginTransaction();
 
                 // SIPARIS BILGILERINI GUNCELLE
-                data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ID", siparis.SiparisID, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("SIPARISTARIH", siparis.SiparisTarih, SqlDbType.DateTime, 50);
                 data.AddSqlParameter("BAYIADI", siparis.BayiAd, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("FIRMAADI", siparis.FirmaAdi, SqlDbType.VarChar, 150);
@@ -1088,6 +1099,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("ICSOLPERVAZ", olcum.IcSolPervaz, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ICUSTPERVAZ", olcum.IcUstPervaz, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ICSAGPERVAZ", olcum.IcSagPervaz, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("UPDATEDBY", siparis.UpdatedBy, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("UPDATEDTIME", siparis.UpdatedTime, SqlDbType.DateTime, 50);
                 //
 
                 string sqlGuncelle = @"UPDATE [ACKAppDB].[dbo].[SIPARIS]
@@ -1180,18 +1193,24 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                           ,ICSOLPERVAZ=@ICSOLPERVAZ
                                           ,ICUSTPERVAZ=@ICUSTPERVAZ
                                           ,ICSAGPERVAZ=@ICSAGPERVAZ
-                                     WHERE [SIPARISNO] =@SIPARISNO";
+                                          ,UPDATEDBY=@UPDATEDBY
+                                          ,UPDATEDTIME=@UPDATEDTIME
+                                     WHERE [ID] =@ID";
 
                 data.ExecuteStatement(sqlGuncelle);
 
                 //MONTAJ BILGISI GUNCELLE
 
-                data.AddSqlParameter("SIPARISNO", siparis.SiparisNo, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ID", siparis.SiparisID, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("TESLIMTARIH", sozlesme.MontajTeslimTarih, SqlDbType.DateTime, 50);
+                data.AddSqlParameter("UPDATEDBY", siparis.UpdatedBy, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("UPDATEDTIME", siparis.UpdatedTime, SqlDbType.DateTime, 50);
 
                 string sqlGuncelleMontaj = @"UPDATE [ACKAppDB].[dbo].[MONTAJ]
                                              SET  [TESLIMTARIH] =@TESLIMTARIH
-                                             WHERE [SIPARISNO] =@SIPARISNO";
+                                                  ,UPDATEDBY=@UPDATEDBY
+                                                  ,UPDATEDTIME=@UPDATEDTIME
+                                             WHERE [SIPARISID] =@ID";
                 data.ExecuteStatement(sqlGuncelleMontaj);
 
 
@@ -1217,13 +1236,13 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
-            data.AddSqlParameter("SIPARISNO", prms["SIPARISNO"], SqlDbType.VarChar, 50);
+            data.AddSqlParameter("ID", prms["ID"], SqlDbType.VarChar, 50);
 
             string sqlText = @"SELECT 
                                     S.*
-                                    ,(SELECT TESLIMTARIH FROM [dbo].[MONTAJ] WHERE SIPARISNO = S.SIPARISNO) AS TESLIMTARIH
+                                    ,(SELECT TESLIMTARIH FROM [dbo].[MONTAJ] WHERE SIPARISID = S.ID) AS TESLIMTARIH
                                FROM SIPARIS AS S
-                               WHERE SIPARISNO=@SIPARISNO";
+                               WHERE ID=@ID";
             data.GetRecords(dt, sqlText);
             return dt;
         }
@@ -1289,7 +1308,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                 ,S.ADET
                                 ,S.MUSTERISEMT
                             FROM SIPARIS AS S
-	                            INNER JOIN [dbo].[MONTAJ] AS M ON S.SIPARISNO = M.SIPARISNO
+	                            INNER JOIN [dbo].[MONTAJ] AS M ON S.ID = M.SIPARISID
 	                            LEFT OUTER JOIN [dbo].[MONTAJ_PERSONEL] AS MP ON M.[ID] = MP.[MONTAJID]
                             WHERE (@SiparisNo IS NULL OR S.SIPARISNO=@SiparisNo)
 	                                AND (@SiparisTarihiBas IS NULL OR S.[SIPARISTARIH]>=@SiparisTarihiBas)

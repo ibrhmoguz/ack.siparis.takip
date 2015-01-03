@@ -16,27 +16,28 @@ namespace ACKSiparisTakip.Web.Print
 {
     public partial class PrintYangin : System.Web.UI.Page
     {
-
-        public string SiparisNo
+        private DataTable SiparisBilgileri
         {
             get
             {
-                if (!String.IsNullOrEmpty(Request.QueryString["SiparisNo"]))
-                {
-                    return Request.QueryString["SiparisNo"].ToString();
-                }
+                if (Session["SiparisBilgileri"] != null)
+                    return Session["SiparisBilgileri"] as DataTable;
                 else
-                    return String.Empty;
+                    return null;
+            }
+            set
+            {
+                Session["SiparisBilgileri"] = value;
             }
         }
 
-        public string SeriAdi
+        private string SiparisID
         {
             get
             {
-                if (!String.IsNullOrEmpty(Request.QueryString["SeriAdi"]))
+                if (!String.IsNullOrEmpty(Request.QueryString["SiparisID"]))
                 {
-                    return Request.QueryString["SeriAdi"].ToString();
+                    return Request.QueryString["SiparisID"].ToString();
                 }
                 else
                     return String.Empty;
@@ -51,39 +52,40 @@ namespace ACKSiparisTakip.Web.Print
             }
         }
 
-        private void KapiTurAyarla()
+        private void KapiTurAyarla(string siparisNo)
         {
-            if (String.IsNullOrEmpty(this.SiparisNo))
+            if (String.IsNullOrEmpty(siparisNo))
                 return;
 
-            if (this.SiparisNo[0] == 'Y')
+            if (siparisNo[0] == 'Y')
             {
                 trYangin1.Visible = true;
                 trYangin2.Visible = true;
                 lblKapiTur.Text = "YANGIN";
             }
-            else if (this.SiparisNo[0] == 'P')
+            else if (siparisNo[0] == 'P')
             {
                 trPorte1.Visible = true;
                 trPorte2.Visible = true;
                 lblKapiTur.Text = "PORTE";
             }
+
+            if (!string.IsNullOrWhiteSpace(lblYanginKapiCins.Text))
+                lblKapiTur.Text = lblYanginKapiCins.Text;
         }
 
         private void FormBilgileriniGetir()
         {
-            lblSiparisNo.Text = this.SiparisNo;
             string adres, il, ilce, semt, ad, soyad;
 
-            Dictionary<string, object> prms = new Dictionary<string, object>();
-            prms.Add("SIPARISNO", this.SiparisNo);
-
-            DataTable dt = new SiparisIslemleriBS().SiparisBilgileriniGetir(prms);
+            DataTable dt = this.SiparisBilgileri;
             if (dt.Rows.Count == 0)
                 return;
 
             DataRow row = dt.Rows[0];
 
+            string siparisNo = (row["SIPARISNO"] != DBNull.Value) ? row["SIPARISNO"].ToString() : String.Empty;
+            lblSiparisNo.Text = siparisNo;
             adres = (row["MUSTERIADRES"] != DBNull.Value) ? row["MUSTERIADRES"].ToString() : String.Empty;
             il = (row["MUSTERIIL"] != DBNull.Value) ? row["MUSTERIIL"].ToString() : String.Empty;
             ilce = (row["MUSTERIILCE"] != DBNull.Value) ? row["MUSTERIILCE"].ToString() : String.Empty;
@@ -135,7 +137,6 @@ namespace ACKSiparisTakip.Web.Print
             lblYanginMetalRengi.Text = (row["METALRENK"] != DBNull.Value) ? row["METALRENK"].ToString() : String.Empty;
             lblYanginKapiCins.Text = (row["YANGINKAPICINS"] != DBNull.Value) ? row["YANGINKAPICINS"].ToString() : String.Empty;
             lblYanginKasaTipi.Text = (row["KASATIP"] != DBNull.Value) ? row["KASATIP"].ToString() : String.Empty;
-            lblKapiTur.Text = lblYanginKapiCins.Text == string.Empty ? this.SeriAdi : lblYanginKapiCins.Text;
 
             lblIcKasaGenisligi.Text = (row["ICKASAGENISLIK"] != DBNull.Value) ? row["ICKASAGENISLIK"].ToString() : String.Empty;
             lblIcKasaYuksekligi.Text = (row["ICKASAYUKSEKLIK"] != DBNull.Value) ? row["ICKASAYUKSEKLIK"].ToString() : String.Empty;
@@ -153,12 +154,11 @@ namespace ACKSiparisTakip.Web.Print
             {
                 if (siparisAdedi > 1)
                 {
-                    lblSiparisNo.Text = this.SiparisNo + ".1 / " + this.SiparisNo + "." + siparisAdedi;
+                    lblSiparisNo.Text = siparisNo + ".1 / " + siparisNo + "." + siparisAdedi;
                 }
             }
 
-            KapiTurAyarla();
-            lblKapiTur.Text = lblYanginKapiCins.Text == string.Empty ? this.SeriAdi : lblYanginKapiCins.Text;
+            KapiTurAyarla(siparisNo);
         }
     }
 }

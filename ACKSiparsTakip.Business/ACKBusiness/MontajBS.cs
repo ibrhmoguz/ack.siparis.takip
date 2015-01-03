@@ -45,12 +45,12 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             return dt;
         }
 
-        public bool MontajGuncelle(string montajID, DateTime teslimTarihi, List<string> personelListesi, string montajDurumu)
+        public bool MontajGuncelle(string montajID, DateTime teslimTarihi, List<string> personelListesi, string montajDurumu, string updatedBy, DateTime updatedTime)
         {
-            return pMontajGuncelle(montajID, teslimTarihi, personelListesi, montajDurumu);
+            return pMontajGuncelle(montajID, teslimTarihi, personelListesi, montajDurumu, updatedBy, updatedTime);
         }
 
-        private bool pMontajGuncelle(string montajID, DateTime teslimTarihi, List<string> personelListesi, string montajDurumu)
+        private bool pMontajGuncelle(string montajID, DateTime teslimTarihi, List<string> personelListesi, string montajDurumu, string updatedBy, DateTime updatedTime)
         {
             IData data = GetDataObject();
 
@@ -62,9 +62,14 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("ID", montajID, SqlDbType.Int, 50);
                 data.AddSqlParameter("TESLIMTARIH", teslimTarihi, SqlDbType.DateTime, 50);
                 data.AddSqlParameter("DURUM", montajDurumu, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("UPDATEDBY", updatedBy, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("UPDATEDTIME", updatedTime, SqlDbType.DateTime, 50);
+
                 string sqlUpdate = @"UPDATE  MONTAJ 
                                       SET TESLIMTARIH=@TESLIMTARIH
-                                          , DURUM=@DURUM
+                                          ,DURUM=@DURUM
+                                          ,UPDATEDBY=@UPDATEDBY
+                                          ,UPDATEDTIME=@UPDATEDTIME
                                       WHERE ID=@ID";
                 data.ExecuteStatement(sqlUpdate);
 
@@ -104,20 +109,20 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             }
         }
 
-        public DataTable MontajBilgisiGetir(string siparisNo)
+        public DataTable MontajBilgisiGetir(string siparisID)
         {
-            return pMontajBilgisiGetir(siparisNo);
+            return pMontajBilgisiGetir(siparisID);
 
         }
 
-        private DataTable pMontajBilgisiGetir(string siparisNo)
+        private DataTable pMontajBilgisiGetir(string siparisID)
         {
             DataTable dt = new DataTable();
             IData data = GetDataObject();
 
-            data.AddSqlParameter("SIPARISNO", siparisNo, SqlDbType.VarChar, 50);
+            data.AddSqlParameter("SIPARISID", siparisID, SqlDbType.VarChar, 50);
 
-            string sqlText = @"SELECT * FROM MONTAJ WHERE SIPARISNO=@SIPARISNO";
+            string sqlText = @"SELECT * FROM MONTAJ WHERE SIPARISID=@SIPARISID";
             data.GetRecords(dt, sqlText);
             return dt;
         }

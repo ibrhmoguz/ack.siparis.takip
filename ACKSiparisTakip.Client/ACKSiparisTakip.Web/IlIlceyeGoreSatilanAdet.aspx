@@ -70,7 +70,7 @@
                                 EmptyDataRowStyle-CssClass="TdRenkAciklama">
                                 <Columns>
                                     <asp:BoundField DataField="IlIlce" HeaderText="İLÇE" ItemStyle-Width="15%" ItemStyle-CssClass="thIlkKolon" />
-                                    <asp:BoundField DataField="12" HeaderText="1" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="1" HeaderText="1" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="2" HeaderText="2" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="3" HeaderText="3" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="4" HeaderText="4" ItemStyle-Width="6%" />
@@ -93,7 +93,7 @@
                                 EmptyDataRowStyle-CssClass="TdRenkAciklama">
                                 <Columns>
                                     <asp:BoundField DataField="Semt" HeaderText="SEMT" ItemStyle-Width="15%" ItemStyle-CssClass="thIlkKolon" />
-                                    <asp:BoundField DataField="12" HeaderText="1" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="1" HeaderText="1" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="2" HeaderText="2" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="3" HeaderText="3" ItemStyle-Width="6%" />
                                     <asp:BoundField DataField="4" HeaderText="4" ItemStyle-Width="6%" />

@@ -149,8 +149,13 @@ namespace ACKSiparisTakip.Web
             {
                 if (row["Yillik"] != DBNull.Value)
                 {
-                    yuzde = Convert.ToDecimal((Convert.ToDecimal(row["Yillik"].ToString()) / toplamAdet));
-                    row["Yuzde(%)"] = (yuzde * 100).ToString("0.00", CultureInfo.InvariantCulture);
+                    if (toplamAdet != 0)
+                    {
+                        yuzde = Convert.ToDecimal((Convert.ToDecimal(row["Yillik"].ToString()) / toplamAdet));
+                        row["Yuzde(%)"] = (yuzde * 100).ToString("0.00", CultureInfo.InvariantCulture);
+                    }
+                    else
+                        row["Yuzde(%)"] = "0";
                 }
             }
 

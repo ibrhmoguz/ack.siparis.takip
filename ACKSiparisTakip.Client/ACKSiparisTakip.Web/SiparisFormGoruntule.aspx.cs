@@ -16,20 +16,35 @@ namespace ACKSiparisTakip.Web
 {
     public partial class SiparisFormGoruntule : ACKBasePage
     {
-        public string SiparisNo
+        private DataTable SiparisBilgileri
         {
             get
             {
-                if (!String.IsNullOrEmpty(Request.QueryString["SiparisNo"]))
+                if (Session["SiparisBilgileri"] != null)
+                    return Session["SiparisBilgileri"] as DataTable;
+                else
+                    return null;
+            }
+            set
+            {
+                Session["SiparisBilgileri"] = value;
+            }
+        }
+
+        private string SiparisID
+        {
+            get
+            {
+                if (!String.IsNullOrEmpty(Request.QueryString["SiparisID"]))
                 {
-                    return Request.QueryString["SiparisNo"].ToString();
+                    return Request.QueryString["SiparisID"].ToString();
                 }
                 else
                     return String.Empty;
             }
         }
 
-        public string SeriAdi
+        private string SeriAdi
         {
             get
             {
@@ -47,26 +62,27 @@ namespace ACKSiparisTakip.Web
             if (!Page.IsPostBack)
             {
                 FormBilgileriniGetir();
-                KapiTurAyarla();
-                PopupPageHelper.OpenPopUp(btnYazdir, "Print/Print.aspx?SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi, "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
+                PopupPageHelper.OpenPopUp(btnYazdir, "Print/Print.aspx?SeriAdi=" + this.SeriAdi, "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
             }
         }
 
         private void FormBilgileriniGetir()
         {
             lblKapiTur.Text = this.SeriAdi;
-            lblSiparisNo.Text = this.SiparisNo;
             string adres, il, ilce, semt, ad, soyad;
 
             Dictionary<string, object> prms = new Dictionary<string, object>();
-            prms.Add("SIPARISNO", this.SiparisNo);
+            prms.Add("ID", this.SiparisID);
 
             DataTable dt = new SiparisIslemleriBS().SiparisBilgileriniGetir(prms);
             if (dt.Rows.Count == 0)
                 return;
 
+            this.SiparisBilgileri = dt;
             DataRow row = dt.Rows[0];
 
+            string siparisNo = (row["SIPARISNO"] != DBNull.Value) ? row["SIPARISNO"].ToString() : String.Empty;
+            lblSiparisNo.Text = siparisNo;
             adres = (row["MUSTERIADRES"] != DBNull.Value) ? row["MUSTERIADRES"].ToString() : String.Empty;
             il = (row["MUSTERIIL"] != DBNull.Value) ? row["MUSTERIIL"].ToString() : String.Empty;
             ilce = (row["MUSTERIILCE"] != DBNull.Value) ? row["MUSTERIILCE"].ToString() : String.Empty;
@@ -161,35 +177,37 @@ namespace ACKSiparisTakip.Web
             {
                 if (siparisAdedi > 1)
                 {
-                    lblSiparisNo.Text = this.SiparisNo + ".1 / " + this.SiparisNo + "." + siparisAdedi;
+                    lblSiparisNo.Text = siparisNo + ".1 / " + siparisNo + "." + siparisAdedi;
                 }
             }
+
+            KapiTurAyarla(siparisNo);
         }
 
         protected void btnGuncelle_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/SiparisFormGuncelle.aspx?SiparisNo=" + this.SiparisNo + "&SeriAdi=" + this.SeriAdi);
+            Response.Redirect("~/SiparisFormGuncelle.aspx?SiparisID=" + this.SiparisID + "&SeriAdi=" + this.SeriAdi);
         }
 
-        private void KapiTurAyarla()
+        private void KapiTurAyarla(string siparisNo)
         {
-            if (String.IsNullOrEmpty(this.SiparisNo))
+            if (String.IsNullOrEmpty(siparisNo))
                 return;
 
-            if (this.SiparisNo[0] == 'N')
+            switch (siparisNo[0].ToString())
             {
-                lblKapiTur.Text = "NOVA";
-                lblStandartOlcu.Text = "930 x 2010";
-            }
-            else if (this.SiparisNo[0] == 'K')
-            {
-                lblKapiTur.Text = "KROMA";
-                lblStandartOlcu.Text = "940 x 2000";
-            }
-            else if (this.SiparisNo[0] == 'G')
-            {
-                lblKapiTur.Text = "GUARD";
-                trGuard.Visible = true;
+                case "N":
+                    lblKapiTur.Text = "NOVA";
+                    lblStandartOlcu.Text = "930 x 2010";
+                    break;
+                case "K":
+                    lblKapiTur.Text = "KROMA";
+                    lblStandartOlcu.Text = "940 x 2000";
+                    break;
+                case "G":
+                    lblKapiTur.Text = "GUARD";
+                    trGuard.Visible = true;
+                    break;
             }
         }
     }

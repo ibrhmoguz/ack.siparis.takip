@@ -319,3 +319,15 @@ ALTER TABLE dbo.SIPARIS ADD
 	ICUSTPERVAZ varchar(50) NULL,
 	ICSAGPERVAZ varchar(50) NULL
 GO
+
+v1.3
+-----
+
+1. AppDBScript calistirilacak
+2. AppDBTemizle calistirilacak
+2. Data script calistirilacak
+3. Bu sorgu calisacak
+UPDATE dbo.MONTAJ 
+SET SIPARISID = S.ID
+from ACKAppDB..SIPARIS AS S 
+inner join ACKAppDB..MONTAJ AS M ON M.SIPARISNO = S.SIPARISNO
