@@ -47,7 +47,7 @@
                                 <telerik:GridCheckBoxColumn DataField="GUARD" HeaderText="GUARD"
                                     UniqueName="GUARD">
                                 </telerik:GridCheckBoxColumn>
-                                <telerik:GridCheckBoxColumn DataField="YANGIN" HeaderText="YANGIN"
+                                <telerik:GridCheckBoxColumn DataField="YANGIN" HeaderText="YANGIN/PORTE"
                                     UniqueName="YANGIN">
                                 </telerik:GridCheckBoxColumn>
                                 <telerik:GridButtonColumn Text="Sil" CommandName="Delete" ButtonType="ImageButton" />

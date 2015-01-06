@@ -400,6 +400,14 @@
                 <asp:Label ID="lblIcSagPervaz" runat="server" RenderMode="Lightweight"></asp:Label>
             </td>
         </tr>
+        <tr>
+            <td>Açılım:</td>
+            <td>
+                <asp:Label ID="lblAcilim" runat="server" RenderMode="Lightweight"></asp:Label>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
     </table>
     <table class="boldTablo" style="width: 100%">
         <tr>
@@ -490,7 +498,6 @@
             <td colspan="6">Yukarıda yazılı olan şartlarda sipariş verdim. İhtilaf halinde Ankara Mahkemeleri yetkilidir.
                     <b>Müşteri tarafından aksi yazılı olarak Ankara Çelik Kapı'ya bildirilmedikçe kapıların ölçüleri ve
                     açılış yönleri mevcut takılı olan kapıya göre imal edilecektir.</b>
-                <br />
                 <br />
             </td>
         </tr>

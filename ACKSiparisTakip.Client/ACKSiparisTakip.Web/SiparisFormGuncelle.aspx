@@ -509,22 +509,18 @@
                     <telerik:RadTextBox ID="txtIcSagPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
-            <%-- <tr>
-                <th>En: </th>
-                <td>
-                    <telerik:RadTextBox ID="RadTextBox1" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
-
-            </tr>
             <tr>
-
-                <th>Boy: </th>
+                <th>Açılım:</th>
                 <td>
-                    <telerik:RadTextBox ID="RadTextBox2" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                    <telerik:RadDropDownList ID="ddlAcilim" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem Text="Seçiniz" Value="Seçiniz" />
+                            <telerik:DropDownListItem Text="SAĞ" Value="SAĞ" />
+                            <telerik:DropDownListItem Text="SOL" Value="SOL" />
+                        </Items>
+                    </telerik:RadDropDownList>
                 </td>
-
-
-            </tr>--%>
+            </tr>
         </table>
         <br />
         <table class="AnaTablo" style="width: 100%">
@@ -562,7 +558,7 @@
                         <tr>
                             <th>Cep Tel : </th>
                             <td>
-                                <telerik:RadTextBox ID="txtMusteriCepTel" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
+                                <telerik:RadTextBox ID="txtMusteriCepTel" runat="server" Width="300px" RenderMode="Lightweight" Enabled="false"></telerik:RadTextBox>
                             </td>
                         </tr>
                         <tr>

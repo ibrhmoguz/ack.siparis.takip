@@ -163,6 +163,7 @@ namespace ACKSiparisTakip.Web.Print
             lblCekOdemeNotu.Text = (row["CEKODEMENOTU"] != DBNull.Value) ? row["CEKODEMENOTU"].ToString() : String.Empty;
             lblNot.Text = (row["SIPARISNOT"] != DBNull.Value) ? row["SIPARISNOT"].ToString() : String.Empty;
 
+            lblAcilim.Text = (row["ACILIM"] != DBNull.Value) ? row["ACILIM"].ToString() : String.Empty;
             lblIcKasaGenisligi.Text = (row["ICKASAGENISLIK"] != DBNull.Value) ? row["ICKASAGENISLIK"].ToString() : String.Empty;
             lblIcKasaYuksekligi.Text = (row["ICKASAYUKSEKLIK"] != DBNull.Value) ? row["ICKASAYUKSEKLIK"].ToString() : String.Empty;
             lblDisKasaIcPervazFarki.Text = (row["DISKASAICPERVAZFARK"] != DBNull.Value) ? row["DISKASAICPERVAZFARK"].ToString() : String.Empty;

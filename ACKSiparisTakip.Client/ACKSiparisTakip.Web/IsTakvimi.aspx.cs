@@ -284,8 +284,13 @@ namespace ACKSiparisTakip.Web
             lblMusteriAdSoyad.Text = (row["MUSTERI"] != DBNull.Value) ? row["MUSTERI"].ToString() : String.Empty;
             lblAdresIlIlce.Text = (row["ILILCE"] != DBNull.Value) ? row["ILILCE"].ToString() : String.Empty;
             lblTelefon.Text = (row["TEL"] != DBNull.Value) ? row["TEL"].ToString() : String.Empty;
+            string siparisID = (row["SIPARISID"] != DBNull.Value) ? row["SIPARISID"].ToString() : String.Empty;
             string siparisNo = (row["SIPARISNO"] != DBNull.Value) ? row["SIPARISNO"].ToString() : String.Empty;
-            linkSiparisNo.PostBackUrl = "SiparisFormGoruntule.aspx?SiparisNo=" + siparisNo;
+            
+            if (siparisNo[0].ToString() != "P" && siparisNo[0].ToString() != "Y")
+                linkSiparisNo.PostBackUrl = "SiparisFormGoruntule.aspx?SiparisID=" + siparisID;
+            else
+                linkSiparisNo.PostBackUrl = "SiparisFormYanginGoruntule.aspx?SiparisID=" + siparisID;
 
             if (row["DURUM"].ToString() == "A")
                 lblMontajDurum.BackColor = Color.Red;

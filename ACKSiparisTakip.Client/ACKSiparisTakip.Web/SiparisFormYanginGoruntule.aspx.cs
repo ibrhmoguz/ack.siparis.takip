@@ -64,7 +64,7 @@ namespace ACKSiparisTakip.Web
                 PopupPageHelper.OpenPopUp(btnYazdir, "Print/PrintYangin.aspx?SeriAdi=" + this.SeriAdi, "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
             }
         }
-        
+
         private void FormBilgileriniGetir()
         {
             string adres, il, ilce, semt, ad, soyad;
@@ -96,6 +96,7 @@ namespace ACKSiparisTakip.Web
             lblEvTel.Text = (row["MUSTERIEVTEL"] != DBNull.Value) ? row["MUSTERIEVTEL"].ToString() : String.Empty;
             lblIsTel.Text = (row["MUSTERIISTEL"] != DBNull.Value) ? row["MUSTERIISTEL"].ToString() : String.Empty;
             lblCepTel.Text = (row["MUSTERICEPTEL"] != DBNull.Value) ? row["MUSTERICEPTEL"].ToString() : String.Empty;
+            lblMusteriCepTel.Text = lblCepTel.Text;
             lblIcKapiModeli.Text = (row["ICKAPIMODEL"] != DBNull.Value) ? row["ICKAPIMODEL"].ToString() : String.Empty;
             lblDisKapiModeli.Text = (row["DISKAPIMODEL"] != DBNull.Value) ? row["DISKAPIMODEL"].ToString() : String.Empty;
             lblKilitSistemi.Text = (row["KILITSISTEM"] != DBNull.Value) ? row["KILITSISTEM"].ToString() : String.Empty;
@@ -136,6 +137,7 @@ namespace ACKSiparisTakip.Web
             lblCekOdemeNotu.Text = (row["CEKODEMENOTU"] != DBNull.Value) ? row["CEKODEMENOTU"].ToString() : String.Empty;
             lblNot.Text = (row["SIPARISNOT"] != DBNull.Value) ? row["SIPARISNOT"].ToString() : String.Empty;
 
+            lblAcilim.Text = (row["ACILIM"] != DBNull.Value) ? row["ACILIM"].ToString() : String.Empty;
             lblIcKasaGenisligi.Text = (row["ICKASAGENISLIK"] != DBNull.Value) ? row["ICKASAGENISLIK"].ToString() : String.Empty;
             lblIcKasaYuksekligi.Text = (row["ICKASAYUKSEKLIK"] != DBNull.Value) ? row["ICKASAYUKSEKLIK"].ToString() : String.Empty;
             lblDisKasaIcPervazFarki.Text = (row["DISKASAICPERVAZFARK"] != DBNull.Value) ? row["DISKASAICPERVAZFARK"].ToString() : String.Empty;
@@ -182,7 +184,7 @@ namespace ACKSiparisTakip.Web
                 trPorte2.Visible = true;
                 lblKapiTur.Text = "PORTE";
             }
-           
+
         }
     }
 }

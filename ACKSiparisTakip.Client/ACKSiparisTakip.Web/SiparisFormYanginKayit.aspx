@@ -338,6 +338,16 @@
                 <td>
                     <telerik:RadTextBox ID="txtIcSagPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
+                <th>Açılım:</th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlAcilim" runat="server" RenderMode="Lightweight">
+                        <Items>
+                            <telerik:DropDownListItem Text="Seçiniz" Value="Seçiniz" />
+                            <telerik:DropDownListItem Text="SAĞ" Value="SAĞ" />
+                            <telerik:DropDownListItem Text="SOL" Value="SOL" />
+                        </Items>
+                    </telerik:RadDropDownList>
+                </td>
             </tr>
         </table>
         <br />

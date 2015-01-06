@@ -78,7 +78,7 @@ namespace ACKSiparisTakip.Web
 
         private void FormDoldur()
         {
-            string seriId = ((int)this.KapiTip).ToString();
+            string seriId = ((int)KapiTipi.Yangin).ToString();
             if (this.KapiTip == KapiTipi.Porte)
                 lblKapiTur.Text = "PORTE";
             string seriAdi = "YANGIN";
@@ -228,6 +228,12 @@ namespace ACKSiparisTakip.Web
 
         protected void btnKaydet_Click(object sender, EventArgs e)
         {
+            if (rdpTeslimTarihi.SelectedDate == null)
+            {
+                MessageBox.Uyari(this.Page, "Teslim tarihi girmelisiniz!");
+                return;
+            }
+
             Musteri musteri = new Musteri();
             Siparis siparis = new Siparis();
             Olcum olcum = new Olcum();
@@ -291,7 +297,7 @@ namespace ACKSiparisTakip.Web
             else
                 siparis.CekKalan = null;
             siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
-            
+
             siparis.CreatedBy = Session["user"].ToString();
             siparis.CreatedTime = DateTime.Now;
 
@@ -310,6 +316,7 @@ namespace ACKSiparisTakip.Web
             if (!string.IsNullOrEmpty(txtIcSolPervaz.Text)) olcum.IcSolPervaz = txtIcSolPervaz.Text;
             if (!string.IsNullOrEmpty(txtIcUstPervaz.Text)) olcum.IcUstPervaz = txtIcUstPervaz.Text;
             if (!string.IsNullOrEmpty(txtIcSagPervaz.Text)) olcum.IcSagPervaz = txtIcSagPervaz.Text;
+            if (DropDownCheck(ddlAcilim)) olcum.Acilim = ddlAcilim.SelectedText;
 
             sozlesme.MontajDurum = "A";
             if (rdpTeslimTarihi.SelectedDate != null) sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;

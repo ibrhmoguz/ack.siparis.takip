@@ -28,6 +28,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
             string sqlKaydet = @"SELECT
 	                                M.ID
                                     , M.TESLIMTARIH
+                                    , S.ID AS SIPARISID
 	                                , S.SIPARISNO
                                     , S.ADET
 	                                , S.MUSTERIAD + ' ' + S.MUSTERISOYAD AS MUSTERI

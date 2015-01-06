@@ -113,8 +113,8 @@ namespace ACKSiparisTakip.Web
             siparis.DisKapiModel = (rowSiparis["DISKAPIMODEL"] != DBNull.Value) ? rowSiparis["DISKAPIMODEL"].ToString() : String.Empty;
             siparis.DisKapiRenk = (rowSiparis["DISKAPIRENK"] != DBNull.Value) ? rowSiparis["DISKAPIRENK"].ToString() : String.Empty;
             siparis.Durbun = (rowSiparis["DURBUN"] != DBNull.Value) ? rowSiparis["DURBUN"].ToString() : String.Empty;
-            siparis.KayıtYapmayanKamera = (rowSiparis["KAYITSIZKAMERA"] != DBNull.Value) ? rowSiparis["KAYITSIZKAMERA"].ToString() : String.Empty;
-            siparis.KayıtYapanKamera = (rowSiparis["KAYITYAPANKAMERA"] != DBNull.Value) ? rowSiparis["KAYITYAPANKAMERA"].ToString() : String.Empty;
+            siparis.KayitYapmayanKamera = (rowSiparis["KAYITSIZKAMERA"] != DBNull.Value) ? rowSiparis["KAYITSIZKAMERA"].ToString() : String.Empty;
+            siparis.KayitYapanKamera = (rowSiparis["KAYITYAPANKAMERA"] != DBNull.Value) ? rowSiparis["KAYITYAPANKAMERA"].ToString() : String.Empty;
             siparis.Alarm = (rowSiparis["ALARM"] != DBNull.Value) ? rowSiparis["ALARM"].ToString() : String.Empty;
             siparis.OtomatikKilit = (rowSiparis["OTOKILIT"] != DBNull.Value) ? rowSiparis["OTOKILIT"].ToString() : String.Empty;
             siparis.Esik = (rowSiparis["ESIK"] != DBNull.Value) ? rowSiparis["ESIK"].ToString() : String.Empty;
@@ -184,6 +184,7 @@ namespace ACKSiparisTakip.Web
             olcum.IcSolPervaz = (rowSiparis["ICSOLPERVAZ"] != DBNull.Value) ? rowSiparis["ICSOLPERVAZ"].ToString() : String.Empty;
             olcum.IcUstPervaz = (rowSiparis["ICUSTPERVAZ"] != DBNull.Value) ? rowSiparis["ICUSTPERVAZ"].ToString() : String.Empty;
             olcum.IcSagPervaz = (rowSiparis["ICSAGPERVAZ"] != DBNull.Value) ? rowSiparis["ICSAGPERVAZ"].ToString() : String.Empty;
+            olcum.Acilim = (rowSiparis["ACILIM"] != DBNull.Value) ? rowSiparis["ACILIM"].ToString() : String.Empty;
 
             sozlesme.KalanOdeme = (rowSiparis["KALANODEME"] != DBNull.Value) ? rowSiparis["KALANODEME"].ToString() : String.Empty;
             sozlesme.MontajDurum = "A";
@@ -224,10 +225,10 @@ namespace ACKSiparisTakip.Web
             DropDownSelectedIndexAyarla(ddlAluminyumRengi, siparis.AluminyumRenk);
             DropDownSelectedIndexAyarla(ddlBarelTipi, siparis.BarelTip);
             DropDownSelectedIndexAyarla(ddlCekmeKolu, siparis.CekmeKolu);
-            DropDownSelectedIndexAyarla(ddlKayitsizKam, siparis.Durum);
-            DropDownSelectedIndexAyarla(ddlKayitYapanKam, olcum.MontajSekli);
-            DropDownSelectedIndexAyarla(ddlAlarm, olcum.TeslimSekli);
-            DropDownSelectedIndexAyarla(ddlOtomatikKilit, olcum.OlcumAlanKisi);
+            DropDownSelectedIndexAyarla(ddlKayitsizKam, siparis.KayitYapmayanKamera);
+            DropDownSelectedIndexAyarla(ddlKayitYapanKam, siparis.KayitYapanKamera);
+            DropDownSelectedIndexAyarla(ddlAlarm, siparis.Alarm);
+            DropDownSelectedIndexAyarla(ddlOtomatikKilit, siparis.OtomatikKilit);
             DropDownSelectedIndexAyarla(ddlBaba, siparis.Baba);
             DropDownSelectedIndexAyarla(ddlCita, siparis.Cita);
             //DropDownSelectedIndexAyarla(ddlKapiNo, siparis.KapiNo);
@@ -262,6 +263,7 @@ namespace ACKSiparisTakip.Web
             DropDownSelectedIndexAyarla(ddlMontajSekli, olcum.MontajSekli);
             DropDownSelectedIndexAyarla(ddlTeslimSekli, olcum.TeslimSekli);
             DropDownSelectedIndexAyarla(ddlOlcumAlan, olcum.OlcumAlanKisi);
+            DropDownSelectedIndexAyarla(ddlAcilim, olcum.Acilim);
 
             if (siparis.NakitPesin.HasValue) txtNakitPesin.Text = siparis.NakitPesin.Value.ToString();
             if (siparis.NakitKalan.HasValue) txtNakitKalan.Text = siparis.NakitKalan.Value.ToString();
@@ -580,8 +582,8 @@ namespace ACKSiparisTakip.Web
             siparis.DisKapiModel = DropDownCheck(ddlDisKapiModeli) ? null : ddlDisKapiModeli.SelectedText;
             siparis.DisKapiRenk = DropDownCheck(ddlDisKapiRengi) ? null : ddlDisKapiRengi.SelectedText;
             siparis.Durbun = DropDownCheck(ddlDurbun) ? null : ddlDurbun.SelectedText;
-            siparis.KayıtYapanKamera = DropDownCheck(ddlKayitYapanKam) ? null : ddlKayitYapanKam.SelectedText;
-            siparis.KayıtYapmayanKamera = DropDownCheck(ddlKayitsizKam) ? null : ddlKayitsizKam.SelectedText;
+            siparis.KayitYapanKamera = DropDownCheck(ddlKayitYapanKam) ? null : ddlKayitYapanKam.SelectedText;
+            siparis.KayitYapmayanKamera = DropDownCheck(ddlKayitsizKam) ? null : ddlKayitsizKam.SelectedText;
             siparis.Alarm = DropDownCheck(ddlAlarm) ? null : ddlAlarm.SelectedText;
             siparis.OtomatikKilit = DropDownCheck(ddlOtomatikKilit) ? null : ddlOtomatikKilit.SelectedText;
             siparis.Esik = DropDownCheck(ddlEsik) ? null : ddlEsik.SelectedText;
@@ -607,6 +609,7 @@ namespace ACKSiparisTakip.Web
             siparis.FerforjeRenk = DropDownCheck(ddlFerforjeRenk) ? null : ddlFerforjeRenk.SelectedText;
             siparis.MetalRenk = DropDownCheck(ddlMetalRenk) ? null : ddlMetalRenk.SelectedText;
             siparis.KasaKaplama = DropDownCheck(ddlKasaKaplama) ? null : ddlKasaKaplama.SelectedText;
+            siparis.Durum = DropDownCheck(ddlSiparisDurumu) ? null : ddlSiparisDurumu.SelectedText;
             //
             siparis.UpdatedBy = Session["user"].ToString();
             siparis.UpdatedTime = DateTime.Now;
@@ -627,6 +630,7 @@ namespace ACKSiparisTakip.Web
             olcum.MontajdaTakilacak = string.IsNullOrWhiteSpace(txtMontajdaTakilacaklar.Text) ? null : txtMontajdaTakilacaklar.Text;
             olcum.MontajSekli = DropDownCheck(ddlMontajSekli) ? null : ddlMontajSekli.SelectedText;
             olcum.OlcumAlanKisi = DropDownCheck(ddlOlcumAlan) ? null : ddlOlcumAlan.SelectedText;
+            olcum.Acilim = DropDownCheck(ddlAcilim) ? null : ddlAcilim.SelectedText;
             olcum.OlcumBilgi = string.IsNullOrWhiteSpace(txtOlcumBilgileri.Text) ? null : txtOlcumBilgileri.Text;
             if (!string.IsNullOrEmpty(txtIcKasaGenisligi.Text)) olcum.IcKasaGenislik = txtIcKasaGenisligi.Text;
             if (!string.IsNullOrEmpty(txtIcKasaYuksekligi.Text)) olcum.IcKasaYukseklik = txtIcKasaYuksekligi.Text;

@@ -68,8 +68,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string KapiTipi { get; set; }
         public string YanginKapiCins { get; set; }
         public string Durum { get; set; }
-        public string KayıtYapanKamera { get; set; }
-        public string KayıtYapmayanKamera { get; set; }
+        public string KayitYapanKamera { get; set; }
+        public string KayitYapmayanKamera { get; set; }
         public string Alarm { get; set; }
         public string OtomatikKilit { get; set; }
         public string BolmeKayitSayi { get; set; }
@@ -127,8 +127,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
             this.Taktak = null;
             this.KapiTipi = null;
             this.Durum = null;
-            this.KayıtYapanKamera = null;
-            this.KayıtYapmayanKamera = null;
+            this.KayitYapanKamera = null;
+            this.KayitYapmayanKamera = null;
             this.Alarm = null;
             this.OtomatikKilit = null;
             this.FirmaAdi = null;
@@ -186,6 +186,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string IcSolPervaz { get; set; }
         public string IcUstPervaz { get; set; }
         public string IcSagPervaz { get; set; }
+        public string Acilim { get; set; }
 
         public Olcum()
         {
@@ -204,6 +205,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
             this.IcSolPervaz = null;
             this.IcUstPervaz = null;
             this.IcSagPervaz = null;
+            this.Acilim = null;
         }
     }
 

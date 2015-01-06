@@ -301,8 +301,8 @@ namespace ACKSiparisTakip.Web
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.Durum = "BEKLEYEN";
             if (!string.IsNullOrEmpty(txtFirmaAdi.Text)) siparis.FirmaAdi = txtFirmaAdi.Text;
-            if (DropDownCheck(ddlKayitYapanKam)) siparis.KayıtYapanKamera = ddlKayitYapanKam.SelectedText;
-            if (DropDownCheck(ddlKayitsizKam)) siparis.KayıtYapmayanKamera = ddlKayitsizKam.SelectedText;
+            if (DropDownCheck(ddlKayitYapanKam)) siparis.KayitYapanKamera = ddlKayitYapanKam.SelectedText;
+            if (DropDownCheck(ddlKayitsizKam)) siparis.KayitYapmayanKamera = ddlKayitsizKam.SelectedText;
             if (DropDownCheck(ddlAlarm)) siparis.Alarm = ddlAlarm.SelectedText;
             if (DropDownCheck(ddlOtomatikKilit)) siparis.OtomatikKilit = ddlOtomatikKilit.SelectedText;
             siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
@@ -338,6 +338,7 @@ namespace ACKSiparisTakip.Web
             if (!string.IsNullOrEmpty(txtOlcumBilgileri.Text)) olcum.OlcumBilgi = txtOlcumBilgileri.Text;
             if (rdtOlcuTarihSaat.SelectedDate != null) olcum.OlcumTarih = rdtOlcuTarihSaat.SelectedDate.Value;
             if (DropDownCheck(ddlTeslimSekli)) olcum.TeslimSekli = ddlTeslimSekli.SelectedText;
+            if (DropDownCheck(ddlAcilim)) olcum.Acilim = ddlAcilim.SelectedText;
 
             if (!string.IsNullOrEmpty(txtIcKasaGenisligi.Text)) olcum.IcKasaGenislik = txtIcKasaGenisligi.Text;
             if (!string.IsNullOrEmpty(txtIcKasaYuksekligi.Text)) olcum.IcKasaYukseklik = txtIcKasaYuksekligi.Text;

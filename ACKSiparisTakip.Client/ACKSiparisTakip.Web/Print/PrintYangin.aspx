@@ -297,7 +297,10 @@
             <td>
                 <asp:Label ID="lblIcSagPervaz" runat="server" RenderMode="Lightweight"></asp:Label>
             </td>
-             <td colspan="2"></td>
+            <td>Açılım:</td>
+            <td>
+                <asp:Label ID="lblAcilim" runat="server" RenderMode="Lightweight"></asp:Label>
+            </td>
         </tr>
     </table>
     <table class="boldTablo" style="width: 100%">

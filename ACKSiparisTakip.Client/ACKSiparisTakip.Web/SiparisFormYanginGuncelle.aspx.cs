@@ -123,8 +123,8 @@ namespace ACKSiparisTakip.Web
             siparis.DisKapiModel = (rowSiparis["DISKAPIMODEL"] != DBNull.Value) ? rowSiparis["DISKAPIMODEL"].ToString() : String.Empty;
             siparis.DisKapiRenk = (rowSiparis["DISKAPIRENK"] != DBNull.Value) ? rowSiparis["DISKAPIRENK"].ToString() : String.Empty;
             siparis.Durbun = (rowSiparis["DURBUN"] != DBNull.Value) ? rowSiparis["DURBUN"].ToString() : String.Empty;
-            siparis.KayıtYapmayanKamera = (rowSiparis["KAYITSIZKAMERA"] != DBNull.Value) ? rowSiparis["KAYITSIZKAMERA"].ToString() : String.Empty;
-            siparis.KayıtYapanKamera = (rowSiparis["KAYITYAPANKAMERA"] != DBNull.Value) ? rowSiparis["KAYITYAPANKAMERA"].ToString() : String.Empty;
+            siparis.KayitYapmayanKamera = (rowSiparis["KAYITSIZKAMERA"] != DBNull.Value) ? rowSiparis["KAYITSIZKAMERA"].ToString() : String.Empty;
+            siparis.KayitYapanKamera = (rowSiparis["KAYITYAPANKAMERA"] != DBNull.Value) ? rowSiparis["KAYITYAPANKAMERA"].ToString() : String.Empty;
             siparis.Alarm = (rowSiparis["ALARM"] != DBNull.Value) ? rowSiparis["ALARM"].ToString() : String.Empty;
             siparis.OtomatikKilit = (rowSiparis["OTOKILIT"] != DBNull.Value) ? rowSiparis["OTOKILIT"].ToString() : String.Empty;
             siparis.Esik = (rowSiparis["ESIK"] != DBNull.Value) ? rowSiparis["ESIK"].ToString() : String.Empty;
@@ -198,6 +198,7 @@ namespace ACKSiparisTakip.Web
             olcum.IcSolPervaz = (rowSiparis["ICSOLPERVAZ"] != DBNull.Value) ? rowSiparis["ICSOLPERVAZ"].ToString() : String.Empty;
             olcum.IcUstPervaz = (rowSiparis["ICUSTPERVAZ"] != DBNull.Value) ? rowSiparis["ICUSTPERVAZ"].ToString() : String.Empty;
             olcum.IcSagPervaz = (rowSiparis["ICSAGPERVAZ"] != DBNull.Value) ? rowSiparis["ICSAGPERVAZ"].ToString() : String.Empty;
+            olcum.Acilim = (rowSiparis["ACILIM"] != DBNull.Value) ? rowSiparis["ACILIM"].ToString() : String.Empty;
 
             sozlesme.KalanOdeme = (rowSiparis["KALANODEME"] != DBNull.Value) ? rowSiparis["KALANODEME"].ToString() : String.Empty;
             sozlesme.MontajDurum = "A";
@@ -560,10 +561,10 @@ namespace ACKSiparisTakip.Web
             if (DropDownCheck(ddlTaktak)) siparis.Taktak = ddlTaktak.SelectedText;
             if (DropDownCheck(ddlYanginMetalRengi)) siparis.MetalRenk = ddlYanginMetalRengi.SelectedText;
             if (DropDownCheck(ddlYanginKapiCins)) siparis.YanginKapiCins = ddlYanginKapiCins.SelectedText;
+            if (DropDownCheck(ddlSiparisDurumu)) siparis.Durum = ddlSiparisDurumu.SelectedText;
 
             siparis.SiparisID = this.SiparisID;
             siparis.KapiTipi = this.KapiTip.ToString();
-            siparis.Durum = "BEKLEYEN";
             if (!string.IsNullOrEmpty(txtFirmaAdi.Text)) siparis.FirmaAdi = txtFirmaAdi.Text;
 
             siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
@@ -595,6 +596,7 @@ namespace ACKSiparisTakip.Web
 
             if (DropDownCheck(ddlMontajSekli)) olcum.MontajSekli = ddlMontajSekli.SelectedText;
             if (DropDownCheck(ddlOlcumAlan)) olcum.OlcumAlanKisi = ddlOlcumAlan.SelectedText;
+            if (DropDownCheck(ddlAcilim)) olcum.Acilim = ddlAcilim.SelectedText;
             if (!string.IsNullOrEmpty(txtOlcumBilgileri.Text)) olcum.OlcumBilgi = txtOlcumBilgileri.Text;
             if (rdtOlcuTarihSaat.SelectedDate != null) olcum.OlcumTarih = rdtOlcuTarihSaat.SelectedDate.Value;
             if (DropDownCheck(ddlTeslimSekli)) olcum.TeslimSekli = ddlTeslimSekli.SelectedText;

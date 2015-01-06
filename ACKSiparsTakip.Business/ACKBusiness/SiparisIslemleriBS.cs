@@ -718,8 +718,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("BABA", siparis.Baba, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DURBUN", siparis.Durbun, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("TAKTAK", siparis.Taktak, SqlDbType.VarChar, 50);
-                data.AddSqlParameter("KAYITSIZKAMERA", siparis.KayıtYapmayanKamera, SqlDbType.VarChar, 50);
-                data.AddSqlParameter("KAYITYAPANKAMERA", siparis.KayıtYapanKamera, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAYITSIZKAMERA", siparis.KayitYapmayanKamera, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAYITYAPANKAMERA", siparis.KayitYapanKamera, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ALARM", siparis.Alarm, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("OTOKILIT", siparis.OtomatikKilit, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("MONTAJDATAKILACAK", olcum.MontajdaTakilacak, SqlDbType.VarChar, 50);
@@ -779,7 +779,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("ICSAGPERVAZ", olcum.IcSagPervaz, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("CREATEDBY", siparis.CreatedBy, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("CREATEDTIME", siparis.CreatedTime, SqlDbType.DateTime, 50);
-
+                data.AddSqlParameter("ACILIM", olcum.Acilim, SqlDbType.VarChar, 50);
 
                 string sqlKaydet = @"INSERT INTO [ACKAppDB].[dbo].[SIPARIS]
                                    ([SIPARISNO]
@@ -872,6 +872,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                   ,ICSOLPERVAZ
                                   ,ICUSTPERVAZ
                                   ,ICSAGPERVAZ
+                                  ,ACILIM
                                   ,CREATEDBY
                                   ,CREATEDTIME)
                              VALUES
@@ -965,11 +966,12 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                   ,@ICSOLPERVAZ
                                   ,@ICUSTPERVAZ
                                   ,@ICSAGPERVAZ
+                                  ,@ACILIM
                                   ,@CREATEDBY
                                   ,@CREATEDTIME)
 
-                SELECT SCOPE_IDENTITY();";
-                int siparisID = data.ExecuteStatement(sqlKaydet);
+                SELECT MAX(ID) FROM [ACKAppDB].[dbo].[SIPARIS]";
+                int siparisID = Convert.ToInt32(data.ExecuteScalar(sqlKaydet, CommandType.Text));
 
                 //MONTAJ BILGISI KAYDET
 
@@ -1041,8 +1043,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("BABA", siparis.Baba, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DURBUN", siparis.Durbun, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("TAKTAK", siparis.Taktak, SqlDbType.VarChar, 50);
-                data.AddSqlParameter("KAYITSIZKAMERA", siparis.KayıtYapmayanKamera, SqlDbType.VarChar, 50);
-                data.AddSqlParameter("KAYITYAPANKAMERA", siparis.KayıtYapanKamera, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAYITSIZKAMERA", siparis.KayitYapmayanKamera, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("KAYITYAPANKAMERA", siparis.KayitYapanKamera, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ALARM", siparis.Alarm, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("OTOKILIT", siparis.OtomatikKilit, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("ADET", siparis.SiparisAdedi, SqlDbType.Int, 50);
@@ -1101,6 +1103,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("ICSAGPERVAZ", olcum.IcSagPervaz, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("UPDATEDBY", siparis.UpdatedBy, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("UPDATEDTIME", siparis.UpdatedTime, SqlDbType.DateTime, 50);
+                data.AddSqlParameter("DURUM", siparis.Durum, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("ACILIM", olcum.Acilim, SqlDbType.VarChar, 50);
                 //
 
                 string sqlGuncelle = @"UPDATE [ACKAppDB].[dbo].[SIPARIS]
@@ -1195,6 +1199,8 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                                           ,ICSAGPERVAZ=@ICSAGPERVAZ
                                           ,UPDATEDBY=@UPDATEDBY
                                           ,UPDATEDTIME=@UPDATEDTIME
+                                          ,DURUM=@DURUM
+                                          ,ACILIM=@ACILIM
                                      WHERE [ID] =@ID";
 
                 data.ExecuteStatement(sqlGuncelle);

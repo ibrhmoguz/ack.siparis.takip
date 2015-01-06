@@ -508,6 +508,15 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadTextBox txtIcSagPervaz;
         
         /// <summary>
+        /// ddlAcilim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlAcilim;
+        
+        /// <summary>
         /// txtNot control.
         /// </summary>
         /// <remarks>

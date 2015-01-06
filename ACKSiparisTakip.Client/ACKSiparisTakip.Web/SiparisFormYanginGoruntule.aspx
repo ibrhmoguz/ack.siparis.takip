@@ -313,6 +313,10 @@
             <td>
                 <asp:Label ID="lblIcSagPervaz" runat="server" RenderMode="Lightweight"></asp:Label>
             </td>
+            <th>Açılım:</th>
+            <td>
+                <asp:Label ID="lblAcilim" runat="server" RenderMode="Lightweight"></asp:Label>
+            </td>
         </tr>
     </table>
     <br />
