@@ -354,8 +354,8 @@ namespace ACKSiparisTakip.Web
         {
             if (e.Command == SchedulerNavigationCommand.SwitchToMonthView)
             {
-                int ayGunSayisi = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-                DateTime dtBaslangic = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                int ayGunSayisi = DateTime.DaysInMonth(RadCalendarIsTakvimi.SelectedDate.Year, RadCalendarIsTakvimi.SelectedDate.Month);
+                DateTime dtBaslangic = new DateTime(RadCalendarIsTakvimi.SelectedDate.Year, RadCalendarIsTakvimi.SelectedDate.Month, 1);
                 DateTime dtBitis = dtBaslangic.AddDays(ayGunSayisi - 1);
 
                 MontajlariListele(dtBaslangic, dtBitis);
