@@ -39,7 +39,7 @@
             modalDiv.style.display = "none";
         }
     </script>
-    <form id="FormLogin" runat="server">
+    <form id="FormLogin" runat="server" defaultbutton="LB_Login">
         <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
         <table style="width: 100%">
             <tr>
