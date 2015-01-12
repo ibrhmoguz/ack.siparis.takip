@@ -11,10 +11,15 @@ namespace ACKSiparisTakip.Web.Helper
     {
         private static void Show(Page page, string message, string title, string icon)
         {
-            if (page.Master == null)
-                return;
+            RadNotification messageBox;
 
-            RadNotification messageBox = page.Master.FindControl("RadNotificationACKMaster") as RadNotification;
+            if (page.Master == null)
+            {
+                messageBox = page.FindControl("RadNotificationACKMaster") as RadNotification;
+            }
+            else
+                messageBox = page.Master.FindControl("RadNotificationACKMaster") as RadNotification;
+
             messageBox.Title = title;
             messageBox.ContentIcon = icon;
             messageBox.Show(message);

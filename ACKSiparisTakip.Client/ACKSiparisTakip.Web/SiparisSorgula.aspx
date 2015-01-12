@@ -145,9 +145,16 @@
                             </td>
                             <th>Kapı Tipi :</th>
                             <td>
-                                <telerik:RadDropDownList ID="ddlKapiSeri" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                                <telerik:RadDropDownList ID="ddlKapiSeri" runat="server" RenderMode="Lightweight">
+                                    <Items>
+                                        <telerik:DropDownListItem Text="GUARD" Value="G" />
+                                        <telerik:DropDownListItem Text="KROMA" Value="K" />
+                                        <telerik:DropDownListItem Text="NOVA" Value="N" />
+                                        <telerik:DropDownListItem Text="YANGIN" Value="Y" />
+                                        <telerik:DropDownListItem Text="PORTE" Value="P" />
+                                    </Items>
+                                </telerik:RadDropDownList>
                             </td>
-
                         </tr>
                     </table>
                 </td>

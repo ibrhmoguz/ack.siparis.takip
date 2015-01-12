@@ -14,7 +14,7 @@
                 <b>
                     <asp:Label ID="lblKapiTur" runat="server"></asp:Label></b>
             </td>
-            <td style="width: 30%; text-align: left">
+            <td style="width: 35%; text-align: left">
                 <b>ANKARA ÇELİK KAPI SAN. TİC. LTD. ŞTİ. </b>
             </td>
         </tr>
@@ -55,7 +55,7 @@
             <td style="width: 35%">
                 <asp:Label ID="lblOlcuTarihSaat" runat="server"></asp:Label>
             </td>
-            <td style="width: 10%">Sipariş Tarihi :  </td>
+            <td style="width: 12%">Sipariş Tarihi :  </td>
             <td>
                 <asp:Label ID="lblSiparisTarih" runat="server"></asp:Label>
             </td>
@@ -88,7 +88,7 @@
             <td style="width: 35%">
                 <asp:Label ID="lblFirmaAdi" runat="server"></asp:Label>
             </td>
-            <td style="width: 10%">Sipariş Adedi: </td>
+            <td style="width: 12%">Sipariş Adedi: </td>
             <td>
                 <asp:Label ID="lblSiparisAdedi" runat="server"></asp:Label>
             </td>
@@ -131,15 +131,15 @@
             <th colspan="6">KAPI BİLGİLERİ </th>
         </tr>
         <tr>
-            <td style="width: 12%">Dış Kapı Modeli :</td>
-            <td style="width: 18%">
+            <td style="width: 15%">Dış Kapı Modeli :</td>
+            <td style="width: 16%">
                 <asp:Label ID="lblDisKapiModeli" runat="server"></asp:Label>
             </td>
-            <td style="width: 12%">Metal Rengi :</td>
-            <td style="width: 18%">
+            <td style="width: 15%">Metal Rengi :</td>
+            <td style="width: 16%">
                 <asp:Label ID="lblMetalRenk" runat="server"></asp:Label>
             </td>
-            <td style="width: 12%">Kilit Sistemi :</td>
+            <td style="width: 15%">Kilit Sistemi :</td>
             <td>
                 <asp:Label ID="lblKilitSistemi" runat="server"></asp:Label>
             </td>
@@ -248,7 +248,7 @@
             <th colspan="6">AKSESUARLAR</th>
         </tr>
         <tr>
-            <td style="width: 16%">Çekme Kol Tipi :</td>
+            <td style="width: 17%">Çekme Kol Tipi :</td>
             <td style="width: 18%">
                 <asp:Label ID="lblCekmeKolu" runat="server"></asp:Label>
             </td>
@@ -311,7 +311,7 @@
     <table class="boldTablo" style="width: 100%;">
         <tr>
             <td rowspan="8" colspan="2" style="width: 20%">
-                <telerik:RadBinaryImage ID="RadBinaryImage2" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu1.png" Width="350" Height="130" />
+                <telerik:RadBinaryImage ID="RadBinaryImage2" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu1.png" Width="315" Height="130" />
             </td>
             <th colspan="4" style="text-align: center">ÖLÇÜM ve MONTAJ</th>
         </tr>

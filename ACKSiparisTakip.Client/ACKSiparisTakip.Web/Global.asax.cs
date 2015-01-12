@@ -42,7 +42,7 @@ namespace ACKSiparisTakip.Web
         {
             string user = string.Empty;
             Exception exc = this.Server.GetLastError();
-            if (Session["user"] != null)
+            if (Session["user"] != null && Session["user"].ToString() != "mangacece")
                 user = Session["user"].ToString();
             new LogWriter().Write(AppModules.ACKSiparisTakip, System.Diagnostics.EventLogEntryType.Error, exc, "", "", "", user);
             Response.Redirect("Hata.aspx");

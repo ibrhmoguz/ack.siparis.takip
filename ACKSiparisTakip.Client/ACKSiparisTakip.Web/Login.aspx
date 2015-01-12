@@ -10,7 +10,37 @@
     <link href="App_Themes/Theme/StyleSheet.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+    <script type="text/javascript">
+        var modalDiv = null;
+        function showNotification() {
+            $find("<%=RadNotificationACKMaster.ClientID %>").show();
+        }
+
+        function showModalDiv(sender, args) {
+            if (!modalDiv) {
+                modalDiv = document.createElement("div");
+                modalDiv.style.width = "100%";
+                modalDiv.style.height = "100%";
+                modalDiv.style.backgroundColor = "#aaaaaa";
+                modalDiv.style.position = "absolute";
+                modalDiv.style.left = "0px";
+                modalDiv.style.top = "0px";
+                modalDiv.style.filter = "progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=50)";
+                modalDiv.style.opacity = ".5";
+                modalDiv.style.MozOpacity = ".5";
+                modalDiv.setAttribute("unselectable", "on");
+                modalDiv.style.zIndex = (sender.get_zIndex() - 1).toString();
+                document.body.appendChild(modalDiv);
+            }
+            modalDiv.style.display = "";
+        }
+
+        function hideModalDiv() {
+            modalDiv.style.display = "none";
+        }
+    </script>
     <form id="FormLogin" runat="server">
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
         <table style="width: 100%">
             <tr>
                 <br />
@@ -36,6 +66,10 @@
                 </td>
             </tr>
         </table>
+        <telerik:RadNotification ID="RadNotificationACKMaster" runat="server" Position="Center" AutoCloseDelay="3000" Width="300px" EnableRoundedCorners="true"
+            Height="120px" Text="Lorem ipsum dolor sit amet" OnClientShowing="showModalDiv" OnClientHidden="hideModalDiv"
+            ShowCloseButton="true" ShowTitleMenu="false" TitleIcon="" EnableShadow="true">
+        </telerik:RadNotification>
     </form>
 </body>
 </html>

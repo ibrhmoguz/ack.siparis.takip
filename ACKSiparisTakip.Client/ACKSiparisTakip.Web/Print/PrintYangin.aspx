@@ -55,7 +55,7 @@
             <td style="width: 35%">
                 <asp:Label ID="lblOlcuTarihSaat" runat="server"></asp:Label>
             </td>
-            <td style="width: 10%">Sipariş Tarihi :  </td>
+            <td style="width: 12%">Sipariş Tarihi :  </td>
             <td>
                 <asp:Label ID="lblSiparisTarih" runat="server"></asp:Label>
             </td>
@@ -88,7 +88,7 @@
             <td style="width: 35%">
                 <asp:Label ID="lblFirmaAdi" runat="server"></asp:Label>
             </td>
-            <td style="width: 10%">Sipariş Adedi: </td>
+            <td style="width: 12%">Sipariş Adedi: </td>
             <td>
                 <asp:Label ID="lblSiparisAdedi" runat="server"></asp:Label>
             </td>
@@ -131,7 +131,7 @@
             <th colspan="6">KAPI BİLGİLERİ </th>
         </tr>
         <tr>
-            <td style="width: 12%">Dış Kapı Modeli :</td>
+            <td style="width: 13%">Dış Kapı Modeli :</td>
             <td style="width: 18%">
                 <asp:Label ID="lblDisKapiModeli" runat="server"></asp:Label>
             </td>
@@ -216,8 +216,8 @@
     </table>
     <table class="boldTablo" style="width: 100%;">
         <tr>
-            <td rowspan="8" colspan="2" style="width: 20%">
-                <telerik:RadBinaryImage ID="RadBinaryImage1" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu3.png" Width="350" Height="250" />
+            <td rowspan="8" colspan="2" style="width: 18%">
+                <telerik:RadBinaryImage ID="RadBinaryImage1" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu3.png" Width="300" Height="250" />
             </td>
             <th colspan="4" style="text-align: center">ÖLÇÜM ve MONTAJ</th>
         </tr>

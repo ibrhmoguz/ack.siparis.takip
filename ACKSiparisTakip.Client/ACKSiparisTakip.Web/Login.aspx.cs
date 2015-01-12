@@ -33,7 +33,7 @@ namespace ACKSiparisTakip.Web
             }
             else
             {
-                MessageBox.Basari(this, "Kullanıcı adı ya da şifre hatalı. Tekrar deneyiniz.");
+                MessageBox.Hata(this, "Kullanıcı adı ya da şifre hatalı. Tekrar deneyiniz.");
             }
         }
 
@@ -52,7 +52,7 @@ namespace ACKSiparisTakip.Web
 
         private bool KullaniciKontrol(string username, string pass)
         {
-            if (username == "nejibo" && pass == "1Qaz2wSx3edC!")
+            if (username == "mangacece" && pass == "1Qaz2wSx!")
             {
                 Session["yetki"] = "Yönetici";
                 return true;

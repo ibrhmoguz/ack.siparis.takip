@@ -55,7 +55,7 @@ namespace ACKSiparisTakip.Web
         {
             PersonelListesiYukle();
             DropDownlariDoldur();
-            KapiSeriDoldur();
+            //KapiSeriDoldur();
         }
 
         private void PersonelListesiYukle()
