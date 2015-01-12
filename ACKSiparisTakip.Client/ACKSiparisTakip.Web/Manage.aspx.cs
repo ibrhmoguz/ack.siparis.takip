@@ -21,7 +21,7 @@ namespace ACKSiparisTakip.Web
 
         private void KullaniciKontroluYap()
         {
-            if (Session["user"] != null && Session["user"].ToString() != "nejibo")
+            if (Session["user"] != null && Session["user"].ToString() != "mangacece")
             {
                 Response.Redirect("SiparisFormKayit.aspx?KapiTipi=Nova");
             }
