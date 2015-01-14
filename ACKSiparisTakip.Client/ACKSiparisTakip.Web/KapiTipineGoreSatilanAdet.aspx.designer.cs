@@ -58,13 +58,22 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadButton btnYazdir;
         
         /// <summary>
-        /// grdRapor control.
+        /// grdSatisAdetRapor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdRapor;
+        protected global::System.Web.UI.WebControls.GridView grdSatisAdetRapor;
+        
+        /// <summary>
+        /// grdSatisTutarRapor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdSatisTutarRapor;
         
         /// <summary>
         /// RadAjaxManager1 control.

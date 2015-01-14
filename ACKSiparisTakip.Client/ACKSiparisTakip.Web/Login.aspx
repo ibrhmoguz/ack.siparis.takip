@@ -49,7 +49,7 @@
                 <br />
                 <br />
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td colspan="2">
                     <telerik:RadBinaryImage ID="imgLogo" runat="server" ImageUrl="~/App_Themes/Theme/Raster/ackLogo.PNG" />
                     <br />

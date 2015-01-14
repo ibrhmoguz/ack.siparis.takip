@@ -147,6 +147,7 @@
                             <td>
                                 <telerik:RadDropDownList ID="ddlKapiSeri" runat="server" RenderMode="Lightweight">
                                     <Items>
+                                        <telerik:DropDownListItem Text="Seçiniz" Value="Seçiniz" />
                                         <telerik:DropDownListItem Text="GUARD" Value="G" />
                                         <telerik:DropDownListItem Text="KROMA" Value="K" />
                                         <telerik:DropDownListItem Text="NOVA" Value="N" />

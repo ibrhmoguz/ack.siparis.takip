@@ -7,7 +7,7 @@
     <br />
     <table class="AnaTablo" style="width: 100%">
         <tr>
-            <th class="TdRenkAciklama" colspan="2" style="text-align: center; font-size: 11pt;">KAPI TİPİNE GÖRE SATILAN ADET<br />
+            <th class="TdRenkAciklama" colspan="2" style="text-align: center; font-size: 11pt;">KAPI TİPİNE GÖRE SATILAN ADET/TUTAR<br />
             </th>
         </tr>
         <tr>
@@ -41,10 +41,51 @@
                     <tr>
                         <td colspan="7">
                             <br />
-                            <asp:GridView ID="grdRapor" runat="server" AutoGenerateColumns="true" AllowPaging="false" PageSize="30"
+                            <asp:GridView ID="grdSatisAdetRapor" runat="server" AutoGenerateColumns="false" AllowPaging="false" PageSize="30"
                                 Width="100%" CssClass="AnaTablo" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2"
                                 EmptyDataText="Satış bulunamamıştır!" EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
                                 EmptyDataRowStyle-CssClass="TdRenkAciklama">
+                                <Columns>
+                                    <asp:BoundField DataField="TOPLAM SATIŞ" HeaderText="TOPLAM SATIŞ" ItemStyle-Width="11%" />
+                                    <asp:BoundField DataField="1" HeaderText="1" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="2" HeaderText="2" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="3" HeaderText="3" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="4" HeaderText="4" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="5" HeaderText="5" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="6" HeaderText="6" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="7" HeaderText="7" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="8" HeaderText="8" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="9" HeaderText="9" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="10" HeaderText="10" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="11" HeaderText="11" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="12" HeaderText="12" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="Yillik" HeaderText="Yıllık" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataField="Yuzde(%)" HeaderText="Yüzde(%)" />
+                                </Columns>
+                            </asp:GridView>
+
+                            <br />
+                            <asp:GridView ID="grdSatisTutarRapor" runat="server" AutoGenerateColumns="false" AllowPaging="false" PageSize="30"
+                                Width="100%" CssClass="AnaTablo" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2"
+                                EmptyDataText="Satış tutarı bulunamamıştır!" EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
+                                EmptyDataRowStyle-CssClass="TdRenkAciklama">
+                                <Columns>
+                                    <asp:BoundField DataField="TOPLAM TUTAR" HeaderText="TOPLAM TUTAR" ItemStyle-Width="11%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="1" HeaderText="1" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="2" HeaderText="2" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="3" HeaderText="3" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="4" HeaderText="4" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="5" HeaderText="5" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="6" HeaderText="6" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="7" HeaderText="7" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="8" HeaderText="8" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="9" HeaderText="9" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="10" HeaderText="10" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="11" HeaderText="11" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="12" HeaderText="12" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="Yillik" HeaderText="Yıllık" ItemStyle-Width="6%" />
+                                    <asp:BoundField DataFormatString="{0:###,###,###.00}" DataField="Yuzde(%)" HeaderText="Yüzde(%)" />
+                                </Columns>
                             </asp:GridView>
                         </td>
                     </tr>

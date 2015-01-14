@@ -10,18 +10,33 @@ namespace ACKSiparisTakip.Web.Print
 {
     public partial class KapiTipineGoreSatilanAdet : System.Web.UI.Page
     {
-        private DataTable SorguSonucListesi
+        private DataTable SatisAdetListesi
         {
             get
             {
-                if (Session["KapiTipineGoreSatilanAdet"] != null)
-                    return Session["KapiTipineGoreSatilanAdet"] as DataTable;
+                if (Session["SatisAdetListesi"] != null)
+                    return Session["SatisAdetListesi"] as DataTable;
                 else
                     return null;
             }
             set
             {
-                Session["KapiTipineGoreSatilanAdet"] = value;
+                Session["SatisAdetListesi"] = value;
+            }
+        }
+
+        private DataTable SatisTutarListesi
+        {
+            get
+            {
+                if (Session["SatisTutarListesi"] != null)
+                    return Session["SatisTutarListesi"] as DataTable;
+                else
+                    return null;
+            }
+            set
+            {
+                Session["SatisTutarListesi"] = value;
             }
         }
 
@@ -35,17 +50,21 @@ namespace ACKSiparisTakip.Web.Print
 
         private void RaporOlustur()
         {
-            DataTable dt = this.SorguSonucListesi;
+            GridDoldur(grdSatisAdetRapor, this.SatisAdetListesi);
+            GridDoldur(grdSatisTutarRapor, this.SatisTutarListesi);
+        }
 
-            if (dt.Rows.Count > 0)
+        private void GridDoldur(GridView gv, DataTable dtSatisAdet)
+        {
+            if (dtSatisAdet.Rows.Count > 0)
             {
-                grdRapor.DataSource = dt;
-                grdRapor.DataBind();
+                gv.DataSource = dtSatisAdet;
+                gv.DataBind();
             }
             else
             {
-                grdRapor.DataSource = null;
-                grdRapor.DataBind();
+                gv.DataSource = null;
+                gv.DataBind();
             }
         }
     }

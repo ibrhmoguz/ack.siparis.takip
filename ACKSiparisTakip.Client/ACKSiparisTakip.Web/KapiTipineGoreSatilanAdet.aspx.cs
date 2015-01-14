@@ -15,18 +15,33 @@ namespace ACKSiparisTakip.Web
     {
         private static string ANKARA_IL_KODU = "6";
 
-        private DataTable SorguSonucListesi
+        private DataTable SatisAdetListesi
         {
             get
             {
-                if (Session["KapiTipineGoreSatilanAdet"] != null)
-                    return Session["KapiTipineGoreSatilanAdet"] as DataTable;
+                if (Session["SatisAdetListesi"] != null)
+                    return Session["SatisAdetListesi"] as DataTable;
                 else
                     return null;
             }
             set
             {
-                Session["KapiTipineGoreSatilanAdet"] = value;
+                Session["SatisAdetListesi"] = value;
+            }
+        }
+
+        private DataTable SatisTutarListesi
+        {
+            get
+            {
+                if (Session["SatisTutarListesi"] != null)
+                    return Session["SatisTutarListesi"] as DataTable;
+                else
+                    return null;
+            }
+            set
+            {
+                Session["SatisTutarListesi"] = value;
             }
         }
 
@@ -120,29 +135,47 @@ namespace ACKSiparisTakip.Web
             if (ddlMusteriIlce.SelectedIndex != 0)
                 ilce = ddlMusteriIlce.SelectedText;
 
-            DataTable dt = new RaporBS().KapiTipineGoreSatilanAdet(il, ilce, ddlYil.SelectedValue);
-            dt = YuzdeDegerleriHesapla(dt);
+            DataSet ds = new RaporBS().KapiTipineGoreSatilanAdet(il, ilce, ddlYil.SelectedValue);
 
-            if (dt.Rows.Count > 0)
+            DataTable dtSatisAdet = ds.Tables[0];
+            DataTable dtSatisTutar = ds.Tables[1];
+
+            dtSatisAdet = YuzdeDegerleriHesaplaAdet(dtSatisAdet);
+
+            if (dtSatisAdet.Rows.Count > 0)
             {
-                grdRapor.DataSource = dt;
-                grdRapor.DataBind();
+                grdSatisAdetRapor.DataSource = dtSatisAdet;
+                grdSatisAdetRapor.DataBind();
                 btnYazdir.Visible = true;
             }
             else
             {
-                grdRapor.DataSource = null;
-                grdRapor.DataBind();
+                grdSatisAdetRapor.DataSource = null;
+                grdSatisAdetRapor.DataBind();
                 btnYazdir.Visible = false;
             }
 
-            this.SorguSonucListesi = dt;
+            dtSatisTutar = YuzdeDegerleriHesaplaTutar(dtSatisTutar);
+
+            if (dtSatisTutar.Rows.Count > 0)
+            {
+                grdSatisTutarRapor.DataSource = dtSatisTutar;
+                grdSatisTutarRapor.DataBind();
+            }
+            else
+            {
+                grdSatisTutarRapor.DataSource = null;
+                grdSatisTutarRapor.DataBind();
+            }
+
+            this.SatisAdetListesi = dtSatisAdet;
+            this.SatisTutarListesi = dtSatisTutar;
             PopupPageHelper.OpenPopUp(btnYazdir, "Print/KapiTipineGoreSatilanAdet.aspx", "", true, false, true, false, false, false, 1024, 800, true, false, "onclick");
         }
 
-        private DataTable YuzdeDegerleriHesapla(DataTable dt)
+        private DataTable YuzdeDegerleriHesaplaAdet(DataTable dt)
         {
-            decimal toplamAdet = Convert.ToDecimal(dt.AsEnumerable().Sum(a => Convert.ToInt32(a.Field<string>("Yillik"))).ToString());
+            decimal toplamAdet = Convert.ToDecimal(dt.AsEnumerable().Sum(a => Convert.ToDecimal(a.Field<string>("Yillik"))).ToString());
             decimal yuzde;
 
             foreach (DataRow row in dt.Rows)
@@ -167,6 +200,64 @@ namespace ACKSiparisTakip.Web
                         dt.Rows[i][j] = string.Empty;
                 }
             }
+
+            DataRow toplamRow = dt.NewRow();
+            toplamRow[0] = "TOPLAM";
+            toplamRow[1] = dt.AsEnumerable().Where(q => q.Field<string>("1") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("1"))).ToString();
+            toplamRow[2] = dt.AsEnumerable().Where(q => q.Field<string>("2") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("2"))).ToString();
+            toplamRow[3] = dt.AsEnumerable().Where(q => q.Field<string>("3") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("3"))).ToString();
+            toplamRow[4] = dt.AsEnumerable().Where(q => q.Field<string>("4") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("4"))).ToString();
+            toplamRow[5] = dt.AsEnumerable().Where(q => q.Field<string>("5") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("5"))).ToString();
+            toplamRow[6] = dt.AsEnumerable().Where(q => q.Field<string>("6") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("6"))).ToString();
+            toplamRow[7] = dt.AsEnumerable().Where(q => q.Field<string>("7") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("7"))).ToString();
+            toplamRow[8] = dt.AsEnumerable().Where(q => q.Field<string>("8") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("8"))).ToString();
+            toplamRow[9] = dt.AsEnumerable().Where(q => q.Field<string>("9") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("9"))).ToString();
+            toplamRow[10] = dt.AsEnumerable().Where(q => q.Field<string>("10") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("10"))).ToString();
+            toplamRow[11] = dt.AsEnumerable().Where(q => q.Field<string>("11") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("11"))).ToString();
+            toplamRow[12] = dt.AsEnumerable().Where(q => q.Field<string>("12") != string.Empty).Sum(a => Convert.ToInt32(a.Field<string>("12"))).ToString();
+            toplamRow["Yillik"] = toplamAdet.ToString();
+            toplamRow["Yuzde(%)"] = "100";
+            dt.Rows.Add(toplamRow);
+
+            return dt;
+        }
+
+        private DataTable YuzdeDegerleriHesaplaTutar(DataTable dt)
+        {
+            decimal toplamAdet = dt.AsEnumerable().Sum(a => a.Field<Decimal>("Yillik"));
+            decimal yuzde;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["Yillik"] != DBNull.Value)
+                {
+                    if (toplamAdet != 0)
+                    {
+                        yuzde = Convert.ToDecimal((Convert.ToDecimal(row["Yillik"].ToString()) / toplamAdet));
+                        row["Yuzde(%)"] = (yuzde * 100).ToString("0.00", CultureInfo.GetCultureInfo("tr-TR"));
+                    }
+                    else
+                        row["Yuzde(%)"] = "0";
+                }
+            }
+
+            DataRow toplamRow = dt.NewRow();
+            toplamRow[0] = "TOPLAM";
+            toplamRow[1] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("1")).ToString("0.00", CultureInfo.GetCultureInfo("tr-TR"));
+            toplamRow[2] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("2"));
+            toplamRow[3] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("3"));
+            toplamRow[4] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("4"));
+            toplamRow[5] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("5"));
+            toplamRow[6] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("6"));
+            toplamRow[7] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("7"));
+            toplamRow[8] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("8"));
+            toplamRow[9] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("9"));
+            toplamRow[10] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("10"));
+            toplamRow[11] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("11"));
+            toplamRow[12] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("12"));
+            toplamRow["Yillik"] = toplamAdet;
+            toplamRow["Yuzde(%)"] = "100";
+            dt.Rows.Add(toplamRow);
 
             return dt;
         }
