@@ -470,7 +470,7 @@
                         <tr>
                             <th>Fiyat : </th>
                             <td>
-                                <asp:Label ID="lblFiyat" runat="server"></asp:Label>
+                                <asp:Label ID="lblFiyat" runat="server" CssClass="NumericFieldClass"></asp:Label> TL
                             </td>
                         </tr>
                         <tr>
@@ -498,10 +498,10 @@
                         <tr>
                             <th>Nakit:</th>
                             <td>
-                                <asp:Label ID="lblNakitPesin" runat="server"></asp:Label>
+                                <asp:Label ID="lblNakitPesin" runat="server" CssClass="NumericFieldClass"></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="lblNakitKalan" runat="server"></asp:Label>
+                                <asp:Label ID="lblNakitKalan" runat="server" CssClass="NumericFieldClass"></asp:Label>
                             </td>
                             <td>
                                 <asp:Label ID="lblNakitOdemeNotu" runat="server"></asp:Label>
@@ -510,10 +510,10 @@
                         <tr>
                             <th>Kredi Kartı:</th>
                             <td>
-                                <asp:Label ID="lblKKartiPesin" runat="server"></asp:Label>
+                                <asp:Label ID="lblKKartiPesin" runat="server" CssClass="NumericFieldClass"></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="lblKKartiKalan" runat="server"></asp:Label>
+                                <asp:Label ID="lblKKartiKalan" runat="server" CssClass="NumericFieldClass"></asp:Label>
                             </td>
                             <td>
                                 <asp:Label ID="lblKKartiOdemeNotu" runat="server"></asp:Label>
@@ -522,10 +522,10 @@
                         <tr>
                             <th>Çek:</th>
                             <td>
-                                <asp:Label ID="lblCekPesin" runat="server"></asp:Label>
+                                <asp:Label ID="lblCekPesin" runat="server" CssClass="NumericFieldClass"></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="lblCekKalan" runat="server"></asp:Label>
+                                <asp:Label ID="lblCekKalan" runat="server" CssClass="NumericFieldClass"></asp:Label>
                             </td>
                             <td>
                                 <asp:Label ID="lblCekOdemeNotu" runat="server"></asp:Label>

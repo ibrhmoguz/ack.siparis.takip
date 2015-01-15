@@ -85,14 +85,14 @@ namespace ACKSiparisTakip.Business.ACKBusiness.DataTypes
         public string KasaKaplama { get; set; }
         public string FirmaAdi { get; set; }
         public string SiparisAdedi { get; set; }
-        public double? NakitPesin { get; set; }
-        public double? NakitKalan { get; set; }
+        public string NakitPesin { get; set; }
+        public string NakitKalan { get; set; }
         public string NakitOdemeNot { get; set; }
-        public double? KKartiPesin { get; set; }
-        public double? KKartiKalan { get; set; }
+        public string KKartiPesin { get; set; }
+        public string KKartiKalan { get; set; }
         public string KKartiOdemeNot { get; set; }
-        public double? CekPesin { get; set; }
-        public double? CekKalan { get; set; }
+        public string CekPesin { get; set; }
+        public string CekKalan { get; set; }
         public string CekOdemeNot { get; set; }
         public string Not { get; set; }
         public string Cumba { get; set; }

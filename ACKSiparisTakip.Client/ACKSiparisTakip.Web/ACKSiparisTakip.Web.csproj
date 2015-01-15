@@ -138,6 +138,7 @@
     <Content Include="Print\GunlukIsTakip.aspx" />
     <Content Include="Print\Print.aspx" />
     <Content Include="Print\PrinterFriendly.css" />
+    <Content Include="Script\NumberFormat.js" />
     <Content Include="SiparisFormKayit.aspx" />
     <Content Include="SiparisFormGoruntule.aspx" />
     <Content Include="SiparisFormGuncelle.aspx" />

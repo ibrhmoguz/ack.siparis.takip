@@ -6,6 +6,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <script src="../Script/jquery.js"></script>
+    <script src="../Script/NumberFormat.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="PrinterFriendly.css" rel="stylesheet" type="text/css" />
     <link href="../../App_Themes/Theme/Buttons.css" rel="stylesheet" type="text/css" />
@@ -47,6 +48,17 @@
             $('#yazdir').css('visibility', 'hidden');
             window.print();
         }
+
+        $(function () {
+            $('.NumericFieldClass').priceFormat({
+                prefix: '',
+                suffix: '',
+                thousandsSeparator: '.',
+                centsSeparator: ',',
+                centsLimit: 2
+            });
+        });
+
     </script>
 </head>
 <body>

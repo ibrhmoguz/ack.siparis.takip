@@ -306,26 +306,27 @@ namespace ACKSiparisTakip.Web
             if (DropDownCheck(ddlAlarm)) siparis.Alarm = ddlAlarm.SelectedText;
             if (DropDownCheck(ddlOtomatikKilit)) siparis.OtomatikKilit = ddlOtomatikKilit.SelectedText;
             siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
-            if (!string.IsNullOrWhiteSpace(txtNakitPesin.Text)) siparis.NakitPesin = Convert.ToDouble(txtNakitPesin.Text);
-            if (!string.IsNullOrWhiteSpace(txtNakitKalan.Text)) siparis.NakitKalan = Convert.ToDouble(txtNakitKalan.Text);
+
+            if (!string.IsNullOrWhiteSpace(txtNakitPesin.Text)) siparis.NakitPesin = txtNakitPesin.Text;
+            if (!string.IsNullOrWhiteSpace(txtNakitKalan.Text)) siparis.NakitKalan = txtNakitKalan.Text;
             siparis.NakitOdemeNot = string.IsNullOrWhiteSpace(txtNakitOdemeNotu.Text) ? null : txtNakitOdemeNotu.Text;
 
             if (!string.IsNullOrWhiteSpace(txtKKartiPesin.Text))
-                siparis.KKartiPesin = Convert.ToDouble(txtKKartiPesin.Text);
+                siparis.KKartiPesin = txtKKartiPesin.Text;
             else
                 siparis.KKartiPesin = null;
             if (!string.IsNullOrWhiteSpace(txtKKartiKalan.Text))
-                siparis.KKartiKalan = Convert.ToDouble(txtKKartiKalan.Text);
+                siparis.KKartiKalan = txtKKartiKalan.Text;
             else
                 siparis.KKartiKalan = null;
             siparis.KKartiOdemeNot = string.IsNullOrWhiteSpace(txtKKartiOdemeNotu.Text) ? null : txtKKartiOdemeNotu.Text;
 
             if (!string.IsNullOrWhiteSpace(txtCekPesin.Text))
-                siparis.CekPesin = Convert.ToDouble(txtCekPesin.Text);
+                siparis.CekPesin = txtCekPesin.Text;
             else
                 siparis.CekPesin = null;
             if (!string.IsNullOrWhiteSpace(txtCekKalan.Text))
-                siparis.CekKalan = Convert.ToDouble(txtCekKalan.Text);
+                siparis.CekKalan = txtCekKalan.Text;
             else
                 siparis.CekKalan = null;
             siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
@@ -350,7 +351,7 @@ namespace ACKSiparisTakip.Web
             if (!string.IsNullOrEmpty(txtIcSolPervaz.Text)) olcum.IcSolPervaz = txtIcSolPervaz.Text;
             if (!string.IsNullOrEmpty(txtIcUstPervaz.Text)) olcum.IcUstPervaz = txtIcUstPervaz.Text;
             if (!string.IsNullOrEmpty(txtIcSagPervaz.Text)) olcum.IcSagPervaz = txtIcSagPervaz.Text;
-            
+
             sozlesme.MontajDurum = "A";
             if (rdpTeslimTarihi.SelectedDate != null) sozlesme.MontajTeslimTarih = rdpTeslimTarihi.SelectedDate.Value;
             if (!string.IsNullOrEmpty(txtVergiDairesi.Text)) sozlesme.VergiDairesi = txtVergiDairesi.Text;

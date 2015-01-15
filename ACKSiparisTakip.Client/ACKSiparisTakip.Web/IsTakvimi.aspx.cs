@@ -129,19 +129,18 @@ namespace ACKSiparisTakip.Web
 
         public DateTime HaftaBaslangicGunu(DateTime dtStart)
         {
-            int margin = 0;
-            if (dtStart.Day % 7 == 0)
-                margin = 7;
-            else
-                margin = dtStart.Day % 7;
-            DateTime dt = dtStart.Subtract(TimeSpan.FromDays(margin - 1));
-            return new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0);
+            int diff = dtStart.DayOfWeek - DayOfWeek.Monday;
+            if (diff < 0)
+            {
+                diff += 7;
+            }
+
+            return dtStart.AddDays(-1 * diff).Date;
         }
 
         public DateTime HaftaBitisGunu(DateTime dtStart)
         {
-            DateTime dt = dtStart.AddDays(6);
-            return new DateTime(dt.Year, dt.Month, dt.Day, 23, 59, 59, 999);
+            return HaftaBaslangicGunu(dtStart).AddDays(6);
         }
 
         private void MontajlariAppointmenteCevir()
@@ -286,7 +285,7 @@ namespace ACKSiparisTakip.Web
             lblTelefon.Text = (row["TEL"] != DBNull.Value) ? row["TEL"].ToString() : String.Empty;
             string siparisID = (row["SIPARISID"] != DBNull.Value) ? row["SIPARISID"].ToString() : String.Empty;
             string siparisNo = (row["SIPARISNO"] != DBNull.Value) ? row["SIPARISNO"].ToString() : String.Empty;
-            
+
             if (siparisNo[0].ToString() != "P" && siparisNo[0].ToString() != "Y")
                 linkSiparisNo.PostBackUrl = "SiparisFormGoruntule.aspx?SiparisID=" + siparisID;
             else

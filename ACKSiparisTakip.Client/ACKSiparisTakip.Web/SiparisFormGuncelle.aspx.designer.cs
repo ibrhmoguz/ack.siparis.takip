@@ -730,7 +730,7 @@ namespace ACKSiparisTakip.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadNumericTextBox txtFiyat;
+        protected global::Telerik.Web.UI.RadTextBox txtFiyat;
         
         /// <summary>
         /// txtVergiDairesi control.
@@ -757,7 +757,7 @@ namespace ACKSiparisTakip.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadNumericTextBox txtNakitPesin;
+        protected global::Telerik.Web.UI.RadTextBox txtNakitPesin;
         
         /// <summary>
         /// txtNakitKalan control.
@@ -766,7 +766,7 @@ namespace ACKSiparisTakip.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadNumericTextBox txtNakitKalan;
+        protected global::Telerik.Web.UI.RadTextBox txtNakitKalan;
         
         /// <summary>
         /// txtNakitOdemeNotu control.
@@ -784,7 +784,7 @@ namespace ACKSiparisTakip.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadNumericTextBox txtKKartiPesin;
+        protected global::Telerik.Web.UI.RadTextBox txtKKartiPesin;
         
         /// <summary>
         /// txtKKartiKalan control.
@@ -793,7 +793,7 @@ namespace ACKSiparisTakip.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadNumericTextBox txtKKartiKalan;
+        protected global::Telerik.Web.UI.RadTextBox txtKKartiKalan;
         
         /// <summary>
         /// txtKKartiOdemeNotu control.
@@ -811,7 +811,7 @@ namespace ACKSiparisTakip.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadNumericTextBox txtCekPesin;
+        protected global::Telerik.Web.UI.RadTextBox txtCekPesin;
         
         /// <summary>
         /// txtCekKalan control.
@@ -820,7 +820,7 @@ namespace ACKSiparisTakip.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadNumericTextBox txtCekKalan;
+        protected global::Telerik.Web.UI.RadTextBox txtCekKalan;
         
         /// <summary>
         /// txtCekOdemeNotu control.

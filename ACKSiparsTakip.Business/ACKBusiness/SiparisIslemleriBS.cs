@@ -730,7 +730,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("TESLIMSEKLI", olcum.TeslimSekli, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("PESINAT", sozlesme.Pesinat, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("KALANODEME", sozlesme.KalanOdeme, SqlDbType.VarChar, 50);
-                data.AddSqlParameter("FIYAT", sozlesme.Fiyat, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("FIYAT", sozlesme.Fiyat, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("VERGIDAIRESI", sozlesme.VergiDairesi, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("VERGINUMARASI", sozlesme.VergiNumarası, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("DURUM", siparis.Durum, SqlDbType.VarChar, 50);
@@ -1056,7 +1056,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
                 data.AddSqlParameter("TESLIMSEKLI", olcum.TeslimSekli, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("PESINAT", sozlesme.Pesinat, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("KALANODEME", sozlesme.KalanOdeme, SqlDbType.VarChar, 50);
-                data.AddSqlParameter("FIYAT", sozlesme.Fiyat, SqlDbType.VarChar, 50);
+                data.AddSqlParameter("FIYAT", sozlesme.Fiyat, SqlDbType.Decimal, 50);
                 data.AddSqlParameter("VERGIDAIRESI", sozlesme.VergiDairesi, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("VERGINUMARASI", sozlesme.VergiNumarası, SqlDbType.VarChar, 50);
                 data.AddSqlParameter("NAKITPESIN", siparis.NakitPesin, SqlDbType.Decimal, 50);

@@ -8,6 +8,7 @@
 <head runat="server">
     <title></title>
     <script src="Script/jquery.js"></script>
+    <script src="Script/NumberFormat.js"></script>
     <link href="App_Themes/Theme/Template/Template.css" type="text/css" rel="stylesheet" />
     <link href="App_Themes/Theme/StyleSheet.css" type="text/css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -15,6 +16,17 @@
 </head>
 <body>
     <script type="text/javascript">
+
+        $(function () {
+            $('.NumericFieldClass').priceFormat({
+                prefix: '',
+                suffix: '',
+                thousandsSeparator: '.',
+                centsSeparator: ',',
+                centsLimit: 2
+            });
+        });
+
         var modalDiv = null;
         function showNotification() {
             $find("<%=RadNotificationACKMaster.ClientID %>").show();
@@ -62,7 +74,7 @@
                         <telerik:RibbonBarButton ID="rbbSiparisEkleNova" Size="Large" Text="NOVA" ToolTip="Nova sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/nova.png" CommandName="SiparisEkleNova" />
                         <telerik:RibbonBarButton ID="rbbSiparisEkleKroma" Size="Large" Text="KROMA" ToolTip="Kroma sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/kroma.png" CommandName="SiparisEkleKroma" />
                         <telerik:RibbonBarButton ID="rbbSiparisEkleGuard" Size="Large" Text="GUARD" ToolTip="Guard sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/guard.png" CommandName="SiparisEkleGuard" />
-                         <telerik:RibbonBarButton ID="rbbSiparisEklePorte" Size="Large" Text="PORTE" ToolTip="Porte sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/porte.png" CommandName="SiparisEklePorte" />
+                        <telerik:RibbonBarButton ID="rbbSiparisEklePorte" Size="Large" Text="PORTE" ToolTip="Porte sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/porte.png" CommandName="SiparisEklePorte" />
                         <telerik:RibbonBarButton ID="rbbSiparisEkleYangin" Size="Large" Text="YANGIN" ToolTip="Yangın sipariş eklemek için tıklayınız." ImageUrlLarge="App_Themes/Theme/Raster/yangin.png" CommandName="SiparisEkleYangin" />
                     </Items>
                 </telerik:RibbonBarGroup>

@@ -564,8 +564,8 @@
                         <tr>
                             <th>Fiyat : </th>
                             <td>
-                                <telerik:RadNumericTextBox ID="txtFiyat" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency">
-                                </telerik:RadNumericTextBox>
+                                <telerik:RadTextBox ID="txtFiyat" runat="server" Width="130px" RenderMode="Lightweight" CssClass="NumericFieldClass">
+                                </telerik:RadTextBox>(TL)
                             </td>
                         </tr>
                         <tr>
@@ -593,11 +593,11 @@
                         <tr>
                             <th>Nakit:</th>
                             <td>
-                                <telerik:RadNumericTextBox ID="txtNakitPesin" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency">
-                                </telerik:RadNumericTextBox>
+                                <telerik:RadTextBox ID="txtNakitPesin" runat="server" Width="130px" RenderMode="Lightweight" CssClass="NumericFieldClass">
+                                </telerik:RadTextBox>
                             </td>
                             <td>
-                                <telerik:RadNumericTextBox ID="txtNakitKalan" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                                <telerik:RadTextBox ID="txtNakitKalan" runat="server" Width="130px" RenderMode="Lightweight" CssClass="NumericFieldClass"></telerik:RadTextBox>
                             </td>
                             <td>
                                 <telerik:RadTextBox ID="txtNakitOdemeNotu" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
@@ -606,10 +606,10 @@
                         <tr>
                             <th>Kredi Kartı:</th>
                             <td>
-                                <telerik:RadNumericTextBox ID="txtKKartiPesin" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                                <telerik:RadTextBox ID="txtKKartiPesin" runat="server" Width="130px" RenderMode="Lightweight" CssClass="NumericFieldClass"></telerik:RadTextBox>
                             </td>
                             <td>
-                                <telerik:RadNumericTextBox ID="txtKKartiKalan" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                                <telerik:RadTextBox ID="txtKKartiKalan" runat="server" Width="130px" RenderMode="Lightweight" CssClass="NumericFieldClass"></telerik:RadTextBox>
                             </td>
                             <td>
                                 <telerik:RadTextBox ID="txtKKartiOdemeNotu" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>
@@ -618,10 +618,10 @@
                         <tr>
                             <th>Çek:</th>
                             <td>
-                                <telerik:RadNumericTextBox ID="txtCekPesin" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                                <telerik:RadTextBox ID="txtCekPesin" runat="server" Width="130px" RenderMode="Lightweight" CssClass="NumericFieldClass"></telerik:RadTextBox>
                             </td>
                             <td>
-                                <telerik:RadNumericTextBox ID="txtCekKalan" runat="server" Width="130px" RenderMode="Lightweight" MaxLength="99999999" Type="Currency"></telerik:RadNumericTextBox>
+                                <telerik:RadTextBox ID="txtCekKalan" runat="server" Width="130px" RenderMode="Lightweight" CssClass="NumericFieldClass"></telerik:RadTextBox>
                             </td>
                             <td>
                                 <telerik:RadTextBox ID="txtCekOdemeNotu" runat="server" Width="300px" RenderMode="Lightweight"></telerik:RadTextBox>

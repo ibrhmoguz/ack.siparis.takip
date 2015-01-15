@@ -241,6 +241,15 @@ namespace ACKSiparisTakip.Web
                 }
             }
 
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            //{
+            //    for (int j = 0; j < dt.Columns.Count; j++)
+            //    {
+            //        if (dt.Rows[i][j] != DBNull.Value && dt.Rows[i][j].ToString() == "0,00")
+            //            dt.Rows[i][j] = string.Empty;
+            //    }
+            //}
+
             DataRow toplamRow = dt.NewRow();
             toplamRow[0] = "TOPLAM";
             toplamRow[1] = dt.AsEnumerable().Sum(a => a.Field<Decimal>("1")).ToString("0.00", CultureInfo.GetCultureInfo("tr-TR"));

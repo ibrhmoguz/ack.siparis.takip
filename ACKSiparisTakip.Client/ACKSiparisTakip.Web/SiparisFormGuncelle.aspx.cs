@@ -9,6 +9,7 @@ using ACKSiparisTakip.Business.ACKBusiness;
 using ACKSiparisTakip.Business.ACKBusiness.DataTypes;
 using ACKSiparisTakip.Web.Helper;
 using Telerik.Web.UI;
+using System.Globalization;
 
 namespace ACKSiparisTakip.Web
 {
@@ -144,20 +145,20 @@ namespace ACKSiparisTakip.Web
             siparis.SiparisTarih = (rowSiparis["SIPARISTARIH"] != DBNull.Value) ? Convert.ToDateTime(rowSiparis["SIPARISTARIH"].ToString()) : DateTime.MinValue;
 
             if (rowSiparis["NAKITPESIN"] != DBNull.Value)
-                siparis.NakitPesin = Convert.ToDouble(rowSiparis["NAKITPESIN"].ToString());
+                siparis.NakitPesin = rowSiparis["NAKITPESIN"].ToString();
             if (rowSiparis["NAKITKALAN"] != DBNull.Value)
-                siparis.NakitKalan = Convert.ToDouble(rowSiparis["NAKITKALAN"].ToString());
+                siparis.NakitKalan = rowSiparis["NAKITKALAN"].ToString();
             siparis.NakitOdemeNot = (rowSiparis["NAKITODEMENOTU"] != DBNull.Value) ? rowSiparis["NAKITODEMENOTU"].ToString() : String.Empty;
             if (rowSiparis["KKARTPESIN"] != DBNull.Value)
-                siparis.KKartiPesin = Convert.ToDouble(rowSiparis["KKARTPESIN"].ToString());
+                siparis.KKartiPesin = rowSiparis["KKARTPESIN"].ToString();
             if (rowSiparis["KKARTKALAN"] != DBNull.Value)
-                siparis.KKartiKalan = Convert.ToDouble(rowSiparis["KKARTKALAN"].ToString());
+                siparis.KKartiKalan = rowSiparis["KKARTKALAN"].ToString();
             if (rowSiparis["KKARTODEMENOTU"] != DBNull.Value)
                 siparis.KKartiOdemeNot = rowSiparis["KKARTODEMENOTU"].ToString();
             if (rowSiparis["CEKPESIN"] != DBNull.Value)
-                siparis.CekPesin = Convert.ToDouble(rowSiparis["CEKPESIN"].ToString());
+                siparis.CekPesin = rowSiparis["CEKPESIN"].ToString();
             if (rowSiparis["CEKKALAN"] != DBNull.Value)
-                siparis.CekKalan = Convert.ToDouble(rowSiparis["CEKKALAN"].ToString());
+                siparis.CekKalan = rowSiparis["CEKKALAN"].ToString();
 
             siparis.CekOdemeNot = (rowSiparis["CEKODEMENOTU"] != DBNull.Value) ? rowSiparis["CEKODEMENOTU"].ToString() : String.Empty;
             siparis.Taktak = (rowSiparis["TAKTAK"] != DBNull.Value) ? rowSiparis["TAKTAK"].ToString() : String.Empty;
@@ -265,14 +266,14 @@ namespace ACKSiparisTakip.Web
             DropDownSelectedIndexAyarla(ddlOlcumAlan, olcum.OlcumAlanKisi);
             DropDownSelectedIndexAyarla(ddlAcilim, olcum.Acilim);
 
-            if (siparis.NakitPesin.HasValue) txtNakitPesin.Text = siparis.NakitPesin.Value.ToString();
-            if (siparis.NakitKalan.HasValue) txtNakitKalan.Text = siparis.NakitKalan.Value.ToString();
+            if (!string.IsNullOrWhiteSpace(siparis.NakitPesin)) txtNakitPesin.Text = siparis.NakitPesin.ToString();
+            if (!string.IsNullOrWhiteSpace(siparis.NakitKalan)) txtNakitKalan.Text = siparis.NakitKalan.ToString();
             txtNakitOdemeNotu.Text = siparis.NakitOdemeNot;
-            if (siparis.KKartiPesin.HasValue) txtKKartiPesin.Text = siparis.KKartiPesin.Value.ToString();
-            if (siparis.KKartiKalan.HasValue) txtKKartiKalan.Text = siparis.KKartiKalan.Value.ToString();
+            if (!string.IsNullOrWhiteSpace(siparis.KKartiPesin)) txtKKartiPesin.Text = siparis.KKartiPesin.ToString();
+            if (!string.IsNullOrWhiteSpace(siparis.KKartiKalan)) txtKKartiKalan.Text = siparis.KKartiKalan.ToString();
             txtKKartiOdemeNotu.Text = siparis.KKartiOdemeNot;
-            if (siparis.CekPesin.HasValue) txtCekPesin.Text = siparis.CekPesin.Value.ToString();
-            if (siparis.CekKalan.HasValue) txtCekKalan.Text = siparis.CekKalan.Value.ToString();
+            if (!string.IsNullOrWhiteSpace(siparis.CekPesin)) txtCekPesin.Text = siparis.CekPesin.ToString();
+            if (!string.IsNullOrWhiteSpace(siparis.CekKalan)) txtCekKalan.Text = siparis.CekKalan.ToString();
             txtCekOdemeNotu.Text = siparis.CekOdemeNot;
             txtSiparisNo.Text = siparis.SiparisNo;
             txtBolmeKayitSayisi.Text = siparis.BolmeKayitSayi;
@@ -617,14 +618,28 @@ namespace ACKSiparisTakip.Web
             siparis.KapiTipi = this.KapiTip.ToString();
             siparis.FirmaAdi = string.IsNullOrWhiteSpace(txtFirmaAdi.Text) ? null : txtFirmaAdi.Text;
             siparis.SiparisAdedi = string.IsNullOrWhiteSpace(txtSiparisAdedi.Text) ? "1" : txtSiparisAdedi.Text;
-            if (!string.IsNullOrWhiteSpace(txtNakitPesin.Text)) siparis.NakitPesin = Convert.ToDouble(txtNakitPesin.Text);
-            if (!string.IsNullOrWhiteSpace(txtNakitKalan.Text)) siparis.NakitKalan = Convert.ToDouble(txtNakitKalan.Text);
+            if (!string.IsNullOrWhiteSpace(txtNakitPesin.Text)) siparis.NakitPesin = txtNakitPesin.Text;
+            if (!string.IsNullOrWhiteSpace(txtNakitKalan.Text)) siparis.NakitKalan = txtNakitKalan.Text;
             siparis.NakitOdemeNot = string.IsNullOrWhiteSpace(txtNakitOdemeNotu.Text) ? null : txtNakitOdemeNotu.Text;
-            if (!string.IsNullOrWhiteSpace(txtKKartiPesin.Text)) siparis.KKartiPesin = Convert.ToDouble(txtKKartiPesin.Text);
-            if (!string.IsNullOrWhiteSpace(txtKKartiKalan.Text)) siparis.KKartiKalan = Convert.ToDouble(txtKKartiKalan.Text);
+
+            if (!string.IsNullOrWhiteSpace(txtKKartiPesin.Text))
+                siparis.KKartiPesin = txtKKartiPesin.Text;
+            else
+                siparis.KKartiPesin = null;
+            if (!string.IsNullOrWhiteSpace(txtKKartiKalan.Text))
+                siparis.KKartiKalan = txtKKartiKalan.Text;
+            else
+                siparis.KKartiKalan = null;
             siparis.KKartiOdemeNot = string.IsNullOrWhiteSpace(txtKKartiOdemeNotu.Text) ? null : txtKKartiOdemeNotu.Text;
-            if (!string.IsNullOrWhiteSpace(txtCekPesin.Text)) siparis.CekPesin = Convert.ToDouble(txtCekPesin.Text);
-            if (!string.IsNullOrWhiteSpace(txtCekKalan.Text)) siparis.CekKalan = Convert.ToDouble(txtCekKalan.Text);
+
+            if (!string.IsNullOrWhiteSpace(txtCekPesin.Text))
+                siparis.CekPesin = txtCekPesin.Text;
+            else
+                siparis.CekPesin = null;
+            if (!string.IsNullOrWhiteSpace(txtCekKalan.Text))
+                siparis.CekKalan = txtCekKalan.Text;
+            else
+                siparis.CekKalan = null;
             siparis.CekOdemeNot = string.IsNullOrWhiteSpace(txtCekOdemeNotu.Text) ? null : txtCekOdemeNotu.Text;
             siparis.Not = string.IsNullOrWhiteSpace(txtNot.Text) ? null : txtNot.Text;
             olcum.MontajdaTakilacak = string.IsNullOrWhiteSpace(txtMontajdaTakilacaklar.Text) ? null : txtMontajdaTakilacaklar.Text;
