@@ -112,15 +112,6 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadTextBox txtAd;
         
         /// <summary>
-        /// txtSoyad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtSoyad;
-        
-        /// <summary>
         /// txtAdres control.
         /// </summary>
         /// <remarks>
@@ -155,6 +146,15 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadComboBox ddlMusteriSemt;
+        
+        /// <summary>
+        /// txtSoyad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtSoyad;
         
         /// <summary>
         /// txtEvTel control.

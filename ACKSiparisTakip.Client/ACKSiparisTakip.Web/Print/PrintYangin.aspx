@@ -78,7 +78,7 @@
             <td colspan="2"></td>
         </tr>--%>
     </table>
-    <table class="boldTablo" style="width: 100%">
+   <table class="boldTablo" style="width: 100%">
         <tr>
             <th colspan="4">MÜŞTERİ/FİRMA BİLGİLERİ </th>
         </tr>
@@ -98,16 +98,20 @@
             <td>
                 <asp:Label ID="lblAd" runat="server"></asp:Label>
             </td>
-            <td style="width: 10%">Soyadı </td>
+            <td rowspan="5">Adresi : </td>
+            <td rowspan="5">
+                <asp:Label ID="lblAdres" runat="server"></asp:Label>
+            </td>
+            
+        </tr>
+        <tr>
+            <td>Soyadı: </td>
             <td>
                 <asp:Label ID="lblSoyad" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td rowspan="3">Adresi : </td>
-            <td rowspan="3">
-                <asp:Label ID="lblAdres" runat="server"></asp:Label>
-            </td>
+           
             <td>Ev Tel : </td>
             <td>
                 <asp:Label ID="lblEvTel" runat="server"></asp:Label>

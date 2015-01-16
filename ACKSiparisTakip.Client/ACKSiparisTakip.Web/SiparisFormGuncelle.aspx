@@ -95,7 +95,7 @@
         </table>
         <br />
 
-        <table class="AnaTablo" style="width: 100%">
+               <table class="AnaTablo" style="width: 100%">
             <tr>
                 <th colspan="4">MÜŞTERİ/FİRMA BİLGİLERİ </th>
             </tr>
@@ -103,30 +103,24 @@
                 <th style="width: 15%">Firma Adı:
                 </th>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="txtFirmaAdi" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtFirmaAdi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
                 <th style="width: 10%">Sipariş Adedi: </th>
                 <td>
-                    <telerik:RadTextBox ID="txtSiparisAdedi" runat="server" Text="1"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtSiparisAdedi" runat="server" Text="1" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
                 <th>Adı : </th>
                 <td>
-                    <telerik:RadTextBox ID="txtAd" runat="server"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtAd" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
-                <th style="width: 10%">Soyadı </th>
-                <td>
-                    <telerik:RadTextBox ID="txtSoyad" runat="server"></telerik:RadTextBox>
-                </td>
-            </tr>
-            <tr>
-                <th rowspan="3">Adresi : </th>
-                <td rowspan="3">
+                <th rowspan="5">Adresi : </th>
+                <td rowspan="5">
                     <table style="width: 100%">
                         <tr>
                             <td colspan="2">
-                                <telerik:RadTextBox ID="txtAdres" runat="server" TextMode="MultiLine" Height="50px" Width="250px"></telerik:RadTextBox>
+                                <telerik:RadTextBox ID="txtAdres" runat="server" TextMode="MultiLine" Height="50px" Width="250px" RenderMode="Lightweight"></telerik:RadTextBox>
                             </td>
                         </tr>
                         <tr>
@@ -152,24 +146,34 @@
                         </tr>
                     </table>
                 </td>
+
+            </tr>
+            <tr>
+                <th style="width: 10%">Soyadı </th>
+                <td>
+                    <telerik:RadTextBox ID="txtSoyad" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+            </tr>
+            <tr>
+
                 <th>Ev Tel : </th>
                 <td>
-                    <telerik:RadMaskedTextBox ID="txtEvTel" runat="server" Mask="(###) ### ## ##"></telerik:RadMaskedTextBox>
+                    <telerik:RadMaskedTextBox ID="txtEvTel" runat="server" Mask="(###) ### ## ##" RenderMode="Lightweight"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
             <tr>
                 <th>iş Tel : </th>
                 <td>
-                    <telerik:RadMaskedTextBox ID="txtIsTel" runat="server" Mask="(###) ### ## ##"></telerik:RadMaskedTextBox>
+                    <telerik:RadMaskedTextBox ID="txtIsTel" runat="server" Mask="(###) ### ## ##" RenderMode="Lightweight"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
             <tr>
                 <th>Cep Tel : </th>
                 <td>
-                    <telerik:RadMaskedTextBox ID="txtCepTel" runat="server" Mask="(###) ### ## ##"></telerik:RadMaskedTextBox>
+                    <telerik:RadMaskedTextBox ID="txtCepTel" runat="server" Mask="(###) ### ## ##" RenderMode="Lightweight"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
-        </table>
+
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
