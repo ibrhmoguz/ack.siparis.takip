@@ -170,11 +170,10 @@
                     <telerik:RadMaskedTextBox ID="txtCepTel" runat="server" Mask="(###) ### ## ##" RenderMode="Lightweight"></telerik:RadMaskedTextBox>
                 </td>
             </tr>
-
+        </table>
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-
                 <th style="width: 15%">Dış Kapı Modeli :</th>
                 <td style="width: 35%">
                     <telerik:RadDropDownList ID="ddlDisKapiModeli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
@@ -183,7 +182,6 @@
                 <td>
                     <telerik:RadDropDownList ID="ddlYanginKapiCins" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
-
             </tr>
             <tr>
                 <th style="width: 10%">İç Kapı Modeli :</th>
@@ -269,40 +267,41 @@
                     </telerik:RadDropDownList>
                 </td>
             </tr>
-
         </table>
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <td rowspan="8" colspan="2" style="width: 20%">
+                <td rowspan="10" colspan="2" style="width: 20%">
                     <telerik:RadBinaryImage ID="RadBinaryImage1" runat="server" ImageUrl="~/App_Themes/Theme/Raster/olcu3.png" />
                 </td>
                 <th colspan="4" style="text-align: center">ÖLÇÜM ve MONTAJ</th>
-            </tr>
-            <tr>
-                <th style="width: 8%">Üretim Notları: </th>
-                <td style="width: 34%">
-                    <telerik:RadTextBox ID="txtOlcumBilgileri" runat="server" Width="100%" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
-                <th style="width: 10%">Dış Kasa İç Pervaz Farkı:</th>
-                <td>
-                    <telerik:RadTextBox ID="txtDisKasaIcPervazFarki" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
             </tr>
             <tr>
                 <th>Ölçümü Alan Kişi : </th>
                 <td>
                     <telerik:RadDropDownList ID="ddlOlcumAlan" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                 </td>
-                <th>Duvar Kalınlığı:</th>
+                <th>Teslim Tarihi:</th>
                 <td>
-                    <telerik:RadTextBox ID="txtDuvarKalinligi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                    <telerik:RadDatePicker ID="rdpTeslimTarihi" runat="server" RenderMode="Lightweight"></telerik:RadDatePicker>
                 </td>
+
             </tr>
             <tr>
                 <th>Montaj Şekli: </th>
                 <td>
                     <telerik:RadDropDownList ID="ddlMontajSekli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                </td>
+                <th>Teslim Şekli: </th>
+                <td>
+                    <telerik:RadDropDownList ID="ddlTeslimSekli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                </td>
+
+            </tr>
+            <tr>
+                <th>İç Kasa Genişliği:</th>
+                <td>
+                    <telerik:RadTextBox ID="txtIcKasaGenisligi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
                 <th>Dış Sol Pervaz:</th>
                 <td>
@@ -310,9 +309,21 @@
                 </td>
             </tr>
             <tr>
-                <th>Teslim Şekli: </th>
+                <th>İç Kasa Yüksekliği:</th>
                 <td>
-                    <telerik:RadDropDownList ID="ddlTeslimSekli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                    <telerik:RadTextBox ID="txtIcKasaYuksekligi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+
+                <th>Dış Sağ Pervaz:</th>
+                <td>
+                    <telerik:RadTextBox ID="txtDisSagPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+
+            </tr>
+            <tr>
+                <th>Duvar Kalınlığı:</th>
+                <td>
+                    <telerik:RadTextBox ID="txtDuvarKalinligi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
                 <th>Dış Üst Pervaz:</th>
                 <td>
@@ -320,41 +331,6 @@
                 </td>
             </tr>
             <tr>
-                <th>Teslim Tarihi:</th>
-                <td>
-                    <telerik:RadDatePicker ID="rdpTeslimTarihi" runat="server" RenderMode="Lightweight"></telerik:RadDatePicker>
-                </td>
-                <th>Dış Sağ Pervaz:</th>
-                <td>
-                    <telerik:RadTextBox ID="txtDisSagPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
-            </tr>
-            <tr>
-                <th>İç Kasa Genişliği:</th>
-                <td>
-                    <telerik:RadTextBox ID="txtIcKasaGenisligi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
-                <th>İç Sol Pervaz:</th>
-                <td>
-                    <telerik:RadTextBox ID="txtIcSolPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
-            </tr>
-            <tr>
-                <th>İç Kasa Yüksekliği:</th>
-                <td>
-                    <telerik:RadTextBox ID="txtIcKasaYuksekligi" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
-                <th>İç Üst Pervaz:</th>
-                <td>
-                    <telerik:RadTextBox ID="txtIcUstPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2"></td>
-                <th>İç Sağ Pervaz:</th>
-                <td>
-                    <telerik:RadTextBox ID="txtIcSagPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
-                </td>
                 <th>Açılım:</th>
                 <td>
                     <telerik:RadDropDownList ID="ddlAcilim" runat="server" RenderMode="Lightweight">
@@ -364,6 +340,33 @@
                             <telerik:DropDownListItem Text="SOL" Value="SOL" />
                         </Items>
                     </telerik:RadDropDownList>
+                </td>
+                <th>İç Sol Pervaz:</th>
+                <td>
+                    <telerik:RadTextBox ID="txtIcSolPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 10%">Dış Kasa İç Pervaz Farkı:</th>
+                <td>
+                    <telerik:RadTextBox ID="txtDisKasaIcPervazFarki" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+                <th>İç Sağ Pervaz:</th>
+                <td>
+                    <telerik:RadTextBox ID="txtIcSagPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+            </tr>
+            <tr>
+                <th>İç Üst Pervaz:</th>
+                <td>
+                    <telerik:RadTextBox ID="txtIcUstPervaz" runat="server" RenderMode="Lightweight"></telerik:RadTextBox>
+                </td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <th style="width: 8%">Üretim Notları: </th>
+                <td colspan="3">
+                    <telerik:RadTextBox ID="txtOlcumBilgileri" runat="server" Width="100%" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -504,7 +507,6 @@
             </tr>
         </table>
         <br />
-
     </div>
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
         <AjaxSettings>

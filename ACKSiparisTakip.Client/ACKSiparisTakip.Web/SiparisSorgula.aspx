@@ -40,7 +40,6 @@
                                 <telerik:RadDatePicker ID="rdtSiparisTarihiBas" runat="server"></telerik:RadDatePicker>
                                 <telerik:RadDatePicker ID="rdtSiparisTarihiBit" runat="server"></telerik:RadDatePicker>
                             </td>
-
                         </tr>
                         <tr>
                             <th>İç Kapı Modeli :</th>
@@ -190,7 +189,6 @@
                             <asp:Label ID="lblToplamKapi" runat="server" ForeColor="Red" Font-Bold="true" Font-Size="Medium"></asp:Label></th>
                     </tr>
                 </table>
-                <br />
                 <asp:GridView ID="grdSiparisler" runat="server" AutoGenerateColumns="false" AllowPaging="True" PageSize="30" OnPageIndexChanging="grdSiparisler_PageIndexChanging"
                     OnRowDataBound="grdSiparisler_RowDataBound" Width="100%" CssClass="AnaTablo" AlternatingRowStyle-BackColor="Wheat" HeaderStyle-CssClass="ThBaslikRenk2"
                     EmptyDataText="Sipariş bulunamamıştır!" EmptyDataRowStyle-Font-Bold="true" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-HorizontalAlign="Center"
@@ -216,7 +214,6 @@
             </td>
         </tr>
     </table>
-
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="ddlMusteriIl">

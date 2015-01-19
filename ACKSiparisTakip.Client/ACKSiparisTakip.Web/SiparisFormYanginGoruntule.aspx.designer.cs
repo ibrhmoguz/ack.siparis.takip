@@ -103,15 +103,6 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblAd;
         
         /// <summary>
-        /// lblSoyad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSoyad;
-        
-        /// <summary>
         /// lblAdres control.
         /// </summary>
         /// <remarks>
@@ -119,6 +110,15 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAdres;
+        
+        /// <summary>
+        /// lblSoyad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSoyad;
         
         /// <summary>
         /// lblEvTel control.
@@ -337,24 +337,6 @@ namespace ACKSiparisTakip.Web {
         protected global::Telerik.Web.UI.RadBinaryImage RadBinaryImage1;
         
         /// <summary>
-        /// lblOlcumBilgileri control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOlcumBilgileri;
-        
-        /// <summary>
-        /// lblDisKasaIcPervazFarki control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDisKasaIcPervazFarki;
-        
-        /// <summary>
         /// lblOlcumAlan control.
         /// </summary>
         /// <remarks>
@@ -362,51 +344,6 @@ namespace ACKSiparisTakip.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOlcumAlan;
-        
-        /// <summary>
-        /// lblDuvarKalinligi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDuvarKalinligi;
-        
-        /// <summary>
-        /// lblMontajSekli control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMontajSekli;
-        
-        /// <summary>
-        /// lblDisSolPervaz control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDisSolPervaz;
-        
-        /// <summary>
-        /// lblTeslimSekli control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTeslimSekli;
-        
-        /// <summary>
-        /// lblDisUstPervaz control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDisUstPervaz;
         
         /// <summary>
         /// lblTeslimTarihi control.
@@ -418,13 +355,22 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblTeslimTarihi;
         
         /// <summary>
-        /// lblDisSagPervaz control.
+        /// lblMontajSekli control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDisSagPervaz;
+        protected global::System.Web.UI.WebControls.Label lblMontajSekli;
+        
+        /// <summary>
+        /// lblTeslimSekli control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTeslimSekli;
         
         /// <summary>
         /// lblIcKasaGenisligi control.
@@ -436,13 +382,13 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblIcKasaGenisligi;
         
         /// <summary>
-        /// lblIcSolPervaz control.
+        /// lblDisSolPervaz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIcSolPervaz;
+        protected global::System.Web.UI.WebControls.Label lblDisSolPervaz;
         
         /// <summary>
         /// lblIcKasaYuksekligi control.
@@ -454,13 +400,58 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblIcKasaYuksekligi;
         
         /// <summary>
-        /// lblIcUstPervaz control.
+        /// lblDisSagPervaz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIcUstPervaz;
+        protected global::System.Web.UI.WebControls.Label lblDisSagPervaz;
+        
+        /// <summary>
+        /// lblDuvarKalinligi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDuvarKalinligi;
+        
+        /// <summary>
+        /// lblDisUstPervaz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDisUstPervaz;
+        
+        /// <summary>
+        /// lblAcilim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAcilim;
+        
+        /// <summary>
+        /// lblIcSolPervaz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIcSolPervaz;
+        
+        /// <summary>
+        /// lblDisKasaIcPervazFarki control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDisKasaIcPervazFarki;
         
         /// <summary>
         /// lblIcSagPervaz control.
@@ -472,13 +463,22 @@ namespace ACKSiparisTakip.Web {
         protected global::System.Web.UI.WebControls.Label lblIcSagPervaz;
         
         /// <summary>
-        /// lblAcilim control.
+        /// lblIcUstPervaz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAcilim;
+        protected global::System.Web.UI.WebControls.Label lblIcUstPervaz;
+        
+        /// <summary>
+        /// lblOlcumBilgileri control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOlcumBilgileri;
         
         /// <summary>
         /// lblNot control.

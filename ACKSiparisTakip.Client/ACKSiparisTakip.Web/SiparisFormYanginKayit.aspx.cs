@@ -55,12 +55,11 @@ namespace ACKSiparisTakip.Web
             switch (this.KapiTip.ToString())
             {
                 case "Yangin":
-                    trYangin1.Visible = true;
-                    trYangin2.Visible = true;
+                    thYangin.Visible = true;
                     break;
                 case "Porte":
-                    trPorte1.Visible = true;
-                    trPorte2.Visible = true;
+                    thPorte.Visible = true;
+                    
                     break;
             }
         }
@@ -381,7 +380,7 @@ namespace ACKSiparisTakip.Web
                 ddlMusteriSemt.SelectedItem == null ||
                 string.IsNullOrWhiteSpace(ddlMusteriSemt.SelectedItem.Text))
             {
-                MessageBox.Hata(this, "İl, ilçe ve semt alanlarını doldurmalısınız!");
+                MessageBox.Hata(this, "Adres, il, ilçe ve semt alanlarını doldurmalısınız!");
                 return;
             }
 
