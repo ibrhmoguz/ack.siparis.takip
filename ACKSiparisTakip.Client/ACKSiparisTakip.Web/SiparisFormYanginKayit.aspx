@@ -156,10 +156,10 @@
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>
-                <td colspan="2" rowspan="5" style="width: 33%">
-                    <table>
+                <td style="width: 33%">
+                    <table style="width: 100%">
                         <tr>
-                            <th style="width: 18%">Kapı Cinsi :</th>
+                            <th style="width: 12%">Kapı Cinsi :</th>
                             <td style="width: 35%">
                                 <telerik:RadDropDownList ID="ddlYanginKapiCins" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
@@ -171,7 +171,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th style="width: 10%">İç Kapı Modeli :</th>
+                            <th>İç Kapı Modeli :</th>
                             <td>
                                 <telerik:RadDropDownList ID="ddlIcKapiModeli" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
@@ -190,7 +190,7 @@
                         </tr>
                     </table>
                 </td>
-                <td colspan="2" rowspan="4" runat="server" id="thYangin" visible="false" style="width: 33%">
+                <td runat="server" id="thYangin" visible="false" style="width: 33%" rowspan="5">
                     <table>
                         <tr>
                             <th>Panik Bar :</th>
@@ -218,43 +218,15 @@
                         </tr>
                     </table>
                 </td>
-
-                <th style="width: 10%">Kilit Sistemi :</th>
-                <td>
-                    <telerik:RadDropDownList ID="ddlKilitSistemi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
-                </td>
-            </tr>
-            <tr>
-                <th>Çekme Kolu :</th>
-                <td>
-                    <telerik:RadDropDownList ID="ddlCekmeKolu" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
-                </td>
-            </tr>
-            <tr>
-                <th style="width: 18%">Eşik :</th>
-                <td>
-                    <telerik:RadDropDownList ID="ddlEsik" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
-                </td>
-            </tr>
-            <tr>
-                <th></th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>&nbsp;</th>
-                <td>&nbsp;</td>
-                <th></th>
-                <td></td>
-            </tr>
-            <tr>
-                <th rowspan="2" colspan="6" id="thPorte" runat="server" visible="false">
+                <td id="thPorte" runat="server" visible="false" rowspan="5">
                     <table style="width: 100%">
                         <tr>
-                            <th style="width: 11%">Cumba :</th>
-                            <td style="width: 21%">
+                            <th style="width: 8%">Cumba :</th>
+                            <td>
                                 <telerik:RadDropDownList ID="ddlCumba" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
-
+                        </tr>
+                        <tr>
                             <th style="width: 18%">Dürbün :</th>
                             <td>
                                 <telerik:RadDropDownList ID="ddlDurbun" runat="server" RenderMode="Lightweight">
@@ -271,6 +243,8 @@
                             <td>
                                 <telerik:RadDropDownList ID="ddlBarelTipi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
                             </td>
+                        </tr>
+                        <tr>
                             <th>Taktak :</th>
                             <td>
                                 <telerik:RadDropDownList ID="ddlTaktak" runat="server" RenderMode="Lightweight">
@@ -283,11 +257,31 @@
                             </td>
                         </tr>
                     </table>
-                </th>
-
+                </td>
+                <td>
+                    <table style="width: 100%" rowspan="5">
+                        <tr>
+                            <th style="width: 10%">Kilit Sistemi :</th>
+                            <td>
+                                <telerik:RadDropDownList ID="ddlKilitSistemi" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Çekme Kolu :</th>
+                            <td>
+                                <telerik:RadDropDownList ID="ddlCekmeKolu" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 18%">Eşik :</th>
+                            <td>
+                                <telerik:RadDropDownList ID="ddlEsik" runat="server" RenderMode="Lightweight"></telerik:RadDropDownList>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
         </table>
-
         <br />
         <table class="AnaTablo" style="width: 100%">
             <tr>

@@ -82,7 +82,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 		                                 , S.FIYAT
 		                                 ,  CAST(S.SIPARISTARIH AS DATE) AS SIPARISTARIH
 	                                FROM dbo.SIPARIS AS S
-		                                INNER JOIN dbo.REF_KAPISERI AS KS ON SUBSTRING(S.SIPARISNO, 1, 1) = KS.VALUE 
+		                                INNER JOIN dbo.REF_KAPISERI_HEPSI AS KS ON SUBSTRING(S.SIPARISNO, 1, 1) = KS.VALUE 
 	                                WHERE (@Il IS NULL OR MUSTERIIL = @Il) AND
 		                                  (@Ilce IS NULL OR MUSTERIILCE = @Ilce) AND
 		                                  (@Yil IS NULL OR DATEPART(YEAR,SIPARISTARIH) = @Yil)
@@ -128,7 +128,7 @@ namespace ACKSiparisTakip.Business.ACKBusiness
 		                                 , S.ADET
 		                                 ,  CAST(S.SIPARISTARIH AS DATE) AS SIPARISTARIH
 	                                FROM dbo.SIPARIS AS S
-		                                INNER JOIN dbo.REF_KAPISERI AS KS ON SUBSTRING(S.SIPARISNO, 1, 1) = KS.VALUE 
+		                                INNER JOIN dbo.REF_KAPISERI_HEPSI AS KS ON SUBSTRING(S.SIPARISNO, 1, 1) = KS.VALUE 
 	                                WHERE (@Il IS NULL OR MUSTERIIL = @Il) AND
 		                                  (@Ilce IS NULL OR MUSTERIILCE = @Ilce) AND
 		                                  (@Yil IS NULL OR DATEPART(YEAR,SIPARISTARIH) = @Yil)
