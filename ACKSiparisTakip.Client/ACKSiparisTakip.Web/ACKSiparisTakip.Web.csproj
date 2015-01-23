@@ -110,6 +110,7 @@
     <Content Include="App_Themes\Theme\Template\h.jpg" />
     <Content Include="App_Themes\Theme\Template\m.jpg" />
     <Content Include="App_Themes\Theme\Template\Template.css" />
+    <Content Include="Captcha.aspx" />
     <Content Include="DBScripts\AppDBScripts.sql" />
     <Content Include="DBScripts\AppDBTemizle.sql" />
     <Content Include="DBScripts\AppUserDBScript.sql" />
@@ -163,6 +164,14 @@
     <Compile Include="ACKMasterPage.Master.designer.cs">
       <DependentUpon>ACKMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Captcha.aspx.cs">
+      <DependentUpon>Captcha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Captcha.aspx.designer.cs">
+      <DependentUpon>Captcha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CaptchaImage.cs" />
     <Compile Include="GunlukIsTakipFormu.aspx.cs">
       <DependentUpon>GunlukIsTakipFormu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

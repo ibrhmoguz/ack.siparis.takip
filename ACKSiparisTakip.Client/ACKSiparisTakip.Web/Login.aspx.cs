@@ -11,7 +11,10 @@ namespace ACKSiparisTakip.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                Session["CaptchaImageText"] = CaptchaImage.GenerateRandomCode(CaptchaType.AlphaNumeric, 6);
+            }
         }
 
         protected void LB_Login_Click(object sender, EventArgs e)
@@ -19,6 +22,19 @@ namespace ACKSiparisTakip.Web
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms.Add("KULLANICIADI", userName.Text);
             prms.Add("SIFRE", password.Text);
+
+
+            if (Session["loginAttemptUser"] != null && Session["loginAttemptUser"].ToString() == userName.Text)
+            {
+                if (Session["loginAttemptCount"] != null && Session["loginAttemptCount"].ToString() != string.Empty && Convert.ToInt32(Session["loginAttemptCount"].ToString()) > 0)
+                {
+                    if (!ResimKontroluYap())
+                    {
+                        MessageBox.Hata(this, "Güvenlik resmi doğrulanamadı! Tekrar deneyiniz.");
+                        return;
+                    }
+                }
+            }
 
             DataTable dt = new KullaniciBS().KullaniciBilgisiGetir(prms);
 
@@ -33,6 +49,11 @@ namespace ACKSiparisTakip.Web
             }
             else
             {
+                Session["loginAttemptUser"] = userName.Text;
+                Session["loginAttemptCount"] = 1;
+                imgCaptcha.Visible = true;
+                txtResimDogrulama.Visible = true;
+
                 MessageBox.Hata(this, "Kullanıcı adı ya da şifre hatalı. Tekrar deneyiniz.");
             }
         }
@@ -57,6 +78,14 @@ namespace ACKSiparisTakip.Web
                 Session["yetki"] = "Yönetici";
                 return true;
             }
+
+            return false;
+        }
+
+        private bool ResimKontroluYap()
+        {
+            if (Session["CaptchaImageText"] != null && Session["CaptchaImageText"].ToString().CompareTo(txtResimDogrulama.Text) == 0)
+                return true;
 
             return false;
         }

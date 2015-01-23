@@ -65,6 +65,16 @@
                     <asp:LinkButton ID="LB_Login" runat="server" OnClick="LB_Login_Click" Text="Giriş" ForeColor="Blue" Font-Underline="true"></asp:LinkButton>
                 </td>
             </tr>
+            <tr>
+                <td style="vertical-align: middle">
+                    <asp:Image ID="imgCaptcha" runat="server" Width="172px" Height="40" alt="Visual verification" title="" src="Captcha.aspx" vspace="5" Visible="false" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:TextBox ID="txtResimDogrulama" runat="server" ToolTip="Doğrulama metnini giriniz." Width="172" Visible="false"></asp:TextBox>
+                </td>
+            </tr>
         </table>
         <telerik:RadNotification ID="RadNotificationACKMaster" runat="server" Position="Center" AutoCloseDelay="3000" Width="300px" EnableRoundedCorners="true"
             Height="120px" Text="Lorem ipsum dolor sit amet" OnClientShowing="showModalDiv" OnClientHidden="hideModalDiv"
