@@ -62,6 +62,10 @@ namespace ACKSiparisTakip.Web
         {
             Session["sifre"] = password.Text;
             Session["user"] = userName.Text;
+
+            if (Session["loginAttemptUser"] != null) Session.Remove("loginAttemptUser");
+            if (Session["loginAttemptCount"] != null) Session.Remove("loginAttemptCount");
+
             FormsAuthentication.RedirectFromLoginPage(userName.Text, false);
         }
 
